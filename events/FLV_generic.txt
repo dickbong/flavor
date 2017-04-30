@@ -1,0 +1,264 @@
+﻿###########################
+# generic flavor events
+###########################
+
+add_namespace = flavor
+
+country_event = { #triggered from the ALB history file 
+	id = flavor.2
+	title = flavor.2.t
+	desc = flavor.2.d
+	fire_only_once = yes
+	hidden = yes
+	
+	trigger = {
+		date > 1936.1.1
+	}
+	
+	immediate = {
+		clr_country_flag = flavor_reset
+	}
+	
+	option = {
+		every_country = {
+			country_event = { id = flavor.3 hours = 1 }
+		}
+		name = flavor.a
+		set_country_flag = flavor_reset
+	}
+}
+
+#yearly reset & report
+country_event = {
+	id = flavor.3
+	title = flavor.3.t
+	desc = flavor.3.d
+	is_triggered_only = yes
+	hidden = yes
+	
+	immediate = {
+		country_event = { days = 365 id = flavor.3 }
+		clr_country_flag = flavor_reset
+		clr_country_flag = flavor_event_1
+		
+	}
+	
+	option = {
+		name = flavor.a
+		set_country_flag = flavor_reset
+	}
+}
+
+country_event = { #political rally
+	id = flavor.1
+	title = flavor.1.t
+	desc = flavor.1.d
+	
+	mean_time_to_happen = { days = 730 }
+	
+	trigger = {
+		has_country_flag = flavor_reset
+		NOT = {
+			has_country_flag = flavor_event_1
+		}
+	}
+	
+	option = {
+		name = flavor.1.a
+		set_country_flag = flavor_event_1
+		add_political_power = 50
+		if = {
+			limit = {
+				has_government = democratic
+			}
+			add_popularity = { ideology = democratic popularity = 0.02 }
+		}
+		if = {
+			limit = {
+				has_government = fascism
+			}
+			add_popularity = { ideology = fascism popularity = 0.02 }
+		}
+		if = {
+			limit = {
+				has_government = communism
+			}
+			add_popularity = { ideology = communism popularity = 0.02 }
+		}
+		if = {
+			limit = {
+				has_government = neutrality
+			}
+			add_popularity = { ideology = neutrality popularity = 0.02 }
+		}
+	}
+}
+
+country_event = { #union struggles
+	id = flavor.4
+	title = flavor.4.t
+	desc = flavor.4.d
+	
+	mean_time_to_happen = { 
+		days = 730
+		modifier = {
+			factor = 2
+			has_government = communism
+		}
+		modifier = {
+			factor = 3
+			has_war = yes
+		}
+	}
+	
+	trigger = {
+		has_country_flag = flavor_reset
+		NOT = {
+			has_country_flag = flavor_event_4
+		}
+	}
+	
+	option = {
+		name = flavor.4.a
+		set_country_flag = flavor_event_4
+		add_timed_idea = {
+			idea = FRA_factory_strikes
+			days = 25
+		}
+	}
+}
+
+country_event = { #resources found!
+	id = flavor.5
+	title = flavor.5.t
+	desc = flavor.5.d
+	
+	mean_time_to_happen = { 
+		days = 730
+	}
+	
+	trigger = {
+		has_country_flag = flavor_reset
+		NOT = {
+			has_country_flag = flavor_event_5
+		}
+	}
+	
+	option = {
+		name = flavor.5.a
+		set_country_flag = flavor_event_5
+		random_list = {
+			33 = {
+				random_owned_state = {
+					limit = {
+						is_owned_by = ROOT
+					}
+				add_resource = { type = oil amount = 1 }
+				}
+			}
+			33 = {
+				random_owned_state = {
+					limit = {
+						is_owned_by = ROOT
+					}
+				add_resource = { type = steel amount = 1 }
+				}
+			}
+			33 = {
+				random_owned_state = {
+					limit = {
+						is_owned_by = ROOT
+					}
+				add_resource = { type = aluminium amount = 1 }
+				}
+			}
+		}
+	}
+}
+
+country_event = { #factory accident
+	id = flavor.6
+	title = flavor.6.t
+	desc = flavor.6.d
+	
+	mean_time_to_happen = { 
+		days = 730
+	}
+	
+	trigger = {
+		has_country_flag = flavor_reset
+		NOT = {
+			has_country_flag = flavor_event_6
+		}
+	}
+	
+	option = {
+		name = flavor.6.a
+		set_country_flag = flavor_event_6
+		random_owned_state = {
+			limit = {
+				is_owned_by = ROOT
+			}
+			damage_building = { type = industrial_complex damage = 0.6 }
+		}
+	}
+}
+
+country_event = { #techological breakthrough
+	id = flavor.7
+	title = flavor.7.t
+	desc = flavor.7.d
+	
+	mean_time_to_happen = { 
+		days = 730
+	}
+	
+	trigger = {
+		has_country_flag = flavor_reset
+		NOT = {
+			has_country_flag = flavor_event_7
+		}
+	}
+	
+	option = {
+		name = flavor.7.a
+		set_country_flag = flavor_event_7
+		random_list = {
+			33 = {
+				add_tech_bonus = { bonus = 0.4 uses = 1 category = radar_tech }	
+			}
+			33 = {
+				add_tech_bonus = { bonus = 0.4 uses = 1 category = industry }	
+			}
+			33 = {
+				add_tech_bonus = { bonus = 0.4 uses = 1 category = electronics }	
+			}
+		}
+	}
+}
+
+country_event = { #diplomatic insult
+	id = flavor.8
+	title = flavor.8.t
+	desc = flavor.8.d
+	
+	mean_time_to_happen = { 
+		days = 730
+	}
+	
+	trigger = {
+		has_country_flag = flavor_reset
+		NOT = {
+			has_country_flag = flavor_event_8
+		}
+	}
+	
+	option = {
+		name = flavor.8.a
+		set_country_flag = flavor_event_8
+		random_neighbor_country = {
+			add_opinion_modifier = { target = FROM modifier = small_decrease }	
+			reverse_add_opinion_modifier = { target = ROOT modifier = small_decrease }
+		}
+	}
+}
