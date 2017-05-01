@@ -278,7 +278,7 @@ country_event = { #diplomatic quarrel
 						has_country_flag = flavor_event_8
 					}
 				}
-				country_event = { id = flavor.8 }
+				country_event = { id = flavor.8 days = 1 }
 			}
 		}
 	}
