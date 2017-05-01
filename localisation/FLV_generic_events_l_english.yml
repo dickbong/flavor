@@ -1,0 +1,58 @@
+﻿l_english:
+ flavor.0.t:0 ""
+ flavor.0.d:0 ""
+ flavor.0.a:0 ""
+ 
+ flavor.1.t:0 "Political Rally"
+ flavor.1.d:0 "[Root.GetLeader]'s appearance to the public and political rally seems to have picked up some more followers to our cause. Moments like these show the true followers of our ideology. We applaud those who will stop at nothing to attend every rally we hold."
+ flavor.1.a:0 "Bravissimo!"
+ 
+ flavor.4.t:0 "Union Strikes"
+ flavor.4.d:0 "Recent clashes between unions and their employers have forced workers to go on strikes. Our factories our empty and production has practically stopped altogether. We hope we can hold through these tough times."
+ flavor.4.a:0 "Damn."
+ 
+ flavor.5.t:0 "Resources Found"
+ flavor.5.d:0 "Mining companies recently found new resources underground. With this new breakthrough we can make new guns, tanks, vehicles and more. Resources are a vital cornerstone of keeping our national sovereignty."
+ flavor.5.a:0 "Great."
+ 
+ flavor.6.t:0 "Factory Accident"
+ flavor.6.d:0 "A horrible accident has happened in one of our factories! While doing his job, a worker accidently dropped a wrench into one of the machines, hitting a vital part, causing the machine to explode. The factory will be temporarily disabled and may take awhile to fix."
+ flavor.6.a:0 "Damn."
+ 
+ flavor.7.t:0 "Technological Breakthrough"
+ flavor.7.d:0 "Our scientists have recently come upon a breakthrough in electronic science. New innovations have elucidated better models of industry, radar, and more. With these upgrades, our enemies never stood a chance."
+ flavor.7.a:0 "Great."
+ 
+ flavor.8.t:0 "Diplomatic Quarrel"
+ flavor.8.d:0 "Recently officials between [Root.GetName] and [From.GetName] got into a quarrel and hurt relations between our countries. Hopefully we are able to resolve the situation and no more hostilities come with it."
+ flavor.8.a:0 "Unfortunate."
+ 
+ flavor.0.t:0 ""
+ flavor.0.d:0 ""
+ flavor.0.a:0 ""
+ 
+ flavor.0.t:0 ""
+ flavor.0.d:0 ""
+ flavor.0.a:0 ""
+ 
+ flavor.0.t:0 ""
+ flavor.0.d:0 ""
+ flavor.0.a:0 ""
+ 
+ flavor.0.t:0 ""
+ flavor.0.d:0 ""
+ flavor.0.a:0 ""
+ 
+ flavor.0.t:0 ""
+ flavor.0.d:0 ""
+ flavor.0.a:0 ""
+ 
+ flavor.0.t:0 ""
+ flavor.0.d:0 ""
+ flavor.0.a:0 ""
+ 
+ flavor.0.t:0 ""
+ flavor.0.d:0 ""
+ flavor.0.a:0 ""
+ 
+ 

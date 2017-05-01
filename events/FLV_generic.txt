@@ -40,6 +40,14 @@ country_event = {
 		country_event = { days = 365 id = flavor.3 }
 		clr_country_flag = flavor_reset
 		clr_country_flag = flavor_event_1
+		clr_country_flag = flavor_event_3
+		clr_country_flag = flavor_event_4
+		clr_country_flag = flavor_event_5
+		clr_country_flag = flavor_event_6
+		clr_country_flag = flavor_event_7
+		clr_country_flag = flavor_event_8
+		clr_country_flag = flavor_event_9
+		clr_country_flag = flavor_event_10
 		
 	}
 	
@@ -237,13 +245,13 @@ country_event = { #techological breakthrough
 	}
 }
 
-country_event = { #diplomatic insult
+country_event = { #diplomatic quarrel
 	id = flavor.8
 	title = flavor.8.t
 	desc = flavor.8.d
 	
 	mean_time_to_happen = { 
-		days = 730
+		days = 1095
 	}
 	
 	trigger = {
@@ -251,14 +259,27 @@ country_event = { #diplomatic insult
 		NOT = {
 			has_country_flag = flavor_event_8
 		}
+		any_neighbor_country = {
+			has_war = no
+		}
 	}
 	
 	option = {
 		name = flavor.8.a
 		set_country_flag = flavor_event_8
 		random_neighbor_country = {
-			add_opinion_modifier = { target = FROM modifier = small_decrease }	
-			reverse_add_opinion_modifier = { target = ROOT modifier = small_decrease }
+			limit = {
+				has_war = no
+			}
+			add_opinion_modifier = { target = FROM modifier = diplomatic_insult }
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = flavor_event_8
+					}
+				}
+				country_event = { id = flavor.8 }
+			}
 		}
 	}
 }
