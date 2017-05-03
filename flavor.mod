@@ -1,4 +1,4 @@
-name="Flavor"
+﻿name="Flavor"
 path="mod/flavor/"
 tags={
 	"Events"

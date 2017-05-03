@@ -283,3 +283,29 @@ country_event = { #diplomatic quarrel
 		}
 	}
 }
+
+country_event = { #diplomatic quarrel
+	id = flavor.9
+	title = flavor.9.t
+	desc = flavor.9.d
+	
+	mean_time_to_happen = { 
+		days = 730
+	}
+	
+	trigger = {
+		has_country_flag = flavor_reset
+		NOT = {
+			has_country_flag = flavor_event_9
+		}
+		any_neighbor_country = {
+			has_war = no
+		}
+	}
+	
+	option = {
+		name = flavor.9.a
+		set_country_flag = flavor_event_8
+		
+	}
+}

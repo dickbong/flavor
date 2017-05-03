@@ -1,0 +1,75 @@
+﻿###########################
+# generic flavor peace events
+###########################
+
+add_namespace = peace
+
+country_event = { #offer surrender
+	id = peace.1
+	title = peace.1.t
+	desc = peace.1.d
+	is_triggered_only = yes
+
+	option = { #White peace proposal
+		name = peace.1.a
+		country_event = { hours = 0 id = peace.3 }
+		
+	}
+
+	option = { #More Options
+		name = peace.1.b
+		country_event = { hours = 0 id = peace.4 }
+	}
+
+	option = { #We can beat her boys, she's only a ship full of fops!
+		name = peace.1.c
+		country_event = { days = 50 id = peace.3 } #are you sure?
+	}
+}
+
+country_event = { #hidden_event
+	id = peace.2
+	title = peace.2.t
+	desc = peace.2.d
+	hidden = yes
+
+	trigger = {
+		has_war = yes
+		has_offensive_war = yes
+		OR = {
+			is_faction_leader = yes
+			NOT = {
+				is_in_faction = yes	
+			}
+		}
+		NOT = {
+			has_country_flag = peace_offerings
+		}
+	}
+
+	option = {
+		name = peace.2.a
+		country_event = { days = 50 id = peace.1 }
+		set_country_flag = peace_offerings
+	}
+}
+
+country_event = { #offer surrender
+	id = peace.3
+	title = peace.3.t
+	desc = peace.3.d
+	is_triggered_only = yes
+
+	option = { #Peace options
+		name = peace.3.a
+	}
+
+	option = { #Maybe Later
+		name = peace.3.b
+		country_event = { hours = 0 id = peace.3}
+	}
+
+	option = { #Don't ask me again!
+		name = peace.3.c
+	}
+}
