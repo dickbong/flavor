@@ -1,0 +1,39 @@
+﻿###########################
+# generic flavor resistance events
+###########################
+
+add_namespace = rebel
+
+country_event = { #rebellion
+	id = rebel.1
+	title = rebel.1.t
+	desc = rebel.1.d
+	
+	immediate = {
+		ROOT = {
+			save_event_target_as = regent_target
+		}
+		if = {
+			limit = {
+				any_country = {
+					exists = no
+				}
+			}
+			save_event_target_as = rebel_target
+		}
+	}
+	
+	trigger = {
+		OR = {
+			has_army_manpower = { size < 1000000 }	
+		}
+		any_owned_state = {
+			is_owned_by = regent_target
+			is_core_of = FRA
+		}
+	}
+	
+	option = {
+		name = rebel.1.a
+	}
+}

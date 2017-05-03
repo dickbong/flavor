@@ -42,6 +42,7 @@ country_event = { #hidden_event
 				is_in_faction = yes	
 			}
 		}
+		
 		NOT = {
 			has_country_flag = peace_offerings
 		}
@@ -59,6 +60,10 @@ country_event = { #offer surrender
 	title = peace.3.t
 	desc = peace.3.d
 	is_triggered_only = yes
+	
+	immediate = {
+		save_event_target_as = peace_offer_country
+	}
 
 	option = { #Peace options
 		name = peace.3.a

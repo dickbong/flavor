@@ -27,13 +27,13 @@
  flavor.8.d:0 "Recently officials between [Root.GetName] and [From.GetName] got into a quarrel and hurt relations between our countries. Hopefully we are able to resolve the situation and no more hostilities come with it."
  flavor.8.a:0 "Unfortunate."
  
- flavor.0.t:0 ""
- flavor.0.d:0 ""
- flavor.0.a:0 ""
+ flavor.9.t:0 "Holdiday Parade"
+ flavor.9.d:0 "Families united on this recent national holiday to celebrate with a parade. Luckily, the festivites and merriment have distracted them from their differences and political spite. Rejoice, for our people grow stronger in will and unity."
+ flavor.9.a:0 "'Huzzah.'"
  
- flavor.0.t:0 ""
- flavor.0.d:0 ""
- flavor.0.a:0 ""
+ flavor.10.t:0 "Political Protests"
+ flavor.10.d:0 "Current outrage with our government has forced politicians to go into hiding. Some cannot make it to work without being bombarded with stones by protesters. The outcry to concede our government grows, but we will prevail."
+ flavor.10.a:0 "Unfortunate."
  
  flavor.0.t:0 ""
  flavor.0.d:0 ""
