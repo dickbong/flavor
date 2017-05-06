@@ -1,0 +1,2777 @@
+focus_tree = {
+	id = china_focus
+	
+	country = {
+		factor = 0
+
+		modifier = {
+			add = 10
+			tag = CHI
+		}
+	}
+	
+	default = no
+	reset_on_civilwar = no
+
+	focus = {
+		id = reorganize_nra                                
+		icon = GFX_goal_generic_army_doctrines
+		x = 17
+		y = 0
+		cost = 10
+		completion_reward = {
+			army_experience = 50
+			add_political_power = 100
+		}
+	}
+	
+	focus = {
+		id = employ_western_officers                                
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = reorganize_nra }
+		x = 17
+		y = 1
+		cost = 10
+		completion_reward = {
+			army_experience = 50
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+	
+	# German Branch
+	focus = {
+		id = continue_sino_german_cooperation                                
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = employ_western_officers }
+		mutually_exclusive = { focus = independent_development focus = restablish_united_front focus = arms_trade}
+		available =
+		{
+			country_exists = GER
+			NOT = { has_war_with = GER }
+			has_idea = german_advisors
+		}
+		cancel = {
+			NOT = { has_idea = german_advisors }
+		}
+		x = 5
+		y = 2
+		cost = 10
+		completion_reward = {
+			army_experience = 25
+			air_experience = 25
+			add_popularity = {
+					ideology = fascism
+					popularity = 0.02
+				}
+			add_tech_bonus = {
+				name = sub_op_bonus
+				bonus = 0.25
+				uses = 1
+				category = light_fighter
+				category = tactical_bomber
+			}
+			add_tech_bonus = {
+				name = infantry_equipment
+				bonus = 0.5
+				uses = 1
+				category = infantry_tech
+				category = infantry_weapons 
+			}
+		}
+	}
+	
+	focus = {
+		id = extend_terms                                
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = continue_sino_german_cooperation focus = ussr_support focus = democratic_armory}
+		mutually_exclusive = { focus = independent_development focus = restablish_united_front focus = arms_trade}
+		available = {
+			num_of_factories > 35
+			country_exists = GER
+			NOT = { has_war_with = GER }
+			NOT = { has_global_flag = oust_germans }
+		}
+		cancel = {
+			has_war_with = GER
+		}
+		x = 5
+		y = 3
+		cost = 10
+		completion_reward = {
+			country_event = { days = 1 id = china.1000 }
+		}
+	}
+	
+	focus = {
+		id = german_industrial_assistance                               
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = extend_terms }
+		available = {
+			country_exists = GER
+			NOT = { has_war_with = GER }
+		}
+		x = 3
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_political_power = -150
+			add_ideas = industry_rehabilitation
+		}
+	}
+	
+	focus = {
+		id = tsingtao_cooperation_company                               
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = german_industrial_assistance }
+		available = {
+			country_exists = GER
+			NOT = { has_war_with = GER }
+			owns_state = 597 #Shandong
+		}
+		x = 2
+		y = 5
+		cost = 20
+		completion_reward = {
+			CHI = {
+				country_event = { days = 5 id = china.1006 }
+			}
+		}
+	}
+	
+	focus = {
+		id = antiair_protection_german                              
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = tsingtao_cooperation_company }
+		available = {
+			owns_state = 597 #Shandong
+		}
+		x = 2
+		y = 6
+		cost = 10
+		completion_reward = {
+			597 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 5
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = radar_station
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = refinery_technology_german                              
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = antiair_protection_german }
+		available = {
+			owns_state = 597 #Shandong
+		}
+		x = 2
+		y = 7
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = synth_bonus
+				bonus = 0.5
+				uses = 1
+				category = synth_resources
+			}
+			597 = {
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = sino_luftwaffe                               
+		icon = GFX_goal_generic_build_airforce
+		prerequisite = { focus = german_industrial_assistance }
+		available = {
+			country_exists = GER
+			NOT = { has_war_with = GER }
+		}
+		x = 4
+		y = 5
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 2
+				category = air_doctrine
+			}	
+			add_tech_bonus = {
+				name = CAS_bonus
+				bonus = 0.5
+				uses = 3
+				category = light_fighter
+				category = tactical_bomber
+				category = cas_bomber
+			}
+			hidden_effect = {
+				news_event = { days = 3 id = news.1001}
+			}
+		}
+	}
+	
+	focus = {
+		id = research_capacity_german                          
+		icon = GFX_focus_research
+		prerequisite = { focus = sino_luftwaffe }
+		x = 4
+		y = 6
+		cost = 10
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = electronics_research_german
+		icon = GFX_goal_generic_radar
+		prerequisite = { focus = research_capacity_german }
+		x = 4
+		y = 7
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = radar_focus
+				bonus = 0.5
+				uses = 3
+				category = radar_tech
+				category = electronics
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.25
+				always = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = found_wanhu_flugmaschinenfabrik
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = refinery_technology_german }
+		prerequisite = { focus = electronics_research_german }
+		x = 3
+		y = 8
+		cost = 10
+		completion_reward = {
+			add_ideas = wanhu_flugmaschinenfabrik
+			hidden_effect = {
+				CHI = { country_event = { days = 120 id = china.1021 } }
+			}
+		}
+	}
+	
+	focus = {
+		id = found_bis                            
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = extend_terms }
+		available = {
+			is_puppet = no
+		}
+		bypass = {
+			OR = {
+				has_government = democratic
+				has_government = communism
+			}
+		}
+		x = 7
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_ideas = bis
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.10
+			}
+		}
+	}
+	
+	focus = {
+		id = blueshirt_coup                             
+		icon = GFX_goal_support_fascism
+		prerequisite = { focus = found_bis }
+		available = {
+			is_puppet = no
+			country_exists = GER
+			NOT = { has_war_with = GER }
+			has_global_flag = fading_sun
+			GER = { has_government = fascism }
+		}
+		bypass = {
+			has_government = fascism
+		}
+		x = 7
+		y = 5
+		cost = 10
+		completion_reward = {
+			add_political_power = -150
+			set_politics = {
+				ruling_party = fascism
+				elections_allowed = no
+			}
+			set_rule = { can_send_volunteers = yes }
+			add_opinion_modifier = { target = GER modifier = axis_leanings_focus }
+			GER = {
+				add_opinion_modifier = { target = CHI modifier = axis_leanings_focus }
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.25
+			}
+			hidden_effect = {
+				news_event = { hours = 12 id = news.1005}
+				set_global_flag = chi_axis
+			}
+		}
+	}
+	
+	focus = {
+		id = demand_indochina_passage                            
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = blueshirt_coup }
+		available = {
+			is_puppet = no
+			is_neighbor_of = FRA
+			NOT = { has_war_with = GER }
+			FRA = {
+				has_war_with = GER
+			}
+			NOT = { is_in_faction_with = PRC }
+		}
+		bypass = {
+			OR = {
+				AND = {
+					286 = {
+						is_controlled_by = CHI
+					}
+					670 = {
+						is_controlled_by = CHI
+					}
+					671 = {
+						is_controlled_by = CHI
+					}
+				}
+				NOT = {
+					286 = {
+						is_controlled_by = FRA
+					}
+					670 = {
+						is_controlled_by = FRA
+					}
+					671 = {
+						is_controlled_by = FRA
+					}
+				}
+			}
+		}
+		x = 6
+		y = 6
+		cost = 10
+		completion_reward = {
+			FRA = { country_event = { days = 3 id = france.1000 } }
+		}
+	}
+	
+	focus = {
+		id = form_indian_liberation_army                        
+		icon = GFX_goal_generic_neutrality_focus
+		prerequisite = { focus = demand_indochina_passage focus = persuade_siam}
+		available = {
+			is_puppet = no
+			has_war_with = RAJ
+			430 = {
+				is_controlled_by = CHI
+			}
+			is_neighbor_of = RAJ
+		}
+		bypass = {
+			NOT = { country_exists = RAJ }
+		}
+		x = 6
+		y = 7
+		cost = 10
+		completion_reward = {
+			CHI = { country_event = { id = china.1022 } }
+		}
+	}
+	
+	focus = {
+		id = persuade_siam                  
+		icon = GFX_goal_tripartite_pact
+		prerequisite = { focus = blueshirt_coup }
+		available = {
+			is_puppet = no
+			is_neighbor_of = SIA
+		}
+		bypass = {
+			OR = {
+				NOT = { country_exists = SIA }
+				SIA = {
+					is_puppet = yes
+				}
+			}
+		}
+		x = 8
+		y = 6
+		cost = 10
+		completion_reward = {
+			CHI = { country_event = { id = china.1023 } }
+		}
+	}
+	
+	focus = {
+		id = reunion_with_singapore             
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = persuade_siam  focus = demand_indochina_passage}
+		available = {
+			is_puppet = no
+			336 = {
+				is_controlled_by = CHI
+			}
+		}
+		bypass = {
+			owns_state = 336
+		}
+		x = 8
+		y = 7
+		cost = 10
+		completion_reward = {
+			add_state_core = 336
+			transfer_state = 336
+			hidden_effect = {
+				news_event = { days = 3 id = news.1014}
+			}
+		}
+	}
+	
+	focus = {
+		id = asia_liberation_manifesto       
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = reunion_with_singapore }
+		prerequisite = { focus = form_indian_liberation_army }
+		available = {
+			is_puppet = no
+		}
+		x = 7
+		y = 8
+		cost = 10
+		completion_reward = {
+			add_ideas = asia_liberator
+			add_state_core = 286
+			add_state_core = 670
+			add_state_core = 671
+			hidden_effect = {
+				news_event = { days = 3 id = news.1015 }
+			}
+		}
+	}
+	
+	focus = {
+		id = asian_union       
+		icon = GFX_goal_molotov_ribbentrop_pact
+		prerequisite = { focus = asia_liberation_manifesto }
+		prerequisite = { focus = found_wanhu_flugmaschinenfabrik }
+		available = {
+			is_puppet = no
+			is_in_faction = no
+		}
+		x = 5
+		y = 9
+		cost = 10
+		completion_reward = {
+			set_rule = { can_create_factions = yes }
+			create_faction = "Asian Union"
+			add_political_power = 150
+			add_national_unity = 0.05
+			hidden_effect = {
+				news_event = { days = 2 id = days = 3 id = news.1016 }
+			}
+		}
+	}
+	
+	# British Branch
+	
+	focus = {
+		id = democratic_armory                                
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = employ_western_officers }
+		mutually_exclusive = { focus = independent_development focus = extend_terms focus = restablish_united_front}
+		available = {
+			country_exists = ENG
+			NOT = { has_war_with = ENG }
+		}
+		x = 13
+		y = 2
+		cost = 10
+		completion_reward = {
+			army_experience = 15
+			air_experience = 35
+			add_tech_bonus = {
+				name = sub_op_bonus
+				bonus = 0.5
+				uses = 1
+				category = light_fighter
+				category = tactical_bomber
+			}
+			add_tech_bonus = {
+				name = infantry_equipment
+				bonus = 0.25
+				uses = 1
+				category = infantry_tech
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+	
+	focus = {
+		id = arms_trade                                
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = continue_sino_german_cooperation focus = ussr_support focus = democratic_armory}
+		mutually_exclusive = { focus = independent_development focus = extend_terms focus = restablish_united_front }
+		available = {
+			num_of_factories > 30
+			country_exists = ENG
+			NOT = { has_war_with = ENG }
+		}
+		x = 13
+		y = 3
+		cost = 10
+		completion_reward = {
+			CHI = {
+				country_event = { days = 1 id = china.1003 }
+			}
+		}
+	}
+	
+	focus = {
+		id = british_industrial_assistance                               
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = arms_trade }
+		available = {
+			country_exists = SOV
+			NOT = { has_war_with = SOV }
+		}
+		x = 11
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_political_power = -150
+			add_ideas = industry_rehabilitation
+		}
+	}
+	
+	focus = {
+		id = xiamen_trade_company                          
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = british_industrial_assistance }
+		available = {
+			country_exists = ENG
+			NOT = { has_war_with = ENG }
+			owns_state = 595 #Fujian
+		}
+		x = 10
+		y = 5
+		cost = 20
+		completion_reward = {
+			CHI = {
+				country_event = { days = 5 id = china.1008 }
+			}
+		}
+	}
+	
+	focus = {
+		id = antiair_protection_british                              
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = xiamen_trade_company }
+		available = {
+			owns_state = 595 #Fujian
+		}
+		x = 10
+		y = 6
+		cost = 10
+		completion_reward = {
+			595 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 5
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = radar_station
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = refinery_technology_british                              
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = antiair_protection_british }
+		available = {
+			owns_state = 595 #Fujian
+		}
+		x = 10
+		y = 7
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = synth_bonus
+				bonus = 0.5
+				uses = 1
+				category = synth_resources
+			}
+			595 = {
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = revisit_our_sea                               
+		icon = GFX_goal_generic_build_navy
+		prerequisite = { focus = british_industrial_assistance }
+		available = {
+			country_exists = ENG
+			NOT = { has_war_with = ENG }
+		}
+		x = 12
+		y = 5
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = naval_doc_bonus
+				bonus = 0.5
+				uses = 2
+				category = naval_doctrine
+			}
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 0.5
+				uses = 1
+				category = cl_tech
+			}
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 0.5
+				uses = 1
+				category = ca_tech
+			}
+			add_tech_bonus = {
+				name = cv_bonus
+				bonus = 0.5
+				uses = 1
+				category = cv_tech
+			}
+			hidden_effect = {
+				news_event = { days = 3 id = news.1003}
+			}
+		}
+	}
+	
+	focus = {
+		id = research_capacity_british                         
+		icon = GFX_focus_research
+		prerequisite = { focus = revisit_our_sea }
+		x = 12
+		y = 6
+		cost = 10
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = electronics_research_british
+		icon = GFX_goal_generic_radar
+		prerequisite = { focus = research_capacity_british }
+		x = 12
+		y = 7
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = radar_focus
+				bonus = 0.5
+				uses = 3
+				category = radar_tech
+				category = electronics
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.25
+				always = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = found_zhenghe_design_bureau
+		icon = GFX_goal_generic_navy_battleship
+		prerequisite = { focus = refinery_technology_british }
+		prerequisite = { focus = electronics_research_british }
+		x = 11
+		y = 8
+		cost = 10
+		completion_reward = {
+			add_ideas = zhenghe_design_bureau
+			hidden_effect = {
+				CHI = { country_event = { days = 120 id = china.1021 } }
+			}
+		}
+	}
+	
+	focus = {
+		id = three_principles_of_the_people                            
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = arms_trade }
+		available = {
+			is_puppet = no
+		}
+		bypass = {
+			OR = {
+				has_government = fascism
+				has_government = communism
+			}
+		}
+		x = 15
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_national_unity = 0.10
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.15
+			}
+		}
+	}
+	
+	focus = {
+		id = democratic_election                               
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = three_principles_of_the_people }
+		available = {
+			is_puppet = no
+			country_exists = ENG
+			NOT = { has_war_with = ENG }
+			ENG = { has_government = democratic }
+		}
+		bypass = {
+			has_government = democratic
+		}
+		x = 15
+		y = 5
+		cost = 10
+		completion_reward = {
+			add_political_power = -150
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = yes
+			}
+			set_rule = { can_send_volunteers = yes }
+			add_opinion_modifier = { target = ENG modifier = ally_leanings_focus }
+			ENG = {
+				add_opinion_modifier = { target = ENG modifier = ally_leanings_focus }
+			}
+			hidden_effect = {
+				news_event = { hours = 12 id = news.1007}
+				set_global_flag = chi_ally
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.25
+			}
+		}
+	}
+	
+	focus = {
+		id = indochina_livraison          
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = democratic_election }
+		available = {
+			is_puppet = no
+			is_neighbor_of = FRA
+			has_global_flag = fading_sun
+			NOT = { has_war_with = FRA }
+			country_exists = FRA
+			ENG = {
+				has_government = democratic
+			}
+			NOT = { is_in_faction_with = PRC }
+		}
+		bypass = {
+			OR = {
+				AND = {
+					286 = {
+						is_controlled_by = CHI
+					}
+					670 = {
+						is_controlled_by = CHI
+					}
+					671 = {
+						is_controlled_by = CHI
+					}
+				}
+				NOT = {
+					286 = {
+						is_controlled_by = FRA
+					}
+					670 = {
+						is_controlled_by = FRA
+					}
+					671 = {
+						is_controlled_by = FRA
+					}
+				}
+			}
+			}
+		x = 14
+		y = 6
+		cost = 10
+		completion_reward = {
+			FRA = { country_event = { days = 3 id = france.1001 } }
+		}
+	}
+	
+	focus = {
+		id = transfer_philippines   
+		icon = GFX_goal_generic_occupy_states_coastal
+		prerequisite = { focus = democratic_election }
+		available = {
+			is_puppet = no
+			has_global_flag = fading_sun
+			NOT = { has_war_with = USA }
+			NOT = { has_war_with = PHI }
+			country_exists = PHI
+			NOT = { is_in_faction_with = PRC }
+		}
+		bypass = {
+			NOT = { country_exists = PHI }
+		}
+		x = 16
+		y = 6
+		cost = 10
+		completion_reward = {
+			USA = { country_event = { id = china.1033 } }
+		}
+	}
+	
+	focus = {
+		id = operation_whiteshirt   
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = indochina_livraison focus = transfer_philippines }
+		available = {
+			is_puppet = no
+			NOT = { has_war_with = ENG }
+		}
+		bypass = {
+			NOT = { country_exists = GER }
+		}
+		x = 14
+		y = 7
+		cost = 10
+		completion_reward = {
+			add_ideas = whiteshirt
+		}
+	}
+	
+	focus = {
+		id = island_hopping
+		icon = GFX_goal_generic_navy_battleship
+		prerequisite = { focus = indochina_livraison focus = transfer_philippines }
+		available = {
+			is_puppet = no
+			has_war_with = JAP
+		}
+		bypass = {
+			NOT = { country_exists = JAP }
+		}
+		x = 16
+		y = 7
+		cost = 10
+		completion_reward = {
+			add_state_core = 684
+			add_state_core = 645
+			add_state_core = 648
+			add_state_core = 633
+			add_state_core = 647
+			add_state_core = 646
+		}
+	}
+	
+	focus = {
+		id = operation_unthinkable-east                        
+		icon = GFX_goal_anti_comintern_pact
+		prerequisite = { focus = operation_whiteshirt }
+		prerequisite = { focus = island_hopping }
+		available = {
+			is_puppet = no
+			SOV = {
+				has_government = communism
+			}
+			OR = {
+				NOT = {
+					GER = {
+						has_government = fascism
+					}
+				}
+				NOT = {
+					country_exists = GER
+				}
+			}
+		}
+		bypass = {
+			NOT = { 
+				SOV = {
+					has_government = communism
+				}
+			}
+		}
+		x = 15
+		y = 8
+		cost = 10
+		completion_reward = {
+			add_state_core = 330
+			add_state_core = 329
+			add_state_core = 560
+			add_state_core = 561
+			add_state_core = 657
+			add_state_core = 409
+			add_state_core = 408
+			add_state_core = 655
+			add_state_core = 732
+			add_state_core = 586
+			add_state_core = 588
+			add_state_core = 589
+			add_state_core = 654
+			add_state_core = 40
+			create_wargoal = {
+				type = annex_everything
+				target = SOV
+			}
+		}
+	}
+	
+	focus = {
+		id = united_states_of_asia       
+		icon = GFX_goal_molotov_ribbentrop_pact
+		prerequisite = { focus = found_zhenghe_design_bureau }
+		prerequisite = { focus = operation_unthinkable-east }
+		available = {
+			is_puppet = no
+			is_in_faction = no
+		}
+		x = 13
+		y = 9
+		cost = 10
+		completion_reward = {
+			set_rule = { can_create_factions = yes }
+			create_faction = "United States of Asia"
+			add_political_power = 150
+			add_national_unity = 0.05
+			hidden_effect = {
+				news_event = { days = 2 id = days = 3 id = news.1016 }
+			}
+		}
+	}
+	
+	# Soviet Branch
+	focus = {
+		id = ussr_support                                
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = employ_western_officers }
+		mutually_exclusive = { focus = independent_development focus = extend_terms focus = arms_trade}
+		available = {
+			country_exists = SOV
+			NOT = { has_war_with = SOV }
+		}
+		x = 21
+		y = 2
+		cost = 10
+		completion_reward = {
+			army_experience = 50
+			add_popularity = {
+				ideology = communism
+				popularity = 0.10
+			}
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 0.25
+				uses = 1
+				category = armor
+			}
+			add_tech_bonus = {
+				name = infantry_equipment
+				bonus = 0.5
+				uses = 1
+				category = infantry_tech
+				category = infantry_weapons 
+				category = artillery
+			}
+		}
+	}
+	
+	focus = {
+		id = restablish_united_front                                
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = continue_sino_german_cooperation focus = ussr_support focus = democratic_armory}
+		mutually_exclusive = { focus = independent_development focus = extend_terms focus = arms_trade }
+		available = {
+			country_exists = PRC
+			country_exists = SOV
+			NOT = { has_war_with = SOV }
+		}
+		x = 21
+		y = 3
+		cost = 10
+		completion_reward = {
+			SOV = { country_event = { id = soviet.18 days = 1 } }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.10
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+			add_tech_bonus = {
+				name = infantry_equipment
+				bonus = 0.5
+				uses = 1
+				category = infantry_tech
+				category = infantry_weapons 
+				category = artillery
+			}
+			remove_ideas = CHI_communist_uprisings
+			SOV = {
+				add_opinion_modifier = { target = CHI modifier = chi_promise_focus }
+			}
+			hidden_effect = {
+				CHI = { country_event = { days = 20 id = china.1005 } }
+				set_global_flag = CHI_USSR_focus
+				add_opinion_modifier = { target = SOV modifier = foreign_support }
+			}
+		}
+	}
+	
+	focus = {
+		id = soviet_industrial_assistance                               
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = restablish_united_front }
+		available = {
+			country_exists = SOV
+			NOT = { has_war_with = SOV }
+		}
+		x = 19
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_political_power = -150
+			add_ideas = industry_rehabilitation
+		}
+	}
+	
+	focus = {
+		id = nanchang_mineral_company                          
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = soviet_industrial_assistance }
+		available = {
+			country_exists = SOV
+			NOT = { has_war_with = SOV }
+			owns_state = 600 #Jiangxi
+		}
+		x = 18
+		y = 5
+		cost = 20
+		completion_reward = {
+			CHI = {
+				country_event = { days = 5 id = china.1007 }
+			}
+		}
+	}
+	
+	focus = {
+		id = antiair_protection_soviet                              
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = nanchang_mineral_company }
+		available = {
+			owns_state = 600 #Jiangxi
+		}
+		x = 18
+		y = 6
+		cost = 10
+		completion_reward = {
+			600 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 5
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = radar_station
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = refinery_technology_soviet                             
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = antiair_protection_soviet }
+		available = {
+			owns_state = 600 #Jiangxi
+		}
+		x = 18
+		y = 7
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = synth_bonus
+				bonus = 0.5
+				uses = 1
+				category = synth_resources
+			}
+			600 = {
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = steel_of_the_repulic                               
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = soviet_industrial_assistance }
+		available = {
+			country_exists = SOV
+			NOT = { has_war_with = SOV }
+		}
+		x = 20
+		y = 5
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 3
+				name = mech_army_bonus
+				technology = basic_medium_tank
+				technology = improved_medium_tank
+				technology = advanced_medium_tank
+				technology = mechanised_infantry
+			}
+			hidden_effect = {
+				news_event = { days = 3 id = news.1002}
+			}
+		}
+	}
+	
+	focus = {
+		id = research_capacity_soviet                          
+		icon = GFX_focus_research
+		prerequisite = { focus = steel_of_the_repulic }
+		x = 20
+		y = 6
+		cost = 10
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = electronics_research_soviet
+		icon = GFX_goal_generic_radar
+		prerequisite = { focus = research_capacity_soviet }
+		x = 20
+		y = 7
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = radar_focus
+				bonus = 0.5
+				uses = 3
+				category = radar_tech
+				category = electronics
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.25
+				always = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = found_baima_design_bureau
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = refinery_technology_soviet }
+		prerequisite = { focus = electronics_research_soviet }
+		x = 19
+		y = 8
+		cost = 10
+		completion_reward = {
+			add_ideas = baima_design_bureau
+			hidden_effect = {
+				CHI = { country_event = { days = 120 id = china.1021 } }
+			}
+		}
+	}
+	
+	focus = {
+		id = kmt_youth_league                            
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = restablish_united_front }
+		available = {
+			is_puppet = no
+		}
+		bypass = {
+			OR = {
+				has_government = fascism
+				has_government = democratic
+			}
+		}
+		x = 23
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_ideas = kmtyl
+		}
+	}
+	
+	focus = {
+		id = revolutionize_kuomingtang                               
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = kmt_youth_league }
+		available = {
+			is_puppet = no
+			country_exists = SOV
+			NOT = { has_war_with = SOV }
+			SOV = { has_government = communism }
+		}
+		bypass = {
+			has_government = communism
+		}
+		x = 23
+		y = 5
+		cost = 10
+		completion_reward = {
+			add_political_power = -150
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+			}
+			set_rule = { can_send_volunteers = yes }
+			add_opinion_modifier = { target = SOV modifier = comintern_leanings_focus }
+			SOV = {
+				add_opinion_modifier = { target = CHI modifier = comintern_leanings_focus }
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.25
+			}
+			hidden_effect = {
+				news_event = { hours = 12 id = news.1006}
+				annex_country = { target = PRC transfer_troops = yes }
+				set_global_flag = chi_comintern
+			}
+		}
+	}
+	
+	focus = {
+		id = national_volunteer_army                   
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = revolutionize_kuomingtang }
+		available = {
+			is_puppet = no
+			has_global_flag = fading_sun
+		}
+		x = 22
+		y = 6
+		cost = 10
+		completion_reward = {
+			add_ideas = nva
+		}
+	}
+	
+	focus = {
+		id = red_sun                   
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = revolutionize_kuomingtang }
+		available = {
+			is_puppet = no
+			has_global_flag = fading_sun
+			NOT = { is_in_faction_with = PRC }
+		}
+		bypass = {
+			OR = {
+				NOT = { country_exists = JAP }
+				JAP = {
+					has_government = communism
+				}
+			}
+		}
+		x = 24
+		y = 6
+		cost = 10
+		completion_reward = {
+			CHI = { country_event = { days = 1 id = china.1038 } }
+			hidden_effect = {
+				set_global_flag = red_japan
+			}
+		}
+	}
+	
+	focus = {
+		id = old_frontier                    
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = peoples_volunteer_army focus = red_sun }
+		available = {
+			is_puppet = no
+			has_global_flag = fading_sun
+			NOT = { has_war_with = SOV }
+		}
+		x = 22
+		y = 7
+		cost = 10
+		completion_reward = {
+			annex_country = { target = MON transfer_troops = yes }
+			annex_country = { target = TAN transfer_troops = yes }
+			annex_country = { target = SIK transfer_troops = yes }
+			add_state_core = 329
+			add_state_core = 330
+		}
+	}
+	
+	focus = {
+		id = spark_of_revolution                    
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = peoples_volunteer_army focus = red_sun }
+		available = {
+			is_puppet = no
+			has_global_flag = fading_sun
+			num_of_factories > 150
+		}
+		bypass = {
+			NOT = {
+				has_government = communism
+				}
+		}
+		x = 24
+		y = 7
+		cost = 10
+		completion_reward = {
+			CUB = {
+				add_ideas = internationalism
+			}
+			BRA = {
+				add_ideas = internationalism
+			}
+			BOL = {
+				add_ideas = internationalism
+			}
+			ARG = {
+				add_ideas = internationalism
+			}
+			MEX = {
+				add_ideas = internationalism
+			}
+			VEN = {
+				add_ideas = internationalism
+			}
+			hidden_effect = {
+				news_event = { hours = 24 id = news.1000}
+			}
+		}
+	}
+	
+	focus = {
+		id = karakhan_manifesto                          
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = spark_of_revolution }
+		prerequisite = { focus = old_frontier }
+		available = {
+			is_puppet = no
+			NOT = { has_war_with = SOV }
+			country_exists = SOV
+			SOV = {
+				has_government = communism
+			}
+			num_of_factories > 200
+		}
+		bypass = {
+			NOT = {
+				country_exists = SOV
+			}
+		}
+		x = 23
+		y = 8
+		cost = 10
+		completion_reward = {
+			SOV = { country_event = { days = 3 id = soviet.1000 } }
+		}
+	}
+	
+	focus = {
+		id = peole_republic_of_asia       
+		icon = GFX_goal_molotov_ribbentrop_pact
+		prerequisite = { focus = found_baima_design_bureau }
+		prerequisite = { focus = karakhan_manifesto }
+		available = {
+			is_puppet = no
+			is_in_faction = no
+		}
+		x = 21
+		y = 9
+		cost = 10
+		completion_reward = {
+			set_rule = { can_create_factions = yes }
+			create_faction = "People Republic of Asia"
+			add_political_power = 150
+			add_national_unity = 0.05
+			hidden_effect = {
+				news_event = { days = 2 id = days = 3 id = news.1016 }
+			}
+		}
+	}
+	
+	# Independent Branch
+	focus = {
+		id = independent_development                                
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = continue_sino_german_cooperation focus = ussr_support focus = democratic_armory }
+		mutually_exclusive = { focus = extend_terms focus = restablish_united_front focus = arms_trade }
+		available = {
+			is_puppet = no
+		}
+		x = 29
+		y = 3
+		cost = 10
+		completion_reward = {
+			add_named_threat = { threat = -5 name = china_declared_neutrality }
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.20
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.10
+				uses = 1
+				category = industry
+			}
+			add_tech_bonus = {
+				name = infantry_equipment
+				bonus = 0.10
+				uses = 1
+				category = infantry_tech
+				category = infantry_weapons 
+				category = artillery
+			}
+			hidden_effect = {
+				news_event = { hours = 6 id = news.1000}
+				CHI = { country_event = { days = 20 id = china.1005 } }
+			}
+		}
+	}
+	
+	focus = {
+		id = national_industrial_focus                               
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = independent_development }
+		available = {
+			is_puppet = no
+		}
+		x = 27
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_political_power = 50
+			add_ideas = industry_rehabilitation
+		}
+	}
+	
+	focus = {
+		id = chengdu_industry_bureau                          
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = national_industrial_focus }
+		available = {
+			is_puppet = no
+			owns_state = 605 #Sichuan
+		}
+		x = 26
+		y = 5
+		cost = 20
+		completion_reward = {
+			CHI = {
+				country_event = { days = 5 id = china.1009 }
+			}
+		}
+	}
+	
+	focus = {
+		id = antiair_protection_independent                              
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = chengdu_industry_bureau }
+		available = {
+			owns_state = 605 #Sichuan
+		}
+		x = 26
+		y = 6
+		cost = 10
+		completion_reward = {
+			605 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 5
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = radar_station
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = refinery_technology_independent                              
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = antiair_protection_independent }
+		available = {
+			owns_state = 605
+		}
+		x = 26
+		y = 7
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = synth_bonus
+				bonus = 0.5
+				uses = 1
+				category = synth_resources
+			}
+			605 = {
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = found_shenji_design_bureau
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = refinery_technology_independent }
+		prerequisite = { focus = electronics_research_independent }
+		x = 27
+		y = 8
+		cost = 10
+		completion_reward = {
+			add_ideas = shenji_design_bureau
+			hidden_effect = {
+				CHI = { country_event = { days = 120 id = china.1021 } }
+			}
+		}
+	}
+	
+	focus = {
+		id = whampoa_rifle                               
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = national_industrial_focus }
+		available = {
+			is_puppet = no
+		}
+		x = 28
+		y = 5
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+			add_tech_bonus = {
+				name = infantry_equipment
+				bonus = 0.5
+				uses = 4
+				category = infantry_tech
+				category = infantry_weapons 
+				category = artillery
+			}
+			hidden_effect = {
+				news_event = { days = 3 id = news.1004}
+			}
+		}
+	}
+	
+	focus = {
+		id = research_capacity_independent                          
+		icon = GFX_focus_research
+		prerequisite = { focus = whampoa_rifle }
+		x = 28
+		y = 6
+		cost = 10
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = electronics_research_independent
+		icon = GFX_goal_generic_radar
+		prerequisite = { focus = research_capacity_independent }
+		x = 28
+		y = 7
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = radar_focus
+				bonus = 0.5
+				uses = 3
+				category = radar_tech
+				category = electronics
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.25
+				always = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = political_harmony                       
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = independent_development }
+		available = {
+			is_puppet = no
+		}
+		bypass = {
+			OR = {
+				has_government = fascism
+				has_government = democratic
+				has_government = communism
+			}
+		}
+		x = 31
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_national_unity = 0.20
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.50
+			}
+			remove_ideas = CHI_communist_uprisings
+		}
+	}
+	
+	focus = {
+		id = reform_military_academy                               
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = political_harmony }
+		available = {
+			is_puppet = no
+		}
+		x = 31
+		y = 5
+		cost = 10
+		completion_reward = {
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+			add_tech_bonus = {
+				name = infantry_equipment
+				bonus = 0.5
+				uses = 2
+				category = infantry_tech
+				category = infantry_weapons 
+				category = artillery
+			}
+			add_ideas = whampoa_spirit
+			hidden_effect = {
+				news_event = { days = 3 id = news.1008}
+			}
+		}
+	}
+	
+	focus = {
+		id = found_yat-sen_research_institute                               
+		icon = GFX_goal_generic_scientific_exchange
+		prerequisite = { focus = reform_military_academy }
+		available = {
+			is_puppet = no
+			
+		}
+		x = 30
+		y = 6
+		cost = 10
+		completion_reward = {
+			add_ideas = yat-sen_research_institute
+			hidden_effect = {
+				CHI = { country_event = { days = 120 id = china.1021 } }
+			}
+		}
+	}
+	
+	focus = {
+		id = national_resource_exploration                               
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = reform_military_academy }
+		available = {
+			is_puppet = no
+		}
+		x = 32
+		y = 6
+		cost = 10
+		completion_reward = {
+			add_ideas = resource_commitee
+		}
+	}
+	
+	focus = {
+		id = modern_university                               
+		icon = GFX_focus_research
+		prerequisite = { focus = national_resource_exploration focus = found_yat-sen_research_institute }
+		available = {
+			is_puppet = no
+		}
+		x = 32
+		y = 7
+		cost = 10
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = national_mobilization                               
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = national_resource_exploration focus = found_yat-sen_research_institute }
+		available = {
+			is_puppet = no
+		}
+		x = 30
+		y = 7
+		cost = 10
+		completion_reward = {
+			add_ideas = blood_and_land
+		}
+	}
+	
+	focus = {
+		id = lands_of_ancestor                        
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = modern_university }
+		prerequisite = { focus = national_mobilization }
+		available = {
+			is_puppet = no
+			num_of_factories > 250
+		}
+		x = 31
+		y = 8
+		cost = 10
+		completion_reward = {
+			add_state_core = 336
+			add_state_core = 560
+			add_state_core = 561
+			add_state_core = 657
+			add_state_core = 409
+			add_state_core = 408
+			add_state_core = 655
+			add_state_core = 732
+			add_state_core = 586
+			add_state_core = 588
+			add_state_core = 589
+			add_state_core = 654
+			add_state_core = 40
+			add_state_core = 286
+			add_state_core = 670
+			add_state_core = 671
+		}
+	}
+	
+	focus = {
+		id = asian_non-aligned_movement       
+		icon = GFX_goal_molotov_ribbentrop_pact
+		prerequisite = { focus = found_shenji_design_bureau }
+		prerequisite = { focus = lands_of_ancestor }
+		available = {
+			is_puppet = no
+			is_in_faction = no
+		}
+		x = 29
+		y = 9
+		cost = 10
+		completion_reward = {
+			set_rule = { can_create_factions = yes }
+			create_faction = "Asian Non-Aligned Movement"
+			add_political_power = 150
+			add_national_unity = 0.05
+			hidden_effect = {
+				news_event = { days = 2 id = days = 3 id = news.1016 }
+			}
+		}
+	}
+	
+	# End Focus
+	focus = {
+		id = national_revival                                
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = asian_union focus = united_states_of_asia focus = peole_republic_of_asia focus = asian_non-aligned_movement }
+		available = {
+			is_puppet = no
+			surrender_progress =0
+			has_civil_war = no
+		}
+		x = 16
+		y = 10
+		cost = 10
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_owned_by = CHI
+					is_core_of = CHI					
+				}
+				add_extra_state_shared_building_slots = 2
+			}	
+		}
+	}
+	
+	# National Development
+	focus = {
+		id = nanjing_decade                                
+		icon = GFX_goal_generic_production
+		bypass = {
+			date > 1937.7.1
+		}
+		x = 38
+		y = 0
+		cost = 10
+		completion_reward = {
+			620 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_resource = { type = steel amount = 6 state = 620 }
+				add_resource = { type = aluminium amount = 2 state = 620 }
+			}
+			598 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			613 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+				add_resource = { type = steel amount = 12 state = 613 }
+			}
+			605 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = next_decade                                
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = nanjing_decade }
+		x = 38
+		y = 1
+		cost = 10
+		completion_reward = {
+			add_political_power = -150
+		}
+	}
+	
+	# Main Quest
+	focus = {
+		id = unification_decree                                
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = next_decade }
+		available = {
+			num_of_factories > 40
+			has_defensive_war = yes
+		}
+		x = 38
+		y = 2
+		cost = 10
+		completion_reward = {
+			add_political_power = -150
+			remove_ideas = nominal_united
+			hidden_effect = {
+				news_event = { days = 3 id = news.1017}
+			}
+		}
+	}
+	
+	focus = {
+		id = modern_industrialization                                
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = unification_decree }
+		available = {
+			num_of_factories > 75
+		}
+		x = 38
+		y = 3
+		cost = 10
+		completion_reward = {
+			add_political_power = -150
+			remove_ideas = unbalanced_industry
+		}
+	}
+	
+	focus = {
+		id = compulsory_education                                
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = modern_industrialization }
+		available = {
+			num_of_factories > 90
+		}
+		x = 38
+		y = 4
+		cost = 10
+		completion_reward = {
+			add_political_power = -150
+			CHI = { country_event = { days = 2 id = china.1027 } }
+		}
+	}
+	
+	focus = {
+		id = research_capacity_education                          
+		icon = GFX_focus_research
+		prerequisite = { focus = compulsory_education }
+		x = 38
+		y = 5
+		cost = 10
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = research_capacity_last                          
+		icon = GFX_focus_research
+		prerequisite = { focus = tibet_modernization focus = expand_jiangnan_shipyard focus = daqing_oil_field focus = buyback_concessions }
+		x = 38
+		y = 6
+		cost = 10
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	# East
+	focus = {
+		id = coastal_railroad                         
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = next_decade }
+		available = {
+			597 = {
+				is_controlled_by = CHI
+			}
+			595 = {
+				is_controlled_by = CHI
+			}
+			608 = {
+				is_controlled_by = CHI
+			}
+			598 = {
+				is_controlled_by = CHI
+			}
+			613 = {
+				is_controlled_by = CHI
+			}
+			596 = {
+				is_controlled_by = CHI
+			}
+			614 = {
+				is_controlled_by = CHI
+			}
+		}
+		x = 36
+		y = 2
+		cost = 15
+		completion_reward = {
+			597 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			595 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			608 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			598 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			596 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			613 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			614 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = jiangnan_machinery_manufacturing_office                         
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = coastal_railroad }
+		available = {
+			598 = {
+				is_controlled_by = CHI
+			}
+			613 = {
+				is_controlled_by = CHI
+			}
+		}
+		x = 36
+		y = 3
+		cost = 10
+		completion_reward = {
+			598 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			613 = {
+				add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = pudong_steelwork                         
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = jiangnan_machinery_manufacturing_office }
+		available = {
+			613 = {
+				is_controlled_by = CHI
+			}
+		}
+		x = 36
+		y = 4
+		cost = 10
+		completion_reward = {
+			613 = {
+				add_resource = { type = steel amount = 250 state = 613 }
+			}
+		}
+	}
+	
+	focus = {
+		id = expand_jiangnan_shipyard                         
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = pudong_steelwork }
+		available = {
+			613 = {
+				is_controlled_by = CHI
+			}
+			596 = {
+				is_controlled_by = CHI
+			}
+		}
+		x = 36
+		y = 5
+		cost = 10
+		completion_reward = {
+			613 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			596 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+			hidden_effect = {
+				news_event = { days = 3 id = news.1018}
+			}
+		}
+	}
+	
+	# West
+	focus = {
+		id = southwest_development                         
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = next_decade }
+		available = {
+			605 = {
+				is_controlled_by = CHI
+			}
+			603 = {
+				is_controlled_by = CHI
+			}
+			601 = {
+				is_controlled_by = CHI
+			}
+		}
+		x = 34
+		y = 2
+		cost = 15
+		completion_reward = {
+			605 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			603 = {
+				add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			601 = {
+				add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = west_highway                         
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = southwest_development }
+		available = {
+			605 = {
+				is_controlled_by = CHI
+			}
+			603 = {
+				is_controlled_by = CHI
+			}
+			601 = {
+				is_controlled_by = CHI
+			}
+		}
+		x = 34
+		y = 3
+		cost = 10
+		completion_reward = {
+			605 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+			603 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+			601 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = reclaim_tibet                         
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = west_highway }
+		available = {
+			is_neighbor_of = TIB
+		}
+		bypass = {
+			NOT = {
+				322 = {
+					is_controlled_by = TIB
+				}
+			}
+		}
+		x = 34
+		y = 4
+		cost = 10
+		completion_reward = {
+			TIB = {
+				country_event = { id = china.1029 }
+			}
+		}
+	}
+	
+	focus = {
+		id = tibet_modernization
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = reclaim_tibet }
+		available = {
+			322 = {
+				is_controlled_by = CHI
+			}
+		}
+		x = 34
+		y = 5
+		cost = 10
+		completion_reward = {
+			322 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_resource = { type = chromium amount = 80 state = 322 }
+			}
+			hidden_effect = {
+				news_event = { days = 3 id = news.1019 }
+			}
+		}
+	}
+	
+	# Mid and South
+	focus = {
+		id = han_arsenal                       
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = next_decade }
+		available = {
+			600 = {
+				is_controlled_by = CHI
+			}
+			602 = {
+				is_controlled_by = CHI
+			}
+			606 = {
+				is_controlled_by = CHI
+			}
+			614 = {
+				is_controlled_by = CHI
+			}
+			620 = {
+				is_controlled_by = CHI
+			}
+		}
+		x = 40
+		y = 2
+		cost = 15
+		completion_reward = {
+			600 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			602 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			606 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			614 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			620 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = yue-han_railroad                         
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = han_arsenal }
+		available = {
+			600 = {
+				is_controlled_by = CHI
+			}
+			620 = {
+				is_controlled_by = CHI
+			}
+			592 = {
+				is_controlled_by = CHI
+			}
+			593 = {
+				is_controlled_by = CHI
+			}
+		}
+		x = 40
+		y = 3
+		cost = 10
+		completion_reward = {
+			600 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			620 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+			592 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			593 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = hainan_plantation                         
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = yue-han_railroad }
+		available = {
+			591 = {
+				is_controlled_by = CHI
+			}
+		}
+		x = 40
+		y = 4
+		cost = 10
+		completion_reward = {
+			591 = {
+				add_resource = { type = rubber amount = 100 state = 591 }
+			}
+		}
+	}
+	
+	focus = {
+		id = buyback_concessions                         
+		icon = GFX_goal_generic_dangerous_deal
+		available = {
+			num_of_factories > 120
+			NOT = {
+				has_war_with = ENG
+				has_war_with = FRA
+				has_war_with = POR
+			}
+		}
+		bypass = {
+			OR = {
+				has_war_with = ENG
+				has_war_with = FRA
+				has_war_with = POR
+			}
+		}
+		prerequisite = { focus = hainan_plantation }
+		x = 40
+		y = 5
+		cost = 10
+		completion_reward = {
+			add_political_power = -100
+			country_event = { id = china.1032 }
+		}
+	}
+	
+	# North
+	focus = {
+		id = henan_aluminium                       
+		icon = GFX_goal_generic_production
+		prerequisite = { focus = next_decade }
+		available = {
+			607 = {
+				is_controlled_by = CHI
+			}
+		}
+		x = 42
+		y = 2
+		cost = 10
+		completion_reward = {
+			607 = {
+				add_resource = { type = aluminium amount = 120 state = 607 }
+			}
+		}
+	}
+	
+	focus = {
+		id = northeast_railroad_system                         
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = henan_aluminium }
+		available = {
+			714 = {
+				is_controlled_by = CHI
+			}
+			715 = {
+				is_controlled_by = CHI
+			}
+			716 = {
+				is_controlled_by = CHI
+			}
+			717 = {
+				is_controlled_by = CHI
+			}
+			608 = {
+				is_controlled_by = CHI
+			}
+			609 = {
+				is_controlled_by = CHI
+			}
+			610 = {
+				is_controlled_by = CHI
+			}
+			328 = {
+				is_controlled_by = CHI
+			}
+		}
+		x = 42
+		y = 3
+		cost = 10
+		completion_reward = {
+			714 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			715 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			716 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			717 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			608 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			609 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			610 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+			328 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = rejuvenate_heavy_industry                         
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = northeast_railroad_system }
+		available = {
+			714 = {
+				is_controlled_by = CHI
+			}
+			715 = {
+				is_controlled_by = CHI
+			}
+			716 = {
+				is_controlled_by = CHI
+			}
+			717 = {
+				is_controlled_by = CHI
+			}
+			
+		}
+		x = 42
+		y = 4
+		cost = 15
+		completion_reward = {
+			714 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			714 = {
+				add_resource = { type = steel amount = 40 state = 714 }
+			}
+			715 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			715 = {
+				add_resource = { type = steel amount = 50 state = 715 }
+			}
+			716 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			716 = {
+				add_resource = { type = steel amount = 30 state = 716 }
+			}
+			717 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			717 = {
+				add_resource = { type = steel amount = 40 state = 717 }
+			}
+		}
+	}
+	
+	focus = {
+		id = daqing_oil_field                       
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = rejuvenate_heavy_industry }
+		available = {
+			714 = {
+				is_controlled_by = CHI
+			}
+		}
+		x = 42
+		y = 5
+		cost = 10
+		completion_reward = {
+			714 = {
+				add_resource = { type = oil amount = 150 state = 714 }
+			}
+			hidden_effect = {
+				news_event = { days = 2 id = news.1020}
+			}
+		}
+	}
+}

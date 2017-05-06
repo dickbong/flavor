@@ -1,0 +1,36 @@
+﻿l_english:
+ KOR_communism_party:0 "WPK"
+ KOR_communism_party_long:0 "Worker's Party of Korea"
+ KOR_democratic_party:0 "Liberal Party"
+ KOR_neutrality_party:0 "Yi Dynasty"
+ KOR_fascism_party:0 "NDPC"
+ KOR_fascism_party_long:0 "National Defense Policy Committee"
+ 
+ XSM_neutrality_party:0 "Ma Clique"
+ XSM_democratic_party:0 "Ma Democrats"
+ XSM_democratic_party:0 "Japanese Loyalists"
+ XSM_communism_party:0 "CCP Sympathizers"
+ 
+ YUN_neutrality_party:0 "Yunnan Clique"
+ YUN_democratic_party:0 "Yunnan Democrats"
+ YUN_democratic_party:0 "Japanese Loyalists"
+ YUN_communism_party:0 "CCP Sympathizers"
+
+ GXC_neutrality_party:0 "Guangxi Clique"
+ GXC_democratic_party:0 "Guangxi Democrats"
+ GXC_democratic_party:0 "Japanese Loyalists"
+ GXC_communism_party:0 "CCP Sympathizers"
+ 
+ SHX_neutrality_party:0 "Shanxi Clique"
+ SHX_democratic_party:0 "Shanxi Democrats"
+ SHX_democratic_party:0 "Japanese Loyalists"
+ SHX_communism_party:0 "CCP Sympathizers"
+ 
+ CHI_communism_party:0 "KMTRC"
+ CHI_communism_party_long:0 "Kuomintang Revolutionary Committee"
+ CHI_democratic_party:0 "CDL"
+ CHI_democratic_party_long:0 "China Democratic League"
+ CHI_fascism_party:0 "BS"
+ CHI_fascism_party_long:0 "The Blueshirts"
+ CHI_neutrality_party:0 "KMT"
+ CHI_neutrality_party_long:0 "Kuomintang"

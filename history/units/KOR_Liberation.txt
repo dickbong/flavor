@@ -1,0 +1,82 @@
+﻿division_template = {
+	name = "Korean National Army"				
+									
+	regiments = {					
+		infantry = { x = 0 y = 0 }	
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+	}
+	
+	support = {
+        engineer = { x = 0 y = 0 }
+        artillery = { x = 0 y = 1 }
+	}
+
+
+}
+
+units = {
+	division = {
+		name = "1st Korean National Division"
+		location = 7125
+		division_template = "Korean National Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "2nd Korean National Division"
+		location = 7125
+		division_template = "Korean National Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "3rd Korean National Division"
+		location = 7125
+		division_template = "Korean National Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "4th Korean National Division"
+		location = 7125
+		division_template = "Korean National Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "5th Korean National Division"
+		location = 7125
+		division_template = "Korean National Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "6th Korean National Division"
+		location = 7125
+		division_template = "Korean National Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "7th Korean National Division"
+		location = 7125
+		division_template = "Korean National Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "8th Korean National Division"
+		location = 7125
+		division_template = "Korean National Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "9th Korean National Division"
+		location = 7125
+		division_template = "Korean National Army"
+		start_experience_factor = 0.4
+	}
+	division = {
+		name = "10th Korean National Division"
+		location = 7125
+		division_template = "Korean National Army"
+		start_experience_factor = 0.4
+	}
+}
