@@ -1,0 +1,69 @@
+ideas = {
+
+	country = {
+		greek_preserverence = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				army_core_defence_factor = 0.35
+			}
+			rule = {
+				
+			}
+		}
+		revanchism = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				justify_war_goal_time = -0.25
+				conscription = 0.05
+				army_core_attack_factor = 0.15
+				army_core_defence_factor = 0.15
+				army_morale_factor = 0.15
+				army_training_factor = -0.1
+
+			}
+			rule = {
+				
+			}
+		}
+		last_hope = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				army_core_defence_factor = 0.25
+				production_speed_bunker_factor = 0.5
+			}
+			rule = {
+				
+			}
+		}
+	}
+}

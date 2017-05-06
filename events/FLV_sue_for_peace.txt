@@ -12,13 +12,12 @@ country_event = { #offer surrender
 
 	option = { #White peace proposal
 		name = peace.1.a
-		country_event = { hours = 0 id = peace.3 }
-		
+		country_event = { hours = 0 id = peace.4 } #white peace that shit
 	}
 
 	option = { #More Options
 		name = peace.1.b
-		country_event = { hours = 0 id = peace.4 }
+		country_event = { hours = 0 id = peace.5 } #more options
 	}
 
 	option = { #We can beat her boys, she's only a ship full of fops!
@@ -59,6 +58,30 @@ country_event = { #offer surrender
 	id = peace.3
 	title = peace.3.t
 	desc = peace.3.d
+	is_triggered_only = yes
+	
+	immediate = {
+		save_event_target_as = peace_offer_country
+	}
+
+	option = { #Peace options
+		name = peace.3.a
+	}
+
+	option = { #Maybe Later
+		name = peace.3.b
+		country_event = { days = 50 id = peace.3}
+	}
+
+	option = { #Don't ask me again!
+		name = peace.3.c
+	}
+}
+
+country_event = { #offer surrender
+	id = peace.4
+	title = peace.4.t
+	desc = peace.4.d
 	is_triggered_only = yes
 	
 	immediate = {

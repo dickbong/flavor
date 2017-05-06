@@ -325,7 +325,7 @@ country_event = { #political protests
 	}
 	
 	option = {
-		name = flavor.1.a
+		name = flavor.10.a
 		set_country_flag = flavor_event_10
 		add_political_power = -50
 		if = {
@@ -352,5 +352,68 @@ country_event = { #political protests
 			}
 			add_popularity = { ideology = neutrality popularity = -0.02 }
 		}
+	}
+}
+
+country_event = { #army experience
+	id = flavor.11
+	title = flavor.11.t
+	desc = flavor.11.d
+	
+	mean_time_to_happen = { days = 730 }
+	
+	trigger = {
+		has_country_flag = flavor_reset
+		NOT = {
+			has_country_flag = flavor_event_11
+		}
+	}
+	
+	option = {
+		name = flavor.11.a
+		set_country_flag = flavor_event_11
+		army_experience = 10
+	}
+}
+
+country_event = { #army experience
+	id = flavor.12
+	title = flavor.12.t
+	desc = flavor.12.d
+	
+	mean_time_to_happen = { days = 730 }
+	
+	trigger = {
+		has_country_flag = flavor_reset
+		NOT = {
+			has_country_flag = flavor_event_12
+		}
+	}
+	
+	option = {
+		name = flavor.12.a
+		set_country_flag = flavor_event_12
+		army_experience = 10
+	}
+}
+
+country_event = { #naval experience
+	id = flavor.13
+	title = flavor.13.t
+	desc = flavor.13.d
+	
+	mean_time_to_happen = { days = 730 }
+	
+	trigger = {
+		has_country_flag = flavor_reset
+		NOT = {
+			has_country_flag = flavor_event_13
+		}
+	}
+	
+	option = {
+		name = flavor.13.a
+		set_country_flag = flavor_event_13
+		naval_experience = 10
 	}
 }
