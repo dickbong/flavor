@@ -1,0 +1,189 @@
+ideas = {
+
+	country = {
+		japanese_advisors = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				fascism_drift = 0.05
+				fascism_acceptance = 15
+				training_time_factor = -0.1
+			}
+			rule = {
+				
+			}
+		}
+		dangers_of_democracy = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				democratic_drift = -0.02
+				democratic_acceptance = -10
+			}
+			rule = {
+				
+			}
+		}
+		sided_nationalist = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				drift_defence_factor = 0.50
+				neutrality_acceptance = 10
+				army_morale_factor = 0.1
+			}
+			rule = {
+				
+			}
+		}
+		sided_communist = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				communism_drift = 0.125
+				communism_acceptance = 10
+				army_morale_factor = 0.1
+			}
+			rule = {
+				
+			}
+		}
+		endorsing_KMT = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				neutrality_drift = 0.05
+			}
+			rule = {
+				
+			}
+		}
+		endorsing_CCP = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				communism_drift = 0.05
+			}
+			rule = {
+				
+			}
+		}
+		anti_fascism = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				fascism_drift = -0.02
+				fascism_acceptance = -10
+			}
+			rule = {
+				
+			}
+		}
+		better_dead_then_red = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				communism_drift = -0.02
+				communism_acceptance = -10
+			}
+			rule = {
+				
+			}
+		}
+		us_first = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				neutrality_acceptance = -25
+				communism_acceptance = -25
+				democratic_acceptance = -25
+				fascism_acceptance = -25
+				ai_get_ally_desire_factor = -100
+			}
+			rule = {
+				
+			}
+		}
+	}
+}

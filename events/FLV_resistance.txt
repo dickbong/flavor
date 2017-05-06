@@ -1,3370 +1,3368 @@
 ﻿###########################
 # generic flavor resistance events
 ###########################
-
-add_namespace = rebel
-
-country_event = { #rebellion france
-	id = rebel.1
-	title = rebel.1.t
-	desc = rebel.1.d
-
-	trigger = {
-		AND = {
-			any_owned_state = {
-				is_owned_by = regent_target
-				is_core_of = FRA
-			}
-			FRA = {
-				exists = no
-			}
-		}
-	}
-	
-	immediate = {
-		ROOT = {
-			save_event_target_as = regent_target
-		}
-		#STATES (700+)
-		if = {
-			limit = {
-				1 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 1 value < 1 }	
-			}
-			FRA = { transfer_state = 1 }
-			FRA = { load_oob = rebels_1 }
-		}
-		if = {
-			limit = {
-				2 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 2 value < 1 }	
-			}
-			FRA = { transfer_state = 2 }
-			FRA = { load_oob = rebels_2 }
-		}
-		if = {
-			limit = {
-				3 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 3 value < 1 }	
-			}
-			FRA = { transfer_state = 3 }
-			FRA = { load_oob = rebels_3 }
-		}
-		if = {
-			limit = {
-				4 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 4 value < 1 }	
-			}
-			FRA = { transfer_state = 4 }
-			FRA = { load_oob = rebels_4 }
-		}
-		if = {
-			limit = {
-				5 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 5 value < 1 }	
-			}
-			FRA = { transfer_state = 5 }
-			FRA = { load_oob = rebels_5 }
-		}
-		if = {
-			limit = {
-				6 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 6 value < 1 }	
-			}
-			FRA = { transfer_state = 6 }
-			FRA = { load_oob = rebels_6 }
-		}
-		if = {
-			limit = {
-				7 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 7 value < 1 }	
-			}
-			FRA = { transfer_state = 7 }
-			FRA = { load_oob = rebels_7 }
-		}
-		if = {
-			limit = {
-				8 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 8 value < 1 }	
-			}
-			FRA = { transfer_state = 8 }
-			FRA = { load_oob = rebels_8 }
-		}
-		if = {
-			limit = {
-				9 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 9 value < 1 }	
-			}
-			FRA = { transfer_state = 9 }
-			FRA = { load_oob = rebels_9 }
-		}
-		if = {
-			limit = {
-				10 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 10 value < 1 }	
-			}
-			FRA = { transfer_state = 10 }
-			FRA = { load_oob = rebels_10 }
-		}
-		if = {
-			limit = {
-				11 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 11 value < 1 }	
-			}
-			FRA = { transfer_state = 11 }
-			FRA = { load_oob = rebels_11 }
-		}
-		if = {
-			limit = {
-				12 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 12 value < 1 }	
-			}
-			FRA = { transfer_state = 12 }
-			FRA = { load_oob = rebels_12 }
-		}
-		if = {
-			limit = {
-				13 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 13 value < 1 }	
-			}
-			FRA = { transfer_state = 13 }
-			FRA = { load_oob = rebels_13 }
-		}
-		if = {
-			limit = {
-				14 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 14 value < 1 }	
-			}
-			FRA = { transfer_state = 14 }
-			FRA = { load_oob = rebels_14 }
-		}
-		if = {
-			limit = {
-				15 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 15 value < 1 }	
-			}
-			FRA = { transfer_state = 15 }
-			FRA = { load_oob = rebels_15 }
-		}
-		if = {
-			limit = {
-				16 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 16 value < 1 }	
-			}
-			FRA = { transfer_state = 16 }
-			FRA = { load_oob = rebels_16 }
-		}
-		if = {
-			limit = {
-				17 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 17 value < 1 }	
-			}
-			FRA = { transfer_state = 17 }
-			FRA = { load_oob = rebels_17 }
-		}
-		if = {
-			limit = {
-				18 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 18 value < 1 }	
-			}
-			FRA = { transfer_state = 18 }
-			FRA = { load_oob = rebels_18 }
-		}
-		if = {
-			limit = {
-				19 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 19 value < 1 }	
-			}
-			FRA = { transfer_state = 19 }
-			FRA = { load_oob = rebels_19 }
-		}
-		if = {
-			limit = {
-				20 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 20 value < 1 }	
-			}
-			FRA = { transfer_state = 20 }
-			FRA = { load_oob = rebels_20 }
-		}
-		if = {
-			limit = {
-				21 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 21 value < 1 }	
-			}
-			FRA = { transfer_state = 21 }
-			FRA = { load_oob = rebels_21 }
-		}
-		if = {
-			limit = {
-				22 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 22 value < 1 }	
-			}
-			FRA = { transfer_state = 22 }
-			FRA = { load_oob = rebels_22 }
-		}
-		if = {
-			limit = {
-				23 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 23 value < 1 }	
-			}
-			FRA = { transfer_state = 23 }
-			FRA = { load_oob = rebels_23 }
-		}
-		if = {
-			limit = {
-				24 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 24 value < 1 }	
-			}
-			FRA = { transfer_state = 24 }
-			FRA = { load_oob = rebels_24 }
-		}
-		if = {
-			limit = {
-				25 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 25 value < 1 }	
-			}
-			FRA = { transfer_state = 25 }
-			FRA = { load_oob = rebels_25 }
-		}
-		if = {
-			limit = {
-				26 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 26 value < 1 }	
-			}
-			FRA = { transfer_state = 26 }
-			FRA = { load_oob = rebels_26 }
-		}
-		if = {
-			limit = {
-				27 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 27 value < 1 }	
-			}
-			FRA = { transfer_state = 27 }
-			FRA = { load_oob = rebels_27 }
-		}
-		if = {
-			limit = {
-				28 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 28 value < 1 }	
-			}
-			FRA = { transfer_state = 28 }
-			FRA = { load_oob = rebels_28 }
-		}
-		if = {
-			limit = {
-				29 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 29 value < 1 }	
-			}
-			FRA = { transfer_state = 29 }
-			FRA = { load_oob = rebels_29 }
-		}
-		if = {
-			limit = {
-				30 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 30 value < 1 }	
-			}
-			FRA = { transfer_state = 30 }
-			FRA = { load_oob = rebels_30 }
-		}
-		if = {
-			limit = {
-				31 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 31 value < 1 }	
-			}
-			FRA = { transfer_state = 31 }
-			FRA = { load_oob = rebels_31 }
-		}
-		if = {
-			limit = {
-				32 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 32 value < 1 }	
-			}
-			FRA = { transfer_state = 32 }
-			FRA = { load_oob = rebels_32 }
-		}
-		if = {
-			limit = {
-				33 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 33 value < 1 }	
-			}
-			FRA = { transfer_state = 33 }
-			FRA = { load_oob = rebels_33 }
-		}
-		if = {
-			limit = {
-				34 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 34 value < 1 }	
-			}
-			FRA = { transfer_state = 34 }
-			FRA = { load_oob = rebels_34 }
-		}
-		if = {
-			limit = {
-				35 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 35 value < 1 }	
-			}
-			FRA = { transfer_state = 35 }
-			FRA = { load_oob = rebels_35 }
-		}
-		if = {
-			limit = {
-				36 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 36 value < 1 }	
-			}
-			FRA = { transfer_state = 36 }
-			FRA = { load_oob = rebels_36 }
-		}
-		if = {
-			limit = {
-				37 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 37 value < 1 }	
-			}
-			FRA = { transfer_state = 37 }
-			FRA = { load_oob = rebels_37 }
-		}
-		if = {
-			limit = {
-				38 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 38 value < 1 }	
-			}
-			FRA = { transfer_state = 38 }
-			FRA = { load_oob = rebels_38 }
-		}
-		if = {
-			limit = {
-				39 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 39 value < 1 }	
-			}
-			FRA = { transfer_state = 39 }
-			FRA = { load_oob = rebels_39 }
-		}
-		if = {
-			limit = {
-				40 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 40 value < 1 }	
-			}
-			FRA = { transfer_state = 40 }
-			FRA = { load_oob = rebels_40 }
-		}
-		if = {
-			limit = {
-				41 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 41 value < 1 }	
-			}
-			FRA = { transfer_state = 41 }
-			FRA = { load_oob = rebels_41 }
-		}
-		if = {
-			limit = {
-				42 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 42 value < 1 }	
-			}
-			FRA = { transfer_state = 42 }
-			FRA = { load_oob = rebels_42 }
-		}
-		if = {
-			limit = {
-				43 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 43 value < 1 }	
-			}
-			FRA = { transfer_state = 43 }
-			FRA = { load_oob = rebels_43 }
-		}
-		if = {
-			limit = {
-				44 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 44 value < 1 }	
-			}
-			FRA = { transfer_state = 44 }
-			FRA = { load_oob = rebels_44 }
-		}
-		if = {
-			limit = {
-				45 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 45 value < 1 }	
-			}
-			FRA = { transfer_state = 45 }
-			FRA = { load_oob = rebels_45 }
-		}
-		if = {
-			limit = {
-				46 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 46 value < 1 }	
-			}
-			FRA = { transfer_state = 46 }
-			FRA = { load_oob = rebels_46 }
-		}
-		if = {
-			limit = {
-				47 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 47 value < 1 }	
-			}
-			FRA = { transfer_state = 47 }
-			FRA = { load_oob = rebels_47 }
-		}
-		if = {
-			limit = {
-				48 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 48 value < 1 }	
-			}
-			FRA = { transfer_state = 48 }
-			FRA = { load_oob = rebels_48 }
-		}
-		if = {
-			limit = {
-				49 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 49 value < 1 }	
-			}
-			FRA = { transfer_state = 49 }
-			FRA = { load_oob = rebels_49 }
-		}
-		if = {
-			limit = {
-				50 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 50 value < 1 }	
-			}
-			FRA = { transfer_state = 50 }
-			FRA = { load_oob = rebels_50 }
-		}
-		if = {
-			limit = {
-				51 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 51 value < 1 }	
-			}
-			FRA = { transfer_state = 51 }
-			FRA = { load_oob = rebels_51 }
-		}
-		if = {
-			limit = {
-				52 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 52 value < 1 }	
-			}
-			FRA = { transfer_state = 52 }
-			FRA = { load_oob = rebels_52 }
-		}
-		if = {
-			limit = {
-				53 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 53 value < 1 }	
-			}
-			FRA = { transfer_state = 53 }
-			FRA = { load_oob = rebels_53 }
-		}
-		if = {
-			limit = {
-				54 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 54 value < 1 }	
-			}
-			FRA = { transfer_state = 54 }
-			FRA = { load_oob = rebels_54 }
-		}
-		if = {
-			limit = {
-				55 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 55 value < 1 }	
-			}
-			FRA = { transfer_state = 55 }
-			FRA = { load_oob = rebels_55 }
-		}
-		if = {
-			limit = {
-				56 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 56 value < 1 }	
-			}
-			FRA = { transfer_state = 56 }
-			FRA = { load_oob = rebels_56 }
-		}
-		if = {
-			limit = {
-				57 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 57 value < 1 }	
-			}
-			FRA = { transfer_state = 57 }
-			FRA = { load_oob = rebels_57 }
-		}
-		if = {
-			limit = {
-				58 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 58 value < 1 }	
-			}
-			FRA = { transfer_state = 58 }
-			FRA = { load_oob = rebels_58 }
-		}
-		if = {
-			limit = {
-				59 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 59 value < 1 }	
-			}
-			FRA = { transfer_state = 59 }
-			FRA = { load_oob = rebels_59 }
-		}
-		if = {
-			limit = {
-				60 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 60 value < 1 }	
-			}
-			FRA = { transfer_state = 60 }
-			FRA = { load_oob = rebels_60 }
-		}
-		if = {
-			limit = {
-				61 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 61 value < 1 }	
-			}
-			FRA = { transfer_state = 61 }
-			FRA = { load_oob = rebels_61 }
-		}
-		if = {
-			limit = {
-				62 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 62 value < 1 }	
-			}
-			FRA = { transfer_state = 62 }
-			FRA = { load_oob = rebels_62 }
-		}
-		if = {
-			limit = {
-				63 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 63 value < 1 }	
-			}
-			FRA = { transfer_state = 63 }
-			FRA = { load_oob = rebels_63 }
-		}
-		if = {
-			limit = {
-				64 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 64 value < 1 }	
-			}
-			FRA = { transfer_state = 64 }
-			FRA = { load_oob = rebels_64 }
-		}
-		if = {
-			limit = {
-				65 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 65 value < 1 }	
-			}
-			FRA = { transfer_state = 65 }
-			FRA = { load_oob = rebels_65 }
-		}
-		if = {
-			limit = {
-				66 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 66 value < 1 }	
-			}
-			FRA = { transfer_state = 66 }
-			FRA = { load_oob = rebels_66 }
-		}
-		if = {
-			limit = {
-				67 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 67 value < 1 }	
-			}
-			FRA = { transfer_state = 67 }
-			FRA = { load_oob = rebels_67 }
-		}
-		if = {
-			limit = {
-				68 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 68 value < 1 }	
-			}
-			FRA = { transfer_state = 68 }
-			FRA = { load_oob = rebels_68 }
-		}
-		if = {
-			limit = {
-				69 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 69 value < 1 }	
-			}
-			FRA = { transfer_state = 69 }
-			FRA = { load_oob = rebels_69 }
-		}
-		if = {
-			limit = {
-				70 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 70 value < 1 }	
-			}
-			FRA = { transfer_state = 70 }
-			FRA = { load_oob = rebels_70 }
-		}
-		if = {
-			limit = {
-				71 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 71 value < 1 }	
-			}
-			FRA = { transfer_state = 71 }
-			FRA = { load_oob = rebels_71 }
-		}
-		if = {
-			limit = {
-				72 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 72 value < 1 }	
-			}
-			FRA = { transfer_state = 72 }
-			FRA = { load_oob = rebels_72 }
-		}
-		if = {
-			limit = {
-				73 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 73 value < 1 }	
-			}
-			FRA = { transfer_state = 73 }
-			FRA = { load_oob = rebels_73 }
-		}
-		if = {
-			limit = {
-				74 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 74 value < 1 }	
-			}
-			FRA = { transfer_state = 74 }
-			FRA = { load_oob = rebels_74 }
-		}
-		if = {
-			limit = {
-				75 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 75 value < 1 }	
-			}
-			FRA = { transfer_state = 75 }
-			FRA = { load_oob = rebels_75 }
-		}
-		if = {
-			limit = {
-				76 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 76 value < 1 }	
-			}
-			FRA = { transfer_state = 76 }
-			FRA = { load_oob = rebels_76 }
-		}
-		if = {
-			limit = {
-				77 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 77 value < 1 }	
-			}
-			FRA = { transfer_state = 77 }
-			FRA = { load_oob = rebels_77 }
-		}
-		if = {
-			limit = {
-				78 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 78 value < 1 }	
-			}
-			FRA = { transfer_state = 78 }
-			FRA = { load_oob = rebels_78 }
-		}
-		if = {
-			limit = {
-				79 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 79 value < 1 }	
-			}
-			FRA = { transfer_state = 79 }
-			FRA = { load_oob = rebels_79 }
-		}
-		if = {
-			limit = {
-				80 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 80 value < 1 }	
-			}
-			FRA = { transfer_state = 80 }
-			FRA = { load_oob = rebels_80 }
-		}
-		if = {
-			limit = {
-				81 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 81 value < 1 }	
-			}
-			FRA = { transfer_state = 81 }
-			FRA = { load_oob = rebels_81 }
-		}
-		if = {
-			limit = {
-				82 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 82 value < 1 }	
-			}
-			FRA = { transfer_state = 82 }
-			FRA = { load_oob = rebels_82 }
-		}
-		if = {
-			limit = {
-				83 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 83 value < 1 }	
-			}
-			FRA = { transfer_state = 83 }
-			FRA = { load_oob = rebels_83 }
-		}
-		if = {
-			limit = {
-				84 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 84 value < 1 }	
-			}
-			FRA = { transfer_state = 84 }
-			FRA = { load_oob = rebels_84 }
-		}
-		if = {
-			limit = {
-				85 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 85 value < 1 }	
-			}
-			FRA = { transfer_state = 85 }
-			FRA = { load_oob = rebels_85 }
-		}
-		if = {
-			limit = {
-				86 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 86 value < 1 }	
-			}
-			FRA = { transfer_state = 86 }
-			FRA = { load_oob = rebels_86 }
-		}
-		if = {
-			limit = {
-				87 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 87 value < 1 }	
-			}
-			FRA = { transfer_state = 87 }
-			FRA = { load_oob = rebels_87 }
-		}
-		if = {
-			limit = {
-				88 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 88 value < 1 }	
-			}
-			FRA = { transfer_state = 88 }
-			FRA = { load_oob = rebels_88 }
-		}
-		if = {
-			limit = {
-				89 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 89 value < 1 }	
-			}
-			FRA = { transfer_state = 89 }
-			FRA = { load_oob = rebels_89 }
-		}
-		if = {
-			limit = {
-				90 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 90 value < 1 }	
-			}
-			FRA = { transfer_state = 90 }
-			FRA = { load_oob = rebels_90 }
-		}
-		if = {
-			limit = {
-				91 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 91 value < 1 }	
-			}
-			FRA = { transfer_state = 91 }
-			FRA = { load_oob = rebels_91 }
-		}
-		if = {
-			limit = {
-				92 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 92 value < 1 }	
-			}
-			FRA = { transfer_state = 92 }
-			FRA = { load_oob = rebels_92 }
-		}
-		if = {
-			limit = {
-				93 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 93 value < 1 }	
-			}
-			FRA = { transfer_state = 93 }
-			FRA = { load_oob = rebels_93 }
-		}
-		if = {
-			limit = {
-				94 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 94 value < 1 }	
-			}
-			FRA = { transfer_state = 94 }
-			FRA = { load_oob = rebels_94 }
-		}
-		if = {
-			limit = {
-				95 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 95 value < 1 }	
-			}
-			FRA = { transfer_state = 95 }
-			FRA = { load_oob = rebels_95 }
-		}
-		if = {
-			limit = {
-				96 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 96 value < 1 }	
-			}
-			FRA = { transfer_state = 96 }
-			FRA = { load_oob = rebels_96 }
-		}
-		if = {
-			limit = {
-				97 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 97 value < 1 }	
-			}
-			FRA = { transfer_state = 97 }
-			FRA = { load_oob = rebels_97 }
-		}
-		if = {
-			limit = {
-				98 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 98 value < 1 }	
-			}
-			FRA = { transfer_state = 98 }
-			FRA = { load_oob = rebels_98 }
-		}
-		if = {
-			limit = {
-				99 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 99 value < 1 }	
-			}
-			FRA = { transfer_state = 99 }
-			FRA = { load_oob = rebels_99 }
-		}
-		if = {
-			limit = {
-				100 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 100 value < 1 }	
-			}
-			FRA = { transfer_state = 100 }
-			FRA = { load_oob = rebels_100 }
-		}
-		#########################################
-		#########################################
-		#########################################
-		#########################################
-		#########################################
-		#########################################
-		#########################################
-		#########################################
-		#########################################
-		#########################################
-		if = {
-			limit = {
-				101 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 101 value < 1 }	
-			}
-			FRA = { transfer_state = 101 }
-			FRA = { load_oob = rebels_101 }
-		}
-		if = {
-			limit = {
-				102 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 102 value < 1 }	
-			}
-			FRA = { transfer_state = 102 }
-			FRA = { load_oob = rebels_102 }
-		}
-		if = {
-			limit = {
-				103 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 103 value < 1 }	
-			}
-			FRA = { transfer_state = 103 }
-			FRA = { load_oob = rebels_103 }
-		}
-		if = {
-			limit = {
-				104 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 104 value < 1 }	
-			}
-			FRA = { transfer_state = 104 }
-			FRA = { load_oob = rebels_104 }
-		}
-		if = {
-			limit = {
-				105 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 105 value < 1 }	
-			}
-			FRA = { transfer_state = 105 }
-			FRA = { load_oob = rebels_105 }
-		}
-		if = {
-			limit = {
-				106 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 106 value < 1 }	
-			}
-			FRA = { transfer_state = 106 }
-			FRA = { load_oob = rebels_106 }
-		}
-		if = {
-			limit = {
-				107 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 107 value < 1 }	
-			}
-			FRA = { transfer_state = 107 }
-			FRA = { load_oob = rebels_107 }
-		}
-		if = {
-			limit = {
-				108 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 108 value < 1 }	
-			}
-			FRA = { transfer_state = 108 }
-			FRA = { load_oob = rebels_108 }
-		}
-		if = {
-			limit = {
-				109 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 109 value < 1 }	
-			}
-			FRA = { transfer_state = 109 }
-			FRA = { load_oob = rebels_109 }
-		}
-		if = {
-			limit = {
-				110 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 110 value < 1 }	
-			}
-			FRA = { transfer_state = 110 }
-			FRA = { load_oob = rebels_110 }
-		}
-		if = {
-			limit = {
-				111 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 111 value < 1 }	
-			}
-			FRA = { transfer_state = 111 }
-			FRA = { load_oob = rebels_111 }
-		}
-		if = {
-			limit = {
-				112 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 112 value < 1 }	
-			}
-			FRA = { transfer_state = 112 }
-			FRA = { load_oob = rebels_112 }
-		}
-		if = {
-			limit = {
-				113 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 113 value < 1 }	
-			}
-			FRA = { transfer_state = 113 }
-			FRA = { load_oob = rebels_113 }
-		}
-		if = {
-			limit = {
-				114 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 114 value < 1 }	
-			}
-			FRA = { transfer_state = 114 }
-			FRA = { load_oob = rebels_114 }
-		}
-		if = {
-			limit = {
-				115 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 115 value < 1 }	
-			}
-			FRA = { transfer_state = 115 }
-			FRA = { load_oob = rebels_115 }
-		}
-		if = {
-			limit = {
-				116 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 116 value < 1 }	
-			}
-			FRA = { transfer_state = 116 }
-			FRA = { load_oob = rebels_116 }
-		}
-		if = {
-			limit = {
-				117 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 117 value < 1 }	
-			}
-			FRA = { transfer_state = 117 }
-			FRA = { load_oob = rebels_117 }
-		}
-		if = {
-			limit = {
-				118 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 118 value < 1 }	
-			}
-			FRA = { transfer_state = 118 }
-			FRA = { load_oob = rebels_118 }
-		}
-		if = {
-			limit = {
-				119 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 119 value < 1 }	
-			}
-			FRA = { transfer_state = 119 }
-			FRA = { load_oob = rebels_119 }
-		}
-		if = {
-			limit = {
-				120 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 120 value < 1 }	
-			}
-			FRA = { transfer_state = 120 }
-			FRA = { load_oob = rebels_120 }
-		}
-		if = {
-			limit = {
-				121 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 121 value < 1 }	
-			}
-			FRA = { transfer_state = 121 }
-			FRA = { load_oob = rebels_121 }
-		}
-		if = {
-			limit = {
-				122 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 122 value < 1 }	
-			}
-			FRA = { transfer_state = 122 }
-			FRA = { load_oob = rebels_122 }
-		}
-		if = {
-			limit = {
-				123 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 123 value < 1 }	
-			}
-			FRA = { transfer_state = 123 }
-			FRA = { load_oob = rebels_123 }
-		}
-		if = {
-			limit = {
-				124 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 124 value < 1 }	
-			}
-			FRA = { transfer_state = 124 }
-			FRA = { load_oob = rebels_124 }
-		}
-		if = {
-			limit = {
-				125 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 125 value < 1 }	
-			}
-			FRA = { transfer_state = 125 }
-			FRA = { load_oob = rebels_125 }
-		}
-		if = {
-			limit = {
-				126 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 126 value < 1 }	
-			}
-			FRA = { transfer_state = 126 }
-			FRA = { load_oob = rebels_126 }
-		}
-		if = {
-			limit = {
-				127 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 127 value < 1 }	
-			}
-			FRA = { transfer_state = 127 }
-			FRA = { load_oob = rebels_127 }
-		}
-		if = {
-			limit = {
-				128 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 128 value < 1 }	
-			}
-			FRA = { transfer_state = 128 }
-			FRA = { load_oob = rebels_128 }
-		}
-		if = {
-			limit = {
-				129 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 129 value < 1 }	
-			}
-			FRA = { transfer_state = 129 }
-			FRA = { load_oob = rebels_129 }
-		}
-		if = {
-			limit = {
-				130 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 130 value < 1 }	
-			}
-			FRA = { transfer_state = 130 }
-			FRA = { load_oob = rebels_130 }
-		}
-		if = {
-			limit = {
-				131 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 131 value < 1 }	
-			}
-			FRA = { transfer_state = 131 }
-			FRA = { load_oob = rebels_131 }
-		}
-		if = {
-			limit = {
-				132 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 132 value < 1 }	
-			}
-			FRA = { transfer_state = 132 }
-			FRA = { load_oob = rebels_132 }
-		}
-		if = {
-			limit = {
-				133 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 133 value < 1 }	
-			}
-			FRA = { transfer_state = 133 }
-			FRA = { load_oob = rebels_133 }
-		}
-		if = {
-			limit = {
-				134 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 134 value < 1 }	
-			}
-			FRA = { transfer_state = 134 }
-			FRA = { load_oob = rebels_134 }
-		}
-		if = {
-			limit = {
-				135 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 135 value < 1 }	
-			}
-			FRA = { transfer_state = 135 }
-			FRA = { load_oob = rebels_135 }
-		}
-		if = {
-			limit = {
-				136 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 136 value < 1 }	
-			}
-			FRA = { transfer_state = 136 }
-			FRA = { load_oob = rebels_136 }
-		}
-		if = {
-			limit = {
-				137 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 137 value < 1 }	
-			}
-			FRA = { transfer_state = 137 }
-			FRA = { load_oob = rebels_137 }
-		}
-		if = {
-			limit = {
-				138 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 138 value < 1 }	
-			}
-			FRA = { transfer_state = 138 }
-			FRA = { load_oob = rebels_138 }
-		}
-		if = {
-			limit = {
-				139 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 139 value < 1 }	
-			}
-			FRA = { transfer_state = 139 }
-			FRA = { load_oob = rebels_139 }
-		}
-		if = {
-			limit = {
-				140 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 140 value < 1 }	
-			}
-			FRA = { transfer_state = 140 }
-			FRA = { load_oob = rebels_140 }
-		}
-		if = {
-			limit = {
-				141 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 141 value < 1 }	
-			}
-			FRA = { transfer_state = 141 }
-			FRA = { load_oob = rebels_141 }
-		}
-		if = {
-			limit = {
-				142 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 142 value < 1 }	
-			}
-			FRA = { transfer_state = 142 }
-			FRA = { load_oob = rebels_142 }
-		}
-		if = {
-			limit = {
-				143 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 143 value < 1 }	
-			}
-			FRA = { transfer_state = 143 }
-			FRA = { load_oob = rebels_143 }
-		}
-		if = {
-			limit = {
-				144 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 144 value < 1 }	
-			}
-			FRA = { transfer_state = 144 }
-			FRA = { load_oob = rebels_144 }
-		}
-		if = {
-			limit = {
-				145 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 145 value < 1 }	
-			}
-			FRA = { transfer_state = 145 }
-			FRA = { load_oob = rebels_145 }
-		}
-		if = {
-			limit = {
-				146 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 146 value < 1 }	
-			}
-			FRA = { transfer_state = 146 }
-			FRA = { load_oob = rebels_146 }
-		}
-		if = {
-			limit = {
-				147 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 147 value < 1 }	
-			}
-			FRA = { transfer_state = 147 }
-			FRA = { load_oob = rebels_147 }
-		}
-		if = {
-			limit = {
-				148 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 148 value < 1 }	
-			}
-			FRA = { transfer_state = 148 }
-			FRA = { load_oob = rebels_148 }
-		}
-		if = {
-			limit = {
-				149 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 149 value < 1 }	
-			}
-			FRA = { transfer_state = 149 }
-			FRA = { load_oob = rebels_149 }
-		}
-		if = {
-			limit = {
-				150 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 150 value < 1 }	
-			}
-			FRA = { transfer_state = 150 }
-			FRA = { load_oob = rebels_150 }
-		}
-		if = {
-			limit = {
-				151 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 151 value < 1 }	
-			}
-			FRA = { transfer_state = 151 }
-			FRA = { load_oob = rebels_151 }
-		}
-		if = {
-			limit = {
-				152 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 152 value < 1 }	
-			}
-			FRA = { transfer_state = 152 }
-			FRA = { load_oob = rebels_152 }
-		}
-		if = {
-			limit = {
-				153 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 153 value < 1 }	
-			}
-			FRA = { transfer_state = 153 }
-			FRA = { load_oob = rebels_153 }
-		}
-		if = {
-			limit = {
-				154 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 154 value < 1 }	
-			}
-			FRA = { transfer_state = 154 }
-			FRA = { load_oob = rebels_154 }
-		}
-		if = {
-			limit = {
-				155 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 155 value < 1 }	
-			}
-			FRA = { transfer_state = 155 }
-			FRA = { load_oob = rebels_155 }
-		}
-		if = {
-			limit = {
-				156 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 156 value < 1 }	
-			}
-			FRA = { transfer_state = 156 }
-			FRA = { load_oob = rebels_156 }
-		}
-		if = {
-			limit = {
-				157 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 157 value < 1 }	
-			}
-			FRA = { transfer_state = 157 }
-			FRA = { load_oob = rebels_157 }
-		}
-		if = {
-			limit = {
-				158 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 158 value < 1 }	
-			}
-			FRA = { transfer_state = 158 }
-			FRA = { load_oob = rebels_158 }
-		}
-		if = {
-			limit = {
-				159 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 159 value < 1 }	
-			}
-			FRA = { transfer_state = 159 }
-			FRA = { load_oob = rebels_159 }
-		}
-		if = {
-			limit = {
-				160 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 160 value < 1 }	
-			}
-			FRA = { transfer_state = 160 }
-			FRA = { load_oob = rebels_160 }
-		}
-		if = {
-			limit = {
-				161 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 161 value < 1 }	
-			}
-			FRA = { transfer_state = 161 }
-			FRA = { load_oob = rebels_161 }
-		}
-		if = {
-			limit = {
-				162 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 162 value < 1 }	
-			}
-			FRA = { transfer_state = 162 }
-			FRA = { load_oob = rebels_162 }
-		}
-		if = {
-			limit = {
-				163 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 163 value < 1 }	
-			}
-			FRA = { transfer_state = 163 }
-			FRA = { load_oob = rebels_163 }
-		}
-		if = {
-			limit = {
-				164 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 164 value < 1 }	
-			}
-			FRA = { transfer_state = 164 }
-			FRA = { load_oob = rebels_164 }
-		}
-		if = {
-			limit = {
-				165 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 165 value < 1 }	
-			}
-			FRA = { transfer_state = 165 }
-			FRA = { load_oob = rebels_165 }
-		}
-		if = {
-			limit = {
-				166 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 166 value < 1 }	
-			}
-			FRA = { transfer_state = 166 }
-			FRA = { load_oob = rebels_166 }
-		}
-		if = {
-			limit = {
-				167 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 167 value < 1 }	
-			}
-			FRA = { transfer_state = 167 }
-			FRA = { load_oob = rebels_167 }
-		}
-		if = {
-			limit = {
-				168 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 168 value < 1 }	
-			}
-			FRA = { transfer_state = 168 }
-			FRA = { load_oob = rebels_168 }
-		}
-		if = {
-			limit = {
-				169 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 169 value < 1 }	
-			}
-			FRA = { transfer_state = 169 }
-			FRA = { load_oob = rebels_169 }
-		}
-		if = {
-			limit = {
-				170 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 170 value < 1 }	
-			}
-			FRA = { transfer_state = 170 }
-			FRA = { load_oob = rebels_170 }
-		}
-		if = {
-			limit = {
-				171 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 171 value < 1 }	
-			}
-			FRA = { transfer_state = 171 }
-			FRA = { load_oob = rebels_171 }
-		}
-		if = {
-			limit = {
-				172 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 172 value < 1 }	
-			}
-			FRA = { transfer_state = 172 }
-			FRA = { load_oob = rebels_172 }
-		}
-		if = {
-			limit = {
-				173 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 173 value < 1 }	
-			}
-			FRA = { transfer_state = 173 }
-			FRA = { load_oob = rebels_173 }
-		}
-		if = {
-			limit = {
-				174 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 174 value < 1 }	
-			}
-			FRA = { transfer_state = 174 }
-			FRA = { load_oob = rebels_174 }
-		}
-		if = {
-			limit = {
-				175 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 175 value < 1 }	
-			}
-			FRA = { transfer_state = 175 }
-			FRA = { load_oob = rebels_175 }
-		}
-		if = {
-			limit = {
-				176 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 176 value < 1 }	
-			}
-			FRA = { transfer_state = 176 }
-			FRA = { load_oob = rebels_176 }
-		}
-		if = {
-			limit = {
-				177 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 177 value < 1 }	
-			}
-			FRA = { transfer_state = 177 }
-			FRA = { load_oob = rebels_177 }
-		}
-		if = {
-			limit = {
-				178 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 178 value < 1 }	
-			}
-			FRA = { transfer_state = 178 }
-			FRA = { load_oob = rebels_178 }
-		}
-		if = {
-			limit = {
-				179 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 179 value < 1 }	
-			}
-			FRA = { transfer_state = 179 }
-			FRA = { load_oob = rebels_179 }
-		}
-		if = {
-			limit = {
-				180 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 180 value < 1 }	
-			}
-			FRA = { transfer_state = 180 }
-			FRA = { load_oob = rebels_180 }
-		}
-		if = {
-			limit = {
-				181 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 181 value < 1 }	
-			}
-			FRA = { transfer_state = 181 }
-			FRA = { load_oob = rebels_181 }
-		}
-		if = {
-			limit = {
-				182 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 182 value < 1 }	
-			}
-			FRA = { transfer_state = 182 }
-			FRA = { load_oob = rebels_182 }
-		}
-		if = {
-			limit = {
-				183 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 183 value < 1 }	
-			}
-			FRA = { transfer_state = 183 }
-			FRA = { load_oob = rebels_183 }
-		}
-		if = {
-			limit = {
-				184 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 184 value < 1 }	
-			}
-			FRA = { transfer_state = 184 }
-			FRA = { load_oob = rebels_184 }
-		}
-		if = {
-			limit = {
-				185 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 185 value < 1 }	
-			}
-			FRA = { transfer_state = 185 }
-			FRA = { load_oob = rebels_185 }
-		}
-		if = {
-			limit = {
-				186 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 186 value < 1 }	
-			}
-			FRA = { transfer_state = 186 }
-			FRA = { load_oob = rebels_186 }
-		}
-		if = {
-			limit = {
-				187 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 187 value < 1 }	
-			}
-			FRA = { transfer_state = 187 }
-			FRA = { load_oob = rebels_187 }
-		}
-		if = {
-			limit = {
-				188 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 188 value < 1 }	
-			}
-			FRA = { transfer_state = 188 }
-			FRA = { load_oob = rebels_188 }
-		}
-		if = {
-			limit = {
-				189 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 189 value < 1 }	
-			}
-			FRA = { transfer_state = 189 }
-			FRA = { load_oob = rebels_189 }
-		}
-		if = {
-			limit = {
-				190 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 190 value < 1 }	
-			}
-			FRA = { transfer_state = 190 }
-			FRA = { load_oob = rebels_190 }
-		}
-		if = {
-			limit = {
-				191 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 191 value < 1 }	
-			}
-			FRA = { transfer_state = 191 }
-			FRA = { load_oob = rebels_191 }
-		}
-		if = {
-			limit = {
-				192 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 192 value < 1 }	
-			}
-			FRA = { transfer_state = 192 }
-			FRA = { load_oob = rebels_192 }
-		}
-		if = {
-			limit = {
-				193 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 193 value < 1 }	
-			}
-			FRA = { transfer_state = 193 }
-			FRA = { load_oob = rebels_193 }
-		}
-		if = {
-			limit = {
-				194 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 194 value < 1 }	
-			}
-			FRA = { transfer_state = 194 }
-			FRA = { load_oob = rebels_194 }
-		}
-		if = {
-			limit = {
-				195 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 195 value < 1 }	
-			}
-			FRA = { transfer_state = 195 }
-			FRA = { load_oob = rebels_195 }
-		}
-		if = {
-			limit = {
-				196 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 196 value < 1 }	
-			}
-			FRA = { transfer_state = 196 }
-			FRA = { load_oob = rebels_196 }
-		}
-		if = {
-			limit = {
-				197 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 197 value < 1 }	
-			}
-			FRA = { transfer_state = 197 }
-			FRA = { load_oob = rebels_197 }
-		}
-		if = {
-			limit = {
-				198 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 198 value < 1 }	
-			}
-			FRA = { transfer_state = 198 }
-			FRA = { load_oob = rebels_198 }
-		}
-		if = {
-			limit = {
-				199 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 199 value < 1 }	
-			}
-			FRA = { transfer_state = 199 }
-			FRA = { load_oob = rebels_199 }
-		}
-		if = {
-			limit = {
-				200 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 200 value < 1 }	
-			}
-			FRA = { transfer_state = 200 }
-			FRA = { load_oob = rebels_200 }
-		}
-		#########################################
-		#########################################
-		#########################################
-		#########################################
-		#########################################
-		#########################################
-		#########################################
-		#########################################
-		#########################################
-		#########################################
-if = {
-			limit = {
-				202 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 202 value < 2 }	
-			}
-			FRA = { transfer_state = 202 }
-			FRA = { load_oob = rebels_202 }
-		}
-		if = {
-			limit = {
-				202 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 202 value < 2 }	
-			}
-			FRA = { transfer_state = 202 }
-			FRA = { load_oob = rebels_202 }
-		}
-		if = {
-			limit = {
-				203 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 203 value < 2 }	
-			}
-			FRA = { transfer_state = 203 }
-			FRA = { load_oob = rebels_203 }
-		}
-		if = {
-			limit = {
-				204 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 204 value < 2 }	
-			}
-			FRA = { transfer_state = 204 }
-			FRA = { load_oob = rebels_204 }
-		}
-		if = {
-			limit = {
-				205 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 205 value < 2 }	
-			}
-			FRA = { transfer_state = 205 }
-			FRA = { load_oob = rebels_205 }
-		}
-		if = {
-			limit = {
-				206 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 206 value < 2 }	
-			}
-			FRA = { transfer_state = 206 }
-			FRA = { load_oob = rebels_206 }
-		}
-		if = {
-			limit = {
-				207 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 207 value < 2 }	
-			}
-			FRA = { transfer_state = 207 }
-			FRA = { load_oob = rebels_207 }
-		}
-		if = {
-			limit = {
-				208 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 208 value < 2 }	
-			}
-			FRA = { transfer_state = 208 }
-			FRA = { load_oob = rebels_208 }
-		}
-		if = {
-			limit = {
-				209 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 209 value < 2 }	
-			}
-			FRA = { transfer_state = 209 }
-			FRA = { load_oob = rebels_209 }
-		}
-		if = {
-			limit = {
-				220 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 220 value < 2 }	
-			}
-			FRA = { transfer_state = 220 }
-			FRA = { load_oob = rebels_220 }
-		}
-		if = {
-			limit = {
-				222 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 222 value < 2 }	
-			}
-			FRA = { transfer_state = 222 }
-			FRA = { load_oob = rebels_222 }
-		}
-		if = {
-			limit = {
-				222 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 222 value < 2 }	
-			}
-			FRA = { transfer_state = 222 }
-			FRA = { load_oob = rebels_222 }
-		}
-		if = {
-			limit = {
-				223 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 223 value < 2 }	
-			}
-			FRA = { transfer_state = 223 }
-			FRA = { load_oob = rebels_223 }
-		}
-		if = {
-			limit = {
-				224 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 224 value < 2 }	
-			}
-			FRA = { transfer_state = 224 }
-			FRA = { load_oob = rebels_224 }
-		}
-		if = {
-			limit = {
-				225 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 225 value < 2 }	
-			}
-			FRA = { transfer_state = 225 }
-			FRA = { load_oob = rebels_225 }
-		}
-		if = {
-			limit = {
-				226 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 226 value < 2 }	
-			}
-			FRA = { transfer_state = 226 }
-			FRA = { load_oob = rebels_226 }
-		}
-		if = {
-			limit = {
-				227 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 227 value < 2 }	
-			}
-			FRA = { transfer_state = 227 }
-			FRA = { load_oob = rebels_227 }
-		}
-		if = {
-			limit = {
-				228 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 228 value < 2 }	
-			}
-			FRA = { transfer_state = 228 }
-			FRA = { load_oob = rebels_228 }
-		}
-		if = {
-			limit = {
-				229 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 229 value < 2 }	
-			}
-			FRA = { transfer_state = 229 }
-			FRA = { load_oob = rebels_229 }
-		}
-		if = {
-			limit = {
-				220 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 220 value < 2 }	
-			}
-			FRA = { transfer_state = 220 }
-			FRA = { load_oob = rebels_220 }
-		}
-		if = {
-			limit = {
-				222 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 222 value < 2 }	
-			}
-			FRA = { transfer_state = 222 }
-			FRA = { load_oob = rebels_222 }
-		}
-		if = {
-			limit = {
-				222 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 222 value < 2 }	
-			}
-			FRA = { transfer_state = 222 }
-			FRA = { load_oob = rebels_222 }
-		}
-		if = {
-			limit = {
-				223 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 223 value < 2 }	
-			}
-			FRA = { transfer_state = 223 }
-			FRA = { load_oob = rebels_223 }
-		}
-		if = {
-			limit = {
-				224 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 224 value < 2 }	
-			}
-			FRA = { transfer_state = 224 }
-			FRA = { load_oob = rebels_224 }
-		}
-		if = {
-			limit = {
-				225 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 225 value < 2 }	
-			}
-			FRA = { transfer_state = 225 }
-			FRA = { load_oob = rebels_225 }
-		}
-		if = {
-			limit = {
-				226 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 226 value < 2 }	
-			}
-			FRA = { transfer_state = 226 }
-			FRA = { load_oob = rebels_226 }
-		}
-		if = {
-			limit = {
-				227 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 227 value < 2 }	
-			}
-			FRA = { transfer_state = 227 }
-			FRA = { load_oob = rebels_227 }
-		}
-		if = {
-			limit = {
-				228 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 228 value < 2 }	
-			}
-			FRA = { transfer_state = 228 }
-			FRA = { load_oob = rebels_228 }
-		}
-		if = {
-			limit = {
-				229 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 229 value < 2 }	
-			}
-			FRA = { transfer_state = 229 }
-			FRA = { load_oob = rebels_229 }
-		}
-		if = {
-			limit = {
-				230 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 230 value < 2 }	
-			}
-			FRA = { transfer_state = 230 }
-			FRA = { load_oob = rebels_230 }
-		}
-		if = {
-			limit = {
-				232 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 232 value < 2 }	
-			}
-			FRA = { transfer_state = 232 }
-			FRA = { load_oob = rebels_232 }
-		}
-		if = {
-			limit = {
-				232 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 232 value < 2 }	
-			}
-			FRA = { transfer_state = 232 }
-			FRA = { load_oob = rebels_232 }
-		}
-		if = {
-			limit = {
-				233 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 233 value < 2 }	
-			}
-			FRA = { transfer_state = 233 }
-			FRA = { load_oob = rebels_233 }
-		}
-		if = {
-			limit = {
-				234 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 234 value < 2 }	
-			}
-			FRA = { transfer_state = 234 }
-			FRA = { load_oob = rebels_234 }
-		}
-		if = {
-			limit = {
-				235 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 235 value < 2 }	
-			}
-			FRA = { transfer_state = 235 }
-			FRA = { load_oob = rebels_235 }
-		}
-		if = {
-			limit = {
-				236 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 236 value < 2 }	
-			}
-			FRA = { transfer_state = 236 }
-			FRA = { load_oob = rebels_236 }
-		}
-		if = {
-			limit = {
-				237 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 237 value < 2 }	
-			}
-			FRA = { transfer_state = 237 }
-			FRA = { load_oob = rebels_237 }
-		}
-		if = {
-			limit = {
-				238 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 238 value < 2 }	
-			}
-			FRA = { transfer_state = 238 }
-			FRA = { load_oob = rebels_238 }
-		}
-		if = {
-			limit = {
-				239 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 239 value < 2 }	
-			}
-			FRA = { transfer_state = 239 }
-			FRA = { load_oob = rebels_239 }
-		}
-		if = {
-			limit = {
-				240 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 240 value < 2 }	
-			}
-			FRA = { transfer_state = 240 }
-			FRA = { load_oob = rebels_240 }
-		}
-		if = {
-			limit = {
-				242 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 242 value < 2 }	
-			}
-			FRA = { transfer_state = 242 }
-			FRA = { load_oob = rebels_242 }
-		}
-		if = {
-			limit = {
-				242 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 242 value < 2 }	
-			}
-			FRA = { transfer_state = 242 }
-			FRA = { load_oob = rebels_242 }
-		}
-		if = {
-			limit = {
-				243 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 243 value < 2 }	
-			}
-			FRA = { transfer_state = 243 }
-			FRA = { load_oob = rebels_243 }
-		}
-		if = {
-			limit = {
-				244 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 244 value < 2 }	
-			}
-			FRA = { transfer_state = 244 }
-			FRA = { load_oob = rebels_244 }
-		}
-		if = {
-			limit = {
-				245 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 245 value < 2 }	
-			}
-			FRA = { transfer_state = 245 }
-			FRA = { load_oob = rebels_245 }
-		}
-		if = {
-			limit = {
-				246 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 246 value < 2 }	
-			}
-			FRA = { transfer_state = 246 }
-			FRA = { load_oob = rebels_246 }
-		}
-		if = {
-			limit = {
-				247 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 247 value < 2 }	
-			}
-			FRA = { transfer_state = 247 }
-			FRA = { load_oob = rebels_247 }
-		}
-		if = {
-			limit = {
-				248 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 248 value < 2 }	
-			}
-			FRA = { transfer_state = 248 }
-			FRA = { load_oob = rebels_248 }
-		}
-		if = {
-			limit = {
-				249 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 249 value < 2 }	
-			}
-			FRA = { transfer_state = 249 }
-			FRA = { load_oob = rebels_249 }
-		}
-		if = {
-			limit = {
-				250 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 250 value < 2 }	
-			}
-			FRA = { transfer_state = 250 }
-			FRA = { load_oob = rebels_250 }
-		}
-		if = {
-			limit = {
-				252 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 252 value < 2 }	
-			}
-			FRA = { transfer_state = 252 }
-			FRA = { load_oob = rebels_252 }
-		}
-		if = {
-			limit = {
-				252 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 252 value < 2 }	
-			}
-			FRA = { transfer_state = 252 }
-			FRA = { load_oob = rebels_252 }
-		}
-		if = {
-			limit = {
-				253 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 253 value < 2 }	
-			}
-			FRA = { transfer_state = 253 }
-			FRA = { load_oob = rebels_253 }
-		}
-		if = {
-			limit = {
-				254 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 254 value < 2 }	
-			}
-			FRA = { transfer_state = 254 }
-			FRA = { load_oob = rebels_254 }
-		}
-		if = {
-			limit = {
-				255 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 255 value < 2 }	
-			}
-			FRA = { transfer_state = 255 }
-			FRA = { load_oob = rebels_255 }
-		}
-		if = {
-			limit = {
-				256 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 256 value < 2 }	
-			}
-			FRA = { transfer_state = 256 }
-			FRA = { load_oob = rebels_256 }
-		}
-		if = {
-			limit = {
-				257 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 257 value < 2 }	
-			}
-			FRA = { transfer_state = 257 }
-			FRA = { load_oob = rebels_257 }
-		}
-		if = {
-			limit = {
-				258 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 258 value < 2 }	
-			}
-			FRA = { transfer_state = 258 }
-			FRA = { load_oob = rebels_258 }
-		}
-		if = {
-			limit = {
-				259 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 259 value < 2 }	
-			}
-			FRA = { transfer_state = 259 }
-			FRA = { load_oob = rebels_259 }
-		}
-		if = {
-			limit = {
-				260 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 260 value < 2 }	
-			}
-			FRA = { transfer_state = 260 }
-			FRA = { load_oob = rebels_260 }
-		}
-		if = {
-			limit = {
-				262 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 262 value < 2 }	
-			}
-			FRA = { transfer_state = 262 }
-			FRA = { load_oob = rebels_262 }
-		}
-		if = {
-			limit = {
-				262 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 262 value < 2 }	
-			}
-			FRA = { transfer_state = 262 }
-			FRA = { load_oob = rebels_262 }
-		}
-		if = {
-			limit = {
-				263 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 263 value < 2 }	
-			}
-			FRA = { transfer_state = 263 }
-			FRA = { load_oob = rebels_263 }
-		}
-		if = {
-			limit = {
-				264 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 264 value < 2 }	
-			}
-			FRA = { transfer_state = 264 }
-			FRA = { load_oob = rebels_264 }
-		}
-		if = {
-			limit = {
-				265 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 265 value < 2 }	
-			}
-			FRA = { transfer_state = 265 }
-			FRA = { load_oob = rebels_265 }
-		}
-		if = {
-			limit = {
-				266 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 266 value < 2 }	
-			}
-			FRA = { transfer_state = 266 }
-			FRA = { load_oob = rebels_266 }
-		}
-		if = {
-			limit = {
-				267 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 267 value < 2 }	
-			}
-			FRA = { transfer_state = 267 }
-			FRA = { load_oob = rebels_267 }
-		}
-		if = {
-			limit = {
-				268 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 268 value < 2 }	
-			}
-			FRA = { transfer_state = 268 }
-			FRA = { load_oob = rebels_268 }
-		}
-		if = {
-			limit = {
-				269 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 269 value < 2 }	
-			}
-			FRA = { transfer_state = 269 }
-			FRA = { load_oob = rebels_269 }
-		}
-		if = {
-			limit = {
-				270 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 270 value < 2 }	
-			}
-			FRA = { transfer_state = 270 }
-			FRA = { load_oob = rebels_270 }
-		}
-		if = {
-			limit = {
-				272 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 272 value < 2 }	
-			}
-			FRA = { transfer_state = 272 }
-			FRA = { load_oob = rebels_272 }
-		}
-		if = {
-			limit = {
-				272 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 272 value < 2 }	
-			}
-			FRA = { transfer_state = 272 }
-			FRA = { load_oob = rebels_272 }
-		}
-		if = {
-			limit = {
-				273 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 273 value < 2 }	
-			}
-			FRA = { transfer_state = 273 }
-			FRA = { load_oob = rebels_273 }
-		}
-		if = {
-			limit = {
-				274 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 274 value < 2 }	
-			}
-			FRA = { transfer_state = 274 }
-			FRA = { load_oob = rebels_274 }
-		}
-		if = {
-			limit = {
-				275 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 275 value < 2 }	
-			}
-			FRA = { transfer_state = 275 }
-			FRA = { load_oob = rebels_275 }
-		}
-		if = {
-			limit = {
-				276 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 276 value < 2 }	
-			}
-			FRA = { transfer_state = 276 }
-			FRA = { load_oob = rebels_276 }
-		}
-		if = {
-			limit = {
-				277 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 277 value < 1 }	
-			}
-			FRA = { transfer_state = 277 }
-			FRA = { load_oob = rebels_277 }
-		}
-		if = {
-			limit = {
-				278 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 278 value < 1 }	
-			}
-			FRA = { transfer_state = 278 }
-			FRA = { load_oob = rebels_278 }
-		}
-		if = {
-			limit = {
-				279 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 279 value < 1 }	
-			}
-			FRA = { transfer_state = 279 }
-			FRA = { load_oob = rebels_279 }
-		}
-		if = {
-			limit = {
-				280 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 280 value < 1 }	
-			}
-			FRA = { transfer_state = 280 }
-			FRA = { load_oob = rebels_280 }
-		}
-		if = {
-			limit = {
-				281 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 281 value < 1 }	
-			}
-			FRA = { transfer_state = 281 }
-			FRA = { load_oob = rebels_281 }
-		}
-		if = {
-			limit = {
-				282 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 282 value < 1 }	
-			}
-			FRA = { transfer_state = 282 }
-			FRA = { load_oob = rebels_282 }
-		}
-		if = {
-			limit = {
-				283 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 283 value < 1 }	
-			}
-			FRA = { transfer_state = 283 }
-			FRA = { load_oob = rebels_283 }
-		}
-		if = {
-			limit = {
-				284 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 284 value < 1 }	
-			}
-			FRA = { transfer_state = 284 }
-			FRA = { load_oob = rebels_284 }
-		}
-		if = {
-			limit = {
-				285 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 285 value < 1 }	
-			}
-			FRA = { transfer_state = 285 }
-			FRA = { load_oob = rebels_285 }
-		}
-		if = {
-			limit = {
-				286 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 286 value < 1 }	
-			}
-			FRA = { transfer_state = 286 }
-			FRA = { load_oob = rebels_286 }
-		}
-		if = {
-			limit = {
-				287 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 287 value < 1 }	
-			}
-			FRA = { transfer_state = 287 }
-			FRA = { load_oob = rebels_287 }
-		}
-		if = {
-			limit = {
-				288 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 288 value < 1 }	
-			}
-			FRA = { transfer_state = 288 }
-			FRA = { load_oob = rebels_288 }
-		}
-		if = {
-			limit = {
-				289 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 289 value < 1 }	
-			}
-			FRA = { transfer_state = 289 }
-			FRA = { load_oob = rebels_289 }
-		}
-		if = {
-			limit = {
-				290 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 290 value < 1 }	
-			}
-			FRA = { transfer_state = 290 }
-			FRA = { load_oob = rebels_290 }
-		}
-		if = {
-			limit = {
-				291 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 291 value < 1 }	
-			}
-			FRA = { transfer_state = 291 }
-			FRA = { load_oob = rebels_291 }
-		}
-		if = {
-			limit = {
-				292 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 292 value < 1 }	
-			}
-			FRA = { transfer_state = 292 }
-			FRA = { load_oob = rebels_292 }
-		}
-		if = {
-			limit = {
-				293 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 293 value < 1 }	
-			}
-			FRA = { transfer_state = 293 }
-			FRA = { load_oob = rebels_293 }
-		}
-		if = {
-			limit = {
-				294 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 294 value < 1 }	
-			}
-			FRA = { transfer_state = 294 }
-			FRA = { load_oob = rebels_294 }
-		}
-		if = {
-			limit = {
-				295 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 295 value < 1 }	
-			}
-			FRA = { transfer_state = 295 }
-			FRA = { load_oob = rebels_295 }
-		}
-		if = {
-			limit = {
-				296 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 296 value < 1 }	
-			}
-			FRA = { transfer_state = 296 }
-			FRA = { load_oob = rebels_296 }
-		}
-		if = {
-			limit = {
-				297 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 297 value < 1 }	
-			}
-			FRA = { transfer_state = 297 }
-			FRA = { load_oob = rebels_297 }
-		}
-		if = {
-			limit = {
-				298 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 298 value < 1 }	
-			}
-			FRA = { transfer_state = 298 }
-			FRA = { load_oob = rebels_298 }
-		}
-		if = {
-			limit = {
-				299 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 299 value < 1 }	
-			}
-			FRA = { transfer_state = 299 }
-			FRA = { load_oob = rebels_299 }
-		}
-		if = {
-			limit = {
-				300 = {
-					is_core_of = FRA
-					is_owned_by = regent_target
-				}
-				divisions_in_state = { state = 200 value < 1 }	
-			}
-			FRA = { transfer_state = 200 }
-			FRA = { load_oob = rebels_200 }
-		}
-		#BOTTOM
-		FRA = {
-			add_ideas = { 
-				revolutionary_country
-			}
-			add_timed_idea = { idea = revanchism days = 465 }
-			set_cosmetic_tag = FRA_revolutionary
-		}
-	}
-	
-	option = {
-		name = rebel.1.a
-		if = {
-			limit = {
-				any_owned_state = {
-					is_controlled_by = FRA
-				}
-			}
-			declare_war_on = { target = regent_target type = annex_everything }
-		}
-	}
-}
+#
+#add_namespace = rebel
+#
+#country_event = { #rebellion france
+#	id = rebel.1
+#	title = rebel.1.t
+#	desc = rebel.1.d
+#
+#	trigger = {
+#		AND = {
+#			any_owned_state = {
+#				is_owned_by = ROOT
+#				is_core_of = FRA
+#				divisions_in_state = { size < 0 }	
+#			}
+#			FRA = {
+#				exists = no
+#			}
+#		}
+#	}
+#	
+#	immediate = {
+#		#STATES (700+)
+#		if = {
+#			limit = {
+#				1 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 1 size = 0 }	
+#			}
+#			FRA = { transfer_state = 1 }
+#			FRA = { load_oob = rebels_1 }
+#		}
+#		if = {
+#			limit = {
+#				2 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 2 size = 0 }	
+#			}
+#			FRA = { transfer_state = 2 }
+#			FRA = { load_oob = rebels_2 }
+#		}
+#		if = {
+#			limit = {
+#				3 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 3 size = 0 }	
+#			}
+#			FRA = { transfer_state = 3 }
+#			FRA = { load_oob = rebels_3 }
+#		}
+#		if = {
+#			limit = {
+#				4 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 4 size = 0 }	
+#			}
+#			FRA = { transfer_state = 4 }
+#			FRA = { load_oob = rebels_4 }
+#		}
+#		if = {
+#			limit = {
+#				5 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 5 size = 0 }	
+#			}
+#			FRA = { transfer_state = 5 }
+#			FRA = { load_oob = rebels_5 }
+#		}
+#		if = {
+#			limit = {
+#				6 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 6 size = 0 }	
+#			}
+#			FRA = { transfer_state = 6 }
+#			FRA = { load_oob = rebels_6 }
+#		}
+#		if = {
+#			limit = {
+#				7 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 7 size = 0 }	
+#			}
+#			FRA = { transfer_state = 7 }
+#			FRA = { load_oob = rebels_7 }
+#		}
+#		if = {
+#			limit = {
+#				8 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 8 size = 0 }	
+#			}
+#			FRA = { transfer_state = 8 }
+#			FRA = { load_oob = rebels_8 }
+#		}
+#		if = {
+#			limit = {
+#				9 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 9 size = 0 }	
+#			}
+#			FRA = { transfer_state = 9 }
+#			FRA = { load_oob = rebels_9 }
+#		}
+#		if = {
+#			limit = {
+#				10 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 10 size = 0 }	
+#			}
+#			FRA = { transfer_state = 10 }
+#			FRA = { load_oob = rebels_10 }
+#		}
+#		if = {
+#			limit = {
+#				11 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 11 size = 0 }	
+#			}
+#			FRA = { transfer_state = 11 }
+#			FRA = { load_oob = rebels_11 }
+#		}
+#		if = {
+#			limit = {
+#				12 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 12 size = 0 }	
+#			}
+#			FRA = { transfer_state = 12 }
+#			FRA = { load_oob = rebels_12 }
+#		}
+#		if = {
+#			limit = {
+#				13 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 13 size = 0 }	
+#			}
+#			FRA = { transfer_state = 13 }
+#			FRA = { load_oob = rebels_13 }
+#		}
+#		if = {
+#			limit = {
+#				14 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 14 size = 0 }	
+#			}
+#			FRA = { transfer_state = 14 }
+#			FRA = { load_oob = rebels_14 }
+#		}
+#		if = {
+#			limit = {
+#				15 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 15 size = 0 }	
+#			}
+#			FRA = { transfer_state = 15 }
+#			FRA = { load_oob = rebels_15 }
+#		}
+#		if = {
+#			limit = {
+#				16 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 16 size = 0 }	
+#			}
+#			FRA = { transfer_state = 16 }
+#			FRA = { load_oob = rebels_16 }
+#		}
+#		if = {
+#			limit = {
+#				17 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 17 size = 0 }	
+#			}
+#			FRA = { transfer_state = 17 }
+#			FRA = { load_oob = rebels_17 }
+#		}
+#		if = {
+#			limit = {
+#				18 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 18 size = 0 }	
+#			}
+#			FRA = { transfer_state = 18 }
+#			FRA = { load_oob = rebels_18 }
+#		}
+#		if = {
+#			limit = {
+#				19 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 19 size = 0 }	
+#			}
+#			FRA = { transfer_state = 19 }
+#			FRA = { load_oob = rebels_19 }
+#		}
+#		if = {
+#			limit = {
+#				20 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 20 size = 0 }	
+#			}
+#			FRA = { transfer_state = 20 }
+#			FRA = { load_oob = rebels_20 }
+#		}
+#		if = {
+#			limit = {
+#				21 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 21 size = 0 }	
+#			}
+#			FRA = { transfer_state = 21 }
+#			FRA = { load_oob = rebels_21 }
+#		}
+#		if = {
+#			limit = {
+#				22 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 22 size = 0 }	
+#			}
+#			FRA = { transfer_state = 22 }
+#			FRA = { load_oob = rebels_22 }
+#		}
+#		if = {
+#			limit = {
+#				23 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 23 size = 0 }	
+#			}
+#			FRA = { transfer_state = 23 }
+#			FRA = { load_oob = rebels_23 }
+#		}
+#		if = {
+#			limit = {
+#				24 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 24 size = 0 }	
+#			}
+#			FRA = { transfer_state = 24 }
+#			FRA = { load_oob = rebels_24 }
+#		}
+#		if = {
+#			limit = {
+#				25 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 25 size = 0 }	
+#			}
+#			FRA = { transfer_state = 25 }
+#			FRA = { load_oob = rebels_25 }
+#		}
+#		if = {
+#			limit = {
+#				26 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 26 size = 0 }	
+#			}
+#			FRA = { transfer_state = 26 }
+#			FRA = { load_oob = rebels_26 }
+#		}
+#		if = {
+#			limit = {
+#				27 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 27 size = 0 }	
+#			}
+#			FRA = { transfer_state = 27 }
+#			FRA = { load_oob = rebels_27 }
+#		}
+#		if = {
+#			limit = {
+#				28 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 28 size = 0 }	
+#			}
+#			FRA = { transfer_state = 28 }
+#			FRA = { load_oob = rebels_28 }
+#		}
+#		if = {
+#			limit = {
+#				29 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 29 size = 0 }	
+#			}
+#			FRA = { transfer_state = 29 }
+#			FRA = { load_oob = rebels_29 }
+#		}
+#		if = {
+#			limit = {
+#				30 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 30 size = 0 }	
+#			}
+#			FRA = { transfer_state = 30 }
+#			FRA = { load_oob = rebels_30 }
+#		}
+#		if = {
+#			limit = {
+#				31 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 31 size = 0 }	
+#			}
+#			FRA = { transfer_state = 31 }
+#			FRA = { load_oob = rebels_31 }
+#		}
+#		if = {
+#			limit = {
+#				32 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 32 size = 0 }	
+#			}
+#			FRA = { transfer_state = 32 }
+#			FRA = { load_oob = rebels_32 }
+#		}
+#		if = {
+#			limit = {
+#				33 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 33 size = 0 }	
+#			}
+#			FRA = { transfer_state = 33 }
+#			FRA = { load_oob = rebels_33 }
+#		}
+#		if = {
+#			limit = {
+#				34 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 34 size = 0 }	
+#			}
+#			FRA = { transfer_state = 34 }
+#			FRA = { load_oob = rebels_34 }
+#		}
+#		if = {
+#			limit = {
+#				35 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 35 size = 0 }	
+#			}
+#			FRA = { transfer_state = 35 }
+#			FRA = { load_oob = rebels_35 }
+#		}
+#		if = {
+#			limit = {
+#				36 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 36 size = 0 }	
+#			}
+#			FRA = { transfer_state = 36 }
+#			FRA = { load_oob = rebels_36 }
+#		}
+#		if = {
+#			limit = {
+#				37 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 37 size = 0 }	
+#			}
+#			FRA = { transfer_state = 37 }
+#			FRA = { load_oob = rebels_37 }
+#		}
+#		if = {
+#			limit = {
+#				38 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 38 size = 0 }	
+#			}
+#			FRA = { transfer_state = 38 }
+#			FRA = { load_oob = rebels_38 }
+#		}
+#		if = {
+#			limit = {
+#				39 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 39 size = 0 }	
+#			}
+#			FRA = { transfer_state = 39 }
+#			FRA = { load_oob = rebels_39 }
+#		}
+#		if = {
+#			limit = {
+#				40 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 40 size = 0 }	
+#			}
+#			FRA = { transfer_state = 40 }
+#			FRA = { load_oob = rebels_40 }
+#		}
+#		if = {
+#			limit = {
+#				41 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 41 size = 0 }	
+#			}
+#			FRA = { transfer_state = 41 }
+#			FRA = { load_oob = rebels_41 }
+#		}
+#		if = {
+#			limit = {
+#				42 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 42 size = 0 }	
+#			}
+#			FRA = { transfer_state = 42 }
+#			FRA = { load_oob = rebels_42 }
+#		}
+#		if = {
+#			limit = {
+#				43 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 43 size = 0 }	
+#			}
+#			FRA = { transfer_state = 43 }
+#			FRA = { load_oob = rebels_43 }
+#		}
+#		if = {
+#			limit = {
+#				44 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 44 size = 0 }	
+#			}
+#			FRA = { transfer_state = 44 }
+#			FRA = { load_oob = rebels_44 }
+#		}
+#		if = {
+#			limit = {
+#				45 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 45 size = 0 }	
+#			}
+#			FRA = { transfer_state = 45 }
+#			FRA = { load_oob = rebels_45 }
+#		}
+#		if = {
+#			limit = {
+#				46 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 46 size = 0 }	
+#			}
+#			FRA = { transfer_state = 46 }
+#			FRA = { load_oob = rebels_46 }
+#		}
+#		if = {
+#			limit = {
+#				47 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 47 size = 0 }	
+#			}
+#			FRA = { transfer_state = 47 }
+#			FRA = { load_oob = rebels_47 }
+#		}
+#		if = {
+#			limit = {
+#				48 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 48 size = 0 }	
+#			}
+#			FRA = { transfer_state = 48 }
+#			FRA = { load_oob = rebels_48 }
+#		}
+#		if = {
+#			limit = {
+#				49 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 49 size = 0 }	
+#			}
+#			FRA = { transfer_state = 49 }
+#			FRA = { load_oob = rebels_49 }
+#		}
+#		if = {
+#			limit = {
+#				50 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 50 size = 0 }	
+#			}
+#			FRA = { transfer_state = 50 }
+#			FRA = { load_oob = rebels_50 }
+#		}
+#		if = {
+#			limit = {
+#				51 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 51 size = 0 }	
+#			}
+#			FRA = { transfer_state = 51 }
+#			FRA = { load_oob = rebels_51 }
+#		}
+#		if = {
+#			limit = {
+#				52 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 52 size = 0 }	
+#			}
+#			FRA = { transfer_state = 52 }
+#			FRA = { load_oob = rebels_52 }
+#		}
+#		if = {
+#			limit = {
+#				53 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 53 size = 0 }	
+#			}
+#			FRA = { transfer_state = 53 }
+#			FRA = { load_oob = rebels_53 }
+#		}
+#		if = {
+#			limit = {
+#				54 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 54 size = 0 }	
+#			}
+#			FRA = { transfer_state = 54 }
+#			FRA = { load_oob = rebels_54 }
+#		}
+#		if = {
+#			limit = {
+#				55 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 55 size = 0 }	
+#			}
+#			FRA = { transfer_state = 55 }
+#			FRA = { load_oob = rebels_55 }
+#		}
+#		if = {
+#			limit = {
+#				56 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 56 size = 0 }	
+#			}
+#			FRA = { transfer_state = 56 }
+#			FRA = { load_oob = rebels_56 }
+#		}
+#		if = {
+#			limit = {
+#				57 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 57 size = 0 }	
+#			}
+#			FRA = { transfer_state = 57 }
+#			FRA = { load_oob = rebels_57 }
+#		}
+#		if = {
+#			limit = {
+#				58 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 58 size = 0 }	
+#			}
+#			FRA = { transfer_state = 58 }
+#			FRA = { load_oob = rebels_58 }
+#		}
+#		if = {
+#			limit = {
+#				59 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 59 size = 0 }	
+#			}
+#			FRA = { transfer_state = 59 }
+#			FRA = { load_oob = rebels_59 }
+#		}
+#		if = {
+#			limit = {
+#				60 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 60 size = 0 }	
+#			}
+#			FRA = { transfer_state = 60 }
+#			FRA = { load_oob = rebels_60 }
+#		}
+#		if = {
+#			limit = {
+#				61 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 61 size = 0 }	
+#			}
+#			FRA = { transfer_state = 61 }
+#			FRA = { load_oob = rebels_61 }
+#		}
+#		if = {
+#			limit = {
+#				62 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 62 size = 0 }	
+#			}
+#			FRA = { transfer_state = 62 }
+#			FRA = { load_oob = rebels_62 }
+#		}
+#		if = {
+#			limit = {
+#				63 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 63 size = 0 }	
+#			}
+#			FRA = { transfer_state = 63 }
+#			FRA = { load_oob = rebels_63 }
+#		}
+#		if = {
+#			limit = {
+#				64 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 64 size = 0 }	
+#			}
+#			FRA = { transfer_state = 64 }
+#			FRA = { load_oob = rebels_64 }
+#		}
+#		if = {
+#			limit = {
+#				65 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 65 size = 0 }	
+#			}
+#			FRA = { transfer_state = 65 }
+#			FRA = { load_oob = rebels_65 }
+#		}
+#		if = {
+#			limit = {
+#				66 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 66 size = 0 }	
+#			}
+#			FRA = { transfer_state = 66 }
+#			FRA = { load_oob = rebels_66 }
+#		}
+#		if = {
+#			limit = {
+#				67 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 67 size = 0 }	
+#			}
+#			FRA = { transfer_state = 67 }
+#			FRA = { load_oob = rebels_67 }
+#		}
+#		if = {
+#			limit = {
+#				68 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 68 size = 0 }	
+#			}
+#			FRA = { transfer_state = 68 }
+#			FRA = { load_oob = rebels_68 }
+#		}
+#		if = {
+#			limit = {
+#				69 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 69 size = 0 }	
+#			}
+#			FRA = { transfer_state = 69 }
+#			FRA = { load_oob = rebels_69 }
+#		}
+#		if = {
+#			limit = {
+#				70 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 70 size = 0 }	
+#			}
+#			FRA = { transfer_state = 70 }
+#			FRA = { load_oob = rebels_70 }
+#		}
+#		if = {
+#			limit = {
+#				71 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 71 size = 0 }	
+#			}
+#			FRA = { transfer_state = 71 }
+#			FRA = { load_oob = rebels_71 }
+#		}
+#		if = {
+#			limit = {
+#				72 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 72 size = 0 }	
+#			}
+#			FRA = { transfer_state = 72 }
+#			FRA = { load_oob = rebels_72 }
+#		}
+#		if = {
+#			limit = {
+#				73 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 73 size = 0 }	
+#			}
+#			FRA = { transfer_state = 73 }
+#			FRA = { load_oob = rebels_73 }
+#		}
+#		if = {
+#			limit = {
+#				74 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 74 size = 0 }	
+#			}
+#			FRA = { transfer_state = 74 }
+#			FRA = { load_oob = rebels_74 }
+#		}
+#		if = {
+#			limit = {
+#				75 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 75 size = 0 }	
+#			}
+#			FRA = { transfer_state = 75 }
+#			FRA = { load_oob = rebels_75 }
+#		}
+#		if = {
+#			limit = {
+#				76 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 76 size = 0 }	
+#			}
+#			FRA = { transfer_state = 76 }
+#			FRA = { load_oob = rebels_76 }
+#		}
+#		if = {
+#			limit = {
+#				77 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 77 size = 0 }	
+#			}
+#			FRA = { transfer_state = 77 }
+#			FRA = { load_oob = rebels_77 }
+#		}
+#		if = {
+#			limit = {
+#				78 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 78 size = 0 }	
+#			}
+#			FRA = { transfer_state = 78 }
+#			FRA = { load_oob = rebels_78 }
+#		}
+#		if = {
+#			limit = {
+#				79 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 79 size = 0 }	
+#			}
+#			FRA = { transfer_state = 79 }
+#			FRA = { load_oob = rebels_79 }
+#		}
+#		if = {
+#			limit = {
+#				80 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 80 size = 0 }	
+#			}
+#			FRA = { transfer_state = 80 }
+#			FRA = { load_oob = rebels_80 }
+#		}
+#		if = {
+#			limit = {
+#				81 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 81 size = 0 }	
+#			}
+#			FRA = { transfer_state = 81 }
+#			FRA = { load_oob = rebels_81 }
+#		}
+#		if = {
+#			limit = {
+#				82 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 82 size = 0 }	
+#			}
+#			FRA = { transfer_state = 82 }
+#			FRA = { load_oob = rebels_82 }
+#		}
+#		if = {
+#			limit = {
+#				83 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 83 size = 0 }	
+#			}
+#			FRA = { transfer_state = 83 }
+#			FRA = { load_oob = rebels_83 }
+#		}
+#		if = {
+#			limit = {
+#				84 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 84 size = 0 }	
+#			}
+#			FRA = { transfer_state = 84 }
+#			FRA = { load_oob = rebels_84 }
+#		}
+#		if = {
+#			limit = {
+#				85 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 85 size = 0 }	
+#			}
+#			FRA = { transfer_state = 85 }
+#			FRA = { load_oob = rebels_85 }
+#		}
+#		if = {
+#			limit = {
+#				86 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 86 size = 0 }	
+#			}
+#			FRA = { transfer_state = 86 }
+#			FRA = { load_oob = rebels_86 }
+#		}
+#		if = {
+#			limit = {
+#				87 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 87 size = 0 }	
+#			}
+#			FRA = { transfer_state = 87 }
+#			FRA = { load_oob = rebels_87 }
+#		}
+#		if = {
+#			limit = {
+#				88 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 88 size = 0 }	
+#			}
+#			FRA = { transfer_state = 88 }
+#			FRA = { load_oob = rebels_88 }
+#		}
+#		if = {
+#			limit = {
+#				89 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 89 size = 0 }	
+#			}
+#			FRA = { transfer_state = 89 }
+#			FRA = { load_oob = rebels_89 }
+#		}
+#		if = {
+#			limit = {
+#				90 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 90 size = 0 }	
+#			}
+#			FRA = { transfer_state = 90 }
+#			FRA = { load_oob = rebels_90 }
+#		}
+#		if = {
+#			limit = {
+#				91 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 91 size = 0 }	
+#			}
+#			FRA = { transfer_state = 91 }
+#			FRA = { load_oob = rebels_91 }
+#		}
+#		if = {
+#			limit = {
+#				92 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 92 size = 0 }	
+#			}
+#			FRA = { transfer_state = 92 }
+#			FRA = { load_oob = rebels_92 }
+#		}
+#		if = {
+#			limit = {
+#				93 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 93 size = 0 }	
+#			}
+#			FRA = { transfer_state = 93 }
+#			FRA = { load_oob = rebels_93 }
+#		}
+#		if = {
+#			limit = {
+#				94 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 94 size = 0 }	
+#			}
+#			FRA = { transfer_state = 94 }
+#			FRA = { load_oob = rebels_94 }
+#		}
+#		if = {
+#			limit = {
+#				95 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 95 size = 0 }	
+#			}
+#			FRA = { transfer_state = 95 }
+#			FRA = { load_oob = rebels_95 }
+#		}
+#		if = {
+#			limit = {
+#				96 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 96 size = 0 }	
+#			}
+#			FRA = { transfer_state = 96 }
+#			FRA = { load_oob = rebels_96 }
+#		}
+#		if = {
+#			limit = {
+#				97 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 97 size = 0 }	
+#			}
+#			FRA = { transfer_state = 97 }
+#			FRA = { load_oob = rebels_97 }
+#		}
+#		if = {
+#			limit = {
+#				98 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 98 size = 0 }	
+#			}
+#			FRA = { transfer_state = 98 }
+#			FRA = { load_oob = rebels_98 }
+#		}
+#		if = {
+#			limit = {
+#				99 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 99 size = 0 }	
+#			}
+#			FRA = { transfer_state = 99 }
+#			FRA = { load_oob = rebels_99 }
+#		}
+#		if = {
+#			limit = {
+#				100 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 100 size = 0 }	
+#			}
+#			FRA = { transfer_state = 100 }
+#			FRA = { load_oob = rebels_100 }
+#		}
+#		#########################################
+#		#########################################
+#		#########################################
+#		#########################################
+#		#########################################
+#		#########################################
+#		#########################################
+#		#########################################
+#		#########################################
+#		#########################################
+#		if = {
+#			limit = {
+#				101 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 101 size = 0 }	
+#			}
+#			FRA = { transfer_state = 101 }
+#			FRA = { load_oob = rebels_101 }
+#		}
+#		if = {
+#			limit = {
+#				102 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 102 size = 0 }	
+#			}
+#			FRA = { transfer_state = 102 }
+#			FRA = { load_oob = rebels_102 }
+#		}
+#		if = {
+#			limit = {
+#				103 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 103 size = 0 }	
+#			}
+#			FRA = { transfer_state = 103 }
+#			FRA = { load_oob = rebels_103 }
+#		}
+#		if = {
+#			limit = {
+#				104 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 104 size = 0 }	
+#			}
+#			FRA = { transfer_state = 104 }
+#			FRA = { load_oob = rebels_104 }
+#		}
+#		if = {
+#			limit = {
+#				105 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 105 size = 0 }	
+#			}
+#			FRA = { transfer_state = 105 }
+#			FRA = { load_oob = rebels_105 }
+#		}
+#		if = {
+#			limit = {
+#				106 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 106 size = 0 }	
+#			}
+#			FRA = { transfer_state = 106 }
+#			FRA = { load_oob = rebels_106 }
+#		}
+#		if = {
+#			limit = {
+#				107 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 107 size = 0 }	
+#			}
+#			FRA = { transfer_state = 107 }
+#			FRA = { load_oob = rebels_107 }
+#		}
+#		if = {
+#			limit = {
+#				108 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 108 size = 0 }	
+#			}
+#			FRA = { transfer_state = 108 }
+#			FRA = { load_oob = rebels_108 }
+#		}
+#		if = {
+#			limit = {
+#				109 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 109 size = 0 }	
+#			}
+#			FRA = { transfer_state = 109 }
+#			FRA = { load_oob = rebels_109 }
+#		}
+#		if = {
+#			limit = {
+#				110 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 110 size = 0 }	
+#			}
+#			FRA = { transfer_state = 110 }
+#			FRA = { load_oob = rebels_110 }
+#		}
+#		if = {
+#			limit = {
+#				111 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 111 size = 0 }	
+#			}
+#			FRA = { transfer_state = 111 }
+#			FRA = { load_oob = rebels_111 }
+#		}
+#		if = {
+#			limit = {
+#				112 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 112 size = 0 }	
+#			}
+#			FRA = { transfer_state = 112 }
+#			FRA = { load_oob = rebels_112 }
+#		}
+#		if = {
+#			limit = {
+#				113 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 113 size = 0 }	
+#			}
+#			FRA = { transfer_state = 113 }
+#			FRA = { load_oob = rebels_113 }
+#		}
+#		if = {
+#			limit = {
+#				114 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 114 size = 0 }	
+#			}
+#			FRA = { transfer_state = 114 }
+#			FRA = { load_oob = rebels_114 }
+#		}
+#		if = {
+#			limit = {
+#				115 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 115 size = 0 }	
+#			}
+#			FRA = { transfer_state = 115 }
+#			FRA = { load_oob = rebels_115 }
+#		}
+#		if = {
+#			limit = {
+#				116 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 116 size = 0 }	
+#			}
+#			FRA = { transfer_state = 116 }
+#			FRA = { load_oob = rebels_116 }
+#		}
+#		if = {
+#			limit = {
+#				117 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 117 size = 0 }	
+#			}
+#			FRA = { transfer_state = 117 }
+#			FRA = { load_oob = rebels_117 }
+#		}
+#		if = {
+#			limit = {
+#				118 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 118 size = 0 }	
+#			}
+#			FRA = { transfer_state = 118 }
+#			FRA = { load_oob = rebels_118 }
+#		}
+#		if = {
+#			limit = {
+#				119 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 119 size = 0 }	
+#			}
+#			FRA = { transfer_state = 119 }
+#			FRA = { load_oob = rebels_119 }
+#		}
+#		if = {
+#			limit = {
+#				120 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 120 size = 0 }	
+#			}
+#			FRA = { transfer_state = 120 }
+#			FRA = { load_oob = rebels_120 }
+#		}
+#		if = {
+#			limit = {
+#				121 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 121 size = 0 }	
+#			}
+#			FRA = { transfer_state = 121 }
+#			FRA = { load_oob = rebels_121 }
+#		}
+#		if = {
+#			limit = {
+#				122 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 122 size = 0 }	
+#			}
+#			FRA = { transfer_state = 122 }
+#			FRA = { load_oob = rebels_122 }
+#		}
+#		if = {
+#			limit = {
+#				123 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 123 size = 0 }	
+#			}
+#			FRA = { transfer_state = 123 }
+#			FRA = { load_oob = rebels_123 }
+#		}
+#		if = {
+#			limit = {
+#				124 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 124 size = 0 }	
+#			}
+#			FRA = { transfer_state = 124 }
+#			FRA = { load_oob = rebels_124 }
+#		}
+#		if = {
+#			limit = {
+#				125 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 125 size = 0 }	
+#			}
+#			FRA = { transfer_state = 125 }
+#			FRA = { load_oob = rebels_125 }
+#		}
+#		if = {
+#			limit = {
+#				126 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 126 size = 0 }	
+#			}
+#			FRA = { transfer_state = 126 }
+#			FRA = { load_oob = rebels_126 }
+#		}
+#		if = {
+#			limit = {
+#				127 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 127 size = 0 }	
+#			}
+#			FRA = { transfer_state = 127 }
+#			FRA = { load_oob = rebels_127 }
+#		}
+#		if = {
+#			limit = {
+#				128 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 128 size = 0 }	
+#			}
+#			FRA = { transfer_state = 128 }
+#			FRA = { load_oob = rebels_128 }
+#		}
+#		if = {
+#			limit = {
+#				129 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 129 size = 0 }	
+#			}
+#			FRA = { transfer_state = 129 }
+#			FRA = { load_oob = rebels_129 }
+#		}
+#		if = {
+#			limit = {
+#				130 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 130 size = 0 }	
+#			}
+#			FRA = { transfer_state = 130 }
+#			FRA = { load_oob = rebels_130 }
+#		}
+#		if = {
+#			limit = {
+#				131 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 131 size = 0 }	
+#			}
+#			FRA = { transfer_state = 131 }
+#			FRA = { load_oob = rebels_131 }
+#		}
+#		if = {
+#			limit = {
+#				132 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 132 size = 0 }	
+#			}
+#			FRA = { transfer_state = 132 }
+#			FRA = { load_oob = rebels_132 }
+#		}
+#		if = {
+#			limit = {
+#				133 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 133 size = 0 }	
+#			}
+#			FRA = { transfer_state = 133 }
+#			FRA = { load_oob = rebels_133 }
+#		}
+#		if = {
+#			limit = {
+#				134 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 134 size = 0 }	
+#			}
+#			FRA = { transfer_state = 134 }
+#			FRA = { load_oob = rebels_134 }
+#		}
+#		if = {
+#			limit = {
+#				135 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 135 size = 0 }	
+#			}
+#			FRA = { transfer_state = 135 }
+#			FRA = { load_oob = rebels_135 }
+#		}
+#		if = {
+#			limit = {
+#				136 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 136 size = 0 }	
+#			}
+#			FRA = { transfer_state = 136 }
+#			FRA = { load_oob = rebels_136 }
+#		}
+#		if = {
+#			limit = {
+#				137 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 137 size = 0 }	
+#			}
+#			FRA = { transfer_state = 137 }
+#			FRA = { load_oob = rebels_137 }
+#		}
+#		if = {
+#			limit = {
+#				138 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 138 size = 0 }	
+#			}
+#			FRA = { transfer_state = 138 }
+#			FRA = { load_oob = rebels_138 }
+#		}
+#		if = {
+#			limit = {
+#				139 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 139 size = 0 }	
+#			}
+#			FRA = { transfer_state = 139 }
+#			FRA = { load_oob = rebels_139 }
+#		}
+#		if = {
+#			limit = {
+#				140 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 140 size = 0 }	
+#			}
+#			FRA = { transfer_state = 140 }
+#			FRA = { load_oob = rebels_140 }
+#		}
+#		if = {
+#			limit = {
+#				141 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 141 size = 0 }	
+#			}
+#			FRA = { transfer_state = 141 }
+#			FRA = { load_oob = rebels_141 }
+#		}
+#		if = {
+#			limit = {
+#				142 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 142 size = 0 }	
+#			}
+#			FRA = { transfer_state = 142 }
+#			FRA = { load_oob = rebels_142 }
+#		}
+#		if = {
+#			limit = {
+#				143 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 143 size = 0 }	
+#			}
+#			FRA = { transfer_state = 143 }
+#			FRA = { load_oob = rebels_143 }
+#		}
+#		if = {
+#			limit = {
+#				144 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 144 size = 0 }	
+#			}
+#			FRA = { transfer_state = 144 }
+#			FRA = { load_oob = rebels_144 }
+#		}
+#		if = {
+#			limit = {
+#				145 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 145 size = 0 }	
+#			}
+#			FRA = { transfer_state = 145 }
+#			FRA = { load_oob = rebels_145 }
+#		}
+#		if = {
+#			limit = {
+#				146 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 146 size = 0 }	
+#			}
+#			FRA = { transfer_state = 146 }
+#			FRA = { load_oob = rebels_146 }
+#		}
+#		if = {
+#			limit = {
+#				147 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 147 size = 0 }	
+#			}
+#			FRA = { transfer_state = 147 }
+#			FRA = { load_oob = rebels_147 }
+#		}
+#		if = {
+#			limit = {
+#				148 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 148 size = 0 }	
+#			}
+#			FRA = { transfer_state = 148 }
+#			FRA = { load_oob = rebels_148 }
+#		}
+#		if = {
+#			limit = {
+#				149 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 149 size = 0 }	
+#			}
+#			FRA = { transfer_state = 149 }
+#			FRA = { load_oob = rebels_149 }
+#		}
+#		if = {
+#			limit = {
+#				150 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 150 size = 0 }	
+#			}
+#			FRA = { transfer_state = 150 }
+#			FRA = { load_oob = rebels_150 }
+#		}
+#		if = {
+#			limit = {
+#				151 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 151 size = 0 }	
+#			}
+#			FRA = { transfer_state = 151 }
+#			FRA = { load_oob = rebels_151 }
+#		}
+#		if = {
+#			limit = {
+#				152 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 152 size = 0 }	
+#			}
+#			FRA = { transfer_state = 152 }
+#			FRA = { load_oob = rebels_152 }
+#		}
+#		if = {
+#			limit = {
+#				153 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 153 size = 0 }	
+#			}
+#			FRA = { transfer_state = 153 }
+#			FRA = { load_oob = rebels_153 }
+#		}
+#		if = {
+#			limit = {
+#				154 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 154 size = 0 }	
+#			}
+#			FRA = { transfer_state = 154 }
+#			FRA = { load_oob = rebels_154 }
+#		}
+#		if = {
+#			limit = {
+#				155 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 155 size = 0 }	
+#			}
+#			FRA = { transfer_state = 155 }
+#			FRA = { load_oob = rebels_155 }
+#		}
+#		if = {
+#			limit = {
+#				156 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 156 size = 0 }	
+#			}
+#			FRA = { transfer_state = 156 }
+#			FRA = { load_oob = rebels_156 }
+#		}
+#		if = {
+#			limit = {
+#				157 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 157 size = 0 }	
+#			}
+#			FRA = { transfer_state = 157 }
+#			FRA = { load_oob = rebels_157 }
+#		}
+#		if = {
+#			limit = {
+#				158 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 158 size = 0 }	
+#			}
+#			FRA = { transfer_state = 158 }
+#			FRA = { load_oob = rebels_158 }
+#		}
+#		if = {
+#			limit = {
+#				159 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 159 size = 0 }	
+#			}
+#			FRA = { transfer_state = 159 }
+#			FRA = { load_oob = rebels_159 }
+#		}
+#		if = {
+#			limit = {
+#				160 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 160 size = 0 }	
+#			}
+#			FRA = { transfer_state = 160 }
+#			FRA = { load_oob = rebels_160 }
+#		}
+#		if = {
+#			limit = {
+#				161 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 161 size = 0 }	
+#			}
+#			FRA = { transfer_state = 161 }
+#			FRA = { load_oob = rebels_161 }
+#		}
+#		if = {
+#			limit = {
+#				162 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 162 size = 0 }	
+#			}
+#			FRA = { transfer_state = 162 }
+#			FRA = { load_oob = rebels_162 }
+#		}
+#		if = {
+#			limit = {
+#				163 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 163 size = 0 }	
+#			}
+#			FRA = { transfer_state = 163 }
+#			FRA = { load_oob = rebels_163 }
+#		}
+#		if = {
+#			limit = {
+#				164 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 164 size = 0 }	
+#			}
+#			FRA = { transfer_state = 164 }
+#			FRA = { load_oob = rebels_164 }
+#		}
+#		if = {
+#			limit = {
+#				165 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 165 size = 0 }	
+#			}
+#			FRA = { transfer_state = 165 }
+#			FRA = { load_oob = rebels_165 }
+#		}
+#		if = {
+#			limit = {
+#				166 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 166 size = 0 }	
+#			}
+#			FRA = { transfer_state = 166 }
+#			FRA = { load_oob = rebels_166 }
+#		}
+#		if = {
+#			limit = {
+#				167 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 167 size = 0 }	
+#			}
+#			FRA = { transfer_state = 167 }
+#			FRA = { load_oob = rebels_167 }
+#		}
+#		if = {
+#			limit = {
+#				168 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 168 size = 0 }	
+#			}
+#			FRA = { transfer_state = 168 }
+#			FRA = { load_oob = rebels_168 }
+#		}
+#		if = {
+#			limit = {
+#				169 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 169 size = 0 }	
+#			}
+#			FRA = { transfer_state = 169 }
+#			FRA = { load_oob = rebels_169 }
+#		}
+#		if = {
+#			limit = {
+#				170 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 170 size = 0 }	
+#			}
+#			FRA = { transfer_state = 170 }
+#			FRA = { load_oob = rebels_170 }
+#		}
+#		if = {
+#			limit = {
+#				171 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 171 size = 0 }	
+#			}
+#			FRA = { transfer_state = 171 }
+#			FRA = { load_oob = rebels_171 }
+#		}
+#		if = {
+#			limit = {
+#				172 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 172 size = 0 }	
+#			}
+#			FRA = { transfer_state = 172 }
+#			FRA = { load_oob = rebels_172 }
+#		}
+#		if = {
+#			limit = {
+#				173 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 173 size = 0 }	
+#			}
+#			FRA = { transfer_state = 173 }
+#			FRA = { load_oob = rebels_173 }
+#		}
+#		if = {
+#			limit = {
+#				174 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 174 size = 0 }	
+#			}
+#			FRA = { transfer_state = 174 }
+#			FRA = { load_oob = rebels_174 }
+#		}
+#		if = {
+#			limit = {
+#				175 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 175 size = 0 }	
+#			}
+#			FRA = { transfer_state = 175 }
+#			FRA = { load_oob = rebels_175 }
+#		}
+#		if = {
+#			limit = {
+#				176 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 176 size = 0 }	
+#			}
+#			FRA = { transfer_state = 176 }
+#			FRA = { load_oob = rebels_176 }
+#		}
+#		if = {
+#			limit = {
+#				177 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 177 size = 0 }	
+#			}
+#			FRA = { transfer_state = 177 }
+#			FRA = { load_oob = rebels_177 }
+#		}
+#		if = {
+#			limit = {
+#				178 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 178 size = 0 }	
+#			}
+#			FRA = { transfer_state = 178 }
+#			FRA = { load_oob = rebels_178 }
+#		}
+#		if = {
+#			limit = {
+#				179 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 179 size = 0 }	
+#			}
+#			FRA = { transfer_state = 179 }
+#			FRA = { load_oob = rebels_179 }
+#		}
+#		if = {
+#			limit = {
+#				180 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 180 size = 0 }	
+#			}
+#			FRA = { transfer_state = 180 }
+#			FRA = { load_oob = rebels_180 }
+#		}
+#		if = {
+#			limit = {
+#				181 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 181 size = 0 }	
+#			}
+#			FRA = { transfer_state = 181 }
+#			FRA = { load_oob = rebels_181 }
+#		}
+#		if = {
+#			limit = {
+#				182 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 182 size = 0 }	
+#			}
+#			FRA = { transfer_state = 182 }
+#			FRA = { load_oob = rebels_182 }
+#		}
+#		if = {
+#			limit = {
+#				183 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 183 size = 0 }	
+#			}
+#			FRA = { transfer_state = 183 }
+#			FRA = { load_oob = rebels_183 }
+#		}
+#		if = {
+#			limit = {
+#				184 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 184 size = 0 }	
+#			}
+#			FRA = { transfer_state = 184 }
+#			FRA = { load_oob = rebels_184 }
+#		}
+#		if = {
+#			limit = {
+#				185 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 185 size = 0 }	
+#			}
+#			FRA = { transfer_state = 185 }
+#			FRA = { load_oob = rebels_185 }
+#		}
+#		if = {
+#			limit = {
+#				186 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 186 size = 0 }	
+#			}
+#			FRA = { transfer_state = 186 }
+#			FRA = { load_oob = rebels_186 }
+#		}
+#		if = {
+#			limit = {
+#				187 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 187 size = 0 }	
+#			}
+#			FRA = { transfer_state = 187 }
+#			FRA = { load_oob = rebels_187 }
+#		}
+#		if = {
+#			limit = {
+#				188 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 188 size = 0 }	
+#			}
+#			FRA = { transfer_state = 188 }
+#			FRA = { load_oob = rebels_188 }
+#		}
+#		if = {
+#			limit = {
+#				189 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 189 size = 0 }	
+#			}
+#			FRA = { transfer_state = 189 }
+#			FRA = { load_oob = rebels_189 }
+#		}
+#		if = {
+#			limit = {
+#				190 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 190 size = 0 }	
+#			}
+#			FRA = { transfer_state = 190 }
+#			FRA = { load_oob = rebels_190 }
+#		}
+#		if = {
+#			limit = {
+#				191 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 191 size = 0 }	
+#			}
+#			FRA = { transfer_state = 191 }
+#			FRA = { load_oob = rebels_191 }
+#		}
+#		if = {
+#			limit = {
+#				192 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 192 size = 0 }	
+#			}
+#			FRA = { transfer_state = 192 }
+#			FRA = { load_oob = rebels_192 }
+#		}
+#		if = {
+#			limit = {
+#				193 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 193 size = 0 }	
+#			}
+#			FRA = { transfer_state = 193 }
+#			FRA = { load_oob = rebels_193 }
+#		}
+#		if = {
+#			limit = {
+#				194 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 194 size = 0 }	
+#			}
+#			FRA = { transfer_state = 194 }
+#			FRA = { load_oob = rebels_194 }
+#		}
+#		if = {
+#			limit = {
+#				195 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 195 size = 0 }	
+#			}
+#			FRA = { transfer_state = 195 }
+#			FRA = { load_oob = rebels_195 }
+#		}
+#		if = {
+#			limit = {
+#				196 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 196 size = 0 }	
+#			}
+#			FRA = { transfer_state = 196 }
+#			FRA = { load_oob = rebels_196 }
+#		}
+#		if = {
+#			limit = {
+#				197 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 197 size = 0 }	
+#			}
+#			FRA = { transfer_state = 197 }
+#			FRA = { load_oob = rebels_197 }
+#		}
+#		if = {
+#			limit = {
+#				198 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 198 size = 0 }	
+#			}
+#			FRA = { transfer_state = 198 }
+#			FRA = { load_oob = rebels_198 }
+#		}
+#		if = {
+#			limit = {
+#				199 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 199 size = 0 }	
+#			}
+#			FRA = { transfer_state = 199 }
+#			FRA = { load_oob = rebels_199 }
+#		}
+#		if = {
+#			limit = {
+#				200 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 200 size = 0 }	
+#			}
+#			FRA = { transfer_state = 200 }
+#			FRA = { load_oob = rebels_200 }
+#		}
+#		#########################################
+#		#########################################
+#		#########################################
+#		#########################################
+#		#########################################
+#		#########################################
+#		#########################################
+#		#########################################
+#		#########################################
+#		#########################################
+#if = {
+#			limit = {
+#				202 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 202 size < 2 }	
+#			}
+#			FRA = { transfer_state = 202 }
+#			FRA = { load_oob = rebels_202 }
+#		}
+#		if = {
+#			limit = {
+#				202 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 202 size < 2 }	
+#			}
+#			FRA = { transfer_state = 202 }
+#			FRA = { load_oob = rebels_202 }
+#		}
+#		if = {
+#			limit = {
+#				203 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 203 size < 2 }	
+#			}
+#			FRA = { transfer_state = 203 }
+#			FRA = { load_oob = rebels_203 }
+#		}
+#		if = {
+#			limit = {
+#				204 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 204 size < 2 }	
+#			}
+#			FRA = { transfer_state = 204 }
+#			FRA = { load_oob = rebels_204 }
+#		}
+#		if = {
+#			limit = {
+#				205 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 205 size < 2 }	
+#			}
+#			FRA = { transfer_state = 205 }
+#			FRA = { load_oob = rebels_205 }
+#		}
+#		if = {
+#			limit = {
+#				206 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 206 size < 2 }	
+#			}
+#			FRA = { transfer_state = 206 }
+#			FRA = { load_oob = rebels_206 }
+#		}
+#		if = {
+#			limit = {
+#				207 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 207 size < 2 }	
+#			}
+#			FRA = { transfer_state = 207 }
+#			FRA = { load_oob = rebels_207 }
+#		}
+#		if = {
+#			limit = {
+#				208 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 208 size < 2 }	
+#			}
+#			FRA = { transfer_state = 208 }
+#			FRA = { load_oob = rebels_208 }
+#		}
+#		if = {
+#			limit = {
+#				209 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 209 size < 2 }	
+#			}
+#			FRA = { transfer_state = 209 }
+#			FRA = { load_oob = rebels_209 }
+#		}
+#		if = {
+#			limit = {
+#				220 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 220 size < 2 }	
+#			}
+#			FRA = { transfer_state = 220 }
+#			FRA = { load_oob = rebels_220 }
+#		}
+#		if = {
+#			limit = {
+#				222 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 222 size < 2 }	
+#			}
+#			FRA = { transfer_state = 222 }
+#			FRA = { load_oob = rebels_222 }
+#		}
+#		if = {
+#			limit = {
+#				222 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 222 size < 2 }	
+#			}
+#			FRA = { transfer_state = 222 }
+#			FRA = { load_oob = rebels_222 }
+#		}
+#		if = {
+#			limit = {
+#				223 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 223 size < 2 }	
+#			}
+#			FRA = { transfer_state = 223 }
+#			FRA = { load_oob = rebels_223 }
+#		}
+#		if = {
+#			limit = {
+#				224 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 224 size < 2 }	
+#			}
+#			FRA = { transfer_state = 224 }
+#			FRA = { load_oob = rebels_224 }
+#		}
+#		if = {
+#			limit = {
+#				225 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 225 size < 2 }	
+#			}
+#			FRA = { transfer_state = 225 }
+#			FRA = { load_oob = rebels_225 }
+#		}
+#		if = {
+#			limit = {
+#				226 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 226 size < 2 }	
+#			}
+#			FRA = { transfer_state = 226 }
+#			FRA = { load_oob = rebels_226 }
+#		}
+#		if = {
+#			limit = {
+#				227 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 227 size < 2 }	
+#			}
+#			FRA = { transfer_state = 227 }
+#			FRA = { load_oob = rebels_227 }
+#		}
+#		if = {
+#			limit = {
+#				228 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 228 size < 2 }	
+#			}
+#			FRA = { transfer_state = 228 }
+#			FRA = { load_oob = rebels_228 }
+#		}
+#		if = {
+#			limit = {
+#				229 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 229 size < 2 }	
+#			}
+#			FRA = { transfer_state = 229 }
+#			FRA = { load_oob = rebels_229 }
+#		}
+#		if = {
+#			limit = {
+#				220 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 220 size < 2 }	
+#			}
+#			FRA = { transfer_state = 220 }
+#			FRA = { load_oob = rebels_220 }
+#		}
+#		if = {
+#			limit = {
+#				222 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 222 size < 2 }	
+#			}
+#			FRA = { transfer_state = 222 }
+#			FRA = { load_oob = rebels_222 }
+#		}
+#		if = {
+#			limit = {
+#				222 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 222 size < 2 }	
+#			}
+#			FRA = { transfer_state = 222 }
+#			FRA = { load_oob = rebels_222 }
+#		}
+#		if = {
+#			limit = {
+#				223 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 223 size < 2 }	
+#			}
+#			FRA = { transfer_state = 223 }
+#			FRA = { load_oob = rebels_223 }
+#		}
+#		if = {
+#			limit = {
+#				224 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 224 size < 2 }	
+#			}
+#			FRA = { transfer_state = 224 }
+#			FRA = { load_oob = rebels_224 }
+#		}
+#		if = {
+#			limit = {
+#				225 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 225 size < 2 }	
+#			}
+#			FRA = { transfer_state = 225 }
+#			FRA = { load_oob = rebels_225 }
+#		}
+#		if = {
+#			limit = {
+#				226 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 226 size < 2 }	
+#			}
+#			FRA = { transfer_state = 226 }
+#			FRA = { load_oob = rebels_226 }
+#		}
+#		if = {
+#			limit = {
+#				227 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 227 size < 2 }	
+#			}
+#			FRA = { transfer_state = 227 }
+#			FRA = { load_oob = rebels_227 }
+#		}
+#		if = {
+#			limit = {
+#				228 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 228 size < 2 }	
+#			}
+#			FRA = { transfer_state = 228 }
+#			FRA = { load_oob = rebels_228 }
+#		}
+#		if = {
+#			limit = {
+#				229 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 229 size < 2 }	
+#			}
+#			FRA = { transfer_state = 229 }
+#			FRA = { load_oob = rebels_229 }
+#		}
+#		if = {
+#			limit = {
+#				230 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 230 size < 2 }	
+#			}
+#			FRA = { transfer_state = 230 }
+#			FRA = { load_oob = rebels_230 }
+#		}
+#		if = {
+#			limit = {
+#				232 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 232 size < 2 }	
+#			}
+#			FRA = { transfer_state = 232 }
+#			FRA = { load_oob = rebels_232 }
+#		}
+#		if = {
+#			limit = {
+#				232 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 232 size < 2 }	
+#			}
+#			FRA = { transfer_state = 232 }
+#			FRA = { load_oob = rebels_232 }
+#		}
+#		if = {
+#			limit = {
+#				233 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 233 size < 2 }	
+#			}
+#			FRA = { transfer_state = 233 }
+#			FRA = { load_oob = rebels_233 }
+#		}
+#		if = {
+#			limit = {
+#				234 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 234 size < 2 }	
+#			}
+#			FRA = { transfer_state = 234 }
+#			FRA = { load_oob = rebels_234 }
+#		}
+#		if = {
+#			limit = {
+#				235 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 235 size < 2 }	
+#			}
+#			FRA = { transfer_state = 235 }
+#			FRA = { load_oob = rebels_235 }
+#		}
+#		if = {
+#			limit = {
+#				236 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 236 size < 2 }	
+#			}
+#			FRA = { transfer_state = 236 }
+#			FRA = { load_oob = rebels_236 }
+#		}
+#		if = {
+#			limit = {
+#				237 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 237 size < 2 }	
+#			}
+#			FRA = { transfer_state = 237 }
+#			FRA = { load_oob = rebels_237 }
+#		}
+#		if = {
+#			limit = {
+#				238 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 238 size < 2 }	
+#			}
+#			FRA = { transfer_state = 238 }
+#			FRA = { load_oob = rebels_238 }
+#		}
+#		if = {
+#			limit = {
+#				239 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 239 size < 2 }	
+#			}
+#			FRA = { transfer_state = 239 }
+#			FRA = { load_oob = rebels_239 }
+#		}
+#		if = {
+#			limit = {
+#				240 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 240 size < 2 }	
+#			}
+#			FRA = { transfer_state = 240 }
+#			FRA = { load_oob = rebels_240 }
+#		}
+#		if = {
+#			limit = {
+#				242 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 242 size < 2 }	
+#			}
+#			FRA = { transfer_state = 242 }
+#			FRA = { load_oob = rebels_242 }
+#		}
+#		if = {
+#			limit = {
+#				242 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 242 size < 2 }	
+#			}
+#			FRA = { transfer_state = 242 }
+#			FRA = { load_oob = rebels_242 }
+#		}
+#		if = {
+#			limit = {
+#				243 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 243 size < 2 }	
+#			}
+#			FRA = { transfer_state = 243 }
+#			FRA = { load_oob = rebels_243 }
+#		}
+#		if = {
+#			limit = {
+#				244 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 244 size < 2 }	
+#			}
+#			FRA = { transfer_state = 244 }
+#			FRA = { load_oob = rebels_244 }
+#		}
+#		if = {
+#			limit = {
+#				245 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 245 size < 2 }	
+#			}
+#			FRA = { transfer_state = 245 }
+#			FRA = { load_oob = rebels_245 }
+#		}
+#		if = {
+#			limit = {
+#				246 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 246 size < 2 }	
+#			}
+#			FRA = { transfer_state = 246 }
+#			FRA = { load_oob = rebels_246 }
+#		}
+#		if = {
+#			limit = {
+#				247 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 247 size < 2 }	
+#			}
+#			FRA = { transfer_state = 247 }
+#			FRA = { load_oob = rebels_247 }
+#		}
+#		if = {
+#			limit = {
+#				248 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 248 size < 2 }	
+#			}
+#			FRA = { transfer_state = 248 }
+#			FRA = { load_oob = rebels_248 }
+#		}
+#		if = {
+#			limit = {
+#				249 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 249 size < 2 }	
+#			}
+#			FRA = { transfer_state = 249 }
+#			FRA = { load_oob = rebels_249 }
+#		}
+#		if = {
+#			limit = {
+#				250 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 250 size < 2 }	
+#			}
+#			FRA = { transfer_state = 250 }
+#			FRA = { load_oob = rebels_250 }
+#		}
+#		if = {
+#			limit = {
+#				252 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 252 size < 2 }	
+#			}
+#			FRA = { transfer_state = 252 }
+#			FRA = { load_oob = rebels_252 }
+#		}
+#		if = {
+#			limit = {
+#				252 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 252 size < 2 }	
+#			}
+#			FRA = { transfer_state = 252 }
+#			FRA = { load_oob = rebels_252 }
+#		}
+#		if = {
+#			limit = {
+#				253 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 253 size < 2 }	
+#			}
+#			FRA = { transfer_state = 253 }
+#			FRA = { load_oob = rebels_253 }
+#		}
+#		if = {
+#			limit = {
+#				254 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 254 size < 2 }	
+#			}
+#			FRA = { transfer_state = 254 }
+#			FRA = { load_oob = rebels_254 }
+#		}
+#		if = {
+#			limit = {
+#				255 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 255 size < 2 }	
+#			}
+#			FRA = { transfer_state = 255 }
+#			FRA = { load_oob = rebels_255 }
+#		}
+#		if = {
+#			limit = {
+#				256 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 256 size < 2 }	
+#			}
+#			FRA = { transfer_state = 256 }
+#			FRA = { load_oob = rebels_256 }
+#		}
+#		if = {
+#			limit = {
+#				257 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 257 size < 2 }	
+#			}
+#			FRA = { transfer_state = 257 }
+#			FRA = { load_oob = rebels_257 }
+#		}
+#		if = {
+#			limit = {
+#				258 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 258 size < 2 }	
+#			}
+#			FRA = { transfer_state = 258 }
+#			FRA = { load_oob = rebels_258 }
+#		}
+#		if = {
+#			limit = {
+#				259 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 259 size < 2 }	
+#			}
+#			FRA = { transfer_state = 259 }
+#			FRA = { load_oob = rebels_259 }
+#		}
+#		if = {
+#			limit = {
+#				260 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 260 size < 2 }	
+#			}
+#			FRA = { transfer_state = 260 }
+#			FRA = { load_oob = rebels_260 }
+#		}
+#		if = {
+#			limit = {
+#				262 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 262 size < 2 }	
+#			}
+#			FRA = { transfer_state = 262 }
+#			FRA = { load_oob = rebels_262 }
+#		}
+#		if = {
+#			limit = {
+#				262 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 262 size < 2 }	
+#			}
+#			FRA = { transfer_state = 262 }
+#			FRA = { load_oob = rebels_262 }
+#		}
+#		if = {
+#			limit = {
+#				263 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 263 size < 2 }	
+#			}
+#			FRA = { transfer_state = 263 }
+#			FRA = { load_oob = rebels_263 }
+#		}
+#		if = {
+#			limit = {
+#				264 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 264 size < 2 }	
+#			}
+#			FRA = { transfer_state = 264 }
+#			FRA = { load_oob = rebels_264 }
+#		}
+#		if = {
+#			limit = {
+#				265 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 265 size < 2 }	
+#			}
+#			FRA = { transfer_state = 265 }
+#			FRA = { load_oob = rebels_265 }
+#		}
+#		if = {
+#			limit = {
+#				266 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 266 size < 2 }	
+#			}
+#			FRA = { transfer_state = 266 }
+#			FRA = { load_oob = rebels_266 }
+#		}
+#		if = {
+#			limit = {
+#				267 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 267 size < 2 }	
+#			}
+#			FRA = { transfer_state = 267 }
+#			FRA = { load_oob = rebels_267 }
+#		}
+#		if = {
+#			limit = {
+#				268 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 268 size < 2 }	
+#			}
+#			FRA = { transfer_state = 268 }
+#			FRA = { load_oob = rebels_268 }
+#		}
+#		if = {
+#			limit = {
+#				269 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 269 size < 2 }	
+#			}
+#			FRA = { transfer_state = 269 }
+#			FRA = { load_oob = rebels_269 }
+#		}
+#		if = {
+#			limit = {
+#				270 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 270 size < 2 }	
+#			}
+#			FRA = { transfer_state = 270 }
+#			FRA = { load_oob = rebels_270 }
+#		}
+#		if = {
+#			limit = {
+#				272 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 272 size < 2 }	
+#			}
+#			FRA = { transfer_state = 272 }
+#			FRA = { load_oob = rebels_272 }
+#		}
+#		if = {
+#			limit = {
+#				272 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 272 size < 2 }	
+#			}
+#			FRA = { transfer_state = 272 }
+#			FRA = { load_oob = rebels_272 }
+#		}
+#		if = {
+#			limit = {
+#				273 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 273 size < 2 }	
+#			}
+#			FRA = { transfer_state = 273 }
+#			FRA = { load_oob = rebels_273 }
+#		}
+#		if = {
+#			limit = {
+#				274 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 274 size < 2 }	
+#			}
+#			FRA = { transfer_state = 274 }
+#			FRA = { load_oob = rebels_274 }
+#		}
+#		if = {
+#			limit = {
+#				275 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 275 size < 2 }	
+#			}
+#			FRA = { transfer_state = 275 }
+#			FRA = { load_oob = rebels_275 }
+#		}
+#		if = {
+#			limit = {
+#				276 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 276 size < 2 }	
+#			}
+#			FRA = { transfer_state = 276 }
+#			FRA = { load_oob = rebels_276 }
+#		}
+#		if = {
+#			limit = {
+#				277 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 277 size = 0 }	
+#			}
+#			FRA = { transfer_state = 277 }
+#			FRA = { load_oob = rebels_277 }
+#		}
+#		if = {
+#			limit = {
+#				278 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 278 size = 0 }	
+#			}
+#			FRA = { transfer_state = 278 }
+#			FRA = { load_oob = rebels_278 }
+#		}
+#		if = {
+#			limit = {
+#				279 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 279 size = 0 }	
+#			}
+#			FRA = { transfer_state = 279 }
+#			FRA = { load_oob = rebels_279 }
+#		}
+#		if = {
+#			limit = {
+#				280 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 280 size = 0 }	
+#			}
+#			FRA = { transfer_state = 280 }
+#			FRA = { load_oob = rebels_280 }
+#		}
+#		if = {
+#			limit = {
+#				281 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 281 size = 0 }	
+#			}
+#			FRA = { transfer_state = 281 }
+#			FRA = { load_oob = rebels_281 }
+#		}
+#		if = {
+#			limit = {
+#				282 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 282 size = 0 }	
+#			}
+#			FRA = { transfer_state = 282 }
+#			FRA = { load_oob = rebels_282 }
+#		}
+#		if = {
+#			limit = {
+#				283 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 283 size = 0 }	
+#			}
+#			FRA = { transfer_state = 283 }
+#			FRA = { load_oob = rebels_283 }
+#		}
+#		if = {
+#			limit = {
+#				284 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 284 size = 0 }	
+#			}
+#			FRA = { transfer_state = 284 }
+#			FRA = { load_oob = rebels_284 }
+#		}
+#		if = {
+#			limit = {
+#				285 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 285 size = 0 }	
+#			}
+#			FRA = { transfer_state = 285 }
+#			FRA = { load_oob = rebels_285 }
+#		}
+#		if = {
+#			limit = {
+#				286 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 286 size = 0 }	
+#			}
+#			FRA = { transfer_state = 286 }
+#			FRA = { load_oob = rebels_286 }
+#		}
+#		if = {
+#			limit = {
+#				287 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 287 size = 0 }	
+#			}
+#			FRA = { transfer_state = 287 }
+#			FRA = { load_oob = rebels_287 }
+#		}
+#		if = {
+#			limit = {
+#				288 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 288 size = 0 }	
+#			}
+#			FRA = { transfer_state = 288 }
+#			FRA = { load_oob = rebels_288 }
+#		}
+#		if = {
+#			limit = {
+#				289 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 289 size = 0 }	
+#			}
+#			FRA = { transfer_state = 289 }
+#			FRA = { load_oob = rebels_289 }
+#		}
+#		if = {
+#			limit = {
+#				290 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 290 size = 0 }	
+#			}
+#			FRA = { transfer_state = 290 }
+#			FRA = { load_oob = rebels_290 }
+#		}
+#		if = {
+#			limit = {
+#				291 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 291 size = 0 }	
+#			}
+#			FRA = { transfer_state = 291 }
+#			FRA = { load_oob = rebels_291 }
+#		}
+#		if = {
+#			limit = {
+#				292 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 292 size = 0 }	
+#			}
+#			FRA = { transfer_state = 292 }
+#			FRA = { load_oob = rebels_292 }
+#		}
+#		if = {
+#			limit = {
+#				293 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 293 size = 0 }	
+#			}
+#			FRA = { transfer_state = 293 }
+#			FRA = { load_oob = rebels_293 }
+#		}
+#		if = {
+#			limit = {
+#				294 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 294 size = 0 }	
+#			}
+#			FRA = { transfer_state = 294 }
+#			FRA = { load_oob = rebels_294 }
+#		}
+#		if = {
+#			limit = {
+#				295 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 295 size = 0 }	
+#			}
+#			FRA = { transfer_state = 295 }
+#			FRA = { load_oob = rebels_295 }
+#		}
+#		if = {
+#			limit = {
+#				296 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 296 size = 0 }	
+#			}
+#			FRA = { transfer_state = 296 }
+#			FRA = { load_oob = rebels_296 }
+#		}
+#		if = {
+#			limit = {
+#				297 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 297 size = 0 }	
+#			}
+#			FRA = { transfer_state = 297 }
+#			FRA = { load_oob = rebels_297 }
+#		}
+#		if = {
+#			limit = {
+#				298 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 298 size = 0 }	
+#			}
+#			FRA = { transfer_state = 298 }
+#			FRA = { load_oob = rebels_298 }
+#		}
+#		if = {
+#			limit = {
+#				299 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 299 size = 0 }	
+#			}
+#			FRA = { transfer_state = 299 }
+#			FRA = { load_oob = rebels_299 }
+#		}
+#		if = {
+#			limit = {
+#				300 = {
+#					is_core_of = FRA
+#					is_owned_by = ROOT
+#				}
+#				divisions_in_state = { state = 200 size = 0 }	
+#			}
+#			FRA = { transfer_state = 200 }
+#			FRA = { load_oob = rebels_200 }
+#		}
+#		#BOTTOM
+#		FRA = {
+#			add_ideas = { 
+#				revolutionary_country
+#			}
+#			add_timed_idea = { idea = revanchism days = 465 }
+#			set_cosmetic_tag = FRA_revolutionary
+#		}
+#	}
+#	
+#	option = {
+#		name = rebel.1.a
+#		if = {
+#			limit = {
+#				any_owned_state = {
+#					is_controlled_by = FRA
+#				}
+#			}
+#			declare_war_on = { target = ROOT type = annex_everything }
+#		}
+#	}
+#}
