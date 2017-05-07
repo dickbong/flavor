@@ -2277,3 +2277,67 @@ country_event = {
 		ROOT = { add_opinion_modifier = { target = JAP modifier = medium_decrease } }
 	}
 }
+
+#XINJIANG WARS
+
+country_event = { #Uyghur Rebellion
+	id = china.6973
+	title = china.6973.t
+	desc = china.6973.d
+	picture = GFX_report_event_chinese_army_training
+	fire_only_once = yes
+	
+	trigger = {
+		date < 1937.4.2
+		tag = SIK
+	}
+	immediate = {
+		UYG = { transfer_state = 619 }	
+	}
+	
+	option = { #UYGHUR REBELLION
+		name = china.6973.a
+		XSM = { country_event = { id = china.6974 days = 1 } }
+		hidden_effect = { news_event = { id = news.1025  days = 1 } }
+		set_global_flag = xinjiang_wars
+		UYG = { declare_war_on = { target = SIK type = annex_everything } }
+	}
+}
+
+country_event = { #Uyghur Rebellion
+	id = china.6974
+	title = china.6974.t
+	desc = china.6974.d
+	picture = GFX_report_event_chinese_army_training
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { #help the uyghurs
+		name = china.6974.a
+		set_global_flag = xinjiang_wars_pledge
+	}
+	option = { #don't help the uyghurs
+		name = china.6974.b
+		
+	}
+}
+
+country_event = { #Uyghur Rebellion
+	id = china.6975
+	title = china.6975.t
+	desc = china.6975.d
+	picture = GFX_report_event_chinese_army_training
+	fire_only_once = yes
+	
+	trigger = {
+		has_global_flag = xinjiang_wars
+		has_global_flag = xinjiang_wars_pledge
+		has_government = neutrality
+		tag = UYG
+	}
+	
+	option = { #UYGHUR REBELLION
+		name = china.6975.a
+		XSM = { add_to_war = { targeted_alliance = UYG enemy = SIK } }
+	}
+}

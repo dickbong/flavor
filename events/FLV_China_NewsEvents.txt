@@ -711,36 +711,6 @@ news_event = {
 }
 
 news_event = {
-	id = news.1023
-	title = news.1023.t
-	desc = news.1023.d
-	picture = GFX_news_event_1023
-	
-	major = yes
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = news.1023.a
-		trigger = {
-			NOT = {
-				OR = {
-					TAG = CHI
-				}
-			}
-		}
-	}
-	option = {
-		name = news.1023.b
-		trigger = { 
-			OR = {
-				TAG = CHI
-			}
-		}
-	}
-}
-
-news_event = {
 	id = news.1024
 	title = news.1024.t
 	desc = news.1024.d
@@ -767,5 +737,20 @@ news_event = {
 				TAG = CHI
 			}
 		}
+	}
+}
+
+news_event = {
+	id = news.1025
+	title = news.1025.t
+	desc = news.1025.d
+	picture = GFX_news_event_1024
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1025.a
 	}
 }
