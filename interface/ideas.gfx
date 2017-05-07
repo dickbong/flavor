@@ -2973,5 +2973,25 @@ spriteTypes = {
 		name = "GFX_idea_us_first"
 		texturefile = "gfx/interface/ideas/idea_generic_intel_bonus.dds"
 	}
+	spriteType = {
+		name = "GFX_idea_consumerism"
+		texturefile = "gfx/interface/ideas/idea_generic_goods_red_bonus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_road_repairs"
+		texturefile = "gfx/interface/ideas/idea_generic_production_bonus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_women_of_the_war"
+		texturefile = "gfx/interface/ideas/idea_generic_victors_of_ww1.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_workers_back_home"
+		texturefile = "gfx/interface/ideas/idea_generic_production_bonus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_stronger_factories"
+		texturefile = "gfx/interface/ideas/idea_ast_naval_auxiliary_patrol.dds"
+	}
 	
 }
