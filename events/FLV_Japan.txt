@@ -1,0 +1,96 @@
+﻿###########################
+# Japanese Events
+###########################
+
+add_namespace = japan
+
+# China MOD
+# Demand Peace China
+country_event = {
+	id = japan.1000
+	title = japan.1000.t
+	desc = japan.1000.d
+	picture = GFX_report_event_japanese_pow
+
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		has_war_with = CHI
+		OR = {
+			612 = { is_controlled_by = PRC }
+			612 = { is_controlled_by = CHI }
+        }
+		OR = {
+			715 = { is_controlled_by = PRC }
+			715 = { is_controlled_by = CHI }
+        }
+        OR = {
+			716 = { is_controlled_by = PRC }
+			716 = { is_controlled_by = CHI }
+        }
+	}
+	
+	option = {
+		name = japan.1000.a
+		ai_chance = { factor = 20 }
+		CHI = {
+			country_event = { days = 5 id = china.1012 }
+		}
+		hidden_effect = {
+			set_global_flag = fading_sun
+		}
+	}
+	
+	option = {
+		name = japan.1000.b
+		ai_chance = { factor = 80 }
+		hidden_effect = {
+			set_global_flag = fading_sun
+		}
+	}
+}
+# Demand Peace China 2
+country_event = {
+	id = japan.1001
+	title = japan.1001.t
+	desc = japan.1001.d
+	picture = GFX_report_event_japanese_pow2
+
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		has_war_with = CHI
+		has_global_flag = fading_sun
+		OR = {
+			527 = { is_controlled_by = PRC }
+			527 = { is_controlled_by = CHI }
+        }
+		OR = {
+			525 = { is_controlled_by = PRC }
+			525 = { is_controlled_by = CHI }
+        }
+	}
+	
+	option = {
+		name = japan.1001.a
+		ai_chance = { factor = 100 }
+		CHI = {
+			country_event = { days = 5 id = china.1013 }
+		}
+		hidden_effect = {
+			set_global_flag = fading_sun
+		}
+	}
+	
+	option = {
+		name = japan.1001.b
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			set_global_flag = fading_sun
+		}
+	}
+}

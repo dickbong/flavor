@@ -1,0 +1,41 @@
+﻿###########################
+# Soviet Events
+###########################
+
+add_namespace = soviet
+# China Mod
+# China demand fullfilling Karakhan Manifesto
+country_event = {
+	id = soviet.1000
+	title = soviet.1000.t
+	desc = soviet.1000.d
+	picture = GFX_report_event_lenin_speech
+	
+	is_triggered_only = yes
+	
+	option = { # Accept
+		name = soviet.1000.a
+		ai_chance = {
+			factor = 50 
+			modifier = {
+				factor = 50
+				has_war_with = GER
+			}
+			modifier = {
+				factor = 50
+				NOT = { country_exists = SIK }	
+			}
+		} 
+		CHI = {
+			country_event = { days = 5 id = china.1015 }
+		}
+	}
+	option = { # Refuse
+		name = soviet.1000.b
+		ai_chance = { factor = 25 }
+		CHI = {
+			add_opinion_modifier = { target = SOV modifier = betrayed }
+			country_event = { days = 5 id = china.1016 }
+		}
+	}
+}

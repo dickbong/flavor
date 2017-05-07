@@ -48,6 +48,13 @@ country_event = {
 		clr_country_flag = flavor_event_8
 		clr_country_flag = flavor_event_9
 		clr_country_flag = flavor_event_10
+		clr_country_flag = flavor_event_11
+		clr_country_flag = flavor_event_12
+		clr_country_flag = flavor_event_13
+		clr_country_flag = flavor_event_14
+		clr_country_flag = flavor_event_15
+		clr_country_flag = flavor_event_16
+		clr_country_flag = flavor_event_17
 		
 	}
 	
@@ -376,7 +383,7 @@ country_event = { #army experience
 	}
 }
 
-country_event = { #army experience
+country_event = { #guns found
 	id = flavor.12
 	title = flavor.12.t
 	desc = flavor.12.d
@@ -393,7 +400,36 @@ country_event = { #army experience
 	option = {
 		name = flavor.12.a
 		set_country_flag = flavor_event_12
-		army_experience = 10
+		if = {
+			limit = {
+				date > 1936.1.1
+			}
+			add_equipment_to_stockpile = { type = infantry_weapons1 amount = 500 producer = ROOT }	
+		}
+		if = {
+			limit = {
+				date > 1938.1.1
+			}
+			add_equipment_to_stockpile = { type = infantry_weapons2 amount = 500 producer = ROOT }	
+		}
+		if = {
+			limit = {
+				date > 1940.1.1
+			}
+			add_equipment_to_stockpile = { type = infantry_weapons3 amount = 500 producer = ROOT }	
+		}
+		if = {
+			limit = {
+				date > 1942.1.1
+			}
+			add_equipment_to_stockpile = { type = infantry_weapons3 amount = 500 producer = ROOT }	
+		}
+		if = {
+			limit = {
+				date > 1944.1.1
+			}
+			add_equipment_to_stockpile = { type = infantry_weapons5 amount = 500 producer = ROOT }	
+		}
 	}
 }
 
@@ -415,5 +451,59 @@ country_event = { #naval experience
 		name = flavor.13.a
 		set_country_flag = flavor_event_13
 		naval_experience = 10
+	}
+}
+
+country_event = { #deserters
+	id = flavor.14
+	title = flavor.14.t
+	desc = flavor.14.d
+	
+	mean_time_to_happen = { days = 730 }
+	
+	trigger = {
+		has_country_flag = flavor_reset
+		NOT = {
+			has_country_flag = flavor_event_14
+		}
+	}
+	
+	option = {
+		name = flavor.14.a
+		set_country_flag = flavor_event_14
+		if = {
+			limit = {
+				has_army_manpower = { size > 0 }
+				has_army_manpower = { size < 10000 }				
+			}
+			add_manpower = -100	
+		}
+		if = {
+			limit = {
+				has_army_manpower = { size > 10000 }
+				has_army_manpower = { size < 100000 }	
+			}
+			add_manpower = -500
+		}
+		if = {
+			limit = {
+				has_army_manpower = { size > 100000 }
+				has_army_manpower = { size < 500000 }	
+			}
+			add_manpower = -3000
+		}
+		if = {
+			limit = {
+				has_army_manpower = { size > 500000 }
+				has_army_manpower = { size < 1000000 }	
+			}
+			add_manpower = -6000
+		}
+		if = {
+			limit = {
+				has_army_manpower = { size > 1000000 }	
+			}
+			add_manpower = -10000
+		}
 	}
 }
