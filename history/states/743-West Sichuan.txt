@@ -1,0 +1,33 @@
+state={
+	id=743
+	name="STATE_743"
+	provinces={
+		1918 1999 2067 4999 7294 7988 8104 10726 10841 12724 12837 
+	}
+	
+	state_category = rural
+	
+	resources={
+		
+	}
+
+	history={
+		owner = YUN
+		add_core_of = YUN
+		add_core_of = CHI
+		add_core_of = PRC
+		victory_points = {
+			1319 10 
+		}
+		victory_points = {
+			7965 3 
+		}
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 1
+		}
+	}
+	manpower=631000
+	buildings_max_level_factor=1.000
+}

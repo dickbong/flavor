@@ -1,0 +1,38 @@
+opinion_modifiers = {
+
+strong_allies = {
+ value = 50
+}
+
+prepare_war = {
+ value = -50
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

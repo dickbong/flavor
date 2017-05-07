@@ -1,0 +1,401 @@
+﻿###########################
+# ComChinese Events
+###########################
+
+add_namespace = comchina
+
+# ALBania Yields
+country_event = {
+	id = comchina.1
+	title = comchina.1.t
+	desc = comchina.1.d
+	picture = GFX_report_event_royal_parade
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = comchina.1.a
+		annex_country = { target = TIB }
+	}
+}
+
+# Zog Rejects Ultimatum
+country_event = {
+	id = comchina.2
+	title = comchina.2.t
+	desc = comchina.2.d
+	picture = GFX_report_event_albanian_partisans
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = comchina.2.a
+		create_wargoal = {
+			type = annex_everything
+			target = TIB
+			generator = { 44 }
+		}
+	}
+}
+
+# TIB Receives Ultimatum
+country_event = {
+	id = comchina.3
+	title = comchina.3.t
+	desc = comchina.3.d
+	picture = GFX_report_event_albanian_king_zog
+	
+	is_triggered_only = yes
+	
+	option = { # Yield
+		name = comchina.3.a
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0				
+				any_other_country = {
+					is_major = yes
+					NOT = { tag = PRC }
+					OR = {
+						has_guaranteed = TIB
+						is_in_faction_with = TIB
+					}
+				}
+			}
+		}
+		PRC = {
+			country_event = { days = 1 id = comchina.1 }
+		}
+		custom_effect_tooltip = GAME_OVER_TT
+	}
+	option = { # Resist
+		name = comchina.3.b
+		ai_chance = {
+			factor = 20 
+			modifier = {
+				factor = 0
+				OR = {
+					AND = {
+						is_in_faction_with = PRC
+						PRC = { is_faction_leader = yes }
+					}
+					is_historical_focus_on = yes
+					AND = {
+						is_in_faction = no 
+						NOT = {
+							any_other_country = {
+								NOT = { tag = PRC }
+								has_guaranteed = TIB
+							} 
+						}
+					}
+				}
+			}
+		}
+		PRC = {
+			effect_tooltip = {
+				create_wargoal = {
+					type = annex_everything
+					target = TIB
+					generator = { 44 }
+				}
+			}
+			country_event = { days = 1 id = comchina.2 }
+		}
+	}
+}
+
+
+# Sinkiang
+country_event = {
+	id = comchina.355
+	title = comchina.355.t
+	desc = comchina.355.d
+	picture = GFX_report_event_stalin_02
+
+	is_triggered_only = yes
+	
+	option = {
+		name = comchina.355.a
+		FROM = { country_event = { id = comchina.356} }
+		custom_effect_tooltip = GAME_OVER_TT
+		
+	}
+	
+	option = {
+		name = comchina.355.b
+		ai_chance = { factor = 0 }
+		FROM = { 
+			country_event = { id = comchina.34 }
+		}
+	}
+}
+
+# comchina - Soviet denies Comintern request
+country_event = {
+	id = comchina.34
+	title = comchina.34.t
+	desc = comchina.34.d
+	picture = GFX_report_event_stalin_01
+
+	is_triggered_only	= yes
+
+	option = {
+		name = comchina.34.a
+		
+			create_wargoal = {
+				target = SIK
+				type = annex_everything
+			}
+	}
+}
+
+# Sinkiang accepted
+country_event = {
+	id = comchina.356
+	title = comchina.356.t
+	desc = comchina.356.d
+	picture = GFX_report_event_stalin_02
+
+	is_triggered_only = yes
+	
+	option = {
+		name = comchina.356.a
+		
+
+            PRC = { transfer_state = 619 }
+			PRC = { transfer_state = 618 }
+			PRC = { transfer_state = 617 }
+            PRC = { transfer_state = 287 }
+            
+            
+            
+		
+	
+	}
+}
+	
+	#Sinkiang news
+news_event = {
+	id = comchina.998
+	title = comchina.998.t
+	picture = GFX_news_event_012
+	desc = comchina.998.d
+
+	major = yes
+
+	is_triggered_only = yes
+
+	#We stand together.
+	option = {
+		name = comchina.998.a
+		trigger = {
+
+			tag = PRC
+			
+		}
+	}
+
+	#Interesting
+	option = {
+		name = comchina.998.b
+		trigger = {
+			PRC = {
+				has_war = no
+			}
+			NOT = {
+				OR = {
+					tag = PRC
+					tag = CHI
+				}
+			}
+		}
+	}
+
+	#Banding together like cornered rats.
+	option = {
+		name = comchina.998.c
+		trigger = {
+			OR = {
+				tag = CHI
+				has_war_with = PRC
+			}
+		}
+	}
+}
+
+
+#Sinkiang badnews
+news_event = {
+	id = comchina.999
+	title = comchina.999.t
+	picture = GFX_news_event_012
+	desc = comchina.999.d
+
+	major = yes
+
+	is_triggered_only = yes
+
+	fire_for_sender = yes
+
+	#They should have asked more nicely.
+	option = {
+		name = comchina.999.a
+		trigger = {
+		NOT = {
+		
+			tag = PRC
+			
+		}
+	}
+}
+	#Our enemies stand divided
+	option = {
+		name = comchina.999.b
+		trigger = {
+			tag = CHI
+		}
+	}
+
+	#A dark day for the revolution.
+	option = {
+		name = comchina.999.b
+		trigger = {
+			tag = PRC
+			}
+		}
+	}
+
+
+#yangtze partition
+country_event = {
+	id = comchina.212
+	title = comchina.212.t
+	desc = comchina.212.d
+	
+	picture = GFX_report_event_chinese_soldiers_01
+	
+	is_triggered_only = yes
+	
+	option = {
+		ai_chance = {
+			factor = 75
+			modifier = {
+				any_state = {
+					OR = {
+						region = 165
+						region = 164
+					}
+					is_owned_by = CHI
+					NOT = {
+						state = 620
+						state = 606
+						state = 607
+						state = 598
+					}
+					is_controlled_by = PRC
+				}
+				factor = 0
+			}
+		}
+		name = comchina.212.a
+		custom_effect_tooltip = comchina_yangtze_partition_tt_prc
+		CHI = {
+			country_event = { id = comchina.213 }
+		}
+	}
+	
+	option = {
+		ai_chance = { factor = 100 }
+		name = comchina.212.b
+		CHI = {
+			country_event = { id = comchina.214 }
+		}
+		set_global_flag = PRC_refuse_yangtze_partisan
+	}
+}
+
+#yangtze partition - agreed
+country_event = {
+	id = comchina.213
+	title = comchina.213.t
+	desc = comchina.213.d
+	
+	picture = GFX_report_event_generic_sign_treaty1
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			every_state = {
+				limit = {
+					OR = {
+						NOT = {
+							region = 165
+							state = 524
+							OR = {
+								state = 746
+								state = 600
+								state = 595
+								state = 596
+								state = 747
+								state = 613
+							}
+						}
+						state = 743
+					}
+					is_owned_by = CHI
+					is_core_of = PRC	
+				}
+				PRC = {
+					transfer_state = PREV
+				}
+			}
+			every_state = {
+				limit = {
+					OR = {
+						region = 165
+						region = 164
+						state = 524
+					}
+					NOT = {
+						state = 620
+						state = 606
+						state = 607
+						state = 598
+					}
+					is_owned_by = PRC
+					is_core_of = CHI
+				}
+				CHI = {
+					transfer_state = PREV
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = comchina.213.a
+		CHI = {
+		remove_ideas = CHI_communist_uprisings
+		remove_ideas = prc_influence
+		remove_ideas = prc_propaganda
+	}
+	}
+}
+
+#yangtze partition - no
+country_event = {
+	id = comchina.214
+	title = comchina.214.t
+	desc = comchina.214.d
+	
+	picture = GFX_report_event_chinese_officers
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = comchina.214.a
+	}
+}
+}

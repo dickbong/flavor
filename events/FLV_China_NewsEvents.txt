@@ -1,0 +1,771 @@
+﻿###########################
+# News Events
+###########################
+
+add_namespace = news
+
+# China MOD
+# Independent development
+news_event = {
+	id = news.1000
+	title = news.1000.t
+	desc = news.1000.d
+	picture = GFX_news_event_1000
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1000.a
+		trigger = {
+			NOT = {
+				TAG = CHI
+			}
+		}
+	}
+	option = {
+		name = news.1000.b
+		trigger = { TAG = CHI }
+		hidden_effect = {
+			CHI = { country_event = { days = 20 id = china.1005 } }
+		}
+	}
+}
+# First Plane
+news_event = {
+	id = news.1001
+	title = news.1001.t
+	desc = news.1001.d
+	picture = GFX_news_event_1001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1001.a
+		trigger = {
+			NOT = {
+				TAG = CHI
+			}
+		}
+	}
+	option = {
+		name = news.1001.b
+		trigger = { TAG = CHI }
+	}
+}
+
+# First Tank
+news_event = {
+	id = news.1002
+	title = news.1002.t
+	desc = news.1002.d
+	picture = GFX_news_event_1002
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1002.a
+		trigger = {
+			NOT = {
+				TAG = CHI
+			}
+		}
+	}
+	option = {
+		name = news.1002.b
+		trigger = { TAG = CHI }
+	}
+}
+
+# First Light Carrier
+news_event = {
+	id = news.1003
+	title = news.1003.t
+	desc = news.1003.d
+	picture = GFX_news_event_1003
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1003.a
+		trigger = {
+			NOT = {
+				TAG = CHI
+			}
+		}
+	}
+	option = {
+		name = news.1003.b
+		trigger = { TAG = CHI }
+	}
+}
+
+# First Rifle
+news_event = {
+	id = news.1004
+	title = news.1004.t
+	desc = news.1004.d
+	picture = GFX_news_event_1004
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1004.a
+		trigger = {
+			NOT = {
+				TAG = CHI
+			}
+		}
+	}
+	option = {
+		name = news.1004.b
+		trigger = { TAG = CHI }
+	}
+}
+# Change Government
+news_event = {
+	id = news.1005
+	title = news.1005.t
+	desc = news.1005.d
+	picture = GFX_news_event_1005
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1005.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = CHI
+					TAG = GER
+				}
+			}
+		}
+	}
+	option = {
+		name = news.1005.b
+		trigger = { TAG = CHI }
+	}
+	option = {
+		name = news.1005.c
+		trigger = { TAG = GER }
+	}
+}
+
+news_event = {
+	id = news.1006
+	title = news.1006.t
+	desc = news.1006.d
+	picture = GFX_news_event_1006
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1006.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = CHI
+					TAG = SOV
+				}
+			}
+		}
+	}
+	option = {
+		name = news.1006.b
+		trigger = { TAG = CHI }
+	}
+	option = {
+		name = news.1006.c
+		trigger = { TAG = SOV }
+	}
+}
+
+news_event = {
+	id = news.1007
+	title = news.1007.t
+	desc = news.1007.d
+	picture = GFX_news_event_1007
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1007.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = CHI
+					TAG = ENG
+				}
+			}
+		}
+	}
+	option = {
+		name = news.1007.b
+		trigger = { TAG = CHI }
+	}
+	option = {
+		name = news.1007.c
+		trigger = { TAG = ENG }
+	}
+}
+
+
+# Military Academy
+news_event = {
+	id = news.1008
+	title = news.1008.t
+	desc = news.1008.d
+	picture = GFX_news_event_1008
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1008.a
+		trigger = {
+			NOT = {
+				TAG = CHI
+			}
+		}
+	}
+	option = {
+		name = news.1008.b
+		trigger = { TAG = CHI }
+	}
+}
+
+# Indochina
+news_event = {
+	id = news.1009
+	title = news.1009.t
+	desc = news.1009.d
+	picture = GFX_news_event_1009
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1009.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = CHI
+					TAG = FRA
+				}
+			}
+		}
+	}
+	option = {
+		name = news.1009.b
+		trigger = { TAG = CHI }
+	}
+	option = {
+		name = news.1009.c
+		trigger = { TAG = FRA }
+	}
+}
+
+# CHI-JAP peace
+news_event = {
+	id = news.1010
+	title = news.1010.t
+	desc = news.1010.d
+	picture = GFX_news_event_1010
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1010.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = CHI
+					TAG = JAP
+				}
+			}
+		}
+	}
+	option = {
+		name = news.1010.b
+		trigger = { TAG = CHI }
+	}
+	option = {
+		name = news.1010.c
+		trigger = { TAG = JAP }
+	}
+}
+
+# Karakhan Manifesto Northwest
+news_event = {
+	id = news.1011
+	title = news.1011.t
+	desc = news.1011.d
+	picture = GFX_news_event_1011
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1011.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = CHI
+					TAG = SOV
+				}
+			}
+		}
+	}
+	option = {
+		name = news.1011.b
+		trigger = { TAG = CHI }
+	}
+	option = {
+		name = news.1011.c
+		trigger = { TAG = SOV }
+	}
+}
+
+# Indochina Livraison
+news_event = {
+	id = news.1012
+	title = news.1012.t
+	desc = news.1012.d
+	picture = GFX_news_event_1012
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1012.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = CHI
+					TAG = FRA
+				}
+			}
+		}
+	}
+	option = {
+		name = news.1012.b
+		trigger = { TAG = CHI }
+	}
+	option = {
+		name = news.1012.c
+		trigger = { TAG = FRA }
+	}
+}
+
+# Indian National Army
+news_event = {
+	id = news.1013
+	title = news.1013.t
+	desc = news.1013.d
+	picture = GFX_news_event_1013
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1013.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = CHI
+					TAG = ENG
+				}
+			}
+		}
+	}
+	option = {
+		name = news.1013.b
+		trigger = { TAG = CHI }
+	}
+	option = {
+		name = news.1013.c
+		trigger = { TAG = ENG }
+	}
+}
+
+# Singapore
+news_event = {
+	id = news.1014
+	title = news.1014.t
+	desc = news.1014.d
+	picture = GFX_news_event_1014
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1014.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = CHI
+					TAG = ENG
+				}
+			}
+		}
+	}
+	option = {
+		name = news.1014.b
+		trigger = { TAG = CHI }
+	}
+	option = {
+		name = news.1014.c
+		trigger = { TAG = ENG }
+	}
+}
+
+# Liberate Asia
+news_event = {
+	id = news.1015
+	title = news.1015.t
+	desc = news.1015.d
+	picture = GFX_news_event_1015
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1015.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = CHI
+				}
+			}
+		}
+	}
+	option = {
+		name = news.1015.b
+		trigger = { TAG = CHI }
+	}
+}
+
+# Asia Union
+news_event = {
+	id = news.1016
+	title = news.1016.t
+	desc = news.1016.d
+	picture = GFX_news_event_1015
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1016.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = CHI
+				}
+			}
+		}
+	}
+	option = {
+		name = news.1016.b
+		trigger = { TAG = CHI }
+	}
+}
+
+news_event = {
+	id = news.1017
+	title = news.1017.t
+	desc = news.1017.d
+	picture = GFX_news_event_1017
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1017.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = CHI
+					TAG = JAP
+				}
+			}
+		}
+	}
+	option = {
+		name = news.1017.b
+		trigger = { TAG = CHI }
+	}
+	option = {
+		name = news.1017.c
+		trigger = { TAG = JAP }
+	}
+}
+
+news_event = {
+	id = news.1018
+	title = news.1018.t
+	desc = news.1018.d
+	picture = GFX_news_event_1018
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1018.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = CHI
+				}
+			}
+		}
+	}
+	option = {
+		name = news.1018.b
+		trigger = { TAG = CHI }
+	}
+}
+
+news_event = {
+	id = news.1019
+	title = news.1019.t
+	desc = news.1019.d
+	picture = GFX_news_event_1019
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1019.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = CHI
+				}
+			}
+		}
+	}
+	option = {
+		name = news.1019.b
+		trigger = { TAG = CHI }
+	}
+}
+
+news_event = {
+	id = news.1020
+	title = news.1020.t
+	desc = news.1020.d
+	picture = GFX_news_event_1020
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1020.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = CHI
+				}
+			}
+		}
+	}
+	option = {
+		name = news.1020.b
+		trigger = { TAG = CHI }
+	}
+}
+
+news_event = {
+	id = news.1021
+	title = news.1021.t
+	desc = news.1021.d
+	picture = GFX_news_event_1021
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1021.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = CHI
+					TAG = ENG
+					TAG = FRA
+					TAG = POR
+				}
+			}
+		}
+	}
+	option = {
+		name = news.1021.b
+		trigger = { 
+			OR = {
+				TAG = ENG
+				TAG = FRA
+				TAG = POR
+			}
+		}
+	}
+	option = {
+		name = news.1021.c
+		trigger = { TAG = CHI }
+	}
+}
+
+news_event = {
+	id = news.1022
+	title = news.1022.t
+	desc = news.1022.d
+	picture = GFX_news_event_1022
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1022.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = CHI
+					TAG = USA
+				}
+			}
+		}
+	}
+	option = {
+		name = news.1022.b
+		trigger = { 
+			OR = {
+				TAG = USA
+			}
+		}
+	}
+	option = {
+		name = news.1022.c
+		trigger = { TAG = CHI }
+	}
+}
+
+news_event = {
+	id = news.1023
+	title = news.1023.t
+	desc = news.1023.d
+	picture = GFX_news_event_1023
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1023.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = CHI
+				}
+			}
+		}
+	}
+	option = {
+		name = news.1023.b
+		trigger = { 
+			OR = {
+				TAG = CHI
+			}
+		}
+	}
+}
+
+news_event = {
+	id = news.1023
+	title = news.1023.t
+	desc = news.1023.d
+	picture = GFX_news_event_1023
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1023.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = CHI
+				}
+			}
+		}
+	}
+	option = {
+		name = news.1023.b
+		trigger = { 
+			OR = {
+				TAG = CHI
+			}
+		}
+	}
+}
+
+news_event = {
+	id = news.1024
+	title = news.1024.t
+	desc = news.1024.d
+	picture = GFX_news_event_1024
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.1024.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = CHI
+				}
+			}
+		}
+	}
+	option = {
+		name = news.1024.b
+		trigger = { 
+			OR = {
+				TAG = CHI
+			}
+		}
+	}
+}
