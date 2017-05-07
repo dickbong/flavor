@@ -100,3 +100,10 @@ create_country_leader = {
 		#
 	}
 }
+
+create_corps_commander = {
+	name = "Fu Zuoyi"
+	portrait_path = "gfx/leaders/SHX/Fu_Zuoyi.dds"
+	traits = { old_guard }
+	skill = 3
+}
