@@ -8,22 +8,22 @@
  
  XSM_neutrality_party:0 "Ma Clique"
  XSM_democratic_party:0 "Ma Democrats"
- XSM_democratic_party:0 "Japanese Loyalists"
+ XSM_fascism_party:0 "Japanese Loyalists"
  XSM_communism_party:0 "CCP Sympathizers"
  
  YUN_neutrality_party:0 "Yunnan Clique"
  YUN_democratic_party:0 "Yunnan Democrats"
- YUN_democratic_party:0 "Japanese Loyalists"
+ YUN_fascism_party:0 "Japanese Loyalists"
  YUN_communism_party:0 "CCP Sympathizers"
 
  GXC_neutrality_party:0 "Guangxi Clique"
  GXC_democratic_party:0 "Guangxi Democrats"
- GXC_democratic_party:0 "Japanese Loyalists"
+ GXC_fascism_party:0 "Japanese Loyalists"
  GXC_communism_party:0 "CCP Sympathizers"
  
  SHX_neutrality_party:0 "Shanxi Clique"
  SHX_democratic_party:0 "Shanxi Democrats"
- SHX_democratic_party:0 "Japanese Loyalists"
+ SHX_fascism_party:0 "Japanese Loyalists"
  SHX_communism_party:0 "CCP Sympathizers"
  
  CHI_communism_party:0 "KMTRC"

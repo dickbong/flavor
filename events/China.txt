@@ -1431,38 +1431,3 @@ country_event = {
 		reverse_add_opinion_modifier = { target = FROM modifier = large_decrease }
 	}
 }
-
-# japanese advisors
-country_event = {
-	id = china.6970
-	title = china.6970.t
-	desc = china.6970.d
-	picture = GFX_report_event_chinese_army_training
-
-	is_triggered_only = yes
-	
-	option = { #nyes
-		name = china.6970.a
-		country_event = { id = china.6971 days = 1}
-	}
-	
-	option = { #no
-		name = china.6970.b
-		country_event = { id = china.6971 days = 1}
-	}
-}
-
-#yes/no to japanese advisors
-country_event = {
-	id = china.6971
-	title = china.6971.t
-	desc = china.6971.d
-	picture = GFX_report_event_chinese_army_training
-
-	is_triggered_only = yes
-	
-	option = { #okey
-		name = china.6971.a
-		add_ideas = japanese_advisors
-	}
-}

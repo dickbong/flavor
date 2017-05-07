@@ -505,7 +505,7 @@ focus_tree = {
 			add_political_power = 150
 			add_national_unity = 0.05
 			hidden_effect = {
-				news_event = { days = 2 id = days = 3 id = news.1016 }
+				news_event = { days = 2 id = news.1016 }
 			}
 		}
 	}

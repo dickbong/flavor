@@ -607,6 +607,17 @@
  news.1024.d:0 "The military uprising erupted in Southern Japan has seized the power in Japan. The uprising army are leading by the previous captured Japanese officers in Sino-Japan war, who announced they will establish a republic and abolish the Emporer. The new establish communist military government has acknowledge the leadership of Chinese government and promised there will be a better future for both Chinese and Japanese."
  news.1024.a:0 "Another revolution?"
  news.1024.b:0 "Kanpai, comrades!"
+ #more events for China minors
+ china.6970.t:0 "[FROM.GetName] Invites Advisors"
+ china.6970.d:0 "Recently, [FROM.GetName] has invited our advisors to visit their country. This could be an opportunity of which we can strike the heart of China through warlords. What is our response?"
+ china.6970.a:0 "Of course."
+ china.6970.a:0 "No. This could be a trap!"
+ china.6971.t:0 "Japan Accepts"
+ china.6971.d:0 "Japan has accepted our offer to invite advisors to [ROOT.GetName] and will be sending them shortly."
+ china.6971.a:0 "Success."
+ china.6972.t:0 "Japan Declines"
+ china.6972.d:0 "Japan has declined our offer to invite advisors citing 'It might be a trap.' This has decreased our relations with Japan and bilateral relations in the future might be shakier."
+ china.6972.a:0 "Unfortunate."
  # Opinion Modifier
  chi_promise_focus:0 "Chinese Promise"
  ger_support_chi:0 "Support Chinese"
