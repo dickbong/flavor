@@ -143,15 +143,15 @@ default = no
 		if = {
 			limit = {
 				NOT = {
-					tag = YUN
+					tag = XSM
 				}
-				YUN = {
+				XSM = {
 					NOT = {
 						has_idea = endorsing_KMT
 					}
 				}
 			}
-			YUN = { add_timed_idea = { idea = endorsing_KMT days = 365 }}
+			XSM = { add_timed_idea = { idea = endorsing_KMT days = 365 }}
 		}
 		if = {
 			limit = {
@@ -169,28 +169,28 @@ default = no
 		if = {
 			limit = {
 				NOT = {
-					tag = GXC
+					tag = XSM
 				}
-				GXC = {
+				XSM = {
 					NOT = {
 						has_idea = endorsing_KMT
 					}
 				}
 			}
-			GXC = { add_timed_idea = { idea = endorsing_KMT days = 365 }}
+			XSM = { add_timed_idea = { idea = endorsing_KMT days = 365 }}
 		}
 		if = {
 			limit = {
 				NOT = {
-					tag = SHX
+					tag = XSM
 				}
-				SHX = {
+				XSM = {
 					NOT = {
 						has_idea = endorsing_KMT
 					}
 				}
 			}
-			SHX = { add_timed_idea = { idea = endorsing_KMT days = 365 }}
+			XSM = { add_timed_idea = { idea = endorsing_KMT days = 365 }}
 		}
 	}
 	}
@@ -228,15 +228,15 @@ default = no
 	if = {
 			limit = {
 				NOT = {
-					tag = YUN
+					tag = XSM
 				}
-				YUN = {
+				XSM = {
 					NOT = {
 						has_idea = endorsing_CCP
 					}
 				}
 			}
-			YUN = { add_timed_idea = { idea = endorsing_CCP days = 365 }}
+			XSM = { add_timed_idea = { idea = endorsing_CCP days = 365 }}
 		}
 		if = {
 			limit = {
@@ -254,28 +254,28 @@ default = no
 		if = {
 			limit = {
 				NOT = {
-					tag = GXC
+					tag = XSM
 				}
-				GXC = {
+				XSM = {
 					NOT = {
 						has_idea = endorsing_CCP
 					}
 				}
 			}
-			GXC = { add_timed_idea = { idea = endorsing_CCP days = 365 }}
+			XSM = { add_timed_idea = { idea = endorsing_CCP days = 365 }}
 		}
 		if = {
 			limit = {
 				NOT = {
-					tag = SHX
+					tag = XSM
 				}
-				SHX = {
+				XSM = {
 					NOT = {
 						has_idea = endorsing_CCP
 					}
 				}
 			}
-			SHX = { add_timed_idea = { idea = endorsing_CCP days = 365 }}
+			XSM = { add_timed_idea = { idea = endorsing_CCP days = 365 }}
 		}
 	}
 	}
@@ -372,18 +372,10 @@ default = no
 			}
 		}
 		if = {
-			limit = { country_exists = SHX NOT = { tag = SHX } }
+			limit = { country_exists = XSM NOT = { tag = XSM } }
 			create_wargoal = {
 				type = take_state_focus
-				target = SHX
-				generator = owned_states
-			}
-		}
-		if = {
-			limit = { country_exists = GXC NOT = { tag = GXC } }
-			create_wargoal = {
-				type = take_state_focus
-				target = GXC
+				target = XSM
 				generator = owned_states
 			}
 		}
@@ -396,10 +388,18 @@ default = no
 			}
 		}
 		if = {
-			limit = { country_exists = YUN NOT = { tag = YUN } }
+			limit = { country_exists = XSM NOT = { tag = XSM } }
 			create_wargoal = {
 				type = take_state_focus
-				target = YUN
+				target = XSM
+				generator = owned_states
+			}
+		}
+		if = {
+			limit = { country_exists = XSM NOT = { tag = XSM } }
+			create_wargoal = {
+				type = take_state_focus
+				target = XSM
 				generator = owned_states
 			}
 		}
@@ -663,7 +663,7 @@ default = no
 		bypass = {
 			custom_trigger_tooltip = {
 				tooltip = construction_effort_tt
-				add_ideas = consumerism
+				
 				all_owned_state = {
 					free_building_slots = {
 						building = industrial_complex
@@ -675,6 +675,7 @@ default = no
 		}
 
 		complete_tooltip = {
+			add_ideas = consumerism
 			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
 				type = industrial_complex
@@ -879,7 +880,6 @@ default = no
 		bypass = {
 			custom_trigger_tooltip = {
 				tooltip = production_effort_tt
-				add_ideas = workers_back_home
 				all_owned_state = {
 					free_building_slots = {
 						building = arms_factory
@@ -892,6 +892,7 @@ default = no
 
 		complete_tooltip = {
 			add_extra_state_shared_building_slots = 1
+			add_ideas = workers_back_home
 			add_building_construction = {
 				type = arms_factory
 				level = 1
@@ -1045,7 +1046,7 @@ default = no
 		bypass = {
 			custom_trigger_tooltip = {
 				tooltip = production_effort_tt
-				add_ideas = women_of_the_war
+				
 				all_owned_state = {
 					free_building_slots = {
 						building = arms_factory
@@ -1058,6 +1059,7 @@ default = no
 
 		complete_tooltip = {
 			add_extra_state_shared_building_slots = 1
+			add_ideas = women_of_the_war
 			add_building_construction = {
 				type = arms_factory
 				level = 1

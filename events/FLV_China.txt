@@ -2288,11 +2288,17 @@ country_event = { #Uyghur Rebellion
 	fire_only_once = yes
 	
 	trigger = {
-		date < 1937.4.2
+		date > 1937.4.2
 		tag = SIK
 	}
 	immediate = {
-		UYG = { transfer_state = 619 }	
+		UYG = { transfer_state = 619 }
+		every_owned_state = {
+			limit = {
+				is_core_of = SIK
+			}
+			add_core_of = UYG
+		}
 	}
 	
 	option = { #UYGHUR REBELLION
@@ -2322,7 +2328,7 @@ country_event = { #Uyghur Rebellion
 	}
 }
 
-country_event = { #Uyghur Rebellion
+country_event = { #XSM comes to aid
 	id = china.6975
 	title = china.6975.t
 	desc = china.6975.d
@@ -2341,3 +2347,80 @@ country_event = { #Uyghur Rebellion
 		XSM = { add_to_war = { targeted_alliance = UYG enemy = SIK } }
 	}
 }
+
+country_event = { #surrender_progress
+	id = china.6975
+	title = china.6975.t
+	desc = china.6975.d
+	picture = GFX_report_event_chinese_army_training
+	fire_only_once = yes
+	
+	trigger = {
+		has_global_flag = xinjiang_wars
+		has_global_flag = xinjiang_wars_pledge
+		tag = XSM
+		XSM = { 
+				has_war = yes 
+				OR = {
+					has_war_with = SOV 
+					has_war_with = MON
+					has_war_with = SIK
+				}
+			}
+		OR = {
+			UYG = { has_capitulated = yes }
+			XSM = { surrender_progress > 0.25 }
+			SIK = { has_full_control_of_state = 287 }	
+		}
+		
+	}
+	
+	option = {
+		name = china.6975.b
+		every_country = {
+			limit = {
+				has_war_with = XSM
+				is_in_faction_with = SOV
+			}
+			white_peace = XSM
+		}
+		SIK = { transfer_state = 287 }
+		clr_global_flag = xinjiang_wars
+		clr_global_flag = xinjiang_wars_pledge
+		hidden_effect = { news_event = { id = news.1026 days = 1 } } #Ma Clique Folds
+	}
+}
+
+country_event = { #uyghurs turn into xinjiang
+	id = china.6976
+	title = china.6976.t
+	desc = china.6976.d
+	picture = GFX_report_event_chinese_army_training
+	fire_only_once = yes
+	hidden = yes
+	
+	trigger = {
+		UYG = { has_war = no }
+		OR = {
+			UYG = { is_puppet = yes }
+			UYG = { is_puppet = no }
+		}
+	}
+	
+	option = { #UYGHUR REBELLION
+		name = china.6975.b
+		if = {
+			limit = {
+				SIK = { exists = yes }
+			}
+			SIK = { annex_country = { target = UYG transfer_troops = yes} }
+		}
+		if = {
+			limit = {
+				SIK = { exists = no }
+			}
+			set_cosmetic_tag = SIK
+		}
+	}
+}
+
