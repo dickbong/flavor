@@ -495,7 +495,7 @@ focus_tree = {
 	focus = {
 		id = arms_trade                                
 		icon = GFX_goal_generic_military_sphere
-		prerequisite = { focus = continue_sino_german_cooperation focus = ussr_support focus = democratic_armory}
+		prerequisite = { focus = continue_sino_german_cooperation focus = ussr_support focus = democratic_armory }
 		mutually_exclusive = { focus = independent_development focus = extend_terms focus = restablish_united_front }
 		available = {
 			num_of_factories > 30
@@ -825,7 +825,7 @@ focus_tree = {
 			NOT = { country_exists = PHI }
 		}
 		x = 16
-		y = 6
+		y = 4
 		cost = 10
 		completion_reward = {
 			USA = { country_event = { id = china.1033 } }
@@ -928,29 +928,6 @@ focus_tree = {
 		}
 	}
 	
-	focus = {
-		id = united_states_of_asia       
-		icon = GFX_goal_molotov_ribbentrop_pact
-		prerequisite = { focus = found_zhenghe_design_bureau }
-		prerequisite = { focus = operation_unthinkable-east }
-		available = {
-			is_puppet = no
-			is_in_faction = no
-		}
-		x = 13
-		y = 9
-		cost = 10
-		completion_reward = {
-			set_rule = { can_create_factions = yes }
-			create_faction = "United States of Asia"
-			add_political_power = 150
-			add_national_unity = 0.05
-			hidden_effect = {
-				news_event = { days = 2 id = news.1016 }
-			}
-		}
-	}
-	
 	# Soviet Branch
 	focus = {
 		id = ussr_support                                
@@ -962,7 +939,7 @@ focus_tree = {
 			NOT = { has_war_with = SOV }
 		}
 		x = 21
-		y = 2
+		y = 0
 		cost = 10
 		completion_reward = {
 			army_experience = 50
@@ -998,7 +975,7 @@ focus_tree = {
 			NOT = { has_war_with = SOV }
 		}
 		x = 21
-		y = 3
+		y = 1
 		cost = 10
 		completion_reward = {
 			SOV = { country_event = { id = soviet.18 days = 1 } }
@@ -1041,7 +1018,7 @@ focus_tree = {
 			NOT = { has_war_with = SOV }
 		}
 		x = 19
-		y = 4
+		y = 2
 		cost = 10
 		completion_reward = {
 			add_political_power = -150
@@ -1059,7 +1036,7 @@ focus_tree = {
 			owns_state = 600 #Jiangxi
 		}
 		x = 18
-		y = 5
+		y = 3
 		cost = 20
 		completion_reward = {
 			CHI = {
@@ -1076,7 +1053,7 @@ focus_tree = {
 			owns_state = 600 #Jiangxi
 		}
 		x = 18
-		y = 6
+		y = 4
 		cost = 10
 		completion_reward = {
 			600 = {
@@ -1102,7 +1079,7 @@ focus_tree = {
 			owns_state = 600 #Jiangxi
 		}
 		x = 18
-		y = 7
+		y = 5
 		cost = 10
 		completion_reward = {
 			add_tech_bonus = {
@@ -1130,7 +1107,7 @@ focus_tree = {
 			NOT = { has_war_with = SOV }
 		}
 		x = 20
-		y = 5
+		y = 3
 		cost = 10
 		completion_reward = {
 			add_tech_bonus = {
@@ -1159,7 +1136,7 @@ focus_tree = {
 		icon = GFX_focus_research
 		prerequisite = { focus = steel_of_the_repulic }
 		x = 20
-		y = 6
+		y = 4
 		cost = 10
 		completion_reward = {
 			add_research_slot = 1
@@ -1171,7 +1148,7 @@ focus_tree = {
 		icon = GFX_goal_generic_radar
 		prerequisite = { focus = research_capacity_soviet }
 		x = 20
-		y = 7
+		y = 5
 		cost = 10
 		completion_reward = {
 			add_tech_bonus = {
@@ -1198,7 +1175,7 @@ focus_tree = {
 		prerequisite = { focus = refinery_technology_soviet }
 		prerequisite = { focus = electronics_research_soviet }
 		x = 19
-		y = 8
+		y = 6
 		cost = 10
 		completion_reward = {
 			add_ideas = baima_design_bureau
@@ -1222,7 +1199,7 @@ focus_tree = {
 			}
 		}
 		x = 23
-		y = 4
+		y = 2
 		cost = 10
 		completion_reward = {
 			add_ideas = kmtyl
@@ -1243,7 +1220,7 @@ focus_tree = {
 			has_government = communism
 		}
 		x = 23
-		y = 5
+		y = 3
 		cost = 10
 		completion_reward = {
 			add_political_power = -150
@@ -1277,7 +1254,7 @@ focus_tree = {
 			has_global_flag = fading_sun
 		}
 		x = 22
-		y = 6
+		y = 4
 		cost = 10
 		completion_reward = {
 			add_ideas = nva
@@ -1302,7 +1279,7 @@ focus_tree = {
 			}
 		}
 		x = 24
-		y = 6
+		y = 4
 		cost = 10
 		completion_reward = {
 			CHI = { country_event = { days = 1 id = china.1038 } }
@@ -1322,7 +1299,7 @@ focus_tree = {
 			NOT = { has_war_with = SOV }
 		}
 		x = 22
-		y = 7
+		y = 5
 		cost = 10
 		completion_reward = {
 			annex_country = { target = MON transfer_troops = yes }
@@ -1348,7 +1325,7 @@ focus_tree = {
 				}
 		}
 		x = 24
-		y = 7
+		y = 5
 		cost = 10
 		completion_reward = {
 			CUB = {
@@ -1395,33 +1372,10 @@ focus_tree = {
 			}
 		}
 		x = 23
-		y = 8
+		y = 6
 		cost = 10
 		completion_reward = {
 			SOV = { country_event = { days = 3 id = soviet.1000 } }
-		}
-	}
-	
-	focus = {
-		id = peole_republic_of_asia       
-		icon = GFX_goal_molotov_ribbentrop_pact
-		prerequisite = { focus = found_baima_design_bureau }
-		prerequisite = { focus = karakhan_manifesto }
-		available = {
-			is_puppet = no
-			is_in_faction = no
-		}
-		x = 21
-		y = 9
-		cost = 10
-		completion_reward = {
-			set_rule = { can_create_factions = yes }
-			create_faction = "People Republic of Asia"
-			add_political_power = 150
-			add_national_unity = 0.05
-			hidden_effect = {
-				news_event = { days = 2 id = news.1016 }
-			}
 		}
 	}
 	
@@ -1435,7 +1389,7 @@ focus_tree = {
 			is_puppet = no
 		}
 		x = 29
-		y = 3
+		y = 1
 		cost = 10
 		completion_reward = {
 			add_named_threat = { threat = -5 name = china_declared_neutrality }
@@ -1472,7 +1426,7 @@ focus_tree = {
 			is_puppet = no
 		}
 		x = 27
-		y = 4
+		y = 2
 		cost = 10
 		completion_reward = {
 			add_political_power = 50
@@ -1489,7 +1443,7 @@ focus_tree = {
 			owns_state = 605 #Sichuan
 		}
 		x = 26
-		y = 5
+		y = 3
 		cost = 20
 		completion_reward = {
 			CHI = {
@@ -1506,7 +1460,7 @@ focus_tree = {
 			owns_state = 605 #Sichuan
 		}
 		x = 26
-		y = 6
+		y = 4
 		cost = 10
 		completion_reward = {
 			605 = {
@@ -1532,7 +1486,7 @@ focus_tree = {
 			owns_state = 605
 		}
 		x = 26
-		y = 7
+		y = 5
 		cost = 10
 		completion_reward = {
 			add_tech_bonus = {
@@ -1557,7 +1511,7 @@ focus_tree = {
 		prerequisite = { focus = refinery_technology_independent }
 		prerequisite = { focus = electronics_research_independent }
 		x = 27
-		y = 8
+		y = 6
 		cost = 10
 		completion_reward = {
 			add_ideas = shenji_design_bureau
@@ -1575,7 +1529,7 @@ focus_tree = {
 			is_puppet = no
 		}
 		x = 28
-		y = 5
+		y = 3
 		cost = 10
 		completion_reward = {
 			add_tech_bonus = {
@@ -1603,7 +1557,7 @@ focus_tree = {
 		icon = GFX_focus_research
 		prerequisite = { focus = whampoa_rifle }
 		x = 28
-		y = 6
+		y = 4
 		cost = 10
 		completion_reward = {
 			add_research_slot = 1
@@ -1615,7 +1569,7 @@ focus_tree = {
 		icon = GFX_goal_generic_radar
 		prerequisite = { focus = research_capacity_independent }
 		x = 28
-		y = 7
+		y = 5
 		cost = 10
 		completion_reward = {
 			add_tech_bonus = {
@@ -1651,7 +1605,7 @@ focus_tree = {
 			}
 		}
 		x = 31
-		y = 4
+		y = 2
 		cost = 10
 		completion_reward = {
 			add_national_unity = 0.20
@@ -1671,7 +1625,7 @@ focus_tree = {
 			is_puppet = no
 		}
 		x = 31
-		y = 5
+		y = 3
 		cost = 10
 		completion_reward = {
 			add_tech_bonus = {
@@ -1704,7 +1658,7 @@ focus_tree = {
 			
 		}
 		x = 30
-		y = 6
+		y = 4
 		cost = 10
 		completion_reward = {
 			add_ideas = yat-sen_research_institute
@@ -1722,7 +1676,7 @@ focus_tree = {
 			is_puppet = no
 		}
 		x = 32
-		y = 6
+		y = 4
 		cost = 10
 		completion_reward = {
 			add_ideas = resource_commitee
@@ -1737,7 +1691,7 @@ focus_tree = {
 			is_puppet = no
 		}
 		x = 32
-		y = 7
+		y = 5
 		cost = 10
 		completion_reward = {
 			add_research_slot = 1
@@ -1752,7 +1706,7 @@ focus_tree = {
 			is_puppet = no
 		}
 		x = 30
-		y = 7
+		y = 5
 		cost = 10
 		completion_reward = {
 			add_ideas = blood_and_land
@@ -1769,7 +1723,7 @@ focus_tree = {
 			num_of_factories > 250
 		}
 		x = 31
-		y = 8
+		y = 6
 		cost = 10
 		completion_reward = {
 			add_state_core = 336
@@ -1788,29 +1742,6 @@ focus_tree = {
 			add_state_core = 286
 			add_state_core = 670
 			add_state_core = 671
-		}
-	}
-	
-	focus = {
-		id = asian_non-aligned_movement       
-		icon = GFX_goal_molotov_ribbentrop_pact
-		prerequisite = { focus = found_shenji_design_bureau }
-		prerequisite = { focus = lands_of_ancestor }
-		available = {
-			is_puppet = no
-			is_in_faction = no
-		}
-		x = 29
-		y = 9
-		cost = 10
-		completion_reward = {
-			set_rule = { can_create_factions = yes }
-			create_faction = "Asian Non-Aligned Movement"
-			add_political_power = 150
-			add_national_unity = 0.05
-			hidden_effect = {
-				news_event = { days = 2 id = news.1016 }
-			}
 		}
 	}
 	
