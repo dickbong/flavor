@@ -4,6 +4,11 @@ oob = "SOV_1936"
 
 set_research_slots = 3
 
+puppet = MON
+
+puppet = TAN
+
+set_autonomy = { target = TAN autonomy_state = autonomy_integrated_puppet }	
 # Starting tech
 set_technology = {
 	infantry_weapons = 1

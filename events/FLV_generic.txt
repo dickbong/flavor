@@ -445,6 +445,7 @@ country_event = { #naval experience
 		NOT = {
 			has_country_flag = flavor_event_13
 		}
+		any_owned_state = { is_coastal = yes }	
 	}
 	
 	option = {

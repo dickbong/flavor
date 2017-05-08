@@ -374,34 +374,36 @@ default = no
 		if = {
 			limit = { country_exists = XSM NOT = { tag = XSM } }
 			create_wargoal = {
-				type = take_state_focus
+				type = annex_everything
 				target = XSM
-				generator = owned_states
 			}
 		}
 		if = {
 			limit = { country_exists = XSM NOT = { tag = XSM } }
 			create_wargoal = {
-				type = take_state_focus
+				type = annex_everything
 				target = XSM
-				generator = owned_states
 			}
 		}
 		if = {
 			limit = { country_exists = XSM NOT = { tag = XSM } }
 			create_wargoal = {
-				type = take_state_focus
+				type = annex_everything
 				target = XSM
-				generator = owned_states
 			}
 		}
 		if = {
 			limit = { country_exists = XSM NOT = { tag = XSM } }
 			create_wargoal = {
-				type = take_state_focus
+				type = annex_everything
 				target = XSM
-				generator = owned_states
 			}
+		}
+		every_owned_state = {
+			limit = {
+				is_core_of = CHI
+			}
+			add_core_of = XSM
 		}
 	}
 	}
