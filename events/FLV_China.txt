@@ -2360,13 +2360,13 @@ country_event = { #surrender_progress
 		has_global_flag = xinjiang_wars_pledge
 		tag = XSM
 		XSM = { 
-				has_war = yes 
-				OR = {
-					has_war_with = SOV 
-					has_war_with = MON
-					has_war_with = SIK
-				}
+			has_war = yes 
+			OR = {
+				has_war_with = SOV 
+				has_war_with = MON
+				has_war_with = SIK
 			}
+		}
 		OR = {
 			UYG = { has_capitulated = yes }
 			XSM = { surrender_progress > 0.25 }
@@ -2424,3 +2424,219 @@ country_event = { #uyghurs turn into xinjiang
 	}
 }
 
+country_event = { #chinese warlords integrated
+	id = china.6977
+	title = china.6977.t
+	desc = china.6977.d
+	picture = GFX_report_event_chinese_army_training
+	fire_only_once = yes
+	
+	trigger = {
+		tag = JAP
+		CHI = {
+			exists = yes
+			has_government = fascism
+			is_puppet_of = JAP
+		}
+		OR = {
+			GXC = { 
+				exists = yes 
+				has_government = fascism
+			}
+			YUN = { 
+				exists = yes 
+				has_government = fascism
+			}
+			XSM = { 
+				exists = yes 
+				has_government = fascism
+			}
+			SHX = { 
+				exists = yes 
+				has_government = fascism
+			}
+		}
+	}
+	option = { #annex guangxi
+		name = china.6977.a
+		trigger = {
+			limit = {
+				AND = {
+					CHI = {
+						exists = yes
+						has_government = fascism
+						is_puppet_of = JAP
+					}
+					GXC = { 
+						exists = yes 
+						has_government = fascism
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					CHI = {
+						exists = yes
+						has_government = fascism
+						is_puppet_of = JAP
+					}
+					GXC = { 
+						exists = yes 
+						has_government = fascism
+					}
+				}
+			}
+			GXC = { country_event = { id = china.6978 days = 1 }} #ultimatum
+		}
+	}
+	option = { #annex shanxi
+		name = china.6977.b
+		trigger = {
+			limit = {
+				AND = {
+					CHI = {
+						exists = yes
+						has_government = fascism
+						is_puppet_of = JAP
+					}
+					SHX = { 
+						exists = yes 
+						has_government = fascism
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					CHI = {
+						exists = yes
+						has_government = fascism
+						is_puppet_of = JAP
+					}
+					SHX = { 
+						exists = yes 
+						has_government = fascism
+					}
+				}
+			}
+			SHX = { country_event = { id = china.6978 days = 1 }} #ultimatum
+		}
+	}
+	option = { #annex yunnan
+		name = china.6977.c
+		trigger = {
+			limit = {
+				AND = {
+					CHI = {
+						exists = yes
+						has_government = fascism
+						is_puppet_of = JAP
+					}
+					YUN = { 
+						exists = yes 
+						has_government = fascism
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					CHI = {
+						exists = yes
+						has_government = fascism
+						is_puppet_of = JAP
+					}
+					YUN = { 
+						exists = yes 
+						has_government = fascism
+					}
+				}
+			}
+			YUN = { country_event = { id = china.6978 days = 1 }} #ultimatum
+		}
+	}
+	option = { #annex ma clique
+		name = china.6977.d
+		trigger = {
+			limit = {
+				AND = {
+					CHI = {
+						exists = yes
+						has_government = fascism
+						is_puppet_of = JAP
+					}
+					XSM = { 
+						exists = yes 
+						has_government = fascism
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					CHI = {
+						exists = yes
+						has_government = fascism
+						is_puppet_of = JAP
+					}
+					XSM = { 
+						exists = yes 
+						has_government = fascism
+					}
+				}
+			}
+			XSM = { country_event = { id = china.6978 days = 1 }} #ultimatum
+		}
+	}
+}
+
+country_event = { #chinese annexation ultimatum
+	id = china.6978
+	title = china.6978.t
+	desc = china.6978.d
+	picture = GFX_report_event_chinese_army_training
+	is_triggered_only = yes
+	
+	option = { #accept demands
+		name = china.6978.a
+		CHI = { annex_country = { target = ROOT #whatever country is running this event transfer_troops = yes } }
+		JAP = { country_event = { id = china.6980 days = 1 } } #they accept
+	}
+	option = { #reject demands
+		name = china.6978.b
+		trigger = {
+			is_puppet = no
+		}
+		JAP = { country_event = { id = china.6979 days = 1 } } #puppet wargoal event
+	}
+}
+
+country_event = { #chinese annexation ultimatum	wargoal
+	id = china.6979
+	title = china.6979.t
+	desc = china.6979.d
+	picture = GFX_report_event_chinese_army_training
+	is_triggered_only = yes
+	
+	option = { #accept demands
+		name = china.6979.a
+		create_wargoal = { type = puppet target = FROM #country that caused this event }	
+	}
+}
+
+country_event = { #FROM folds
+	id = china.6980
+	title = china.6980.t
+	desc = china.6980.d
+	picture = GFX_report_event_chinese_army_training
+	is_triggered_only = yes
+	
+	option = { #yay
+		name = china.6980.a
+	}
+}
