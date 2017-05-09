@@ -1,103 +1,243 @@
 ﻿###########################
-# generic flavor peace events
+# generic flavor peace events WIP 
 ###########################
 
 add_namespace = peace
 
-country_event = { #offer surrender
+country_event = { #peace negotiations for losing side
 	id = peace.1
 	title = peace.1.t
 	desc = peace.1.d
-	is_triggered_only = yes
-
-	option = { #White peace proposal
-		name = peace.1.a
-		country_event = { hours = 0 id = peace.4 } #white peace that shit
-	}
-
-	option = { #More Options
-		name = peace.1.b
-		country_event = { hours = 0 id = peace.5 } #more options
-	}
-
-	option = { #We can beat her boys, she's only a ship full of fops!
-		name = peace.1.c
-		country_event = { days = 50 id = peace.3 } #are you sure?
-	}
-}
-
-country_event = { #hidden_event
-	id = peace.2
-	title = peace.2.t
-	desc = peace.2.d
-	hidden = yes
 
 	trigger = {
 		has_war = yes
-		has_offensive_war = yes
 		OR = {
 			is_faction_leader = yes
-			NOT = {
-				is_in_faction = yes	
-			}
+			is_in_faction = no	
 		}
-		
 		NOT = {
 			has_country_flag = peace_offerings
 		}
+		OR = {
+			ROOT = {
+				surrender_progress > 0.25
+			}
+			any_country = {
+				limit = {
+					is_in_faction_with = ROOT
+				}
+				surrender_progress > 0.25
+			}
+		}
 	}
 
-	option = {
-		name = peace.2.a
-		country_event = { days = 50 id = peace.1 }
-		set_country_flag = peace_offerings
+	immediate = { save_event_target_as = faction_peace_leader }
+
+	option = { #consult the faction
+		name = peace.1.a
+		trigger = { 
+			is_faction_leader = yes
+			is_in_faction = no	
+		}
+		every_country = {
+			limit = { 
+				is_in_faction_with = ROOT 
+				is_puppet = no 
+			}
+			country_event = { days = 1 id = peace.2 } #white peace that shit
+		}
+		ROOT = {
+			country_event = { days = 5 id = peace.6 }
+		}
+	}
+
+	option = { #peace it is
+		name = peace.1.b
+		trigger = {
+			is_in_faction = no
+		}
+		country_event = { hours = 0 id = peace.3 } #white peace that shit
+	}
+
+	option = { #push on!
+		name = peace.1.c
+		if = {
+			surrender_progress > 0.25
+			country_event = { days = 62 id = peace.1 } #more option
+		}
 	}
 }
 
-country_event = { #offer surrender
+country_event = { #faction leader suggests peace
+	id = peace.2
+	title = peace.2.t
+	desc = peace.2.d
+	is_triggered_only = yes
+
+	option = { #accept 
+		name = peace.2.a
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 1.33 #~99
+				enemies_strength_ratio > 1
+			}
+			modifier = {
+				factor = 1.5 #75
+				enemies_strength_ratio > 0.75
+			}
+			modifier = {
+				factor = 2 #50
+				enemies_strength_ratio > 0.50
+			}
+			modifier = {
+				factor = 2.5 #25
+				enemies_strength_ratio > 0.25
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = denied_peace_proposal
+			}
+			set_country_flag = accepted_peace_proposal
+			clr_country_flag = denied_peace_proposal
+		}
+		if = {
+			limit = {
+				has_country_flag = accepted_peace_proposal
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_country_flag = denied_peace_proposal
+					has_country_flag = accepted_peace_proposal
+				}
+			}
+			set_country_flag = accepted_peace_proposal
+		}
+		FROM = { country_event = { days = 1 id = peace.3 } } #ROOT accepts
+		
+	}
+
+	option = { #deny
+		name = peace.2.b
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 1.33 #~99
+				enemies_strength_ratio < -1
+			}
+			modifier = {
+				factor = 1.5 #75
+				enemies_strength_ratio < -0.75
+			}
+			modifier = {
+				factor = 2 #50
+				enemies_strength_ratio < -0.50
+			}
+			modifier = {
+				factor = 2.5 #25
+				enemies_strength_ratio < -0.25
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = denied_peace_proposal
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = accepted_peace_proposal
+			}
+			clr_country_flag = accepted_peace_proposal
+			set_country_flag = denied_peace_proposal
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_country_flag = denied_peace_proposal
+					has_country_flag = accepted_peace_proposal
+				}
+			}
+			set_country_flag = denied_peace_proposal
+		}
+		FROM = { country_event = { days = 1 id = peace.4 } } #ROOT denies
+	}
+}
+
+country_event = { #FROM accepts
 	id = peace.3
 	title = peace.3.t
 	desc = peace.3.d
 	is_triggered_only = yes
-	
-	immediate = {
-		save_event_target_as = peace_offer_country
-	}
 
-	option = { #Peace options
+	option = {
 		name = peace.3.a
-	}
-
-	option = { #Maybe Later
-		name = peace.3.b
-		country_event = { days = 50 id = peace.3}
-	}
-
-	option = { #Don't ask me again!
-		name = peace.3.c
 	}
 }
 
-country_event = { #offer surrender
+country_event = { #FROM denies
 	id = peace.4
 	title = peace.4.t
 	desc = peace.4.d
 	is_triggered_only = yes
-	
-	immediate = {
-		save_event_target_as = peace_offer_country
-	}
 
-	option = { #Peace options
-		name = peace.3.a
+	option = {
+		name = peace.4.a
 	}
+}
 
-	option = { #Maybe Later
-		name = peace.3.b
-		country_event = { hours = 0 id = peace.3}
+country_event = { #the faction either accepts or denies
+	id = peace.5
+	title = {
+        text = peace.5.t.accept
+        trigger = {
+	    	every_country = {
+				limit = { 
+					is_in_faction_with = ROOT 
+					is_puppet = no 
+				}
+			has_country_flag = accepted_peace_proposal
+	    }
 	}
+	title = {
+	    text = peace.5.t.deny
+	    trigger = {
+	    	every_country = {
+				limit = { 
+					is_in_faction_with = ROOT 
+					is_puppet = no 
+				}
+			NOT = { has_country_flag = accepted_peace_proposal }
+	    }
+	}
+	desc = {
+        text = peace.5.d.accept
+        trigger = {
+	    	every_country = {
+				limit = { 
+					is_in_faction_with = ROOT 
+					is_puppet = no 
+				}
+			has_country_flag = accepted_peace_proposal
+	    }
+	}
+	desc = {
+	    text = peace.5.d.deny
+	    trigger = {
+	    	every_country = {
+				limit = { 
+					is_in_faction_with = ROOT 
+					is_puppet = no 
+				}
+			NOT = { has_country_flag = accepted_peace_proposal }
+	    }
+	}
+	is_triggered_only = yes
 
-	option = { #Don't ask me again!
-		name = peace.3.c
+	option = {
+		name = peace.5.a
+		#WIP
 	}
 }

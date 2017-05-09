@@ -338,27 +338,48 @@ country_event = { #political protests
 		if = {
 			limit = {
 				has_government = democratic
+				OR = { 
+					fascism > 0.02
+					communism > 0.02
+					neutrality > 0.02
+				}
 			}
 			add_popularity = { ideology = democratic popularity = -0.02 }
 		}
 		if = {
 			limit = {
 				has_government = fascism
+				OR = { 
+					democratic > 0.02
+					communism > 0.02
+					neutrality > 0.02
+				}
 			}
 			add_popularity = { ideology = fascism popularity = -0.02 }
 		}
 		if = {
 			limit = {
 				has_government = communism
+				OR = { 
+					democratic > 0.02
+					fascism > 0.02
+					neutrality > 0.02
+				}
 			}
 			add_popularity = { ideology = communism popularity = -0.02 }
 		}
 		if = {
 			limit = {
 				has_government = neutrality
+				OR = { 
+					democratic > 0.02
+					fascism > 0.02
+					communism > 0.02
+				}
 			}
 			add_popularity = { ideology = neutrality popularity = -0.02 }
 		}
+		add_political_power = -50
 	}
 }
 
@@ -389,7 +410,7 @@ country_event = { #guns found
 	desc = flavor.12.d
 	
 	mean_time_to_happen = { days = 730 }
-	
+
 	trigger = {
 		has_country_flag = flavor_reset
 		NOT = {
@@ -433,7 +454,7 @@ country_event = { #guns found
 	}
 }
 
-country_event = { #naval experience
+country_event = { #naval experience (HARDY SEAMEN)
 	id = flavor.13
 	title = flavor.13.t
 	desc = flavor.13.d
@@ -446,6 +467,7 @@ country_event = { #naval experience
 			has_country_flag = flavor_event_13
 		}
 		any_owned_state = { is_coastal = yes }	
+		has_navy_size = { size > 0 }	
 	}
 	
 	option = {
