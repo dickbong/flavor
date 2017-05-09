@@ -1,0 +1,11 @@
+ai_historical_focus_list_GXC = {
+	ai_national_focuses = {
+		GXC_onechina
+		GXC_sidewithnationalists
+		GXC_construction_effort
+		GXC_equipment_effort
+		GXC_army_effort
+		GXC_antifascism
+		GXC_protectionagainstjapan
+	}
+}

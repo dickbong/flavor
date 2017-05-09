@@ -1,0 +1,11 @@
+ai_historical_focus_list_YUN = {
+	ai_national_focuses = {
+		YUN_onechina
+		YUN_sidewithnationalists
+		YUN_construction_effort
+		YUN_equipment_effort
+		YUN_army_effort
+		YUN_antifascism
+		YUN_protectionagainstjapan
+	}
+}

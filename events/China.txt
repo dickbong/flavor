@@ -824,7 +824,7 @@ country_event = {
 			limit = { has_country_flag = sided_CCP_focus }
 			PRC = { 
 				add_to_faction = ROOT 
-				#country_event = china.106 revisit
+				country_event = china.106
 			}
 		}
 		#Nothing
@@ -1042,6 +1042,9 @@ country_event = {
 	is_triggered_only = yes
 
 	option = {
+		trigger = {
+			has_country_flag = sided_CCP_focus
+		}
 		ai_chance = { factor = 100 }
 		name = china.105.a
 		FROM = { annex_country = { target = ROOT transfer_troops = yes } }
@@ -1050,8 +1053,18 @@ country_event = {
 
 	#Nothing
 	option = {
+		trigger = {
+			has_country_flag = sided_CCP_focus
+		}
 		ai_chance = { factor = 0 }
 		FROM = { puppet = ROOT }
+		name = china.105.b
+	}
+	option = { #RESIST
+		trigger = {
+			NOT = { has_country_flag = sided_CCP_focus }
+		}
+		PRC = { create_wargoal = { type = annex_everything target = SHX } }
 		name = china.105.b
 	}
 }

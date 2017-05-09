@@ -1,0 +1,11 @@
+ai_historical_focus_list_SHX = {
+	ai_national_focuses = {
+		SHX_onechina
+		SHX_sidewithcommunists
+		SHX_construction_effort
+		SHX_equipment_effort
+		SHX_army_effort
+		SHX_antifascism
+		SHX_protectionagainstjapan
+	}
+}
