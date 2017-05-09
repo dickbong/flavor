@@ -31,7 +31,10 @@ country_event = { #peace negotiations for losing side
 		}
 	}
 
-	immediate = { save_event_target_as = faction_peace_leader }
+	immediate = { 
+		save_event_target_as = faction_peace_leader
+		add_country_flag = peace_offerings
+	}
 
 	option = { #consult the faction
 		name = peace.1.a
@@ -198,7 +201,8 @@ country_event = { #the faction either accepts or denies
 					is_in_faction_with = ROOT 
 					is_puppet = no 
 				}
-			has_country_flag = accepted_peace_proposal
+				has_country_flag = accepted_peace_proposal
+			}
 	    }
 	}
 	title = {
@@ -209,7 +213,8 @@ country_event = { #the faction either accepts or denies
 					is_in_faction_with = ROOT 
 					is_puppet = no 
 				}
-			NOT = { has_country_flag = accepted_peace_proposal }
+				NOT = { has_country_flag = accepted_peace_proposal }
+			}
 	    }
 	}
 	desc = {
@@ -220,7 +225,8 @@ country_event = { #the faction either accepts or denies
 					is_in_faction_with = ROOT 
 					is_puppet = no 
 				}
-			has_country_flag = accepted_peace_proposal
+				has_country_flag = accepted_peace_proposal
+			}
 	    }
 	}
 	desc = {
@@ -231,13 +237,74 @@ country_event = { #the faction either accepts or denies
 					is_in_faction_with = ROOT 
 					is_puppet = no 
 				}
-			NOT = { has_country_flag = accepted_peace_proposal }
+				NOT = { has_country_flag = accepted_peace_proposal }
+			}
 	    }
 	}
 	is_triggered_only = yes
 
 	option = {
 		name = peace.5.a
-		#WIP
+		if = {
+			limit = {
+				every_country = {
+					limit = { 
+						is_in_faction_with = ROOT 
+						is_puppet = no 
+					}
+					has_country_flag = accepted_peace_proposal
+				}
+			}
+			country_event = { days = 1 id = peace.4
+		}
+		if = {
+			limit = {
+				every_country = {
+					limit = { 
+						is_in_faction_with = ROOT 
+						is_puppet = no 
+					}
+					NOT = { has_country_flag = accepted_peace_proposal }
+				}
+			}
+
+			every_country = {
+					limit = { 
+						is_faction_leader = yes	
+						has_war_with = ROOT
+					}
+				}
+			country_event = { days = 1 id = peace.6 } #peace deal
+		}
+	}
+}
+
+country_event = { #peace proposition
+	id = peace.6
+	title = peace.6.t
+	desc = peace.6.d
+	is_triggered_only = yes
+
+	option = {
+		name = peace.6.a
+		if = {
+			limit = {
+				is_faction_leader = yes	
+				has_war_with = FROM
+			}
+			every_country = {
+				limit = {
+					is_in_faction_with = ROOT
+				}
+				white_peace = FROM #may have to add every country syntax, please revisit
+			}
+		}
+		if = {
+			limit = {
+				is_in_faction = no
+				has_war_with = FROM
+			}
+			white_peace = FROM
+		}
 	}
 }

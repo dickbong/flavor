@@ -1,2 +1,6 @@
 IF YOU TESTED THIS MOD: REPORT YOUR FINDINGS HERE:
 this is stuff i will change:
+
+stuff to revisit:
+	FLV_sue_for_peace line 299
+	ma focus tree opinion modifiers
