@@ -535,15 +535,6 @@ opinion_modifiers = {
 	large_increase = {
 		value = 50
 	}
-	
-	##### FLAVOR
-	
-	diplomatic_insult = {
-		value = -15
-		months = 6
-		decay = 1
-	}
-
 
 	##### TRADE MODIFIERS
 	embargo = {

@@ -758,27 +758,74 @@ country_event = {
 		ai_chance = { factor = 100 }
 		name = china.101.a
 		trigger = {
-			has_country_flag = accept_KMT_focus
-		}
-		effect_tooltip = {
-			CHI = { 
-				annex_country = { target = ROOT transfer_troops = yes }
+			OR = {
+				has_country_flag = sided_KMT_focus
+				has_country_flag = sided_CCP_focus
+			}
+			NOT = {
+				has_country_flag = reject_KMT_focus
 			}
 		}
-		custom_effect_tooltip = GAME_OVER_TT
-		hidden_effect = {
-			CHI = { country_event = china.103 }
+		if = {
+			limit = {
+				has_country_flag = sided_KMT_focus
+			}
+			effect_tooltip = {
+				CHI = { 
+					annex_country = { target = ROOT transfer_troops = yes }
+				}
+			}
+			custom_effect_tooltip = GAME_OVER_TT
+			hidden_effect = {
+				CHI = { country_event = china.103 }
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = sided_CCP_focus
+			}
+			effect_tooltip = {
+				PRC = { 
+					annex_country = { target = ROOT transfer_troops = yes }
+				}
+			}
+			custom_effect_tooltip = GAME_OVER_TT
+			hidden_effect = {
+				PRC = { country_event = china.103 }
+			}
 		}
 	}
 	option = {
 		ai_chance = { factor = 0 }
 		name = china.101.b
 		trigger = {
-			has_country_flag = accept_KMT_focus
+			OR = {
+				has_country_flag = accept_KMT_focus
+				has_country_flag = sided_CCP_focus
+			}
+			NOT = {
+				has_country_flag = sided_KMT_focus
+				has_country_flag = reject_KMT_focus
+			}
 		}
-		CHI = { 
-			add_to_faction = ROOT 
-			country_event = china.106
+		if = {
+			limit = { 
+				OR = { 
+					has_country_flag = accept_KMT_focus 
+					has_country_flag = sided_KMT_focus
+				}
+			}
+			CHI = { 
+				add_to_faction = ROOT 
+				country_event = china.106
+			}
+		}
+		if = {
+			limit = { has_country_flag = sided_CCP_focus }
+			PRC = { 
+				add_to_faction = ROOT 
+				#country_event = china.106 revisit
+			}
 		}
 		#Nothing
 	}
@@ -787,6 +834,10 @@ country_event = {
 		name = china.101.c
 		trigger = {
 			has_country_flag = reject_KMT_focus
+			NOT = {
+				has_country_flag = sided_KMT_focus
+				has_country_flag = accept_KMT_focus
+			}
 		}
 		CHI = { 	
 			country_event = china.6969 #China angery
