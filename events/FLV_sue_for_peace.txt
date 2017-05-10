@@ -8,6 +8,7 @@ country_event = { #peace negotiations for losing side
 	id = peace.1
 	title = peace.1.t
 	desc = peace.1.d
+	picture = GFX_report_event_generic_sign_treaty1
 
 	trigger = {
 		has_war = yes
@@ -142,6 +143,7 @@ country_event = { #faction leader suggests peace
 	title = peace.2.t
 	desc = peace.2.d
 	is_triggered_only = yes
+	picture = GFX_report_event_generic_sign_treaty1
 
 	option = { #accept 
 		name = peace.2.a
@@ -240,6 +242,7 @@ country_event = { #FROM accepts
 	title = peace.3.t
 	desc = peace.3.d
 	is_triggered_only = yes
+	picture = GFX_report_event_generic_sign_treaty2
 
 	option = {
 		name = peace.3.a
@@ -251,6 +254,7 @@ country_event = { #FROM denies
 	title = peace.4.t
 	desc = peace.4.d
 	is_triggered_only = yes
+	picture = GFX_report_event_generic_sign_treaty2
 
 	option = {
 		name = peace.4.a
@@ -259,6 +263,7 @@ country_event = { #FROM denies
 
 country_event = { #the faction either accepts or denies
 	id = peace.5
+	picture = GFX_report_event_generic_sign_treaty1
 	title = {
         text = peace.5.t.accept
         trigger = {
@@ -373,6 +378,7 @@ country_event = { #peace proposition
 	title = peace.6.t
 	desc = peace.6.d
 	is_triggered_only = yes
+	picture = GFX_report_event_generic_sign_treaty1
 
 	option = {
 		name = peace.6.a
@@ -406,6 +412,7 @@ country_event = { #FROM denies
 	id = peace.7
 	title = peace.7.t
 	desc = peace.7.d
+	picture = GFX_report_event_generic_sign_treaty2
 	is_triggered_only = yes
 
 	option = {

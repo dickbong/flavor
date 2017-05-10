@@ -51,9 +51,9 @@
  flavor.14.d:0 "As our numbers grow larger, so do the number of deserters. More recruits are becoming aware of the horrors of war and are sneaking out at night and running from battles."
  flavor.14.a:0 "Damn."
  
- flavor.0.t:0 "Industrialization"
- flavor.0.d:0 ""
- flavor.0.a:0 ""
+ flavor.15.t:0 "[FROM.GetName] Instigates Diplomatic Quarrel"
+ flavor.15.d:0 "Recently officials between [Root.GetName] and [From.GetName] got into a quarrel and hurt relations between our countries. The insitgation from the other country is insulting and in general, lowered their public image. Diplomatic relations which such people should be minimal."
+ flavor.15.a:0 "Unfortunate."
 
  flavor.0.t:0 ""
  flavor.0.d:0 ""

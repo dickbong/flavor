@@ -35,6 +35,7 @@ country_event = {
 	desc = flavor.3.d
 	is_triggered_only = yes
 	hidden = yes
+
 	
 	immediate = {
 		country_event = { days = 365 id = flavor.3 }
@@ -68,6 +69,7 @@ country_event = { #political rally
 	id = flavor.1
 	title = flavor.1.t
 	desc = flavor.1.d
+	picture = GFX_report_event_generic_rally
 	
 	mean_time_to_happen = { days = 730 }
 	
@@ -113,6 +115,7 @@ country_event = { #union struggles
 	id = flavor.4
 	title = flavor.4.t
 	desc = flavor.4.d
+	picture = GFX_report_event_generic_riot
 	
 	mean_time_to_happen = { 
 		days = 730
@@ -147,6 +150,7 @@ country_event = { #resources found!
 	id = flavor.5
 	title = flavor.5.t
 	desc = flavor.5.d
+	picture = GFX_report_event_generic_research_lab
 	
 	mean_time_to_happen = { 
 		days = 730
@@ -195,6 +199,7 @@ country_event = { #factory accident
 	id = flavor.6
 	title = flavor.6.t
 	desc = flavor.6.d
+	picture = GFX_report_event_generic_factory
 	
 	mean_time_to_happen = { 
 		days = 730
@@ -223,6 +228,7 @@ country_event = { #techological breakthrough
 	id = flavor.7
 	title = flavor.7.t
 	desc = flavor.7.d
+	picture = GFX_report_event_generic_research_lab
 	
 	mean_time_to_happen = { 
 		days = 730
@@ -256,6 +262,7 @@ country_event = { #diplomatic quarrel
 	id = flavor.8
 	title = flavor.8.t
 	desc = flavor.8.d
+	picture = GFX_report_event_generic_sign_treaty2
 	
 	mean_time_to_happen = { 
 		days = 1095
@@ -285,7 +292,7 @@ country_event = { #diplomatic quarrel
 						has_country_flag = flavor_event_8
 					}
 				}
-				country_event = { id = flavor.8 days = 1 }
+				country_event = { id = flavor.15 days = 1 } #insult back
 			}
 		}
 	}
@@ -295,6 +302,7 @@ country_event = { #parade
 	id = flavor.9
 	title = flavor.9.t
 	desc = flavor.9.d
+	picture = GFX_report_event_generic_rally_3
 	
 	mean_time_to_happen = { 
 		days = 730
@@ -321,6 +329,7 @@ country_event = { #political protests
 	id = flavor.10
 	title = flavor.10.t
 	desc = flavor.10.d
+	picture = GFX_report_event_generic_riot
 	
 	mean_time_to_happen = { days = 730 }
 	
@@ -387,6 +396,7 @@ country_event = { #army experience
 	id = flavor.11
 	title = flavor.11.t
 	desc = flavor.11.d
+	picture = GFX_report_event_generic_army
 	
 	mean_time_to_happen = { days = 730 }
 	
@@ -408,6 +418,7 @@ country_event = { #guns found
 	id = flavor.12
 	title = flavor.12.t
 	desc = flavor.12.d
+	picture = GFX_report_event_generic_factory
 	
 	mean_time_to_happen = { days = 730 }
 
@@ -458,6 +469,7 @@ country_event = { #naval experience (HARDY SEAMEN)
 	id = flavor.13
 	title = flavor.13.t
 	desc = flavor.13.d
+	picture = GFX_report_event_ast_navy
 	
 	mean_time_to_happen = { days = 730 }
 	
@@ -473,7 +485,7 @@ country_event = { #naval experience (HARDY SEAMEN)
 	option = {
 		name = flavor.13.a
 		set_country_flag = flavor_event_13
-		naval_experience = 10
+		naval_experience = 25
 	}
 }
 
@@ -481,6 +493,7 @@ country_event = { #deserters
 	id = flavor.14
 	title = flavor.14.t
 	desc = flavor.14.d
+	picture = GFX_report_event_ast_army
 	
 	mean_time_to_happen = { days = 730 }
 	
@@ -527,6 +540,20 @@ country_event = { #deserters
 				has_army_manpower = { size > 1000000 }	
 			}
 			add_manpower = -10000
+		}
+	}
+}
+
+country_event = { #diplomatic quarrel
+	id = flavor.15
+	title = flavor.15.t
+	desc = flavor.15.d
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor.15.a
+			add_opinion_modifier = { target = FROM modifier = diplomatic_insult }
 		}
 	}
 }

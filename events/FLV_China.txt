@@ -2232,7 +2232,7 @@ country_event = {
 	id = china.6970
 	title = china.6970.t
 	desc = china.6970.d
-	picture = GFX_report_event_chinese_army_training
+	picture = GFX_report_event_chinese_japanese_handshake
 
 	is_triggered_only = yes
 	
@@ -2252,7 +2252,7 @@ country_event = {
 	id = china.6971
 	title = china.6971.t
 	desc = china.6971.d
-	picture = GFX_report_event_chinese_army_training
+	picture = GFX_report_event_chinese_japanese_handshake
 
 	is_triggered_only = yes
 	
@@ -2268,7 +2268,7 @@ country_event = {
 	id = china.6972
 	title = china.6972.t
 	desc = china.6972.d
-	picture = GFX_report_event_chinese_army_training
+	picture = GFX_report_event_chinese_japanese_handshake
 
 	is_triggered_only = yes
 	
@@ -2284,7 +2284,7 @@ country_event = { #Uyghur Rebellion
 	id = china.6973
 	title = china.6973.t
 	desc = china.6973.d
-	picture = GFX_report_event_chinese_army_training
+	picture = GFX_report_event_chinese_soldiers_fighting
 	fire_only_once = yes
 	
 	trigger = {
@@ -2314,7 +2314,7 @@ country_event = { #Uyghur Rebellion
 	id = china.6974
 	title = china.6974.t
 	desc = china.6974.d
-	picture = GFX_report_event_chinese_army_training
+	picture = GFX_report_event_chinese_soldiers_fighting
 	is_triggered_only = yes
 	fire_only_once = yes
 	
@@ -2332,7 +2332,7 @@ country_event = { #XSM comes to aid
 	id = china.6975
 	title = china.6975.t
 	desc = china.6975.d
-	picture = GFX_report_event_chinese_army_training
+	picture = GFX_report_event_chinese_soldiers_fighting
 	fire_only_once = yes
 	
 	trigger = {
@@ -2352,7 +2352,7 @@ country_event = { #surrender_progress
 	id = china.6981
 	title = china.6981.t
 	desc = china.6981.d
-	picture = GFX_report_event_chinese_army_training
+	picture = GFX_report_event_chinese_officers
 	fire_only_once = yes
 	
 	trigger = {
@@ -2395,7 +2395,7 @@ country_event = { #uyghurs turn into xinjiang
 	id = china.6976
 	title = china.6976.t
 	desc = china.6976.d
-	picture = GFX_report_event_chinese_army_training
+	picture = GFX_report_event_chinese_officers
 	fire_only_once = yes
 	hidden = yes
 	
@@ -2428,7 +2428,7 @@ country_event = { #chinese warlords integrated
 	id = china.6977
 	title = china.6977.t
 	desc = china.6977.d
-	picture = GFX_report_event_chinese_army_training
+	picture = GFX_report_event_chinese_japanese_handshake
 	fire_only_once = yes
 	
 	trigger = {
@@ -2599,7 +2599,7 @@ country_event = { #chinese annexation ultimatum
 	id = china.6978
 	title = china.6978.t
 	desc = china.6978.d
-	picture = GFX_report_event_chinese_army_training
+	picture = GFX_report_event_japanese_soldiers_02
 	is_triggered_only = yes
 	
 	option = { #accept demands
@@ -2620,7 +2620,7 @@ country_event = { #chinese annexation ultimatum	wargoal
 	id = china.6979
 	title = china.6979.t
 	desc = china.6979.d
-	picture = GFX_report_event_chinese_army_training
+	picture = GFX_report_event_japanese_soldiers_02
 	is_triggered_only = yes
 	
 	option = { #accept demands
@@ -2633,7 +2633,7 @@ country_event = { #FROM folds
 	id = china.6980
 	title = china.6980.t
 	desc = china.6980.d
-	picture = GFX_report_event_chinese_army_training
+	picture = GFX_report_event_japanese_soldiers_02
 	is_triggered_only = yes
 	
 	option = { #yay
