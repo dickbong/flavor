@@ -425,31 +425,31 @@ country_event = { #guns found
 			limit = {
 				date > 1936.1.1
 			}
-			add_equipment_to_stockpile = { type = infantry_weapons1 amount = 500 producer = ROOT }	
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 500 producer = ROOT }	
 		}
 		if = {
 			limit = {
 				date > 1938.1.1
 			}
-			add_equipment_to_stockpile = { type = infantry_weapons2 amount = 500 producer = ROOT }	
+			add_equipment_to_stockpile = { type = infantry_equipment_2 amount = 500 producer = ROOT }	
 		}
 		if = {
 			limit = {
 				date > 1940.1.1
 			}
-			add_equipment_to_stockpile = { type = infantry_weapons3 amount = 500 producer = ROOT }	
+			add_equipment_to_stockpile = { type = infantry_equipment_3 amount = 500 producer = ROOT }	
 		}
 		if = {
 			limit = {
 				date > 1942.1.1
 			}
-			add_equipment_to_stockpile = { type = infantry_weapons3 amount = 500 producer = ROOT }	
+			add_equipment_to_stockpile = { type = infantry_equipment_4 amount = 500 producer = ROOT }	
 		}
 		if = {
 			limit = {
 				date > 1944.1.1
 			}
-			add_equipment_to_stockpile = { type = infantry_weapons5 amount = 500 producer = ROOT }	
+			add_equipment_to_stockpile = { type = infantry_equipment_5 amount = 500 producer = ROOT }	
 		}
 	}
 }

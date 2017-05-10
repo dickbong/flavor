@@ -66,7 +66,7 @@ default = no
 			add_opinion_modifier = { target = JAP modifier = medium_increase } #replace later
 			JAP = { add_opinion_modifier = { target = ROOT modifier = medium_increase } } 
 			CHI = { add_opinion_modifier = { target = ROOT modifier = hostile } } 
-				country_event = { id = china.6970 days = 1}
+			JAP = { country_event = { id = china.6970 days = 1} }
 			}
 			set_country_flag= side_with_japan_focus
 		}
@@ -402,7 +402,7 @@ default = no
 				target = XSM
 			}
 		}
-		every_owned_state = {
+		every_state = {
 			limit = {
 				is_core_of = CHI
 			}

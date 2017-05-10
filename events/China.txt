@@ -844,6 +844,22 @@ country_event = {
 		}
 		#Nothing
 	}
+	option = { #JOIN JAPAN
+		ai_chance = { factor = 0 }
+		name = china.101.c
+		trigger = {
+			has_country_flag = reject_KMT_focus
+			NOT = {
+				has_country_flag = sided_KMT_focus
+				has_country_flag = accept_KMT_focus
+				has_country_flag = sided_CCP_focus
+			}
+		}
+		CHI = { 	
+			country_event = china.6969 #China angery
+		}
+		#Nothing
+	}
 }
 
 # Japan attack - Sinkiang can join if they want to
