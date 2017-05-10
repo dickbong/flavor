@@ -1,0 +1,46 @@
+﻿l_english:
+ peace.0.t:0 ""
+ peace.0.d:0 ""
+ peace.0.a:0 ""
+ 
+ peace.1.t:0 "Peace Negotiations"
+ peace.1.d:0 "As the enemy encroaches, we must think about our national sovereignty and preserving our nation. If we propose a peace deal, giving the enemy the lands they currently control, we may be able to put an end to this war."
+ peace.1.a:0 "Consult the faction members."
+ peace.1.a.tt:0 "If every faction member agrees for peace, we will be able to send a proposal to the enemy."
+ peace.1.b:0 "Send them a proposal."
+ peace.1.b.tt:0 "The winning side will annex of all of the states it has full control over."
+ peace.1.c:0 "There will be no peace!"
+
+ peace.2.t:0 "[FROM.GetName] Suggests Peace"
+ peace.2.d:0 "Our faction leader, [FROM.GetName], has suggested peace with our enemies. They are giving us the choice to either reject or accept the request. If every faction member agrees, we are able to have peace. The conditions of the peace deal would include our enemies taking all the lands that they currently have full control over."
+ peace.2.a:0 "We Accept the Conditions."
+ peace.2.b:0 "There can be no peace."
+
+ peace.3.t:0 "[FROM.GetName] Agrees to Peace Conditions"
+ peace.3.d:0 "The officials from [FROM.GetName] have informed us of their decision to accept the proposed conditions for peace with our enemies."
+ peace.3.a:0 "Excellent."
+ 
+ peace.4.t:0 "[FROM.GetName] Objects to Peace Conditions"
+ peace.4.d:0 "The officials from [FROM.GetName] have informed us of their decision to object to the proposed conditions for peace with our enemies."
+ peace.4.a:0 "Why must they disagree?"
+
+ peace.5.t.accept:0 "[ROOT.GetFactionName] Supports Peace"
+ peace.5.t.deny:0 "The [ROOT.GetFactionName] Rejects Peace"
+ peace.5.d.accept:0 "After a unanimous decision, the countries of our faction: [ROOT.GetFactionName], have agreed to propose peace to our enemies. Hopefully this compromise is in our best of interests, and keeps the lasting peace in the region."
+ peace.5.d.deny:0 "After a unanimous decision, the countries of our faction: [ROOT.GetFactionName], have disagreed on the issue of proposing peace to our enemies. Hopefully this compromise wasn't in our best of interests, for we have missed out on an opportunity for lasting peace in the region."
+ peace.5.a.accept:0 "We will now propose the deal."
+ peace.5.a.deny:0 "Unfortunate."
+
+ peace.6.t:0 "[FROM.GetName] Proposes Peace"
+ peace.6.d:0 "In their most desperate hour, [FROM.GetName] has come to us with a compromise for peace, surrending the lands we have already taken. We can either accept their pitiful request, or take matters into our own hands, and push the bastards farther into their own countryland. How shall we reply?"
+ peace.6.a:0 "'We begrudgingly accept.'"
+ peace.6.a.tt:0 "We will annex of all of the states it has full control over."
+ peace.6.b:0 "'There will be no peace!'"
+
+ peace.7.t:0 "[FROM.GetName] Rejects Peace Deal"
+ peace.7.d:0 "The officials from [FROM.GetName] have informed us of their decision to reject our peace deal. In their letter, [FROM.GetLeader] said 'There will be no peace.' Unfortunately this may turn out to be the worst. Let us hope our country can survive this war."
+ peace.7.a:0 "Unfortunate."
+
+ peace.8.t:0 "[FROM.GetName] Accepts Peace Deal"
+ peace.8.d:0 "The officials from [FROM.GetName] have informed us of their decision to accept our peace deal. In their letter, [FROM.GetLeader] said 'We begrudgingly accept.' Fortunately, we will live another day and our country's sovereignty is protected."
+ peace.8.a:0 "Unfortunate."

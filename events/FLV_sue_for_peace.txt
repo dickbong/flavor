@@ -310,7 +310,30 @@ country_event = { #the faction either accepts or denies
 	is_triggered_only = yes
 
 	option = {
-		name = peace.5.a
+		name = {
+	        text = peace.5.a.accept
+	        trigger = {
+		    	every_country = {
+					limit = { 
+						is_in_faction_with = ROOT 
+						is_puppet = no 
+					}
+					has_country_flag = accepted_peace_proposal
+				}
+		    }
+		}
+		name = {
+		    text = peace.5.a.deny
+		    trigger = {
+		    	every_country = {
+					limit = { 
+						is_in_faction_with = ROOT 
+						is_puppet = no 
+					}
+					NOT = { has_country_flag = accepted_peace_proposal }
+				}
+		    }
+		}
 		if = {
 			limit = {
 				every_country = {
@@ -373,4 +396,21 @@ country_event = { #peace proposition
 			white_peace = FROM
 		}
 	}
+	option = { #no peace
+		name = peace.6.b
+		FROM = { country_event = { id = peace.7 days = 1 } }
+	}
 }
+
+country_event = { #FROM denies
+	id = peace.7
+	title = peace.7.t
+	desc = peace.7.d
+	is_triggered_only = yes
+
+	option = {
+		name = peace.4.a
+	}
+}
+
+
