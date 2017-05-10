@@ -56,6 +56,18 @@ country_event = {
 		clr_country_flag = flavor_event_15
 		clr_country_flag = flavor_event_16
 		clr_country_flag = flavor_event_17
+		clr_country_flag = flavor_event_18
+		clr_country_flag = flavor_event_19
+		clr_country_flag = flavor_event_20
+		clr_country_flag = flavor_event_21
+		clr_country_flag = flavor_event_22
+		clr_country_flag = flavor_event_23
+		clr_country_flag = flavor_event_24
+		clr_country_flag = flavor_event_25
+		clr_country_flag = flavor_event_26
+		clr_country_flag = flavor_event_27
+		clr_country_flag = flavor_event_28
+		clr_country_flag = flavor_event_29
 		
 	}
 	
@@ -286,13 +298,7 @@ country_event = { #diplomatic quarrel
 				has_war = no
 			}
 			add_opinion_modifier = { target = FROM modifier = diplomatic_insult }
-			if = {
-				limit = {
-					NOT = {
-						has_country_flag = flavor_event_8
-					}
-				}
-				country_event = { id = flavor.15 days = 1 } #insult back
+			country_event = { id = flavor.15 days = 1 } #insult back
 			}
 		}
 	}
@@ -556,4 +562,65 @@ country_event = { #diplomatic quarrel
 			add_opinion_modifier = { target = FROM modifier = diplomatic_insult }
 		}
 	}
+}
+
+country_event = { #air experience
+	id = flavor.16
+	title = flavor.16.t
+	desc = flavor.16.d
+	picture = GFX_report_event_usa_amelia_earhart_airplane
+	
+	mean_time_to_happen = { 
+		days = 730
+	}
+	
+	trigger = {
+		has_country_flag = flavor_reset
+		NOT = {
+			has_country_flag = flavor_event_16
+		}
+		ROOT = { has_deployed_air_force_size > 1 }	
+	}
+	
+	option = {
+		name = flavor.16.a
+		set_country_flag = flavor_event_16
+		air_experience = 25
+	}
+}
+
+country_event = { #people demand elections
+	id = flavor.17
+	title = flavor.17.t
+	desc = flavor.17.d
+	picture = GFX_report_event_generic_riot
+	
+	mean_time_to_happen = { 
+		days = 730
+	}
+	
+	trigger = {
+		has_country_flag = flavor_reset
+		NOT = {
+			has_country_flag = flavor_event_16
+		}
+		democratic > 4
+		OR = {
+			has_government = fascism
+			has_government = communism
+		}
+	}
+	
+	option = {
+		name = flavor.17.a
+		set_country_flag = flavor_event_17
+		set_politics = { elections_allowed = yes }
+	}
+
+	option = {
+		name = flavor.17.b
+		set_country_flag = flavor_event_17
+		add_political_power = -150
+	}
+		
 }
