@@ -1,13 +1,182 @@
 focus_tree = {
-id = tibet
-country = {
-factor=0
-modifier = {
-add = 10
-tag = TIB
-}
-}
-default = no
+	id = tibet
+	country = {
+		factor=0
+		modifier = {
+			add = 10
+			tag = TIB
+		}
+	}
+	default = no
+
+#Focus for - Tibetan Buddhism
+	focus = {
+		id = TIB_tibetanbuddhism
+		icon =GFX_goal_generic_demand_territory
+		bypass = {}
+		ai_will_do = { factor = 1}
+		x =3
+		y =0
+		mutually_exclusive = { focus = TIB_separationofchurchandstate}
+		prerequisite = { }
+		available = {  }
+		cost = 10 
+		available_if_capitulated = yes 
+
+		completion_reward = {
+			add_political_power = 120
+		}
+	}
+
+##FASCISM TREE
+
+#Focus for - Expel the Kachee
+	focus = {
+		id = TIB_expelthekachee
+		icon =GFX_goal_generic_forceful_treaty
+		bypass = {}
+		ai_will_do = { factor = 1}
+		x =6
+		y =1
+		mutually_exclusive = { focus = TIB_tolerancetraditionalism}
+		prerequisite = { focus = TIB_tibetanbuddhism}
+		available = {  }
+		cost = 10 
+		 available_if_capitulated = yes 
+		completion_reward = {
+			add_ideas = TIB_expelled_kachee
+		}
+	}
+
+	#Focus for - Restore the Tibetan Empire
+	focus = {
+		id =TIB_restorethetibetanempire
+		icon =GFX_focus_generic_home_defense
+		bypass = {}
+		ai_will_do = { factor = 1}
+		x =5
+		y =2
+		mutually_exclusive = { }
+		prerequisite = { focus = TIB_expelthekachee}
+		available = {  }
+		cost = 10 
+		 available_if_capitulated = yes 
+		completion_reward = {
+			set_cosmetic_tag = TIB_empire
+			set_country_flag = TIB_empire
+			add_political_power = 100
+			add_national_unity = 0.15
+			add_popularity = { ideology = fascism popularity = 0.1 }	
+		}
+	}
+	#Focus for - Take Back Yunnan
+	focus = {
+		id =TIB_takebackyunnan
+		icon =GFX_goal_generic_major_war
+		bypass = {}
+		ai_will_do = { factor = 1}
+		x =5
+		y =3
+		mutually_exclusive = { }
+		prerequisite = { focus = TIB_restorethetibetanempire}
+		available = {  }
+		cost = 10 
+		 available_if_capitulated = yes 
+		completion_reward = {
+			create_wargoal = { type = annex_everything target = YUN }
+			743 = { #West Sichuan 
+				add_core_of = TIB 
+			}
+			325 = { #Yunnan
+				add_core_of = TIB
+			}
+		}
+	}
+	#Focus for - Take the Himalayan States
+	focus = {
+		id = TIB_takethehimalayanstates
+		icon =GFX_goal_generic_major_war
+		bypass = {}
+		ai_will_do = { factor = 1}
+		x =6
+		y =4
+		mutually_exclusive = { }
+		prerequisite = { focus = TIB_takebackyunnan}
+		available = {  }
+		cost = 10 
+		 available_if_capitulated = yes 
+		completion_reward = {
+			create_wargoal = { type = annex_everything target = NEP } #i think that's nepal?
+			create_wargoal = { type = annex_everything target = BHU }
+			324 = { #Bhutan
+				add_core_of = TIB
+			}
+			323 = { #Nepal
+				add_core_of = TIB
+			}
+		}
+	}
+	#Focus for - Indian Ultimatum
+	focus = {
+		id =TIB_indianultimatum
+		icon =GFX_goal_generic_major_war
+		bypass = {}
+		ai_will_do = { factor = 1}
+		x =4
+		y =4
+		mutually_exclusive = { }
+		prerequisite = { focus = TIB_takebackyunnan}
+		available = {  }
+		cost = 10 
+		 available_if_capitulated = yes 
+		completion_reward = {
+			441 = {	#KASHMIR
+				add_core_of = TIB
+			}
+			439 = { #Pradesh
+				add_core_of = TIB
+			}
+			RAJ = { country_event = { id = tibet.1 days = 1 }}
+		}
+	}
+	#Focus for - Japanese Non-Agression
+	focus = {
+		id =TIB_japanesenonagression
+		icon =GFX_goal_generic_improve_relations
+		bypass = {}
+		ai_will_do = { factor = 1}
+		x =5
+		y =5
+		mutually_exclusive = { }
+		prerequisite = { focus = TIB_indianultimatum  focus = TIB_takethehimalayanstates}
+		available = {  }
+		cost = 10 
+		 available_if_capitulated = yes 
+		completion_reward = {
+			JAP = { add_opinion_modifier = { target = TIB modifier = TIB_japan_focus }	}
+			add_opinion_modifier = { target = JAP modifier = TIB_japan_focus }
+			JAP = { country_event = { id = tibet.2 days = 1 }}
+		}
+	}
+
+	#Focus for - Anti-China Pact
+	focus = {
+		id =TIB_antichinapact
+		icon =GFX_goal_generic_dangerous_deal
+		bypass = {}
+		ai_will_do = { factor = 1}
+		x =4
+		y =6
+		mutually_exclusive = { focus = TIB_unitethebuddhistpeople  focus = TIB_antiislampact}
+		prerequisite = { focus = TIB_japanesenonagression}
+		available = {  }
+		cost = 10 
+		 available_if_capitulated = yes 
+		completion_reward = {
+			create_faction = "TIB_anti_china_pact"
+			JAP = { country_event = { id = tibet.3 days = 1 }} #ANTI_China Pact
+		}
+	}
 #Focus for - Glorify the Dalai Lama
 focus = {
 id =glorifythedalailama
@@ -110,23 +279,6 @@ completion_reward = {
 
 }
 }
-#Focus for - Indian Ultimatum
-focus = {
-id =indianultimatum
-icon =GFX_goal_generic_major_war
-bypass = {}
-ai_will_do = { factor = 1}
-x =4
-y =4
-mutually_exclusive = { }
-prerequisite = { focus = takebackyunnan}
-available = {  }
-cost = 10 
- available_if_capitulated = yes 
-completion_reward = {
-
-}
-}
 #Focus for - Take By Force
 focus = {
 id =takebyforce
@@ -137,23 +289,6 @@ x =5
 y =7
 mutually_exclusive = { }
 prerequisite = { focus = unitethebuddhistpeople}
-available = {  }
-cost = 10 
- available_if_capitulated = yes 
-completion_reward = {
-
-}
-}
-#Focus for - Restore the Tibetan Empire
-focus = {
-id =restorethetibetanempire
-icon =GFX_focus_generic_home_defense
-bypass = {}
-ai_will_do = { factor = 1}
-x =5
-y =2
-mutually_exclusive = { }
-prerequisite = { focus = expelthekachee}
 available = {  }
 cost = 10 
  available_if_capitulated = yes 
@@ -178,23 +313,7 @@ completion_reward = {
 
 }
 }
-#Focus for - Take Back Yunnan
-focus = {
-id =takebackyunnan
-icon =GFX_goal_generic_major_war
-bypass = {}
-ai_will_do = { factor = 1}
-x =5
-y =3
-mutually_exclusive = { }
-prerequisite = { focus = resrestorethetibetanempire}
-available = {  }
-cost = 10 
- available_if_capitulated = yes 
-completion_reward = {
 
-}
-}
 #Focus for - Burn Down Mosques
 focus = {
 id =burndownmosques
@@ -212,23 +331,6 @@ completion_reward = {
 
 }
 }
-#Focus for - Take the Himalayan States
-focus = {
-id =takethehimalayanstates
-icon =GFX_goal_generic_major_war
-bypass = {}
-ai_will_do = { factor = 1}
-x =6
-y =4
-mutually_exclusive = { }
-prerequisite = { focus = takebackyunnan}
-available = {  }
-cost = 10 
- available_if_capitulated = yes 
-completion_reward = {
-
-}
-}
 #Focus for - Support the Minority State
 focus = {
 id =supporttheminoritystate
@@ -239,23 +341,6 @@ x =8
 y =4
 mutually_exclusive = { }
 prerequisite = { focus = burndownmosques}
-available = {  }
-cost = 10 
- available_if_capitulated = yes 
-completion_reward = {
-
-}
-}
-#Focus for - Japanese Non-Agression
-focus = {
-id =japanesenonagression
-icon =GFX_goal_generic_improve_relations
-bypass = {}
-ai_will_do = { factor = 1}
-x =5
-y =5
-mutually_exclusive = { }
-prerequisite = { focus = indianultimatum  focus = takethehimalayanstates}
 available = {  }
 cost = 10 
  available_if_capitulated = yes 
@@ -297,23 +382,7 @@ completion_reward = {
 
 }
 }
-#Focus for - Anti-China Pact
-focus = {
-id =antichinapact
-icon =GFX_goal_generic_dangerous_deal
-bypass = {}
-ai_will_do = { factor = 1}
-x =4
-y =6
-mutually_exclusive = { focus = unitethebuddhistpeople  focus = antiislampact}
-prerequisite = { focus = japanesenonagression}
-available = {  }
-cost = 10 
- available_if_capitulated = yes 
-completion_reward = {
 
-}
-}
 #Focus for - Indian Relations
 focus = {
 id =indianrelations
@@ -655,23 +724,7 @@ completion_reward = {
 
 }
 }
-#Focus for - Tibetan Buddhism
-focus = {
-id =tibetanbuddhism
-icon =GFX_goal_generic_demand_territory
-bypass = {}
-ai_will_do = { factor = 1}
-x =3
-y =0
-mutually_exclusive = { focus = separationofchurchandstate}
-prerequisite = { }
-available = {  }
-cost = 10 
- available_if_capitulated = yes 
-completion_reward = {
 
-}
-}
 #Focus for - Separation of Church and State
 focus = {
 id =separationofchurchandstate
