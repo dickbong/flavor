@@ -1,0 +1,967 @@
+focus_tree = {
+id = tibet
+country = {
+factor=0
+modifier = {
+add = 10
+tag = TIB
+}
+}
+default = no
+#Focus for - Glorify the Dalai Lama
+focus = {
+id =glorifythedalailama
+icon =GFX_focus_generic_diplomatic_treaty
+bypass = {}
+ai_will_do = { factor = 1}
+x =3
+y =3
+mutually_exclusive = { }
+prerequisite = { focus = endorsebuddhism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Unite the Buddhist People
+focus = {
+id =unitethebuddhistpeople
+icon =GFX_goal_tfv_smiling_buddha
+bypass = {}
+ai_will_do = { factor = 1}
+x =6
+y =6
+mutually_exclusive = { focus = antiislampact  focus = antichinapact}
+prerequisite = { focus = takethehimalayanstates}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Protect Buddhist Sovereignty
+focus = {
+id =protectbuddhistsovereignty
+icon =GFX_goal_generic_more_territorial_claims
+bypass = {}
+ai_will_do = { factor = 1}
+x =7
+y =7
+mutually_exclusive = { }
+prerequisite = { focus = unitethebuddhistpeople}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Endorse Buddhism
+focus = {
+id =endorsebuddhism
+icon =GFX_goal_tfv_smiling_buddha
+bypass = {}
+ai_will_do = { factor = 1}
+x =3
+y =2
+mutually_exclusive = { }
+prerequisite = { focus = expelthekachee  focus = tolerance}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Denounce Fascism
+focus = {
+id =denouncefascism
+icon =GFX_focus_generic_anti_fascist_diplomacy
+bypass = {}
+ai_will_do = { factor = 1}
+x =1
+y =4
+mutually_exclusive = { }
+prerequisite = { focus = neutralitymovement}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Himalayan Trade Deals
+focus = {
+id =himalayantradedeals
+icon =GFX_goal_generic_intelligence_exchange
+bypass = {}
+ai_will_do = { factor = 1}
+x =0
+y =4
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Indian Ultimatum
+focus = {
+id =indianultimatum
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 1}
+x =4
+y =4
+mutually_exclusive = { }
+prerequisite = { focus = takebackyunnan}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Take By Force
+focus = {
+id =takebyforce
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 1}
+x =5
+y =7
+mutually_exclusive = { }
+prerequisite = { focus = unitethebuddhistpeople}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Restore the Tibetan Empire
+focus = {
+id =restorethetibetanempire
+icon =GFX_focus_generic_home_defense
+bypass = {}
+ai_will_do = { factor = 1}
+x =5
+y =2
+mutually_exclusive = { }
+prerequisite = { focus = expelthekachee}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Anti-Islamism
+focus = {
+id =antiislamism
+icon =GFX_goal_generic_political_pressure
+bypass = {}
+ai_will_do = { factor = 1}
+x =7
+y =2
+mutually_exclusive = { }
+prerequisite = { focus = expelthekachee}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Take Back Yunnan
+focus = {
+id =takebackyunnan
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 1}
+x =5
+y =3
+mutually_exclusive = { }
+prerequisite = { focus = resrestorethetibetanempire}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Burn Down Mosques
+focus = {
+id =burndownmosques
+icon =GFX_focus_SAF_colonialist_crusade
+bypass = {}
+ai_will_do = { factor = 1}
+x =7
+y =3
+mutually_exclusive = { }
+prerequisite = { focus = antiislamism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Take the Himalayan States
+focus = {
+id =takethehimalayanstates
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 1}
+x =6
+y =4
+mutually_exclusive = { }
+prerequisite = { focus = takebackyunnan}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Support the Minority State
+focus = {
+id =supporttheminoritystate
+icon =GFX_focus_RAJ_two_nation_theory
+bypass = {}
+ai_will_do = { factor = 1}
+x =8
+y =4
+mutually_exclusive = { }
+prerequisite = { focus = burndownmosques}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Japanese Non-Agression
+focus = {
+id =japanesenonagression
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 1}
+x =5
+y =5
+mutually_exclusive = { }
+prerequisite = { focus = indianultimatum  focus = takethehimalayanstates}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Strike Muslims
+focus = {
+id =strikemuslims
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 1}
+x =7
+y =5
+mutually_exclusive = { }
+prerequisite = { focus = supporttheminoritystate  focus = takethehimalayanstates}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Anti-Islam Pact
+focus = {
+id =antiislampact
+icon =GFX_goal_anschluss
+bypass = {}
+ai_will_do = { factor = 1}
+x =8
+y =6
+mutually_exclusive = { focus = antichinapact  focus = unitethebuddhistpeople}
+prerequisite = { focus = strikemuslims}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Anti-China Pact
+focus = {
+id =antichinapact
+icon =GFX_goal_generic_dangerous_deal
+bypass = {}
+ai_will_do = { factor = 1}
+x =4
+y =6
+mutually_exclusive = { focus = unitethebuddhistpeople  focus = antiislampact}
+prerequisite = { focus = japanesenonagression}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Indian Relations
+focus = {
+id =indianrelations
+icon =GFX_focus_RAJ_all_india_forward_bloc
+bypass = {}
+ai_will_do = { factor = 1}
+x =0
+y =3
+mutually_exclusive = { }
+prerequisite = { focus = globalization}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Isolationism
+focus = {
+id =isolationism
+icon =GFX_goal_generic_defence
+bypass = {}
+ai_will_do = { factor = 1}
+x =2
+y =3
+mutually_exclusive = { }
+prerequisite = { focus = upkeepthestatusquo}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Globalization
+focus = {
+id =globalization
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 1}
+x =0
+y =2
+mutually_exclusive = { focus = upkeepthestatusquo}
+prerequisite = { focus = tolerancetraditionalism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Upkeep the Status Quo
+focus = {
+id =upkeepthestatusquo
+icon =GFX_goal_generic_military_sphere
+bypass = {}
+ai_will_do = { factor = 1}
+x =2
+y =2
+mutually_exclusive = { focus = globalization}
+prerequisite = { focus = tolerancetraditionalism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Strict Traditionalism
+focus = {
+id =stricttraditionalism
+icon =GFX_goal_generic_political_pressure
+bypass = {}
+ai_will_do = { factor = 1}
+x =2
+y =4
+mutually_exclusive = { }
+prerequisite = { focus = isolationism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Regional Non-Agression
+focus = {
+id =regionalnonagression
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 1}
+x =1
+y =5
+mutually_exclusive = { }
+prerequisite = { focus = stricttraditionalism  focus = himalayantradedeals}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Himalayan Trade League
+focus = {
+id =himalayantradeleague
+icon =GFX_goal_generic_major_alliance
+bypass = {}
+ai_will_do = { factor = 1}
+x =0
+y =6
+mutually_exclusive = { }
+prerequisite = { focus = regionalnonagression}
+ prerequisite = { focus =himalayantradedeals}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Invite Bhutan
+focus = {
+id =invitebhutan
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 1}
+x =0
+y =7
+mutually_exclusive = { }
+prerequisite = { focus = himalayantradeleague}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Protect from Invaders
+focus = {
+id =protectfrominvaders
+icon =GFX_goal_generic_construct_military
+bypass = {}
+ai_will_do = { factor = 1}
+x =2
+y =6
+mutually_exclusive = { }
+prerequisite = { focus = regionalnonagression}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Neutrality Movement
+focus = {
+id =neutralitymovement
+icon =GFX_goal_generic_propaganda
+bypass = {}
+ai_will_do = { factor = 1}
+x =1
+y =3
+mutually_exclusive = { }
+prerequisite = { focus = tolerancetraditionalism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Improve Religious Relations
+focus = {
+id =improvereligiousrelations
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 1}
+x =3
+y =4
+mutually_exclusive = { }
+prerequisite = { focus = glorifythedalailama}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Bring the Revolution
+focus = {
+id =bringtherevolution
+icon =GFX_focus_generic_join_comintern
+bypass = {}
+ai_will_do = { factor = 1}
+x =10
+y =2
+mutually_exclusive = { }
+prerequisite = { focus = invitesovietadvisors}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Influence the Raj
+focus = {
+id =influencetheraj
+icon =GFX_focus_RAJ_seek_help_from_soviet
+bypass = {}
+ai_will_do = { factor = 1}
+x =10
+y =4
+mutually_exclusive = { }
+prerequisite = { focus = onerevolution}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - One Revolution
+focus = {
+id =onerevolution
+icon =GFX_goal_generic_support_communism
+bypass = {}
+ai_will_do = { factor = 1}
+x =9
+y =3
+mutually_exclusive = { }
+prerequisite = { focus = bringtherevolution}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - The International
+focus = {
+id =theinternational
+icon =GFX_goal_support_fourth_int
+bypass = {}
+ai_will_do = { factor = 1}
+x =11
+y =3
+mutually_exclusive = { }
+prerequisite = { focus = bringtherevolution}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Execute the Dalai Lama
+focus = {
+id =executethedalailama
+icon =GFX_focus_generic_strike_at_democracy1
+bypass = {}
+ai_will_do = { factor = 1}
+x =13
+y =3
+mutually_exclusive = { }
+prerequisite = { focus = bringtherevolution}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Socialist Science
+focus = {
+id =socialistscience
+icon =GFX_focus_generic_socialist_science
+bypass = {}
+ai_will_do = { factor = 1}
+x =12
+y =2
+mutually_exclusive = { }
+prerequisite = { focus = invitesovietadvisors}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Himalayan Revolt
+focus = {
+id =himalayanrevolt
+icon =GFX_focus_generic_join_comintern
+bypass = {}
+ai_will_do = { factor = 1}
+x =12
+y =4
+mutually_exclusive = { }
+prerequisite = { focus = theinternational}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Free Colonies in India
+focus = {
+id =freecoloniesinindia
+icon =GFX_focus_RAJ_two_nation_theory
+bypass = {}
+ai_will_do = { factor = 1}
+x =10
+y =6
+mutually_exclusive = { }
+prerequisite = { focus = anticolonialleague}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Liberate Indochina
+focus = {
+id =liberateindochina
+icon =GFX_goal_generic_more_territorial_claims
+bypass = {}
+ai_will_do = { factor = 1}
+x =12
+y =6
+mutually_exclusive = { }
+prerequisite = { focus = anticolonialleague}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Tibetan Buddhism
+focus = {
+id =tibetanbuddhism
+icon =GFX_goal_generic_demand_territory
+bypass = {}
+ai_will_do = { factor = 1}
+x =3
+y =0
+mutually_exclusive = { focus = separationofchurchandstate}
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Separation of Church and State
+focus = {
+id =separationofchurchandstate
+icon =GFX_goal_generic_forceful_treaty
+bypass = {}
+ai_will_do = { factor = 1}
+x =14
+y =0
+mutually_exclusive = { focus = tibetanbuddhism}
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Invite Soviet Advisors
+focus = {
+id =invitesovietadvisors
+icon =GFX_focus_generic_soviet_politics
+bypass = {}
+ai_will_do = { factor = 1}
+x =11
+y =1
+mutually_exclusive = { focus = openelections}
+prerequisite = { focus = separationofchurchandstate}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Open Elections
+focus = {
+id =openelections
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 1}
+x =17
+y =1
+mutually_exclusive = { focus = invitesovietadvisors}
+prerequisite = { focus = separationofchurchandstate}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Tolerance & Traditionalism
+focus = {
+id =tolerancetraditionalism
+icon =GFX_goal_generic_national_unity
+bypass = {}
+ai_will_do = { factor = 1}
+x =1
+y =1
+mutually_exclusive = { focus = expelthekachee}
+prerequisite = { focus = tibetanbuddhism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Expel the Kachee
+focus = {
+id =expelthekachee
+icon =GFX_goal_generic_forceful_treaty
+bypass = {}
+ai_will_do = { factor = 1}
+x =6
+y =1
+mutually_exclusive = { focus = tolerancetraditionalism}
+prerequisite = { focus = tibetanbuddhism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Government Reforms
+focus = {
+id =governmentreforms
+icon =GFX_goal_generic_demand_territory
+bypass = {}
+ai_will_do = { factor = 1}
+x =16
+y =2
+mutually_exclusive = { }
+prerequisite = { focus = openelections}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Immediate Election
+focus = {
+id =immediateelection
+icon =GFX_goal_generic_dangerous_deal
+bypass = {}
+ai_will_do = { factor = 1}
+x =18
+y =2
+mutually_exclusive = { }
+prerequisite = { focus = openelections}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Regional Interventionism
+focus = {
+id =regionalinterventionism
+icon =GFX_goal_generic_military_sphere
+bypass = {}
+ai_will_do = { factor = 1}
+x =15
+y =3
+mutually_exclusive = { }
+prerequisite = { focus = governmentreforms}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Fight for Right
+focus = {
+id =fightforright
+icon =GFX_goal_generic_political_pressure
+bypass = {}
+ai_will_do = { factor = 1}
+x =19
+y =3
+mutually_exclusive = { }
+prerequisite = { focus = immediateelection}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Overseas Expeditions
+focus = {
+id =overseasexpeditions
+icon =GFX_goal_generic_more_territorial_claims
+bypass = {}
+ai_will_do = { factor = 1}
+x =14
+y =4
+mutually_exclusive = { }
+prerequisite = { focus = regionalinterventionism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - British Relations
+focus = {
+id =britishrelations
+icon =GFX_goal_tfv_strengthen_commonwealth_ties
+bypass = {}
+ai_will_do = { factor = 1}
+x =17
+y =3
+mutually_exclusive = { }
+prerequisite = { focus = governmentreforms}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Industry of Freedom
+focus = {
+id =industryoffreedom
+icon =GFX_focus_generic_the_giant_wakes
+bypass = {}
+ai_will_do = { factor = 1}
+x =16
+y =5
+mutually_exclusive = { }
+prerequisite = { focus = askforprotection}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Invite Nepal and Bhutan
+focus = {
+id =invitenepalandbhutan
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 1}
+x =20
+y =5
+mutually_exclusive = { focus = jointheallies}
+prerequisite = { focus = ourownfaction}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Join the Allies
+focus = {
+id =jointheallies
+icon =GFX_goal_generic_support_democracy
+bypass = {}
+ai_will_do = { factor = 1}
+x =18
+y =4
+mutually_exclusive = { focus = ourownfaction}
+ mutually_exclusive = { focus =askforprotection}
+prerequisite = { focus = britishrelations}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Ask for Protection
+focus = {
+id =askforprotection
+icon =GFX_goal_tripartite_pact
+bypass = {}
+ai_will_do = { factor = 1}
+x =16
+y =4
+mutually_exclusive = { focus = jointheallies}
+ mutually_exclusive = { focus =ourownfaction}
+prerequisite = { focus = britishrelations}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Our Own Faction
+focus = {
+id =ourownfaction
+icon =GFX_goal_anschluss
+bypass = {}
+ai_will_do = { factor = 1}
+x =20
+y =4
+mutually_exclusive = { focus = jointheallies}
+ mutually_exclusive = { focus =askforprotection}
+prerequisite = { focus = fightforright}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Anti-Colonial Coalition
+focus = {
+id =anticolonialcoalition
+icon =GFX_goal_tfv_burn_the_royal_portraits
+bypass = {}
+ai_will_do = { factor = 1}
+x =11
+y =5
+mutually_exclusive = { }
+prerequisite = { focus = influencetheraj  focus = himalayanrevolt}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+}
