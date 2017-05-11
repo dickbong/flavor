@@ -1,0 +1,8950 @@
+focus_tree = {
+id = tibet
+country = {
+factor=0
+modifier = {
+add = 10
+tag = TIB
+}
+}
+default = no
+#Custom focuses start here
+#Focus for - Hold Hong Kong
+focus = {
+id =holdhongkong
+icon =GFX_goal_generic_fortify_city
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = fortifyeastasia}
+available = { 326 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_subject_of = ENG
+					}
+				}
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+326 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 3
+					province = 10062
+					instant_build = yes
+				}
+			}
+}
+}
+#Focus for - Develop the Raj
+focus = {
+id =developtheraj
+icon =GFX_goal_generic_construct_civ_factory
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = commonwealthties}
+available = { is_in_faction_with = RAJ }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+RAJ = {
+				add_opinion_modifier = { target = ENG modifier = aided_industry }
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+					set_state_flag = ENG_uk_india_focus_2IC
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+					set_state_flag = ENG_uk_india_focus_2IC
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					set_state_flag = ENG_uk_india_focus_1IC
+				}
+				add_autonomy_ratio = {
+					value = -0.05
+					localization = uk_india_focus
+				}
+			}
+}
+}
+#Focus for - Indian Independence
+focus = {
+id =indianindependence
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = developtheraj}
+available = { if = {
+				limit = { has_dlc = "Together for Victory" }
+				date > 1943.10.01
+				RAJ = {
+					is_subject_of = ENG
+					has_war = no
+				}
+				else = {				
+					has_global_flag = indian_national_army_setup
+					RAJ = {
+						is_puppet_of = ENG
+					}
+				}
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+if = {
+				limit = { has_dlc = "Together for Victory" }
+				RAJ = {
+					set_autonomy = {
+						target = RAJ
+						autonomy_state = autonomy_free
+					}
+				}
+				else = {					
+					set_global_flag = indian_independence_promised
+					add_timed_idea = { idea = indian_independence_promised_idea days = 1460 }
+					RAJ = {
+						remove_ideas = RAJ_azad_hind
+					}				
+				}
+			}
+}
+}
+#Focus for - Sanction Japan
+focus = {
+id =sanctionjapan
+icon =GFX_goal_generic_trade
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = theburmaroad}
+available = { JAP = { 
+				ENG_focus_available_embargo_sanction = yes
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+JAP = {
+				add_opinion_modifier = { target = ENG modifier = minor_sanctions }
+				add_opinion_modifier = { target = ENG modifier = minor_sanctions_relations } 
+			}
+}
+}
+#Focus for - War With Japan
+focus = {
+id =warwithjapan
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = airdefenses}
+ prerequisite = { focus =peninsularwar}
+ prerequisite = { focus =sanctionjapan}
+available = { has_offensive_war = no
+			JAP = {
+				ENG_focus_available_war = yes
+			}	 }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+create_wargoal = {
+				type = puppet_wargoal_focus
+				target = JAP
+			} 
+}
+}
+#Focus for - The Singapore Strategy
+focus = {
+id =thesingaporestrategy
+icon =GFX_goal_generic_fortify_city
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = fortifyeastasia}
+available = { 336 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_subject_of = ENG
+					}
+				}
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+336 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 3
+					province = 12299
+					instant_build = yes
+				}
+				if = {
+					limit = {
+						CONTROLLER = {
+							NOT = { tag = ENG }
+						}
+					}
+					CONTROLLER = {
+						add_autonomy_ratio = {
+							value = -0.02
+							localization = singapore_focus
+						}
+					}
+				}
+			}
+}
+}
+#Focus for - Landward Fortifications
+focus = {
+id =landwardfortifications
+icon =GFX_goal_generic_construct_military
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = thesingaporestrategy}
+available = { 336 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_subject_of = ENG
+					}
+				}
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+336 = {
+				add_building_construction = {
+					type = bunker
+					level = 3
+					province = 12299
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+				if = {
+					limit = {
+						CONTROLLER = {
+							NOT = { tag = ENG }
+						}
+					}
+					CONTROLLER = {
+						add_autonomy_ratio = {
+							value = -0.02
+							localization = sp_landward_forts_focus
+						}
+					}
+				}
+			}
+}
+}
+#Focus for - Peninsular War
+focus = {
+id =peninsularwar
+icon =GFX_goal_generic_construction2
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = landwardfortifications}
+available = { 336 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_subject_of = ENG
+					}
+				}
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+336 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 7329
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 4310
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 7342
+					instant_build = yes
+				}
+				if = {
+					limit = {
+						CONTROLLER = {
+							NOT = { tag = ENG }
+						}
+					}
+					CONTROLLER = {
+						add_autonomy_ratio = {
+							value = -0.02
+							localization = peninsular_focus
+						}
+					}
+				}
+			}
+}
+}
+#Focus for - Landward Fortification
+focus = {
+id =landwardfortification
+icon =GFX_goal_generic_construct_military
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = holdhongkong}
+available = { 326 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_subject_of = ENG
+					}
+				}
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+326 = {
+				add_building_construction = {
+					type = bunker
+					level = 3
+					province = 10062
+					instant_build = yes
+				}
+			
+				add_building_construction = {
+					type = anti_air_building
+					level = 2				
+					instant_build = yes
+				}
+			}
+}
+}
+#Focus for - Air Defenses
+focus = {
+id =airdefenses
+icon =GFX_goal_generic_construct_civilian
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = landwardfortification}
+available = { 326 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_subject_of = ENG
+					}
+				}
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+326 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+}
+}
+#Focus for - Influence China
+focus = {
+id =influencechina
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = { CHI = { exists = yes } }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+CHI = {
+						add_opinion_modifier = { target = ENG modifier = democratic_leanings_good }
+						add_ideas = democratic_influence
+						country_event = { id = generic.1 }
+					}
+			every_other_country = {
+						limit = { 
+							NOT = { has_government = democratic }
+							num_of_factories > 30
+						}
+						add_opinion_modifier = { target = CHI modifier = democratic_leanings_bad }
+			}
+}
+}
+#Focus for - Fortify East Asia
+focus = {
+id =fortifyeastasia
+icon =GFX_goal_generic_construct_civilian
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = encouragecolonialelite}
+available = { 336 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_subject_of = ENG
+					}
+				}
+			}
+			326 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_subject_of = ENG
+					}
+				}
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+336 = {
+				if = { limit = { is_owned_by = ENG} 
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+							type = dockyard
+							level = 1
+							instant_build = yes
+					}
+				}
+			}
+			326 = {
+				if = { limit = { is_owned_by = ENG}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+					}
+				}
+			}
+}
+}
+#Focus for - The Burma Road
+focus = {
+id =theburmaroad
+icon =GFX_goal_generic_construct_infrastructure
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = fortifyeastasia}
+available = { CHI = { 
+				has_war_with = JAP 
+				NOT = { has_war_with = ENG }
+			}
+			JAP = { NOT = { is_in_faction_with = ENG } } }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+640 = {
+				if = {
+					limit = { 
+						OR = { 
+							ENG = { controls_state = 640 }
+							any_other_country = {
+								is_in_faction_with = ENG
+								controls_state = 640
+							} 
+						}
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			325 = {
+				if = {
+					limit = { 
+					OR = { 
+							CHI = { controls_state = 325 }
+							any_other_country = {
+								is_in_faction_with = CHI
+								controls_state = 640
+							} 
+						}
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			601 = {
+				if = {
+					limit = { 
+						OR = { 
+							CHI = { controls_state = 601 }
+							any_other_country = {
+								is_in_faction_with = CHI
+								controls_state = 601
+							} 
+						} }
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = air_base
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			
+			CHI = {
+				add_opinion_modifier = { target = ENG modifier = burma_road_good } 
+				country_event = britain.4
+			}
+			YUN = {
+				add_opinion_modifier = { target = ENG modifier = burma_road_good } 
+				country_event = britain.5
+			}
+			JAP = {
+				add_opinion_modifier = { target = ENG modifier = burma_road_bad } 
+			}
+}
+}
+#Focus for - Commonwealth Ties
+focus = {
+id =commonwealthties
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = encouragecolonialelite}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+CAN = {
+				if = {
+					limit = { is_in_faction_with = ENG }
+					add_opinion_modifier = { target = ENG modifier = democratic_leanings_good }
+				}
+			}
+			AST = {
+				if = {
+					limit = { is_in_faction_with = ENG }
+					add_opinion_modifier = { target = ENG modifier = democratic_leanings_good }
+				}
+			}
+			RAJ = {
+				if = {
+					limit = { is_in_faction_with = ENG }
+					add_opinion_modifier = { target = ENG modifier = democratic_leanings_good }
+				}
+			}
+			NZL = {
+				if = {
+					limit = { is_in_faction_with = ENG }
+					add_opinion_modifier = { target = ENG modifier = democratic_leanings_good }
+				}
+			}
+			SAF = {
+				if = {
+					limit = { is_in_faction_with = ENG }
+					add_opinion_modifier = { target = ENG modifier = democratic_leanings_good }
+				}
+			}
+}
+}
+#Focus for - War With USSR
+focus = {
+id =warwithussr
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = embargotheussr}
+available = { has_offensive_war = no
+			SOV = {
+				ENG_focus_available_war = yes
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+create_wargoal = {
+				type = puppet_wargoal_focus
+				target = SOV
+			} 
+}
+}
+#Focus for - Encourage Colonial Elite
+focus = {
+id =encouragecolonialelite
+icon =GFX_goal_generic_position_armies
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = serviceoverseas}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_ideas = { ENG_colonial_elite }
+}
+}
+#Focus for - Secure Iraq
+focus = {
+id =secureiraq
+icon =GFX_goal_generic_occypy_states_ongoing_war
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = mediterraneanbastion}
+available = { IRQ = {
+				OR = { 
+					communism > 0.2
+			 		fascism > 0.2
+			 	} 
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+create_wargoal = {
+				type = take_state_focus
+				target = IRQ
+				generator = { 291 }
+			}
+}
+}
+#Focus for - Secure Iran
+focus = {
+id =secureiran
+icon =GFX_goal_generic_forceful_treaty
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = secureiraq}
+available = { PER = {
+				exists = yes
+				OR = { 
+					communism > 0.2
+			 		fascism > 0.2
+			 	} 
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+create_wargoal = {
+				type = take_state_focus
+				target = PER
+				generator = { 266 }
+			}
+}
+}
+#Focus for - Embargo The USSR
+focus = {
+id =embargotheussr
+icon =GFX_goal_generic_trade
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = secureiran}
+available = { SOV = {
+				ENG_focus_available_embargo_sanction = yes
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+SOV = {
+				add_opinion_modifier = { target = ENG modifier = minor_sanctions }
+				add_opinion_modifier = { target = ENG modifier = minor_sanctions_relations } 
+			}
+}
+}
+#Focus for - Coerce Greece
+focus = {
+id =coercegreece
+icon =GFX_goal_generic_political_pressure
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = coercetu}
+prerequisite = { focus = protectsuez}
+available = { GRE = {
+				exists = yes
+				has_war = no
+				NOT = { is_in_faction_with = ENG }
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+GRE = {
+						add_opinion_modifier = { target = ENG modifier = democratic_leanings_good }
+						add_ideas = democratic_influence
+						country_event = { id = generic.1 }
+					}
+			every_other_country = {
+						limit = { 
+							NOT = { has_government = democratic }
+							num_of_factories > 30
+						}
+						add_opinion_modifier = { target = GRE modifier = democratic_leanings_bad }
+			}
+			hidden_effect = {
+				news_event = { hours = 6 id = news.226 }
+			}
+}
+}
+#Focus for - Fortify Malta
+focus = {
+id =fortifymalta
+icon =GFX_goal_generic_construct_military
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = mediterraneanbastion}
+available = { 116 = { is_owned_and_controlled_by = ENG } }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+116 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 12003
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
+			}
+}
+}
+#Focus for - Protect Suez
+focus = {
+id =protectsuez
+icon =GFX_goal_generic_defence
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = mediterraneanbastion}
+available = { 447 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_subject_of = ENG
+					}
+				}
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+447 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					province = 4076
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					province = 4076
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 1071
+					instant_build = yes
+				}
+			}
+}
+}
+#Focus for - Balkan Strategy
+focus = {
+id =balkanstrategy
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = protectsuez}
+ prerequisite = { focus =fortifymalta}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+YUG = { add_opinion_modifier = { target = ENG modifier = balkan_strategy_good } }
+			GRE = { add_opinion_modifier = { target = ENG modifier = balkan_strategy_good } }
+			ROM = { add_opinion_modifier = { target = ENG modifier = balkan_strategy_good } }
+			BUL = { add_opinion_modifier = { target = ENG modifier = balkan_strategy_bad } }
+			HUN = { add_opinion_modifier = { target = ENG modifier = balkan_strategy_bad } }
+			hidden_effect = {
+				news_event = {
+					hours = 6 id = news.228
+				}
+			}
+}
+}
+#Focus for - Sanction Italy
+focus = {
+id =sanctionitaly
+icon =GFX_goal_generic_trade
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = balkanstrategy}
+available = { ITA = {
+				ENG_focus_available_embargo_sanction = yes
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+ITA = {
+				add_opinion_modifier = { target = ENG modifier = minor_sanctions }
+				add_opinion_modifier = { target = ENG modifier = minor_sanctions_relations } 
+			}
+}
+}
+#Focus for - War With Italy
+focus = {
+id =warwithitaly
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = sanctionitaly}
+available = { has_offensive_war = no
+			ITA = {
+				ENG_focus_available_war = yes
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ITA
+			} 
+}
+}
+#Focus for - Coerce Turkey
+focus = {
+id =coerceturkey
+icon =GFX_goal_generic_political_pressure
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = coercegr}
+prerequisite = { focus = protectsuez}
+available = { TUR = {
+				exists = yes
+				has_war = no
+				NOT = { is_in_faction_with = ENG }
+				is_subject = no
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+if = {
+				limit = { has_government = democratic }
+				TUR = {
+					add_opinion_modifier = { target = ENG modifier = democratic_leanings_good }
+					add_ideas = democratic_influence
+					country_event = { id = generic.1 }
+				}
+				every_other_country = {
+					limit = { 
+						NOT = { has_government = democratic }
+						num_of_factories > 30
+					}
+					add_opinion_modifier = { target = TUR modifier = democratic_leanings_bad }
+				}
+			}
+			if = {
+				limit = { has_government = communism }
+				TUR = {
+					add_opinion_modifier = { target = ENG modifier = communism_leanings_good }
+					add_ideas = communist_influence
+					country_event = { id = generic.1 }
+				}
+				every_other_country = {
+					limit = { 
+						NOT = { has_government = communism }
+						num_of_factories > 30
+					}
+					add_opinion_modifier = { target = TUR modifier = communism_leanings_bad }
+				}
+			}
+			if = {
+				limit = { has_government = fascism }
+				TUR = {
+					add_opinion_modifier = { target = ENG modifier = fascism_leanings_good }
+					add_ideas = fascist_influence
+					country_event = { id = generic.1 }
+				}
+				every_other_country = {
+					limit = { 
+						NOT = { has_government = fascism }
+						num_of_factories > 30
+					}
+					add_opinion_modifier = { target = TUR modifier = fascism_leanings_bad }
+				}
+			}
+			hidden_effect = {
+				news_event = { hours = 6 id = news.225 }
+			}
+}
+}
+#Focus for - Coerce Spain
+focus = {
+id =coercespain
+icon =GFX_goal_generic_demand_territory
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = fortifythe}
+prerequisite = { focus = mediterraneanbastion}
+available = { any_other_country = {
+				original_tag = SPR
+				exists = yes
+				has_war = no
+				NOT = { is_in_faction_with = ENG }
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+every_other_country = {
+				limit = {
+					original_tag = SPR
+				}
+				add_opinion_modifier = { target = ENG modifier = democratic_leanings_good }
+				add_ideas = democratic_influence
+				country_event = { id = generic.1 }
+				every_other_country = {
+					limit = { 
+						NOT = { has_government = democratic }
+						num_of_factories > 30
+					}
+					add_opinion_modifier = { target = PREV modifier = democratic_leanings_bad }
+				}
+			}
+			hidden_effect = {
+				news_event = { hours = 5 id = news.224 }
+			}
+}
+}
+#Focus for - Reinforce the Empire
+focus = {
+id =reinforcetheempire
+icon =GFX_goal_generic_support_democracy
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_national_unity = 0.1
+}
+}
+#Focus for - Service Overseas
+focus = {
+id =serviceoverseas
+icon =GFX_goal_generic_position_armies
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = reinforcetheempire}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+			army_experience = 5
+			navy_experience = 25
+			air_experience = 25
+}
+}
+#Focus for - Mediterranean Bastion
+focus = {
+id =mediterraneanbastion
+icon =GFX_goal_generic_construct_military
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = serviceoverseas}
+available = { 			447 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_subject_of = ENG
+					}
+				}
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+447 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 4076
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					province = 4076
+					instant_build = yes
+				}
+			}
+}
+}
+#Focus for - Fortify the Rock
+focus = {
+id =fortifytherock
+icon =GFX_goal_generic_construct_military
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = coerces}
+prerequisite = { focus = mediterraneanbastion}
+available = { 118 = { is_owned_and_controlled_by = ENG } }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+118 = {
+				add_building_construction = {
+					type = bunker
+					level = 4
+					province = 4135
+					instant_build = yes
+				}
+			}
+}
+}
+#Focus for - Scandinavian Intervention
+focus = {
+id =scandinavianintervention
+icon =GFX_goal_generic_position_armies
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = homedefense}
+available = { OR = {
+				SWE = { 
+					exists = yes
+					OR = { 
+						communism > 0.1
+				 		fascism > 0.1
+				 	} 
+				}
+				NOR = { 
+					exists = yes
+					OR = { 
+						communism > 0.1
+				 		fascism > 0.1
+				 	} 
+				}
+				DEN = {
+					exists = yes
+					OR = { 
+						communism > 0.1
+				 		fascism > 0.1
+				 	} 
+				}				
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_named_threat = { threat = 1 name = uk_scandinavian_focus }
+			USA = {
+				add_opinion_modifier = { target = ENG modifier = scandinavian_intervention } 
+			}
+			SWE = {
+				add_opinion_modifier = { target = ENG modifier = unprovoked_aggression } 
+				if = {
+					limit = {
+						has_war = no
+						NOT = { is_in_faction_with = GER }
+					}
+						country_event = britain.7
+				}
+			}
+			NOR = {
+				add_opinion_modifier = { target = ENG modifier = unprovoked_aggression } 
+				if = {
+					limit = {
+						has_war = no
+						NOT = { is_in_faction_with = GER }
+					}
+						country_event = britain.7
+				}
+			}
+			DEN = {
+				add_opinion_modifier = { target = ENG modifier = unprovoked_aggression } 
+			}
+			FIN = {
+				add_opinion_modifier = { target = ENG modifier = unprovoked_aggression } 
+			}
+			hidden_effect = {
+				news_event = { hours = 6 id = news.222 }
+			}
+}
+}
+#Focus for - Secure The Netherlands
+focus = {
+id =securethenetherlands
+icon =GFX_goal_generic_attack_allies
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = beneluxintervention}
+available = { HOL = {
+				exists = yes
+				OR = {
+					communism > 0.2
+					fascism > 0.2
+				}
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+create_wargoal = {
+				type = puppet_wargoal_focus
+				target = HOL
+			}
+			if = {
+				limit = { NOT = { has_idea = ENG_continuation_of_politics } }
+				add_ideas = ENG_continuation_of_politics
+			}
+}
+}
+#Focus for - Benelux Intervention
+focus = {
+id =beneluxintervention
+icon =GFX_goal_generic_position_armies
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = homedefense}
+available = { OR = {
+				BEL = {
+					exists = yes
+					OR = { 
+						communism > 0.15
+				 		fascism > 0.15
+				 	} 
+				}
+				HOL = { 
+					exists = yes
+					OR = { 
+						communism > 0.15
+				 		fascism > 0.15
+				 	} 
+				}								
+			}	 }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_named_threat = { threat = 1 name = ENG_benelux_intervention }
+			USA = {
+				add_opinion_modifier = { target = ENG modifier = ENG_benelux_intervention_USA } 
+			}
+			BEL = {
+				add_opinion_modifier = { target = ENG modifier = ENG_benelux_intervention_BEL_HOL } 
+			}
+			HOL = {
+				add_opinion_modifier = { target = ENG modifier = ENG_benelux_intervention_BEL_HOL } 
+			}	
+			hidden_effect = {
+				news_event = { hours = 6 id = news.223 }
+			}	
+}
+}
+#Focus for - Secure Belgium
+focus = {
+id =securebelgium
+icon =GFX_goal_generic_attack_allies
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = beneluxintervention}
+available = { 			BEL = {
+				exists = yes
+				OR = {
+					communism > 0.2
+					fascism > 0.2
+				}
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+create_wargoal = {
+				type = puppet_wargoal_focus
+				target = BEL
+			}
+			if = {
+				limit = { NOT = { has_idea = ENG_continuation_of_politics } }
+				add_ideas = ENG_continuation_of_politics
+			}
+}
+}
+#Focus for - Danish Intervention
+focus = {
+id =danishintervention
+icon =GFX_goal_generic_occypy_states_ongoing_war
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = scandinavianintervention}
+available = { 			DEN = {
+				exists = yes
+				OR = {
+					communism > 0.2
+					fascism > 0.2
+				}
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = DEN
+			}
+			if = {
+				limit = { NOT = { has_idea = ENG_continuation_of_politics } }
+				add_ideas = ENG_continuation_of_politics
+			}
+}
+}
+#Focus for - Norwegian Intervention
+focus = {
+id =norwegianintervention
+icon =GFX_goal_generic_more_territorial_claims
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = scandinavianintervention}
+available = { NOR = {
+				exists = yes
+				OR = {
+					communism > 0.2
+					fascism > 0.2
+				}
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+create_wargoal = {
+				type = puppet_wargoal_focus
+				target = NOR
+			}
+			if = {
+				limit = { NOT = { has_idea = ENG_continuation_of_politics } }
+				add_ideas = ENG_continuation_of_politics
+			}
+}
+}
+#Focus for - Military Training Act
+focus = {
+id =militarytrainingact
+icon =GFX_goal_generic_allies_build_infantry
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = issuegasmasks}
+available = { OR = {
+				threat > 0.5
+				has_war = yes
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+remove_ideas = ENG_the_war_to_end_all_wars
+			set_rule = { can_send_volunteers = yes }
+}
+}
+#Focus for - Embargo Germany
+focus = {
+id =embargogermany
+icon =GFX_goal_generic_trade
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = militarytrainingact}
+available = { GER = {
+				ENG_focus_available_embargo_sanction = yes
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+GER = {
+				add_opinion_modifier = { target = ENG modifier = minor_sanctions }
+				add_opinion_modifier = { target = ENG modifier = minor_sanctions_relations } 
+			}
+}
+}
+#Focus for - War With Germany
+focus = {
+id =warwithgermany
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = embargogermany}
+available = { has_war = no
+			GER = {
+				ENG_focus_available_war = yes
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+create_wargoal = {
+				type = puppet_wargoal_focus
+				target = GER
+			} 
+}
+}
+#Focus for - Swedish Intervention
+focus = {
+id =swedishintervention
+icon =GFX_goal_generic_occypy_states_ongoing_war
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = scandinavianintervention}
+available = { SWE = {
+				exists = yes
+				OR = {
+					communism > 0.2
+					fascism > 0.2
+				}
+			}	 }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+create_wargoal = {
+				type = puppet_wargoal_focus
+				target = SWE
+			}
+			if = {
+				limit = { NOT = { has_idea = ENG_continuation_of_politics } }
+				add_ideas = ENG_continuation_of_politics
+			}
+}
+}
+#Focus for - Issue Gasmasks
+focus = {
+id =issuegasmasks
+icon =GFX_goal_generic_construct_military
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = homedefense}
+available = { OR = {
+				threat > 0.2
+				has_war = yes
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+#Increase nat unity
+			add_national_unity = 0.1
+}
+}
+#Focus for - Carrier Focus
+focus = {
+id =carrierfocus
+icon =GFX_goal_generic_navy_carrier
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = battleshipf}
+prerequisite = { focus = britanniarulesthewaves}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+navy_experience = 25
+			add_tech_bonus = {
+				name = uk_carrier_focus
+				bonus = 0.5
+				uses = 2
+				category = cv_tech
+			}
+}
+}
+#Focus for - Battleship Focus
+focus = {
+id =battleshipfocus
+icon =GFX_goal_generic_navy_battleship
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = carrierf}
+prerequisite = { focus = britanniarulesthewaves}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+navy_experience = 25
+			add_tech_bonus = {
+				name = uk_battleship_focus
+				bonus = 0.5
+				uses = 2
+				category = bb_tech
+			}
+}
+}
+#Focus for - Aircraft Production Group
+focus = {
+id =aircraftproductiongroup
+icon =GFX_goal_generic_air_production
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = bombercommand  focus = fightercommand  focus = coastalcommand}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_ideas = british_fighter_discount
+}
+}
+#Focus for - Naval Rearmament
+focus = {
+id =navalrearmament
+icon =GFX_goal_generic_construct_naval_dockyard
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = generalrearmament}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+navy_experience = 50
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = ENG_naval_rearmament_focus_1dockyard
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = ENG_naval_rearmament_focus_1dockyard
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = ENG_naval_rearmament_focus_1dockyard
+			}
+}
+}
+#Focus for - Amphibious Warfare
+focus = {
+id =amphibiouswarfare
+icon =GFX_goal_generic_amphibious_assault
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = navalrearmament}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = {
+				name = uk_amphibious_focus
+				bonus = 0.5
+				uses = 1
+				category = marine_tech
+			}
+			add_tech_bonus = {
+				name = uk_amphibious_focus
+				bonus = 0.5
+				uses = 2
+				category = tp_tech
+			}
+}
+}
+#Focus for - Home Defense
+focus = {
+id =homedefense
+icon =GFX_goal_generic_national_unity
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+# Sussex
+			127 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					#Dover
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 3501
+						instant_build = yes
+					}
+					#Portsmouth
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 9458
+						instant_build = yes
+					}
+				}								
+			}
+			# Greater London Area
+			126 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					#London
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 11374
+						instant_build = yes
+					}
+				}
+			}
+			# Cornwall
+			123 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					#Plymouth
+					add_building_construction = {
+						type = coastal_bunker
+						level = 2
+						province = 540
+						instant_build = yes
+					}
+				}
+			}
+
+}
+}
+#Focus for - Britannia Rules the Waves
+focus = {
+id =britanniarulesthewaves
+icon =GFX_goal_generic_navy_doctrines_tactics
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = navalrearmament}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = {
+				name = naval_doc_bonus
+				bonus = 0.5
+				uses = 3
+				category = naval_doctrine
+			}
+}
+}
+#Focus for - Convoy Escort Focus
+focus = {
+id =convoyescortfocus
+icon =GFX_goal_generic_navy_cruiser
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = destroyerfocus}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_ideas = british_convoy_discount
+}
+}
+#Focus for - Destroyer Focus
+focus = {
+id =destroyerfocus
+icon =GFX_goal_generic_navy_cruiser
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = navalrearmament}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = {
+				name = dd_bonus
+				bonus = 0.5
+				uses = 2
+				category = dd_tech
+			}
+}
+}
+#Focus for - Air Rearmament
+focus = {
+id =airrearmament
+icon =GFX_goal_generic_air_doctrine
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = generalrearmament}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+air_experience = 25
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+					OR = {
+						region = 1
+						region = 2
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = air_rearmament_focus_2AirBase
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+					OR = {
+						region = 1
+						region = 2
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}			
+				set_state_flag = air_rearmament_focus_2AirBase
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+					OR = {
+						region = 1
+						region = 2
+						region = 3
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}			
+				set_state_flag = air_rearmament_focus_2AirBase
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+					OR = {
+						region = 1
+						region = 2
+						region = 3
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}			
+				set_state_flag = air_rearmament_focus_2AirBase
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+					OR = {
+						region = 1
+						region = 2
+						region = 3
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}			
+				set_state_flag = air_rearmament_focus_2AirBase
+			}
+
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = air_base
+								size > 1
+							}
+							OR = {
+								region = 1
+								region = 2
+								region = 3
+							}
+						}			
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}			
+					set_state_flag = air_rearmament_focus_2AirBase
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}			
+					set_state_flag = air_rearmament_focus_2AirBase
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}			
+					set_state_flag = air_rearmament_focus_2AirBase
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}			
+					set_state_flag = air_rearmament_focus_2AirBase
+				}
+			}
+		
+}
+}
+#Focus for - RADAR
+focus = {
+id =radar
+icon =GFX_goal_generic_radar
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = airdefense}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+air_experience = 25
+			add_tech_bonus = {
+				name = radar_focus
+				bonus = 0.5
+				uses = 3
+				category = radar_tech
+			}
+}
+}
+#Focus for - The Shadow Scheme
+focus = {
+id =theshadowscheme
+icon =GFX_goal_generic_construct_mil_factory
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = limitedrearmament}
+available = { OR = {
+				threat > 0.05
+				has_war = yes
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_ideas = wartime_industry_focus
+}
+}
+#Focus for - Industrial Effort
+focus = {
+id =industrialeffort
+icon =GFX_goal_generic_construct_civ_factory
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = theshadowscheme}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+}
+}
+#Focus for - Extra Research Slot
+focus = {
+id =extraresearchslot
+icon =GFX_focus_research
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = industrialeffort}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_research_slot = 1
+}
+}
+#Focus for - General Rearmament
+focus = {
+id =generalrearmament
+icon =GFX_goal_generic_consumer_goods
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = limitedrearmament}
+available = { OR = {
+				threat > 0.1 
+				has_war = yes
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_ideas = british_austerity_idea
+}
+}
+#Focus for - Royal Ordinance Factories
+focus = {
+id =royalordinancefactories
+icon =GFX_goal_generic_construct_mil_factory
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = industrialeffort}
+available = { OR = {
+				any_other_country = {
+					has_war_with = ROOT
+					num_of_factories > 30
+				}
+				GER = {
+					has_completed_focus = GER_rhineland
+				}
+				threat > 0.2
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = royal_ordinance_focus_2AF
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = royal_ordinance_focus_2AF
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = royal_ordinance_focus_2AF
+			}
+}
+}
+#Focus for - Development in Australia
+focus = {
+id =developmentinaustralia
+icon =GFX_goal_generic_construct_civilian
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = commonwealthties}
+available = { is_in_faction_with = AST }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+AST = {
+				add_opinion_modifier = { target = ENG modifier = aided_industry }
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					set_state_flag = ENG_uk_australia_focus_1IC
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					set_state_flag = ENG_uk_australia_focus_1IC
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+					set_state_flag = ENG_uk_australia_focus_2dockyards
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+					set_state_flag = ENG_uk_australia_focus_1dockyard
+				}
+				add_autonomy_ratio = {
+					value = -0.05
+					localization = uk_australia_focus
+				}
+			}
+}
+}
+#Focus for - Bomber Command
+focus = {
+id =bombercommand
+icon =GFX_goal_generic_air_bomber
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = airrearmament}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+air_experience = 25
+			add_tech_bonus = {
+				name = bomber_command_focus
+				bonus = 0.5
+				uses = 2
+				category = heavy_air
+			}
+}
+}
+#Focus for - Coastal Command
+focus = {
+id =coastalcommand
+icon =GFX_goal_generic_air_naval_bomber
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = airrearmament}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = {
+				name = coastal_command_focus
+				bonus = 0.5
+				uses = 2
+				category = naval_bomber
+			}
+			add_tech_bonus = {
+				name = coastal_command_focus
+				bonus = 0.5
+				uses = 2
+				category = tactical_bomber
+			}
+}
+}
+#Focus for - Jet Aircraft
+focus = {
+id =jetaircraft
+icon =GFX_goal_generic_build_airforce
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = aircraftproductiongroup}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = {
+				name = uk_jet_focus
+				bonus = 0.5
+				uses = 4
+				category = jet_technology
+			}
+}
+}
+#Focus for - BSA Company
+focus = {
+id =bsacompany
+icon =GFX_goal_generic_production2
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = royalordinancefactories}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_ideas = british_arms_discount
+}
+}
+#Focus for - Secret Weapons
+focus = {
+id =secretweapons
+icon =GFX_goal_generic_secret_weapon
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = royalordinancefactories}
+ prerequisite = { focus =themaudcommittee}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = {
+				name = UK_secret_focus
+				bonus = 0.5
+				uses = 6
+				category = electronics
+				category = rocketry
+				category = nuclear
+			}
+}
+}
+#Focus for - Fighter Command
+focus = {
+id =fightercommand
+icon =GFX_goal_generic_air_fighter
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = airrearmament}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+air_experience = 25
+			add_tech_bonus = {
+				name = fighter_command_focus
+				bonus = 0.5
+				uses = 2
+				category = light_fighter
+			}
+}
+}
+#Focus for - Air Defense
+focus = {
+id =airdefense
+icon =GFX_goal_generic_construct_military
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = limitedrearmament}
+available = { OR = {
+				threat > 0.05
+				has_war = yes
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+air_experience = 25
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							123 = {
+								free_building_slots = {
+									building = anti_air_building
+									size > 1
+								}
+							}
+							125 = {
+								free_building_slots = {
+									building = anti_air_building
+									size > 1
+								}
+							}
+							127 = {
+								free_building_slots = {
+									building = anti_air_building
+									size > 1
+								}
+							}
+						}
+					}
+					NOT = {
+						any_owned_state = {
+							free_building_slots = {
+								building = anti_air_building
+								size > 1
+							}
+							OR = {
+								region = 1
+								region = 2
+								region = 3
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = anti_air_building
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = anti_air_building
+						level = 2
+						instant_build = yes
+					}
+					set_state_flag = ENG_air_defense_focus_built_2
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = anti_air_building
+							size > 1
+						}			
+					}
+					add_building_construction = {
+						type = anti_air_building
+						level = 2
+						instant_build = yes
+					}
+					set_state_flag = ENG_air_defense_focus_built_2
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							123 = {
+								free_building_slots = {
+									building = anti_air_building
+									size > 1
+								}
+							}
+							125 = {
+								free_building_slots = {
+									building = anti_air_building
+									size > 1
+								}
+							}
+							127 = {
+								free_building_slots = {
+									building = anti_air_building
+									size > 1
+								}
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = anti_air_building
+							size > 1
+						}
+						OR = {
+							region = 1
+							region = 2
+							region = 3
+						}
+					}
+					add_building_construction = {
+						type = anti_air_building
+						level = 2
+						instant_build = yes
+					}
+					set_state_flag = ENG_air_defense_focus_built_2
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = anti_air_building
+							size > 1
+						}
+						OR = {
+							region = 1
+							region = 2
+							region = 3
+						}						
+					}
+					add_building_construction = {
+						type = anti_air_building
+						level = 2
+						instant_build = yes
+					}
+					set_state_flag = ENG_air_defense_focus_built_2
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = anti_air_building
+							size > 1
+						}
+						OR = {
+							region = 1
+							region = 2
+							region = 3
+						}						
+					}
+					add_building_construction = {
+						type = anti_air_building
+						level = 2
+						instant_build = yes
+					}
+					set_state_flag = ENG_air_defense_focus_built_2
+				}
+			}			
+			if = {
+				limit = {
+					OR = {
+						123 = {
+							free_building_slots = {
+								building = anti_air_building
+								size > 1
+							}
+						}
+						125 = {
+							free_building_slots = {
+								building = anti_air_building
+								size > 1
+							}
+						}
+						127 = {
+							free_building_slots = {
+								building = anti_air_building
+								size > 1
+							}
+						}
+					}
+				}
+				custom_effect_tooltip = air_defense_focus_tt
+				hidden_effect = {
+					123 = {
+						add_building_construction = {
+							type = anti_air_building
+							level = 5
+							instant_build = yes
+						}
+					}
+					125 = {
+						add_building_construction = {
+							type = anti_air_building
+							level = 5
+							instant_build = yes
+						}
+					}
+					127 = {
+						add_building_construction = {
+							type = anti_air_building
+							level = 5
+							instant_build = yes
+						}
+					}
+					set_country_flag = air_defense_focus_built_max
+				}
+			}
+		
+}
+}
+#Focus for - Cryptologic Bomb
+focus = {
+id =cryptologicbomb
+icon =GFX_focus_generic_polish_deal
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = { has_war_with = GER
+				POL = {
+					NOT = { is_in_faction_with = GER } #We assume POL will help vs Germany unless they are allied to them
+				} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = {
+				name = codebreaking_bonus
+				bonus = 0.5
+				uses = 3
+				category = decryption_tech
+				category = computing_tech
+			}
+}
+}
+#Focus for - The Tizard Mission
+focus = {
+id =thetizardmission
+icon =GFX_goal_generic_scientific_exchange
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = radar}
+ prerequisite = { focus =cryptologicbomb}
+available = { has_government = democratic
+			any_other_country = {
+				has_war_with = ROOT
+				NOT = { has_government = democratic }
+				num_of_factories > 30
+			}
+			USA = { 
+				has_government = democratic
+				NOT = {
+					OR = {
+						has_idea = undisturbed_isolation
+						has_idea = isolation
+					}
+				}
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+USA = {
+				country_event = britain.1
+			}
+}
+}
+#Focus for - The MAUD Committee
+focus = {
+id =themaudcommittee
+icon =GFX_focus_wonderweapons
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = thetizardmission}
+available = { is_in_faction_with = USA }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = {
+				name = maud_focus
+				bonus = 0.5
+				uses = 1
+				category = nuclear
+			}
+}
+}
+#Focus for - Limited Rearmament
+focus = {
+id =limitedrearmament
+icon =GFX_goal_generic_build_tank
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = ENG_limited_rearmament_focus_2IC
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = ENG_limited_rearmament_focus_2IC
+			}
+}
+}
+#Focus for - A Motorized Army
+focus = {
+id =amotorizedarmy
+icon =GFX_goal_generic_army_motorized
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = limitedrearmament}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+custom_effect_tooltip = ENG_mot_focus_tooltip
+
+			hidden_effect = {
+				load_oob = "ENG_Motorized"
+			}
+}
+}
+#Focus for - Royal Tank Regiment
+focus = {
+id =royaltankregiment
+icon =GFX_goal_generic_army_tanks
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = amotorizedarmy}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = {
+					name = armor_bonus
+					bonus = 0.5
+					uses = 1
+					category = armor
+				}
+}
+}
+#Focus for - Develop New Zealand
+focus = {
+id =developnewzealand
+icon =GFX_goal_generic_construction
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = developmentinaustralia}
+available = { is_in_faction_with = NZL }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+NZL = {
+				add_opinion_modifier = { target = ENG modifier = aided_industry }
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					set_state_flag = ENG_uk_new_zealand_focus_1IC
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					set_state_flag = ENG_uk_new_zealand_focus_1IC
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+					set_state_flag = ENG_uk_new_zealand_focus_2dockyards
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+					set_state_flag = ENG_uk_new_zealand_focus_1dockyard
+				}
+				add_autonomy_ratio = {
+					value = -0.05
+					localization = uk_new_zealand_focus
+				}
+			}
+}
+}
+#Focus for - Development in Canada
+focus = {
+id =developmentincanada
+icon =GFX_goal_generic_construct_civ_factory
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = commonwealthties}
+available = { is_in_faction_with = CAN }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+CAN = {
+				add_opinion_modifier = { target = ENG modifier = aided_industry }
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+					set_state_flag = ENG_uk_canada_focus_2IC
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					set_state_flag = ENG_uk_canada_focus_1IC
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+					set_state_flag = ENG_uk_canada_focus_1dockyard
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+					set_state_flag = ENG_uk_canada_focus_1dockyard
+				}
+				add_autonomy_ratio = {
+					value = -0.05
+					localization = uk_canada_focus
+				}
+			}
+}
+}
+#Focus for - Develop South Africa
+focus = {
+id =developsouthafrica
+icon =GFX_goal_generic_construct_civ_factory
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = commonwealthties}
+available = { is_in_faction_with = SAF }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+SAF = {
+				add_opinion_modifier = { target = ENG modifier = aided_industry }
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+					set_state_flag = ENG_uk_south_africa_focus_2IC
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					set_state_flag = ENG_uk_south_africa_focus_1IC
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+					set_state_flag = ENG_uk_south_africa_focus_1dockyard
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_coastal = yes
+						free_building_slots = {
+							building = dockyard
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+					set_state_flag = ENG_uk_south_africa_focus_1dockyard
+				}
+				add_autonomy_ratio = {
+					value = -0.05
+					localization = uk_south_africa_focus
+				}
+			}
+}
+}
+#Focus for - The Illinois Army
+focus = {
+id =theillinoisarmy
+icon =GFX_focus_generic_little_entente
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+army_experience = 25
+add_tech_bonus = { bonus = 0.7 uses = 2 category = land_doctrine }
+
+}
+}
+#Focus for - The Illinois Navy
+focus = {
+id =theillinoisnavy
+icon =GFX_goal_generic_amphibious_assault
+bypass = {}
+ai_will_do = { factor = 4}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+navy_experience = 25
+add_tech_bonus = { bonus = 0.7 uses = 2 category = naval_equipment}
+}
+}
+#Focus for - The Illinois Airforce
+focus = {
+id =theillinoisairforce
+icon =GFX_goal_generic_air_fighter2
+bypass = {}
+ai_will_do = { factor = 4}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = { bonus = 0.7 uses = 2 category = light_fighter }
+air_experience = 25
+}
+}
+#Focus for - Doctrine Focus
+focus = {
+id =doctrinefocus
+icon =GFX_goal_generic_cavalry
+bypass = {}
+ai_will_do = { factor = 4}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = theillinoisarmy}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+army_experience = 20
+add_tech_bonus = { bonus = 0.5 uses = 2 category = land_doctrine }
+}
+}
+#Focus for - Equipment Focus
+focus = {
+id =equipmentfocus
+icon =GFX_goal_generic_military_sphere
+bypass = {}
+ai_will_do = { factor = 4}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = theillinoisarmy}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = { bonus = 0.5 uses = 2 category = infantry_weapons }
+}
+}
+#Focus for - Motorized Development
+focus = {
+id =motorizeddevelopment
+icon =GFX_goal_generic_army_motorized
+bypass = {}
+ai_will_do = { factor = 4}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = theillinoisarmy}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = { bonus = 0.6 uses = 4 category = motorized_equipment }
+}
+}
+#Focus for - Tank Focus
+focus = {
+id =tankfocus
+icon =GFX_goal_generic_army_tanks
+bypass = {}
+ai_will_do = { factor = 4}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = motorizeddevelopment}
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = { bonus = 0.75 uses = 2 category = armor }
+}
+}
+#Focus for - Equipment Focus III
+focus = {
+id =equipmentfocusiii
+icon =GFX_goal_generic_army_artillery2
+bypass = {}
+ai_will_do = { factor = 4}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = equipmentfocusii}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = { bonus = 0.5 uses = 2 category = infantry_weapons }
+}
+}
+#Focus for - Aldai's Social Pledge
+focus = {
+id =aldaissocialpledge
+icon =GFX_goal_anschluss
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_political_power = 250
+add_national_unity = 0.01
+}
+}
+#Focus for - A New Deal
+focus = {
+id =anewdeal
+icon =GFX_goal_generic_construct_infrastructure
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = aldaissocialpledge}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+remove_ideas = great_depression
+add_ideas = new_deal
+}
+}
+#Focus for - Civil Rights Agenda
+focus = {
+id =civilrightsagenda
+icon =GFX_goal_generic_support_democracy
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = aldaissocialpledge}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_political_power = 35
+add_national_unity = 0.05
+}
+}
+#Focus for - Investment in Education
+focus = {
+id =investmentineducation
+icon =GFX_goal_generic_scientific_exchange
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = aldaissocialpledge}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_ideas = ILI_research
+}
+}
+#Focus for - Desegregate Chicago
+focus = {
+id =desegregatechicago
+icon =GFX_focus_generic_the_giant_wakes
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = civilrightsagenda}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+remove_ideas = divided_chicago
+}
+}
+#Focus for - The Illinois Army
+focus = {
+id =theillinoisarmy
+icon =GFX_focus_generic_little_entente
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+army_experience = 25
+add_tech_bonus = { bonus = 0.7 uses = 2 category = land_doctrine }
+
+}
+}
+#Focus for - The Illinois Navy
+focus = {
+id =theillinoisnavy
+icon =GFX_goal_generic_amphibious_assault
+bypass = {}
+ai_will_do = { factor = 4}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+navy_experience = 25
+add_tech_bonus = { bonus = 0.7 uses = 2 category = naval_equipment}
+}
+}
+#Focus for - The Illinois Airforce
+focus = {
+id =theillinoisairforce
+icon =GFX_goal_generic_air_fighter2
+bypass = {}
+ai_will_do = { factor = 4}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = { bonus = 0.7 uses = 2 category = light_fighter }
+air_experience = 25
+}
+}
+#Focus for - Doctrine Focus
+focus = {
+id =doctrinefocus
+icon =GFX_goal_generic_cavalry
+bypass = {}
+ai_will_do = { factor = 4}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = theillinoisarmy}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+army_experience = 20
+add_tech_bonus = { bonus = 0.5 uses = 2 category = land_doctrine }
+}
+}
+#Focus for - Equipment Focus
+focus = {
+id =equipmentfocus
+icon =GFX_goal_generic_military_sphere
+bypass = {}
+ai_will_do = { factor = 4}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = theillinoisarmy}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = { bonus = 0.5 uses = 2 category = infantry_weapons }
+}
+}
+#Focus for - Motorized Development
+focus = {
+id =motorizeddevelopment
+icon =GFX_goal_generic_army_motorized
+bypass = {}
+ai_will_do = { factor = 4}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = theillinoisarmy}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = { bonus = 0.6 uses = 4 category = motorized_equipment }
+}
+}
+#Focus for - Tank Focus
+focus = {
+id =tankfocus
+icon =GFX_goal_generic_army_tanks
+bypass = {}
+ai_will_do = { factor = 4}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = motorizeddevelopment}
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = { bonus = 0.75 uses = 2 category = armor }
+}
+}
+#Focus for - Equipment Focus III
+focus = {
+id =equipmentfocusiii
+icon =GFX_goal_generic_army_artillery2
+bypass = {}
+ai_will_do = { factor = 4}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = equipmentfocusii}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = { bonus = 0.5 uses = 2 category = infantry_weapons }
+}
+}
+#Focus for - Civil Rights Agenda
+focus = {
+id =civilrightsagenda
+icon =GFX_goal_generic_support_democracy
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = aldaissocialpledge}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_political_power = 35
+add_national_unity = 0.05
+}
+}
+#Focus for - Investment in Education
+focus = {
+id =investmentineducation
+icon =GFX_goal_generic_scientific_exchange
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = aldaissocialpledge}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_ideas = ILI_research
+}
+}
+#Focus for - Desegregate Chicago
+focus = {
+id =desegregatechicago
+icon =GFX_focus_generic_the_giant_wakes
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = civilrightsagenda}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+remove_ideas = divided_chicago
+}
+}
+#Focus for - A New Deal
+focus = {
+id =anewdeal
+icon =GFX_goal_generic_construct_infrastructure
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = aldaissocialpledge}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+remove_ideas = great_depression
+add_ideas = new_deal
+}
+}
+#Focus for - Aldai's Social Pledge
+focus = {
+id =aldaissocialpledge
+icon =GFX_goal_anschluss
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_political_power = 250
+add_national_unity = 0.01
+}
+}
+#Focus for - Government-Funded Technical Schools
+focus = {
+id =governmentfundedtechnicalschools
+icon =GFX_goal_continuous_research
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = investmentineducation}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = { bonus = 0.5 uses = 2 category = electronics }
+}
+}
+#Focus for - Industrial Focus
+focus = {
+id =industrialfocus
+icon =GFX_goal_continuous_repairments
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = anewdeal}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = { bonus = 0.5 uses = 2 category = industry }
+}
+}
+#Focus for - Increase Immigration
+focus = {
+id =increaseimmigration
+icon =GFX_goal_generic_positive_trade_relations
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = industrialfocus}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_ideas = immigration
+}
+}
+#Focus for - The Belgian Army
+focus = {
+id =thebelgianarmy
+icon =GFX_goal_rhineland
+bypass = {}
+ai_will_do = { factor = 2}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Bamboozle The Dutch
+focus = {
+id =bamboozlethedutch
+icon =GFX_focus_AST_squander_bug
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = thesevendaywar}
+available = {  }
+cost = 4 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Benelux Unity
+focus = {
+id =beneluxunity
+icon =GFX_goal_generic_national_unity
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = bamboozlethedutch}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Naval Expansion
+focus = {
+id =navalexpansion
+icon =GFX_goal_generic_construct_naval_dockyard
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - How They Swim...
+focus = {
+id =howtheyswim
+icon =GFX_goal_generic_navy_battleship
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = navalexpansion}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Civilian Development
+focus = {
+id =civiliandevelopment
+icon =GFX_goal_generic_construct_civilian
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = kickstarttheindustry}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Military Development
+focus = {
+id =militarydevelopment
+icon =GFX_goal_generic_construct_mil_factory
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = kickstarttheindustry}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Maximise Food Production
+focus = {
+id =maximisefoodproduction
+icon =GFX_goal_generic_consumer_goods
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = kickstarttheindustry}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Expand Chocolate Exports
+focus = {
+id =expandchocolateexports
+icon =GFX_goal_generic_positive_trade_relations
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = maximisefoodproduction}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Foreign Policy
+focus = {
+id =foreignpolicy
+icon =GFX_goal_generic_intelligence_exchange
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = internalpolitics}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Air Base Development
+focus = {
+id =airbasedevelopment
+icon =GFX_goal_generic_air_production
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Sky Defence Shield
+focus = {
+id =skydefenceshield
+icon =GFX_focus_generic_cryptologic_bomb
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = airbasedevelopment}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Big Belgian Fighters
+focus = {
+id =bigbelgianfighters
+icon =GFX_goal_generic_air_fighter
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = skydefenceshield}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Dive Bombing Effort
+focus = {
+id =divebombingeffort
+icon =GFX_goal_generic_occypy_start_war
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = channelskysquadrons}
+prerequisite = { focus = bigbelgianfighters}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Channel Sky Squadrons
+focus = {
+id =channelskysquadrons
+icon =GFX_goal_generic_air_fighter2
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = divebombingeffort}
+prerequisite = { focus = bbfighters bigbelgianboys}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Entrench Like The French
+focus = {
+id =entrenchlikethefrench
+icon =GFX_goal_generic_fortify_city
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = maintaindemocracy}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Belgian Special Forces
+focus = {
+id =belgianspecialforces
+icon =GFX_goal_generic_amphibious_assault
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = howtheyswim}
+ prerequisite = { focus =moreguns}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - The Seven Day War
+focus = {
+id =thesevendaywar
+icon =GFX_goal_generic_more_territorial_claims
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = redogovernment}
+ prerequisite = { focus =foreignpolicy}
+available = {  }
+cost = 1 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Maintain Democracy
+focus = {
+id =maintaindemocracy
+icon =GFX_goal_generic_support_democracy
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = redogovernment}
+prerequisite = { focus = internalpolitics}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+					add_political_power = 50
+
+
+}
+}
+#Focus for - Commence Negotiations
+focus = {
+id =commencenegotiations
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = maintaindemocracy}
+ prerequisite = { focus =foreignpolicy}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Kickstart The Industry
+focus = {
+id =kickstarttheindustry
+icon =GFX_goal_generic_construction
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = internalpolitics}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - War Effort Program
+focus = {
+id =wareffortprogram
+icon =GFX_goal_generic_propaganda
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = entrenchlikethefrench}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Put Them To Work
+focus = {
+id =putthemtowork
+icon =GFX_goal_generic_production
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = revolutioninfrance}
+available = {  }
+cost = 1 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Establish Totalist State
+focus = {
+id =establishtotaliststate
+icon =GFX_focus_generic_soviet_politics
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = wevoteforrexit}
+prerequisite = { focus = redogovernment}
+available = {  }
+cost = 5 
+ available_if_capitulated = yes 
+completion_reward = {
+start_civil_war = {
+ ideology = fascism 
+size = 12
+}
+
+add_popularity = { 
+ideology = communism 
+popularity = 100 
+}
+}
+}
+#Focus for - Revolution In France
+focus = {
+id =revolutioninfrance
+icon =GFX_goal_generic_support_communism
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = establishtotaliststate}
+ prerequisite = { focus =foreignpolicy}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - The Benelux Line
+focus = {
+id =thebeneluxline
+icon =GFX_goal_generic_position_armies
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = commencenegotiations}
+available = {  }
+cost = 1 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Benelux Secured
+focus = {
+id =beneluxsecured
+icon =GFX_goal_generic_construct_military
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = thebeneluxline}
+available = {  }
+cost = 9 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Big Belgian Boys
+focus = {
+id =bigbelgianboys
+icon =GFX_goal_generic_navy_carrier
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = destroyertradefleet}
+prerequisite = { focus = howtheyswim}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Destroyer Trade Fleet
+focus = {
+id =destroyertradefleet
+icon =GFX_goal_generic_navy_cruiser
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = bigbelgianboys}
+prerequisite = { focus = howtheyswim}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Can I Has Tank?
+focus = {
+id =canihastank
+icon =GFX_goal_generic_army_tanks
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = moreguns}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Chat With Hitler
+focus = {
+id =chatwithhitler
+icon =GFX_goal_molotov_ribbentrop_pact
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = wevoteforrexit}
+ prerequisite = { focus =foreignpolicy}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - We Vote For Rexit!
+focus = {
+id =wevoteforrexit
+icon =GFX_focus_generic_diplomatic_treaty
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = establishtotaliststate}
+prerequisite = { focus = redogovernment}
+available = {  }
+cost = 5 
+ available_if_capitulated = yes 
+completion_reward = {
+set_ruling_party = { ideology = fascism }
+
+set_political_party = { 
+ideology = fascism 
+popularity = 92 
+}
+}
+}
+#Focus for - Surprise Attack
+focus = {
+id =surpriseattack
+icon =GFX_focus_generic_paratrooper
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = chatwithhitler}
+available = {  }
+cost = 1 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - More Guns!
+focus = {
+id =moreguns
+icon =GFX_goal_generic_army_artillery2
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = thebelgianarmy}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Develop Our Doctrine
+focus = {
+id =developourdoctrine
+icon =GFX_goal_generic_army_doctrines
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = thebelgianarmy}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Finalise Military Doctrine
+focus = {
+id =finalisemilitarydoctrine
+icon =GFX_focus_generic_strike_at_democracy1
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = developourdoctrine}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Preserve Greater Romania
+focus = {
+id =preservegreaterromania
+icon =GFX_goal_unknown
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+					add_threathold_election = yesadd_political_power = 50add_political_power = 120
+}
+}
+#Focus for - Renew the Romania-Polish Alliance
+focus = {
+id =renewtheromaniapolishalliance
+icon =GFX_goal_anschluss
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = preservegreaterromania}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+give_guarantee = POL
+POL = { give_guarantee = ROM }
+}
+}
+#Focus for - Demand a Western Guarantee
+focus = {
+id =demandawesternguarantee
+icon =GFX_goal_generic_defence
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = renewtheromaniapolishalliance}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+ENG = { give_guarantee = ROM }
+FRA= { give_guarantee = ROM }
+}
+}
+#Focus for - Trade Treaty with Germany
+focus = {
+id =tradetreatywithgermany
+icon =GFX_goal_generic_trade
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = preservegreaterromania}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Join Comintern
+focus = {
+id =joincomintern
+icon =GFX_focus_generic_join_comintern
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = basingrightsforsovietunion}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+SOV = { add_to_faction = ROM }
+}
+}
+#Focus for - Romanian Volunteer Brigades
+focus = {
+id =romanianvolunteerbrigades
+icon =GFX_goal_generic_military_sphere
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = basingrightsforsovietunion}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Preserve Greater Romania
+focus = {
+id =preservegreaterromania
+icon =GFX_goal_unknown
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+					add_threathold_election = yesadd_political_power = 50add_political_power = 120
+}
+}
+#Focus for - Renew the Romania-Polish Alliance
+focus = {
+id =renewtheromaniapolishalliance
+icon =GFX_goal_anschluss
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = preservegreaterromania}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+give_guarantee = POL
+POL = { give_guarantee = ROM }
+}
+}
+#Focus for - Demand a Western Guarantee
+focus = {
+id =demandawesternguarantee
+icon =GFX_goal_generic_defence
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = renewtheromaniapolishalliance}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+ENG = { give_guarantee = ROM }
+FRA= { give_guarantee = ROM }
+}
+}
+#Focus for - Trade Treaty with Germany
+focus = {
+id =tradetreatywithgermany
+icon =GFX_goal_generic_trade
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = preservegreaterromania}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Join Comintern
+focus = {
+id =joincomintern
+icon =GFX_focus_generic_join_comintern
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = basingrightsforsovietunion}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+SOV = { add_to_faction = ROM }
+}
+}
+#Focus for - Romanian Volunteer Brigades
+focus = {
+id =romanianvolunteerbrigades
+icon =GFX_goal_generic_military_sphere
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = basingrightsforsovietunion}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Civil Works
+focus = {
+id =civilworks
+icon =GFX_goal_generic_construction
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = preservegreaterromania}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Agrarian Reform
+focus = {
+id =agrarianreform
+icon =GFX_goal_generic_consumer_goods
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = nationaldefenseindustry  focus = civilworks}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - The New Era
+focus = {
+id =thenewera
+icon =GFX_goal_generic_demand_territory
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_political_power = 120
+}
+}
+#Focus for - War Industry
+focus = {
+id =warindustry
+icon =GFX_goal_generic_construct_mil_factory
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = readyforintervention}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+			army_experience = 10
+			random_owned_controlled_state = {
+				limit = {
+					arms_factory > 0
+					free_building_slots = {
+						building = arms_factory
+						size > 4
+						include_locked = yes
+					}
+					OR = {
+						region = 117
+						region = 118
+						region = 119
+						region = 120
+					}
+				}
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = arms_factory
+					level = 5
+					instant_build = yes
+				}
+				set_state_flag = USA_military_construction_5MF
+			}
+			if = {
+				limit = {
+					371 = {
+						OR = {
+							NOT = { is_owned_and_controlled_by = USA }
+							AND = {
+								is_owned_and_controlled_by = USA
+								free_building_slots = {
+									building = infrastructure
+									size < 3
+								}
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = { 
+						free_building_slots = {
+							building = infrastructure
+							size > 2
+						}
+						OR = {
+							region = 117
+							region = 118
+							region = 119
+							region = 120
+						}
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+					set_state_flag = USA_military_construction_3Inf
+				}
+			}
+			371 = {
+				if = {
+					limit = { 
+						is_owned_and_controlled_by = USA
+						free_building_slots = {
+							building = infrastructure
+							size > 2
+						}
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+					set_state_flag = USA_military_construction_3Inf
+				}
+			}
+			if = {
+				limit = {
+					375 = {
+						OR = {
+							NOT = { is_owned_and_controlled_by = USA }
+							AND = {
+								is_owned_and_controlled_by = USA
+								free_building_slots = {
+									building = infrastructure
+									size < 3
+								}
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = { 
+						free_building_slots = {
+							building = infrastructure
+							size > 2
+						}
+						OR = {
+							region = 117
+							region = 118
+							region = 119
+							region = 120
+						}
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+					set_state_flag = USA_military_construction_3Inf
+				}
+			}
+			375 = {
+				if = {
+					limit = { 
+						is_owned_and_controlled_by = USA
+						free_building_slots = {
+							building = infrastructure
+							size > 2
+						}
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+					set_state_flag = USA_military_construction_3Inf
+				}
+			}			
+			if = {
+				limit = {
+					378 = {
+						OR = {
+							NOT = { is_owned_and_controlled_by = USA }
+							AND = {
+								is_owned_and_controlled_by = USA
+								free_building_slots = {
+									building = infrastructure
+									size < 3
+								}
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = { 
+						free_building_slots = {
+							building = infrastructure
+							size > 2
+						}
+						OR = {
+							region = 117
+							region = 118
+							region = 119
+							region = 120
+						}
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+					set_state_flag = USA_military_construction_3Inf
+				}
+			}
+			378 = {
+				if = {
+					limit = { 
+						is_owned_and_controlled_by = USA
+						free_building_slots = {
+							building = infrastructure
+							size > 2
+						}
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+					set_state_flag = USA_military_construction_3Inf
+				}
+			}
+}
+}
+#Focus for - Ready for Intervention
+focus = {
+id =readyforintervention
+icon =GFX_goal_generic_occypy_states_ongoing_war
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = thenewera}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_ideas = USA_prepare_intervention 
+}
+}
+#Focus for - Sacrifices Must Be Made
+focus = {
+id =sacrificesmustbemade
+icon =GFX_goal_generic_construct_mil_factory
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = warindustry}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_ideas = wartime_industry_focus
+}
+}
+#Focus for - Canadian Wartime Industry
+focus = {
+id =canadianwartimeindustry
+icon =GFX_goal_generic_construct_mil_factory
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = sacrificesmustbemade}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+			468 = {
+				add_extra_state_shared_building_slots = 8
+				add_building_construction = {
+					type = arms_factory
+					level = 5
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			276 = {
+				add_extra_state_shared_building_slots = 8
+				add_building_construction = {
+					type = arms_factory
+					level = 6
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+}
+}
+#Focus for - Army Modernization
+focus = {
+id =armymodernization
+icon =GFX_goal_generic_allies_build_infantry
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = { bonus = 0.5 uses = 2 category = support_tech }
+army_experience = 10
+}
+}
+#Focus for - Individual Armament
+focus = {
+id =individualarmament
+icon =GFX_goal_generic_small_arms
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = armymodernization}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = {bonus = 0.5 uses = 2 category = infantry_weapons }
+}
+}
+#Focus for - Advanced Armament
+focus = {
+id =advancedarmament
+icon =GFX_goal_generic_small_arms
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = individualarmament}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = {bonus = 0.5 uses = 2 category = infantry_weapons }
+}
+}
+#Focus for - Modernized Armament
+focus = {
+id =modernizedarmament
+icon =GFX_goal_generic_small_arms
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = advancedarmament}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = {bonus = 0.5 uses = 2 category = infantry_weapons }
+}
+}
+#Focus for - Tank Technology
+focus = {
+id =tanktechnology
+icon =GFX_goal_generic_army_tanks
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = mobileinfantry}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = { bonus = 0.5 uses = 2 category = armor }
+}
+}
+#Focus for - Heavy Guns
+focus = {
+id =heavyguns
+icon =GFX_goal_generic_army_artillery2
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = armymodernization}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = { bonus = 0.5 uses = 2 category = artillery }
+army_experience = 10
+}
+}
+#Focus for - Foreign Analysis
+focus = {
+id =foreignanalysis
+icon =GFX_goal_generic_air_doctrine
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = armymodernization}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+army_experience = 10
+add_tech_bonus = { bonus = 0.5 uses = 2 category = land_doctrine }
+}
+}
+#Focus for - Tactical Integration
+focus = {
+id =tacticalintegration
+icon =GFX_goal_generic_air_doctrine
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = foreignanalysis}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_Bonus = { bonus = 0.5 uses = 2 category = land_doctrine }
+army_experience = 10
+}
+}
+#Focus for - Military Futurism
+focus = {
+id =militaryfuturism
+icon =GFX_goal_generic_air_doctrine
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = tacticalintegration}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+army_experience = 10
+add_tech_bonus = { bonus = 0.5 uses = 2 category = land_doctrine }
+}
+}
+#Focus for - Mobile Infantry
+focus = {
+id =mobileinfantry
+icon =GFX_goal_generic_army_motorized
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = heavyguns}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = { bonus = 0.5 uses = 1 category = motorized_equipment }
+add_tech_bonus = { bonus = 0.5 uses = 1 category = maintenance_company_tech }
+}
+}
+#Focus for - Naval Strike
+focus = {
+id =navalstrike
+icon =GFX_goal_generic_air_fighter
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = lightaircraft}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = { bonus = 0.5 uses = 1 category = naval_air }
+}
+}
+#Focus for - Independent Soldier
+focus = {
+id =independentsoldier
+icon =GFX_goal_generic_military_sphere
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = combinedarms}
+prerequisite = { focus = modernizedarmament}
+available = {  }
+cost = 15 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = { bonus = 0.5 ahead_reduction = 0.75 uses = 2 category = infantry_weapons }
+}
+}
+#Focus for - Combined Arms
+focus = {
+id =combinedarms
+icon =GFX_goal_generic_air_doctrine
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = independentsoldier}
+prerequisite = { focus = militaryfuturism}
+available = {  }
+cost = 15 
+ available_if_capitulated = yes 
+completion_reward = {
+army_experience = 20
+add_tech_bonus = { bonus = 0.5 uses = 1 category = land_doctrine }
+add_tech_bonus = { bonus = 0.5 uses = 2 ahead_reduction = 1 category = artillery }
+}
+}
+#Focus for - Mechanized Infantry
+focus = {
+id =mechanizedinfantry
+icon =GFX_goal_generic_build_tank
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = tanktechnology}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = { bonus = 0.5 uses = 2 category = cat_motorized_equipment }
+}
+}
+#Focus for - Light Aircraft
+focus = {
+id =lightaircraft
+icon =GFX_goal_generic_air_fighter
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = heavyaircraft}
+prerequisite = { focus = aviationeffort}
+available = {  }
+cost = 15 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = { bonus = 0.5 uses = 3 category = light_air }
+}
+}
+#Focus for - Heavy Aircraft
+focus = {
+id =heavyaircraft
+icon =GFX_goal_generic_air_bomber
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = lightaircraft}
+prerequisite = { focus = aviationeffort}
+available = {  }
+cost = 15 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = { bonus = 0.5 uses = 3 category = medium_air }
+}
+}
+#Focus for - Strategic Bombing
+focus = {
+id =strategicbombing
+icon =GFX_goal_generic_air_bomber
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = heavyaircraft}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = { bonus = 0.5 uses = 1 category = heavy_air }
+}
+}
+#Focus for - Advanced Aviation Effort
+focus = {
+id =advancedaviationeffort
+icon =GFX_focus_rocketry
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = aviationinfrastructure}
+available = {  }
+cost = 15 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = { bonus = 0.5 uses = 4 category = rocketry category = jet_technology }
+}
+}
+#Focus for - Aviation Effort
+focus = {
+id =aviationeffort
+icon =GFX_goal_generic_build_airforce
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+air_experience = 25
+add_tech_bonus = { bonus = 0.5 uses = 1 category = air_doctrine }
+random_owned_controlled_state = { add_building_construction = { type = air_base level = 2 instant_build = yes } }
+ROOT = { set_country_flag = aviation_effort_AB }
+}
+}
+#Focus for - Aviation Infrastructure
+focus = {
+id =aviationinfrastructure
+icon =GFX_goal_generic_build_airforce
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = aviationeffort}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+air_experience = 25
+add_tech_bonus = { bonus = 0.5 uses = 1 category = air_doctrine }
+random_owned_controlled_state = {add_building_construction = { type = air_base level = 2 instant_build = yes } }
+ROOT = { set_country_flag = aviation_effort_2_AB }
+}
+}
+#Focus for - Naval Study
+focus = {
+id =navalstudy
+icon =GFX_goal_generic_navy_doctrines_tactics
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = { any_state = { is_coastal = yes is_controlled_by = ROOT } }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+navy_experience = 25
+add_tech_bonus = { bonus = 0.5 uses = 2 category = naval_doctrine category = naval_equipment }
+}
+}
+#Focus for - Maritime Expansion
+focus = {
+id =maritimeexpansion
+icon =GFX_goal_generic_construct_naval_dockyard
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = navalstudy}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+random_owned_controlled_state = { limit = { is_coastal = yes free_building_slots = { building= dockyard size > 2 include_locked = yes } } add_building_construction = { type = dockyard level = 3 instant_build = yes } add_building_construction { type = naval_base level = 3 province = instant_build = yes } }
+}
+}
+#Focus for - Ein neuer Weg?
+focus = {
+id =einneuerweg
+icon =GFX_goal_unknown
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+					add_national_unity = 0.02add_political_power = 50
+}
+}
+#Focus for - Gegen die alten Feinde
+focus = {
+id =gegendiealtenfeinde
+icon =GFX_goal_generic_support_fascism
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = einneuerweg}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_ideas = SOV_anticommunism
+}
+}
+#Focus for - Wiederzulassung der Duma
+focus = {
+id =wiederzulassungderduma
+icon =GFX_goal_generic_support_democracy
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = einneuerweg}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+hold_election = yesadd_popularity = { 
+ideology = fascism 
+popularity = 0.1 
+}add_ideas = ENG_king_edward
+}
+}
+#Focus for - Virginian Nationalism
+focus = {
+id =virginiannationalism
+icon =GFX_focus_generic_support_the_left_right
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 1 
+ available_if_capitulated = yes 
+completion_reward = {
+add_political_power = 150
+}
+}
+#Focus for - Anatolian Logistics 
+focus = {
+id =anatolianlogistics
+icon =GFX_goal_generic_position_armies
+bypass = {}
+ai_will_do = { factor = 10}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = { TUR = { has_full_control_of_state = 49 } 
+TUR = { has_full_control_of_state = 347 } 
+TUR = { has_full_control_of_state = 356 } }
+cost = 8 
+ available_if_capitulated = yes 
+completion_reward = {
+49 = { add_extra_state_shared_building_slots = 2 } 
+347 = { add_extra_state_shared_building_slots = 2 } 
+356 = { add_extra_state_shared_building_slots = 2 }  
+49 = { add_building_construction = { type = Infrastructure instant_build = yes } } 
+347 = { add_building_construction = { type = Infrastructure instant_build = yes } }  
+356 = { add_building_construction = { type = Infrastructure instant_build = yes } } 
+}
+}
+#Focus for - Industrial Effort
+focus = {
+id =industrialeffort
+icon =GFX_goal_generic_construct_civ_factory
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = theshadowscheme}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+}
+}
+#Focus for - Annex Tibet
+focus = {
+id =annextibet
+icon =GFX_goal_generic_forceful_treaty
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = { TIB = {has_war = noexists = yes} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+annex_country  = {
+ target = TIB 
+}add_political_power = 50
+}
+}
+#Focus for - Build Up Our Ports
+focus = {
+id =buildupourports
+icon =GFX_goal_generic_construct_naval_dockyard
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Ask the Americans for Assistance
+focus = {
+id =asktheamericansforassistance
+icon =GFX_goal_generic_construct_civ_factory
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = beginrebuildinginfrastructure}
+ prerequisite = { focus =buildupourports}
+available = {  }
+cost = 4 
+ available_if_capitulated = yes 
+completion_reward = {
+set_country_flag = askamerica
+add_political_power = 50
+}
+}
+#Focus for - Ask the Soviets for Assistance
+focus = {
+id =askthesovietsforassistance
+icon =GFX_goal_generic_construct_civilian
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = beginrebuildinginfrastructure}
+available = { SOV = {has_war = no} }
+cost = 4 
+ available_if_capitulated = yes 
+completion_reward = {
+set_country_flag = asksoviets
+add_political_power = 50
+}
+}
+#Focus for - Build Infrastructure in the Southern Provences
+focus = {
+id =buildinfrastructureinthesouthernprovences
+icon =GFX_goal_generic_construct_infrastructure
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = annextibet}
+ prerequisite = { focus =beginrebuildinginfrastructure}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Begin Rebuilding Infrastructure 
+focus = {
+id =beginrebuildinginfrastructure
+icon =GFX_goal_generic_construct_infrastructure
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Indian Independence
+focus = {
+id =indianindependence
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = developtheraj}
+available = { if = {
+				limit = { has_dlc = "Together for Victory" }
+				date > 1943.10.01
+				RAJ = {
+					is_subject_of = ENG
+					has_war = no
+				}
+				else = {				
+					has_global_flag = indian_national_army_setup
+					RAJ = {
+						is_puppet_of = ENG
+					}
+				}
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+if = {
+				limit = { has_dlc = "Together for Victory" }
+				RAJ = {
+					set_autonomy = {
+						target = RAJ
+						autonomy_state = autonomy_free
+					}
+				}
+				else = {					
+					set_global_flag = indian_independence_promised
+					add_timed_idea = { idea = indian_independence_promised_idea days = 1460 }
+					RAJ = {
+						remove_ideas = RAJ_azad_hind
+					}				
+				}
+			}
+}
+}
+#Focus for - Indian Independence
+focus = {
+id =indianindependence
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = developtheraj}
+available = { if = {
+				limit = { has_dlc = "Together for Victory" }
+				date > 1943.10.01
+				RAJ = {
+					is_subject_of = ENG
+					has_war = no
+				}
+				else = {				
+					has_global_flag = indian_national_army_setup
+					RAJ = {
+						is_puppet_of = ENG
+					}
+				}
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+if = {
+				limit = { has_dlc = "Together for Victory" }
+				RAJ = {
+					set_autonomy = {
+						target = RAJ
+						autonomy_state = autonomy_free
+					}
+				}
+				else = {					
+					set_global_flag = indian_independence_promised
+					add_timed_idea = { idea = indian_independence_promised_idea days = 1460 }
+					RAJ = {
+						remove_ideas = RAJ_azad_hind
+					}				
+				}
+			}
+}
+}
+#Focus for - Indian Independence
+focus = {
+id =indianindependence
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = developtheraj}
+available = { if = {
+				limit = { has_dlc = "Together for Victory" }
+				date > 1943.10.01
+				RAJ = {
+					is_subject_of = ENG
+					has_war = no
+				}
+				else = {				
+					has_global_flag = indian_national_army_setup
+					RAJ = {
+						is_puppet_of = ENG
+					}
+				}
+			} }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+if = {
+				limit = { has_dlc = "Together for Victory" }
+				RAJ = {
+					set_autonomy = {
+						target = RAJ
+						autonomy_state = autonomy_free
+					}
+				}
+				else = {					
+					set_global_flag = indian_independence_promised
+					add_timed_idea = { idea = indian_independence_promised_idea days = 1460 }
+					RAJ = {
+						remove_ideas = RAJ_azad_hind
+					}				
+				}
+			}
+}
+}
+#Focus for - The Zogu Foundation
+focus = {
+id =thezogufoundation
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+					add_political_power = 100
+
+                                        add_national_unity = 0.05
+}
+}
+#Focus for - Welfare Programs
+focus = {
+id =welfareprograms
+icon =GFX_goal_generic_consumer_goods
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Militarize The Industry
+focus = {
+id =militarizetheindustry
+icon =GFX_goal_generic_construct_mil_factory
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Communal Research
+focus = {
+id =communalresearch
+icon =GFX_focus_generic_socialist_science
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Industrial Reform
+focus = {
+id =industrialreform
+icon =GFX_goal_generic_construct_civilian
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+add_tech_bonus = {
+ bonus = 0.65 
+uses = 1 
+category = industry 
+}
+
+add_popularity = { 
+ideology = democratic 
+popularity = 0.1 
+}
+}
+}
+#Focus for - Militarize The Schools
+focus = {
+id =militarizetheschools
+icon =GFX_goal_generic_political_pressure
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Militarize The Nation
+focus = {
+id =militarizethenation
+icon =GFX_goal_generic_demand_territory
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Corporate Trade Deals
+focus = {
+id =corporatetradedeals
+icon =GFX_goal_generic_intelligence_exchange
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - United Spirit
+focus = {
+id =unitedspirit
+icon =GFX_goal_generic_national_unity
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Synthetic Investment
+focus = {
+id =syntheticinvestment
+icon =GFX_goal_generic_oil_refinery
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Unrelenting Progress
+focus = {
+id =unrelentingprogress
+icon =GFX_focus_research
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Tech Development
+focus = {
+id =techdevelopment
+icon =GFX_goal_generic_scientific_exchange
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Enforce King Zog's Authority
+focus = {
+id =enforcekingzogsauthority
+icon =GFX_goal_generic_political_pressure
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Empower The People
+focus = {
+id =empowerthepeople
+icon =GFX_goal_tfv_burn_the_royal_portraits
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Overwhelming Nationalism
+focus = {
+id =overwhelmingnationalism
+icon =GFX_goal_generic_support_fascism
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Democratic Leanings
+focus = {
+id =democraticleanings
+icon =GFX_goal_generic_support_democracy
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Close The Program Down
+focus = {
+id =closetheprogramdown
+icon =GFX_goal_generic_secret_weapon
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Military Elitism
+focus = {
+id =militaryelitism
+icon =GFX_goal_generic_build_tank
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Conscript The Masses
+focus = {
+id =conscriptthemasses
+icon =GFX_focus_generic_little_entente
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - The People's Army
+focus = {
+id =thepeoplesarmy
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Invest In Rural Areas
+focus = {
+id =investinruralareas
+icon =GFX_goal_generic_construct_infrastructure
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - National Defence Fund
+focus = {
+id =nationaldefencefund
+icon =GFX_goal_generic_defence
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Emergency Recruitment Program
+focus = {
+id =emergencyrecruitmentprogram
+icon =GFX_goal_generic_propaganda
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - The End Of Tyranny
+focus = {
+id =theendoftyranny
+icon =GFX_goal_generic_military_deal
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Mobility Focus
+focus = {
+id =mobilityfocus
+icon =GFX_goal_generic_cavalry
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Motorized Production Scheme
+focus = {
+id =motorizedproductionscheme
+icon =GFX_goal_generic_army_motorized
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Firepower Research
+focus = {
+id =firepowerresearch
+icon =GFX_goal_generic_army_artillery
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Organize Regular Drills
+focus = {
+id =organizeregulardrills
+icon =GFX_goal_continuous_reduce_training_time
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Early Tank Experiments
+focus = {
+id =earlytankexperiments
+icon =GFX_goal_generic_army_tanks
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Examine Western Artillery
+focus = {
+id =examinewesternartillery
+icon =GFX_goal_generic_army_artillery2
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Traditional Doctrine
+focus = {
+id =traditionaldoctrine
+icon =GFX_goal_generic_army_doctrines
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Army Reform
+focus = {
+id =armyreform
+icon =GFX_goal_generic_allies_build_infantry
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - International Involvement
+focus = {
+id =internationalinvolvement
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Forging Alliances
+focus = {
+id =forgingalliances
+icon =GFX_goal_generic_major_alliance
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Forging Claims
+focus = {
+id =forgingclaims
+icon =GFX_goal_generic_forceful_treaty
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Claim On Montenegro 
+focus = {
+id =claimonmontenegro
+icon =GFX_goal_generic_territory_or_war
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - The Greek Territories
+focus = {
+id =thegreekterritories
+icon =GFX_goal_generic_more_territorial_claims
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Invite Greece
+focus = {
+id =invitegreece
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - An Albanian Army
+focus = {
+id =analbanianarmy
+icon =GFX_goal_generic_special_forces
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - A Destroyer Fleet
+focus = {
+id =adestroyerfleet
+icon =GFX_goal_generic_occypy_states_coastal
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Indirect Approach
+focus = {
+id =indirectapproach
+icon =GFX_goal_generic_navy_submarine
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Make Them Deadly
+focus = {
+id =makethemdeadly
+icon =GFX_goal_generic_navy_anti_submarine
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Re-purposing An Airport
+focus = {
+id =repurposinganairport
+icon =GFX_goal_generic_radar
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Fighter Tactics
+focus = {
+id =fightertactics
+icon =GFX_goal_generic_air_fighter
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Bomber Development
+focus = {
+id =bomberdevelopment
+icon =GFX_goal_generic_air_bomber
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - A Step Further
+focus = {
+id =astepfurther
+icon =GFX_goal_generic_air_naval_bomber
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Escort Tactics
+focus = {
+id =escorttactics
+icon =GFX_goal_generic_navy_doctrines_tactics
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - A Balkan Menace
+focus = {
+id =abalkanmenace
+icon =GFX_goal_generic_CAS
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - An Albanian Airforce
+focus = {
+id =analbanianairforce
+icon =GFX_goal_generic_build_airforce
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Secure Western Guarantee
+focus = {
+id =securewesternguarantee
+icon =GFX_goal_tfv_strengthen_commonwealth_ties
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - An Adriatic Pact
+focus = {
+id =anadriaticpact
+icon =GFX_goal_generic_navy_cruiser
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Choosing A Side
+focus = {
+id =choosingaside
+icon =GFX_goal_generic_alliance
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 5 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Pledge Allegiance To Italy
+focus = {
+id =pledgeallegiancetoitaly
+icon =GFX_focus_generic_italy_first
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 5 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Contact The Allies
+focus = {
+id =contacttheallies
+icon =GFX_goal_generic_support_democracy
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 5 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Reach Out To The Soviets
+focus = {
+id =reachouttothesoviets
+icon =GFX_focus_generic_join_comintern
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 5 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Deter Italian Invasion
+focus = {
+id =deteritalianinvasion
+icon =GFX_focus_generic_coastal_fort
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - The Tirana Dockyard
+focus = {
+id =thetiranadockyard
+icon =GFX_goal_generic_construct_naval_dockyard
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - An Albanian Fleet
+focus = {
+id =analbanianfleet
+icon =GFX_goal_generic_build_nay
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Train Naval Elites
+focus = {
+id =trainnavalelites
+icon =GFX_goal_generic_amphibious_assault
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Conflict in Central Asia
+focus = {
+id =conflictincentralasia
+icon =GFX_goal_generic_occypy_states_ongoing_war
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = militarization}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Interventionism
+focus = {
+id =interventionism
+icon =GFX_goal_generic_political_pressure
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = protectstatusquo}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Consumerism
+focus = {
+id =consumerism
+icon =GFX_goal_generic_consumer_goods
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = industrialization}
+ prerequisite = { focus =protectstatusquo}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Central Asian Railway
+focus = {
+id =centralasianrailway
+icon =GFX_goal_generic_construct_infrastructure
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = industrialization}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Free Trade
+focus = {
+id =freetrade
+icon =GFX_goal_generic_positive_trade_relations
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = industrialization}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Industrialization
+focus = {
+id =industrialization
+icon =GFX_goal_generic_construct_civ_factory
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Protect Status Quo
+focus = {
+id =protectstatusquo
+icon =GFX_goal_generic_neutrality_focus
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Militarization
+focus = {
+id =militarization
+icon =GFX_goal_generic_small_arms
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = protectstatusquo}
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Indian Claims
+focus = {
+id =indianclaims
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = proclaimacaliphate}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Jihad for Russian Lands
+focus = {
+id =jihadforrussianlands
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = proclaimacaliphate}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Deal with the Russians
+focus = {
+id =dealwiththerussians
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = indianinterests}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Proclaim a Caliphate
+focus = {
+id =proclaimacaliphate
+icon =GFX_goal_generic_forceful_treaty
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = conflictincentralasia}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Regional Peace
+focus = {
+id =regionalpeace
+icon =GFX_goal_generic_neutrality_focus
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = indianinterests}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Further Interests
+focus = {
+id =furtherinterests
+icon =GFX_goal_generic_demand_territory
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = interventionism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Expand Civilian Industry
+focus = {
+id =expandcivilianindustry
+icon =GFX_goal_generic_construct_civ_factory
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = consumerism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Glorify the Dalai Lama
+focus = {
+id =glorifythedalailama
+icon =GFX_focus_generic_diplomatic_treaty
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = endorsebuddhism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Unite the Buddhist People
+focus = {
+id =unitethebuddhistpeople
+icon =GFX_goal_tfv_smiling_buddha
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = antiislampact  focus = antichinapact}
+prerequisite = { focus = takethehimalayanstates}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Protect Buddhist Sovereignty
+focus = {
+id =protectbuddhistsovereignty
+icon =GFX_goal_generic_more_territorial_claims
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = unitethebuddhistpeople}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Endorse Buddhism
+focus = {
+id =endorsebuddhism
+icon =GFX_goal_tfv_smiling_buddha
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = expelthekachee  focus = tolerance}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Denounce Fascism
+focus = {
+id =denouncefascism
+icon =GFX_focus_generic_anti_fascist_diplomacy
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = neutralitymovement}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Himalayan Trade Deals
+focus = {
+id =himalayantradedeals
+icon =GFX_goal_generic_intelligence_exchange
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Indian Ultimatum
+focus = {
+id =indianultimatum
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = takebackyunnan}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Take By Force
+focus = {
+id =takebyforce
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = unitethebuddhistpeople}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Restore the Tibetan Empire
+focus = {
+id =restorethetibetanempire
+icon =GFX_focus_generic_home_defense
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = expelthekachee}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Anti-Islamism
+focus = {
+id =antiislamism
+icon =GFX_goal_generic_political_pressure
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = expelthekachee}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Take Back Yunnan
+focus = {
+id =takebackyunnan
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = resrestorethetibetanempire}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Burn Down Mosques
+focus = {
+id =burndownmosques
+icon =GFX_focus_SAF_colonialist_crusade
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = antiislamism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Take the Himalayan States
+focus = {
+id =takethehimalayanstates
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = takebackyunnan}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Support the Minority State
+focus = {
+id =supporttheminoritystate
+icon =GFX_focus_RAJ_two_nation_theory
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = burndownmosques}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Japanese Non-Agression
+focus = {
+id =japanesenonagression
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = indianultimatum  focus = takethehimalayanstates}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Strike Muslims
+focus = {
+id =strikemuslims
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = supporttheminoritystate  focus = takethehimalayanstates}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Anti-Islam Pact
+focus = {
+id =antiislampact
+icon =GFX_goal_anschluss
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = antichinapact  focus = unitethebuddhistpeople}
+prerequisite = { focus = strikemuslims}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Anti-China Pact
+focus = {
+id =antichinapact
+icon =GFX_goal_generic_dangerous_deal
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = unitethebuddhistpeople  focus = antiislampact}
+prerequisite = { focus = japanesenonagression}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Indian Relations
+focus = {
+id =indianrelations
+icon =GFX_focus_RAJ_all_india_forward_bloc
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = globalization}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Isolationism
+focus = {
+id =isolationism
+icon =GFX_goal_generic_defence
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = upkeepthestatusquo}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Globalization
+focus = {
+id =globalization
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = upkeepthestatusquo}
+prerequisite = { focus = tolerancetraditionalism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Upkeep the Status Quo
+focus = {
+id =upkeepthestatusquo
+icon =GFX_goal_generic_military_sphere
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = globalization}
+prerequisite = { focus = tolerancetraditionalism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Strict Traditionalism
+focus = {
+id =stricttraditionalism
+icon =GFX_goal_generic_political_pressure
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = isolationism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Regional Non-Agression
+focus = {
+id =regionalnonagression
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = stricttraditionalism  focus = himalayantradedeals}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Himalayan Trade League
+focus = {
+id =himalayantradeleague
+icon =GFX_goal_generic_major_alliance
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = regionalnonagression}
+ prerequisite = { focus =himalayantradedeals}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Invite Bhutan
+focus = {
+id =invitebhutan
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = himalayantradeleague}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Protect from Invaders
+focus = {
+id =protectfrominvaders
+icon =GFX_goal_generic_construct_military
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = regionalnonagression}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Neutrality Movement
+focus = {
+id =neutralitymovement
+icon =GFX_goal_generic_propaganda
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = tolerancetraditionalism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Improve Religious Relations
+focus = {
+id =improvereligiousrelations
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = glorifythedalailama}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Bring the Revolution
+focus = {
+id =bringtherevolution
+icon =GFX_focus_generic_join_comintern
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = invitesovietadvisors}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Influence the Raj
+focus = {
+id =influencetheraj
+icon =GFX_focus_RAJ_seek_help_from_soviet
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = onerevolution}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - One Revolution
+focus = {
+id =onerevolution
+icon =GFX_goal_generic_support_communism
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = bringtherevolution}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - The International
+focus = {
+id =theinternational
+icon =GFX_goal_support_fourth_int
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = bringtherevolution}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Execute the Dalai Lama
+focus = {
+id =executethedalailama
+icon =GFX_focus_generic_strike_at_democracy1
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = bringtherevolution}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Socialist Science
+focus = {
+id =socialistscience
+icon =GFX_focus_generic_socialist_science
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = invitesovietadvisors}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Himalayan Revolt
+focus = {
+id =himalayanrevolt
+icon =GFX_focus_generic_join_comintern
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = theinternational}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Free Colonies in India
+focus = {
+id =freecoloniesinindia
+icon =GFX_focus_RAJ_two_nation_theory
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = anticolonialleague}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Liberate Indochina
+focus = {
+id =liberateindochina
+icon =GFX_goal_generic_more_territorial_claims
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = anticolonialleague}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Tibetan Buddhism
+focus = {
+id =tibetanbuddhism
+icon =GFX_goal_generic_demand_territory
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = separationofchurchandstate}
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Separation of Church and State
+focus = {
+id =separationofchurchandstate
+icon =GFX_goal_generic_forceful_treaty
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = tibetanbuddhism}
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Invite Soviet Advisors
+focus = {
+id =invitesovietadvisors
+icon =GFX_focus_generic_soviet_politics
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = openelections}
+prerequisite = { focus = separationofchurchandstate}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Open Elections
+focus = {
+id =openelections
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = invitesovietadvisors}
+prerequisite = { focus = separationofchurchandstate}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Tolerance & Traditionalism
+focus = {
+id =tolerancetraditionalism
+icon =GFX_goal_generic_national_unity
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = expelthekachee}
+prerequisite = { focus = tibetanbuddhism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Expel the Kachee
+focus = {
+id =expelthekachee
+icon =GFX_goal_generic_forceful_treaty
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = tolerancetraditionalism}
+prerequisite = { focus = tibetanbuddhism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Government Reforms
+focus = {
+id =governmentreforms
+icon =GFX_goal_generic_demand_territory
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = openelections}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Immediate Election
+focus = {
+id =immediateelection
+icon =GFX_goal_generic_dangerous_deal
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = openelections}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Regional Interventionism
+focus = {
+id =regionalinterventionism
+icon =GFX_goal_generic_military_sphere
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = governmentreforms}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Fight for Right
+focus = {
+id =fightforright
+icon =GFX_goal_generic_political_pressure
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = immediateelection}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Overseas Expeditions
+focus = {
+id =overseasexpeditions
+icon =GFX_goal_generic_more_territorial_claims
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = regionalinterventionism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - British Relations
+focus = {
+id =britishrelations
+icon =GFX_goal_tfv_strengthen_commonwealth_ties
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = governmentreforms}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Industry of Freedom
+focus = {
+id =industryoffreedom
+icon =GFX_focus_generic_the_giant_wakes
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = askforprotection}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Endorse Democracy
+focus = {
+id =endorsedemocracy
+icon =GFX_goal_generic_propaganda
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = overseasexpeditions}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Invite Nepal and Bhutan
+focus = {
+id =invitenepalandbhutan
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = jointheallies}
+prerequisite = { focus = ourownfaction}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Join the Allies
+focus = {
+id =jointheallies
+icon =GFX_goal_generic_support_democracy
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = ourownfaction}
+ mutually_exclusive = { focus =askforprotection}
+prerequisite = { focus = britishrelations}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Ask for Protection
+focus = {
+id =askforprotection
+icon =GFX_goal_tripartite_pact
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = jointheallies}
+ mutually_exclusive = { focus =ourownfaction}
+prerequisite = { focus = britishrelations}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Our Own Faction
+focus = {
+id =ourownfaction
+icon =GFX_goal_anschluss
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = jointheallies}
+ mutually_exclusive = { focus =askforprotection}
+prerequisite = { focus = fightforright}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Anti-Colonial Coalition
+focus = {
+id =anticolonialcoalition
+icon =GFX_goal_tfv_burn_the_royal_portraits
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = influencetheraj  focus = himalayanrevolt}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Conflict in Central Asia
+focus = {
+id =conflictincentralasia
+icon =GFX_goal_generic_occypy_states_ongoing_war
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = militarization}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Interventionism
+focus = {
+id =interventionism
+icon =GFX_goal_generic_political_pressure
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = protectstatusquo}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Consumerism
+focus = {
+id =consumerism
+icon =GFX_goal_generic_consumer_goods
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = industrialization}
+ prerequisite = { focus =protectstatusquo}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Central Asian Railway
+focus = {
+id =centralasianrailway
+icon =GFX_goal_generic_construct_infrastructure
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = industrialization}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Free Trade
+focus = {
+id =freetrade
+icon =GFX_goal_generic_positive_trade_relations
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = industrialization}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Industrialization
+focus = {
+id =industrialization
+icon =GFX_goal_generic_construct_civ_factory
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Protect Status Quo
+focus = {
+id =protectstatusquo
+icon =GFX_goal_generic_neutrality_focus
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Militarization
+focus = {
+id =militarization
+icon =GFX_goal_generic_small_arms
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = protectstatusquo}
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Indian Claims
+focus = {
+id =indianclaims
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = proclaimacaliphate}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Jihad for Russian Lands
+focus = {
+id =jihadforrussianlands
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = proclaimacaliphate}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Deal with the Russians
+focus = {
+id =dealwiththerussians
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = indianinterests}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Proclaim a Caliphate
+focus = {
+id =proclaimacaliphate
+icon =GFX_goal_generic_forceful_treaty
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = conflictincentralasia}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Regional Peace
+focus = {
+id =regionalpeace
+icon =GFX_goal_generic_neutrality_focus
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = indianinterests}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Further Interests
+focus = {
+id =furtherinterests
+icon =GFX_goal_generic_demand_territory
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = interventionism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Expand Civilian Industry
+focus = {
+id =expandcivilianindustry
+icon =GFX_goal_generic_construct_civ_factory
+bypass = {}
+ai_will_do = { factor = 0}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = consumerism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Glorify the Dalai Lama
+focus = {
+id =glorifythedalailama
+icon =GFX_focus_generic_diplomatic_treaty
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = endorsebuddhism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Unite the Buddhist People
+focus = {
+id =unitethebuddhistpeople
+icon =GFX_goal_tfv_smiling_buddha
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = antiislampact  focus = antichinapact}
+prerequisite = { focus = takethehimalayanstates}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Protect Buddhist Sovereignty
+focus = {
+id =protectbuddhistsovereignty
+icon =GFX_goal_generic_more_territorial_claims
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = unitethebuddhistpeople}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Endorse Buddhism
+focus = {
+id =endorsebuddhism
+icon =GFX_goal_tfv_smiling_buddha
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = expelthekachee  focus = tolerance}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Denounce Fascism
+focus = {
+id =denouncefascism
+icon =GFX_focus_generic_anti_fascist_diplomacy
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = neutralitymovement}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Himalayan Trade Deals
+focus = {
+id =himalayantradedeals
+icon =GFX_goal_generic_intelligence_exchange
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Indian Ultimatum
+focus = {
+id =indianultimatum
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = takebackyunnan}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Take By Force
+focus = {
+id =takebyforce
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = unitethebuddhistpeople}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Restore the Tibetan Empire
+focus = {
+id =restorethetibetanempire
+icon =GFX_focus_generic_home_defense
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = expelthekachee}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Anti-Islamism
+focus = {
+id =antiislamism
+icon =GFX_goal_generic_political_pressure
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = expelthekachee}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Take Back Yunnan
+focus = {
+id =takebackyunnan
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = resrestorethetibetanempire}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Burn Down Mosques
+focus = {
+id =burndownmosques
+icon =GFX_focus_SAF_colonialist_crusade
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = antiislamism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Take the Himalayan States
+focus = {
+id =takethehimalayanstates
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = takebackyunnan}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Support the Minority State
+focus = {
+id =supporttheminoritystate
+icon =GFX_focus_RAJ_two_nation_theory
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = burndownmosques}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Japanese Non-Agression
+focus = {
+id =japanesenonagression
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = indianultimatum  focus = takethehimalayanstates}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Strike Muslims
+focus = {
+id =strikemuslims
+icon =GFX_goal_generic_major_war
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = supporttheminoritystate  focus = takethehimalayanstates}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Anti-Islam Pact
+focus = {
+id =antiislampact
+icon =GFX_goal_anschluss
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = antichinapact  focus = unitethebuddhistpeople}
+prerequisite = { focus = strikemuslims}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Anti-China Pact
+focus = {
+id =antichinapact
+icon =GFX_goal_generic_dangerous_deal
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = unitethebuddhistpeople  focus = antiislampact}
+prerequisite = { focus = japanesenonagression}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Indian Relations
+focus = {
+id =indianrelations
+icon =GFX_focus_RAJ_all_india_forward_bloc
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = globalization}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Isolationism
+focus = {
+id =isolationism
+icon =GFX_goal_generic_defence
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = upkeepthestatusquo}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Globalization
+focus = {
+id =globalization
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = upkeepthestatusquo}
+prerequisite = { focus = tolerancetraditionalism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Upkeep the Status Quo
+focus = {
+id =upkeepthestatusquo
+icon =GFX_goal_generic_military_sphere
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = globalization}
+prerequisite = { focus = tolerancetraditionalism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Strict Traditionalism
+focus = {
+id =stricttraditionalism
+icon =GFX_goal_generic_political_pressure
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = isolationism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Regional Non-Agression
+focus = {
+id =regionalnonagression
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = stricttraditionalism  focus = himalayantradedeals}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Himalayan Trade League
+focus = {
+id =himalayantradeleague
+icon =GFX_goal_generic_major_alliance
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = regionalnonagression}
+ prerequisite = { focus =himalayantradedeals}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Invite Bhutan
+focus = {
+id =invitebhutan
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = himalayantradeleague}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Protect from Invaders
+focus = {
+id =protectfrominvaders
+icon =GFX_goal_generic_construct_military
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = regionalnonagression}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Neutrality Movement
+focus = {
+id =neutralitymovement
+icon =GFX_goal_generic_propaganda
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = tolerancetraditionalism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Improve Religious Relations
+focus = {
+id =improvereligiousrelations
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = glorifythedalailama}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Bring the Revolution
+focus = {
+id =bringtherevolution
+icon =GFX_focus_generic_join_comintern
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = invitesovietadvisors}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Influence the Raj
+focus = {
+id =influencetheraj
+icon =GFX_focus_RAJ_seek_help_from_soviet
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = onerevolution}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - One Revolution
+focus = {
+id =onerevolution
+icon =GFX_goal_generic_support_communism
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = bringtherevolution}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - The International
+focus = {
+id =theinternational
+icon =GFX_goal_support_fourth_int
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = bringtherevolution}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Execute the Dalai Lama
+focus = {
+id =executethedalailama
+icon =GFX_focus_generic_strike_at_democracy1
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = bringtherevolution}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Socialist Science
+focus = {
+id =socialistscience
+icon =GFX_focus_generic_socialist_science
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = invitesovietadvisors}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Himalayan Revolt
+focus = {
+id =himalayanrevolt
+icon =GFX_focus_generic_join_comintern
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = theinternational}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Free Colonies in India
+focus = {
+id =freecoloniesinindia
+icon =GFX_focus_RAJ_two_nation_theory
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = anticolonialleague}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Liberate Indochina
+focus = {
+id =liberateindochina
+icon =GFX_goal_generic_more_territorial_claims
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = anticolonialleague}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Tibetan Buddhism
+focus = {
+id =tibetanbuddhism
+icon =GFX_goal_generic_demand_territory
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = separationofchurchandstate}
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Separation of Church and State
+focus = {
+id =separationofchurchandstate
+icon =GFX_goal_generic_forceful_treaty
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = tibetanbuddhism}
+prerequisite = { }
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Invite Soviet Advisors
+focus = {
+id =invitesovietadvisors
+icon =GFX_focus_generic_soviet_politics
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = openelections}
+prerequisite = { focus = separationofchurchandstate}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Open Elections
+focus = {
+id =openelections
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = invitesovietadvisors}
+prerequisite = { focus = separationofchurchandstate}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Tolerance & Traditionalism
+focus = {
+id =tolerancetraditionalism
+icon =GFX_goal_generic_national_unity
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = expelthekachee}
+prerequisite = { focus = tibetanbuddhism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Expel the Kachee
+focus = {
+id =expelthekachee
+icon =GFX_goal_generic_forceful_treaty
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = tolerancetraditionalism}
+prerequisite = { focus = tibetanbuddhism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Government Reforms
+focus = {
+id =governmentreforms
+icon =GFX_goal_generic_demand_territory
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = openelections}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Immediate Election
+focus = {
+id =immediateelection
+icon =GFX_goal_generic_dangerous_deal
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = openelections}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Regional Interventionism
+focus = {
+id =regionalinterventionism
+icon =GFX_goal_generic_military_sphere
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = governmentreforms}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Fight for Right
+focus = {
+id =fightforright
+icon =GFX_goal_generic_political_pressure
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = immediateelection}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Overseas Expeditions
+focus = {
+id =overseasexpeditions
+icon =GFX_goal_generic_more_territorial_claims
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = regionalinterventionism}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - British Relations
+focus = {
+id =britishrelations
+icon =GFX_goal_tfv_strengthen_commonwealth_ties
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = governmentreforms}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Industry of Freedom
+focus = {
+id =industryoffreedom
+icon =GFX_focus_generic_the_giant_wakes
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = askforprotection}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Endorse Democracy
+focus = {
+id =endorsedemocracy
+icon =GFX_goal_generic_propaganda
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = overseasexpeditions}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Invite Nepal and Bhutan
+focus = {
+id =invitenepalandbhutan
+icon =GFX_goal_generic_improve_relations
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = jointheallies}
+prerequisite = { focus = ourownfaction}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Join the Allies
+focus = {
+id =jointheallies
+icon =GFX_goal_generic_support_democracy
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = ourownfaction}
+ mutually_exclusive = { focus =askforprotection}
+prerequisite = { focus = britishrelations}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Ask for Protection
+focus = {
+id =askforprotection
+icon =GFX_goal_tripartite_pact
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = jointheallies}
+ mutually_exclusive = { focus =ourownfaction}
+prerequisite = { focus = britishrelations}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Our Own Faction
+focus = {
+id =ourownfaction
+icon =GFX_goal_anschluss
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { focus = jointheallies}
+ mutually_exclusive = { focus =askforprotection}
+prerequisite = { focus = fightforright}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#Focus for - Anti-Colonial Coalition
+focus = {
+id =anticolonialcoalition
+icon =GFX_goal_tfv_burn_the_royal_portraits
+bypass = {}
+ai_will_do = { factor = 1}
+x =undefined
+y =undefined
+mutually_exclusive = { }
+prerequisite = { focus = influencetheraj  focus = himalayanrevolt}
+available = {  }
+cost = 10 
+ available_if_capitulated = yes 
+completion_reward = {
+
+}
+}
+#end
+}
