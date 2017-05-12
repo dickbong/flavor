@@ -61,7 +61,7 @@ country_event = { #ANTI-CHINA PACT
 	}
 
 	option = { #deny
-		name = tibet.2.b
+		name = tibet.3.b
 	}
 
 	option = { #accept and leave
@@ -78,4 +78,39 @@ country_event = { #ANTI-CHINA PACT
 		TIB = { add_to_faction = JAP }
 		#news_event = news_event.6969 #japan accepts non-agression
 	}
+}
+
+country_event = { #BUDDHIST PACT
+	id = tibet.4
+	title = tibet.4.t
+	desc = tibet.4.d
+	picture = GFX_report_event_generic_rally
+	is_triggered_only = yes
+
+	option = { #accept
+		name = tibet.4.a
+		trigger = { is_in_faction = no }
+		#news_event = news_event.6969 #ROOT accepts
+		TIB = { add_to_faction = ROOT }
+	}
+
+	option = { #deny
+		name = tibet.4.b
+	}
+
+	#Still working this out??????
+	#option = { #accept and leave
+	#	name = tibet.4.a
+	#	trigger = { 
+	#		is_in_faction = yes 
+	#		has_war = no
+	#		AND = {
+	#			CHI = { exists = yes }
+	#			#maybe something about the puppet?
+	#		}
+	#	}
+	#	ROOT = { remove_from_faction = ROOT } #does this work?
+	#	TIB = { add_to_faction = ROOT }
+	#	#news_event = news_event.6969 #japan accepts non-agression
+	#}
 }

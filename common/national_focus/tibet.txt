@@ -174,7 +174,68 @@ focus_tree = {
 		 available_if_capitulated = yes 
 		completion_reward = {
 			create_faction = "TIB_anti_china_pact"
+			set_rule = { can_create_factions = yes }	
 			JAP = { country_event = { id = tibet.3 days = 1 }} #ANTI_China Pact
+		}
+	}
+
+	#Focus for - Unite the Buddhist People
+	focus = {
+		id =unitethebuddhistpeople
+		icon =GFX_goal_tfv_smiling_buddha
+		bypass = {}
+		ai_will_do = { factor = 1}
+		x =6
+		y =6
+		mutually_exclusive = { focus = antiislampact  focus = antichinapact}
+		prerequisite = { focus = takethehimalayanstates}
+		available = {  }
+		cost = 10 
+		 available_if_capitulated = yes 
+		completion_reward = {
+			create_faction = "TIB_buddhist_pact"
+			set_rule = { can_create_factions = yes }
+			SIA = { country_event = { id = tibet.4 days = 1 }} #buddhist pact
+		}
+	}
+
+	#Focus for - Take By Force
+	focus = {
+		id =takebyforce
+		icon =GFX_goal_generic_major_war
+		bypass = {}
+		ai_will_do = { factor = 1}
+		x =5
+		y =7
+		mutually_exclusive = { }
+		prerequisite = { focus = unitethebuddhistpeople}
+		available = {  }
+		cost = 10 
+		 available_if_capitulated = yes 
+		completion_reward = {
+			#CORE SIAM
+			#CORE INDOCHINA
+			640 = { #burma
+				add_core_of = TIB
+			}
+			288 = { #myanmar
+				add_core_of = TIB
+			}
+			670 = { #laos
+				add_core_of = TIB
+			}
+			671 = { #vietnam
+				add_core_of = TIB
+			}
+			286 = { #chochinchina
+				add_core_of = TIB
+			}
+			289 = { #SIAM
+				add_core_of = TIB
+			}
+			724 = {	#southern siam
+				add_core_of = TIB
+			}
 		}
 	}
 #Focus for - Glorify the Dalai Lama
@@ -194,23 +255,7 @@ completion_reward = {
 
 }
 }
-#Focus for - Unite the Buddhist People
-focus = {
-id =unitethebuddhistpeople
-icon =GFX_goal_tfv_smiling_buddha
-bypass = {}
-ai_will_do = { factor = 1}
-x =6
-y =6
-mutually_exclusive = { focus = antiislampact  focus = antichinapact}
-prerequisite = { focus = takethehimalayanstates}
-available = {  }
-cost = 10 
- available_if_capitulated = yes 
-completion_reward = {
 
-}
-}
 #Focus for - Protect Buddhist Sovereignty
 focus = {
 id =protectbuddhistsovereignty
@@ -279,23 +324,7 @@ completion_reward = {
 
 }
 }
-#Focus for - Take By Force
-focus = {
-id =takebyforce
-icon =GFX_goal_generic_major_war
-bypass = {}
-ai_will_do = { factor = 1}
-x =5
-y =7
-mutually_exclusive = { }
-prerequisite = { focus = unitethebuddhistpeople}
-available = {  }
-cost = 10 
- available_if_capitulated = yes 
-completion_reward = {
 
-}
-}
 #Focus for - Anti-Islamism
 focus = {
 id =antiislamism
